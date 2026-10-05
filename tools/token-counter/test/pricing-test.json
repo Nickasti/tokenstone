@@ -1,0 +1,22 @@
+{
+  "_nota": "Listino fisso per i test. Non aggiornarlo con i prezzi veri: i conti attesi in run-tests.js sono fatti a mano su questi numeri.",
+  "te_per_usd": 200000,
+  "default_model": "claude-opus-5",
+  "models": {
+    "claude-opus-5": {
+      "input": 5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10,
+      "cache_read": 0.5,
+      "output": 25,
+      "fast_multiplier": 2
+    },
+    "claude-sonnet-5": {
+      "input": 2,
+      "cache_write_5m": 2.5,
+      "cache_write_1h": 4,
+      "cache_read": 0.2,
+      "output": 10
+    }
+  }
+}

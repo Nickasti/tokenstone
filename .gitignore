@@ -1,0 +1,15 @@
+node_modules/
+.vscode/settings.json
+.DS_Store
+assets/models/*.glb
+assets/hdri/*.hdr
+
+# contatore di token: stato del mondo e diario, locali per definizione
+world/world-state.json
+world/.world-state.*
+tools/token-counter/counter.log
+
+# listino candidato dell agente, finche non viene approvato
+tools/token-counter/pricing.candidate.json
+tools/token-counter/pricing.json.prima
+.claude/settings.local.json

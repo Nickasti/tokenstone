@@ -1,0 +1,585 @@
+# Come è nato questo progetto
+
+Registro della conversazione da cui il codice deriva, con le decisioni prese
+e il motivo per cui sono state prese. Serve a ritrovare il filo fra sei mesi,
+quando i perché saranno svaniti e resterà solo il come.
+
+---
+
+## 1. La domanda di partenza
+
+> Dove trovo una ricostruzione grafica 3D dell'Acropoli di Atene all'epoca di
+> Pericle? Mi serve per un progetto in cui una persona, spendendo token,
+> costruisce e dà vita all'Acropoli step by step. Voglio appoggiarmi a un
+> progetto esistente, non crearne uno da zero.
+
+Ricognizione delle fonti disponibili, divise per cosa servono davvero.
+
+**Base 3D scaricabile e licenziabile**
+- *La Acrópolis de Atenas* su Sketchfab (studio Jaol per ASPAYM) —
+  CC-BY 4.0, gratuito, 117k triangoli, comprende Partenone, Propilei e altri
+  templi. Licenza compatibile con l'uso commerciale, basta l'attribuzione.
+
+**Riferimento scientifico**
+- [ancientathens3d.com](https://ancientathens3d.com/classical-acropolis/) di
+  Dimitris Tsalkanis — non scaricabile, ma è la migliore documentazione visiva
+  dell'Acropoli classica. Ha un Patreon: è una persona contattabile.
+- [parthenon3d.com](https://parthenon3d.com/) di Juan de Lara (Oxford, UCL,
+  British School at Athens) — quattro anni di lavoro, il modello più rigoroso
+  del Partenone. Pubblicato sull'*Annual of the British School at Athens*.
+
+**A pagamento, per edificio**
+- Free3D e TurboSquid hanno Propilei, Chalkotheke, Brauroneion, Athena
+  Promachos e le statue dei frontoni venduti separatamente. Tra 59 e 249
+  dollari a edificio.
+
+**Kit modulari game-ready**
+- *Ancient Temple Modular Asset Kit* e simili su Fab, in FBX convertibile
+  in glTF.
+
+---
+
+## 2. «Il modello è fatto di triangoli: posso scomporli uno per uno?»
+
+No, ed è un equivoco che vale la pena chiarire perché cambia tutto
+l'approccio.
+
+Ogni mesh 3D è fatta di triangoli: è il modo in cui la GPU disegna qualsiasi
+superficie. Un triangolo non corrisponde a un blocco di marmo, è mezza faccia
+di un cilindro. Scomporre 117.000 triangoli darebbe 117.000 schegge prive di
+senso.
+
+Quello che conta è la **gerarchia dei nodi** dentro il GLB. In Blender:
+- `P` → *Separate by Loose Parts* separa le isole di geometria non connessa
+- `P` → *Separate by Material* dà una prima segmentazione grossolana
+- selezione manuale + `P` → *Selection* funziona sempre
+
+Per 60-80 pezzi si parla di qualche ora di lavoro. Due cose emergono
+facendolo: separando gli elementi vengono fuori i buchi (le facce interne non
+sono mai state modellate), e 117k triangoli per l'intero complesso significa
+circa 10k per edificio — le colonne saranno cilindri semplici, senza
+scanalature.
+
+---
+
+## 3. La svolta: generazione procedurale
+
+Se la granularità deve essere reale — rocchio per rocchio — nessun modello
+scaricabile la dà, perché nessuno modella i singoli rocchi. Ma quella parte si
+genera da codice.
+
+**Architettura scelta:** modello scaricato per il contesto ambientale,
+geometria procedurale per tutto ciò che l'utente costruisce attivamente.
+
+Poi, costruendo, il modello scaricato è stato eliminato del tutto: la
+scansione fotogrammetrica disponibile è dell'Acropoli *di oggi*, con i muri di
+contenimento ottocenteschi e ventiquattro secoli di erosione. Per una scena
+ambientata nel 440 a.C. è l'oggetto sbagliato. Un heightfield parametrico dà
+un pianoro modificabile e storicamente coerente.
+
+---
+
+## 4. Primo prototipo: il solo Partenone
+
+1.089 pezzi generati da codice a partire dalle misure reali.
+
+- stilobate 30,88 × 69,51 m
+- colonne alte 10,43 m, 8 sulle fronti e 17 sui fianchi
+- ogni fusto è una pila di 11 rocchi con entasi: il raggio scende da 0,95 a
+  0,74 m con un rigonfiamento sinusoidale a metà altezza
+- 20 scanalature doriche scavate deformando i vertici del cilindro, non
+  dipinte con una texture
+- 92 metope — il numero esatto: 14 per fronte, 32 per fianco
+- triglifi in blu egizio, taenia in minio, come nell'originale
+
+**Marche da cantiere.** Ogni pezzo ha un identificativo in greco
+(`KIWN 14/d`, `METOPH-47`, `GEISON-12`) perché gli scalpellini greci
+marcavano davvero i blocchi per l'assemblaggio.
+
+**Il momento token → pietra.** Il blocco arriva dall'alto come fantasma
+verderame e si solidifica in marmo quando si posa. È storicamente corretto:
+i blocchi venivano issati con gru e ulivelle.
+
+---
+
+## 5. Espansione al complesso pericleo
+
+Aggiunti Athena Promachos, Propilei, Tempio di Atena Nike ed Eretteo, tutti
+costruiti dallo stesso kit modulare esteso all'ordine ionico.
+
+**Posizioni reali sul pianoro** (origine al centro del Partenone,
++X est, −Z nord):
+
+| monumento        | x    | z   | note                             |
+|------------------|------|-----|----------------------------------|
+| Partenone        | 0    | 0   | asse lungo est-ovest             |
+| Eretteo          | −41  | −25 | tre livelli diversi              |
+| Athena Promachos | −84  | −14 | fra Propilei e Partenone         |
+| Propilei         | −147 | −3  | estremità occidentale            |
+| Atena Nike       | −166 | 17  | sul bastione, +8,6 m             |
+
+**I Propilei sono incompiuti sul serio.** L'ala nord-ovest, la Pinacoteca, è
+completa perché lo era davvero. L'ala sud si ferma alle fondazioni, e i pochi
+corsi sopra usano materiale grezzo con le bugne di sollevamento ancora
+attaccate: è così che si riconosce un cantiere greco fermato a metà.
+
+**Cielo analitico invece di HDRI.** Scattering singolo Rayleigh + Mie, con lo
+spessore ottico calcolato separatamente per la direzione di vista e per quella
+del sole. La posizione solare viene dalle equazioni reali per la latitudine di
+Atene (37,97° N). Il cielo viene poi renderizzato in cubemap e passato al
+`PMREMGenerator`: illuminazione basata su immagine, generata a runtime.
+
+Il vantaggio rispetto a un HDRI: l'ora del giorno è un parametro continuo.
+Alle 18:40 il sole rosso attraversa il colonnato da ovest perché l'atmosfera
+ha davvero rimosso il blu dalla sua luce, non perché sono stati interpolati
+due colori.
+
+**Fusione delle mesh.** A cantiere completo la scena ha circa 2.500 mesh.
+Quando una fase si chiude, `bakePhase()` fonde le sue mesh in una geometria
+per materiale: le draw call scendono da qualche migliaio a poche decine.
+
+---
+
+## 6. Il ponte con i token reali
+
+Il consumo di Claude Code non è esposto via API: si legge con `/usage`, che
+dà una percentuale e l'orario di azzeramento della finestra. Fra una lettura
+e l'altra il consumo va stimato.
+
+`server/usage_store.py` implementa un modello volutamente semplice: due
+calibrazioni consecutive danno un tasso di consumo, estrapolato fino alla
+lettura successiva e azzerato al reset della finestra. Ogni stima porta con sé
+quanto tempo è passato dall'ultima misura reale, così chi legge sa quanto
+fidarsi.
+
+La conversione è `TOKENS_PER_PERCENT = 240`: un punto percentuale di consumo
+vale 240 blocchi di credito. Con un costo totale del cantiere intorno ai
+18.000 token, una finestra piena costruisce buona parte dell'Acropoli. È il
+parametro economico da tarare sul consumo reale.
+
+---
+
+## 7. Le linee che non sono rette
+
+Nel Partenone non esiste una linea retta significativa. Non e imprecisione:
+sono correzioni deliberate contro l'illusione ottica, e sono la ragione per
+cui l'edificio sembra vivo dove una copia ortogonale sembra morta.
+
+Quattro deviazioni, tutte in `REFINEMENTS` dentro `config.js`, tutte
+disattivabili con `on: false` per vedere il confronto.
+
+**La curvatura dello stilobate.** Il piano di posa si inarca verso l'alto:
+6 cm a meta delle fronti, 11 cm a meta dei fianchi, 17 cm al centro dove i
+due archi si sommano. Agli angoli e zero. `makeCurve()` restituisce quella
+superficie come funzione di `(x, z)`, piu la sua pendenza locale: serve
+perche ogni blocco va anche *inclinato*, non solo alzato, altrimenti resta
+orizzontale su un piano che non lo e piu.
+
+La conseguenza pratica e che tutto quello che poggia sullo stilobate deve
+conoscere la curva: colonne, muri della cella, trabeazione, frontoni. Un
+blocco largo quanto il tempio non puo seguire un arco trasversale, quindi
+la crepidoma e passata da 36 a 108 pezzi, tagliati anche nel senso della
+larghezza.
+
+**L'inclinazione delle colonne.** Nessuna colonna e verticale: pendono tutte
+verso l'interno di circa 6 cm sui 10,43 m del fusto, cioe 1:171. E il valore
+da cui viene la cifra che si cita sempre — i fianchi opposti, prolungati, si
+incontrerebbero 2,4 km piu in alto.
+
+Qui il primo tentativo era sbagliato. Far convergere *tutti* gli assi in un
+unico punto sopra il centro dell'edificio da una pendenza proporzionale alla
+distanza: le colonne d'angolo, a 36 m dal centro, sarebbero rientrate di
+157 mm invece dei ~65 attestati. L'inclinazione e invece costante per faccia,
+perpendicolare a quella faccia. Le colonne d'angolo appartengono a due facce
+e pendono in diagonale, 86 mm. E la sola che rientra di piu, ed e corretto.
+
+Siccome ogni rocchio resta un pezzo indipendente — e tutto il progetto sta
+li — l'inclinazione va applicata rocchio per rocchio: la quota locale sposta
+il centro verso l'interno, un quaternione ruota il blocco. Lo spin attorno
+all'asse del fusto viene composto *prima* della pendenza, altrimenti se la
+trascina in un piano sbagliato.
+
+**Le colonne d'angolo piu grosse.** 1,945 m di diametro contro 1,905, il
+2,1% in piu. Si stagliano contro il cielo invece che contro il muro della
+cella, e la luce che le contorna le farebbe sembrare piu magre.
+
+**La contrazione angolare.** I due intercolumni d'angolo sono piu stretti
+degli altri: sulla fronte 3,57 m contro 4,18. Serve a far cadere il triglifo
+sullo spigolo della trabeazione senza lasciare mutila la metopa d'angolo. Le
+colonne d'angolo restano ferme, sono quelle interne a spostarsi in fuori.
+
+---
+
+## 8. Il marmo non era bianco
+
+Il bianco e un equivoco moderno: e quello che resta quando il pigmento se ne
+va. Fino a qui erano dipinti solo i triglifi e la taenia, cioe il minimo
+indiscutibile. `POLYCHROMY.on` estende il programma a quello che le tracce
+attestano.
+
+- **fondo delle metope in rosso**, con la lastra arretrata di quattro
+  centimetri rispetto alla faccia dei triglifi. Le figure scolpite restavano
+  in marmo: e il contrasto col fondo a farle leggere da terra.
+- **fondo del timpano in blu**, per la stessa ragione, a venti metri d'altezza
+- **soffitto del geison in blu** — l'unica superficie dipinta che si vede
+  camminando sotto il colonnato
+- **anuli dei capitelli in minio**, una fascia sottile sotto l'echino
+
+Un caso a parte e l'Eretteo, il cui fregio non era dipinto affatto: lastre di
+calcare grigio di Eleusi con le figure di marmo bianco fissate sopra a parte.
+Intarsio, non pittura. In `entablature()` e il parametro `friezeMat`.
+
+Nessuno di questi e un pezzo nuovo: sono dettagli dentro pezzi che esistono
+gia, quindi il costo del cantiere non cambia. Le metope su fondo rosso sono
+140 — 92 del Partenone, il numero esatto, e 48 dei Propilei.
+
+---
+
+## 9. Il pianoro
+
+Cinque edifici su una spianata vuota non sono l'Acropoli: sono cinque
+edifici. Il recinto vero era affollato, e Pausania, che ci cammina sei
+secoli dopo, prova a elencare le statue una per una e si stanca prima di
+finire.
+
+**La linea di demarcazione.** La roccia affiorante non e un pezzo del
+cantiere e non ha un costo: c'era prima. Tutto il resto e stato portato su
+a spalla, e quindi si paga. E una distinzione che vale la pena tenere
+netta, perche e la regola che rende leggibile il gioco: quello che vedi,
+o l'hai comprato o e geologia.
+
+**La via Panatenaica.** Sale dall'Agora, entra dai Propilei, passa a sud
+dell'Athena Promachos, gira attorno alla fronte occidentale del Partenone,
+ne costeggia il fianco e finisce davanti all'altare. Non davanti alla
+porta del tempio: nei templi greci non entrava nessuno se non i sacerdoti,
+e la processione si fermava dove si sacrificava.
+
+Il tracciato e una Catmull-Rom su diciassette punti, scritta a mano perche
+serviva una curva sola. Ogni fila e di tre lastre di larghezza diseguale —
+il basolato greco non era un pavimento, erano pietre accostate — e ognuna
+prende quota e pendenza dal terreno sotto di se. Al primo tentativo le
+lastre erano staccate di dieci centimetri e su ogni dosso si apriva una
+fessura: ora si sovrappongono appena.
+
+**Il muro nord.** Quando i Persiani bruciano l'Acropoli nel 480 trovano il
+Partenone precedente ancora in cantiere. I rocchi gia squadrati restano a
+terra, e Temistocle li fa murare nel lato nord in un corso continuo,
+allineati e sporgenti dalla faccia. Non e riuso per risparmiare: si vedono
+da sotto, dalla citta, ed e un memoriale.
+
+Anche qui il primo tentativo era sbagliato in un modo istruttivo. I rocchi
+erano posati a `terrainH(x, z) + 3.5`, cioe a una quota relativa al
+terreno — e siccome al ciglio il terreno sta gia precipitando, restavano
+appesi a mezz'aria sopra il pendio, sparsi invece che allineati. Vanno
+messi *dentro* la faccia del muro, a quota assoluta, e la quota del
+coronamento e ora una funzione sola in `terrain.js` che usano sia
+l'estrusione delle mura sia i blocchi.
+
+Un secondo dettaglio: l'angolo non e proporzionale alla distanza percorsa
+su un'ellisse. Spaziando i rocchi in modo uniforme nel parametro angolare
+venivano fitti alle estremita e radi al centro, e la fila non si leggeva.
+Serve una tabella di lunghezze d'arco e la sua inversa.
+
+**L'altare di Atena Polias.** Il vero centro del culto. Il tempio
+custodiva la statua, l'altare riceveva il sangue: qui finiva la
+processione e qui si sacrificavano le cento vacche dell'ecatombe. Base a
+tre gradini, piano del fuoco, parapetto su tre lati e rampa a est, perche
+le vittime salivano sulle proprie zampe.
+
+**Brauronion e Calcoteca.** Due edifici che non sono templi, addossati al
+muro sud: un recinto con portici per i doni ad Artemide, e il magazzino
+dove finivano i bronzi votivi quando non c'era piu posto per esporli.
+Costruiti con lo stesso kit dei monumenti maggiori, il che e la verifica
+che il kit funziona anche fuori dai cinque casi per cui e nato.
+
+**Gli anathemata.** Chi vinceva una gara, una causa o una guerra lasciava
+un'offerta, e non la si poteva togliere perche apparteneva alla dea. Ce ne
+sono settantaquattro, di cinque tipi: korai su colonnetta, tripodi
+bronzei, erme, stele iscritte, perirranteri. Sparsi con rifiuto: fuori
+dagli ingombri dei monumenti, a piu di quattro metri e mezzo dalla strada
+perche la processione deve passare, e a piu di cinque l'uno dall'altro.
+
+**Il verde.** L'Acropoli era una roccia, non un parco. Il verde sta dove
+lo mettono le fonti: l'ulivo di Atena nel Pandroseion, qualche albero nei
+recinti, macchia bassa lungo le mura dove la terra si e accumulata.
+L'ulivo sacro e il primo pezzo del cantiere, datato 479 — Erodoto racconta
+che i Persiani lo bruciarono e che il giorno dopo il ceppo aveva gia
+rimesso un getto lungo un cubito. L'Acropoli riparte da li, e cosi anche
+la sequenza di posa.
+
+**Determinismo.** Tutto quello che e sparso a caso usa un generatore con
+seme fisso. Non e pignoleria: lo stato salvato in `localStorage` e un
+indice dentro l'elenco dei pezzi, e se l'elenco cambiasse ordine a ogni
+ricarica quell'indice punterebbe a un altro pezzo.
+
+**Il conto.** Il cantiere passa da 2.333 a 3.280 pezzi e da 17.419 a
+24.349 token. Con `TOKENS_PER_PERCENT = 240` una finestra piena di consumo
+ne vale 24.000: costruire l'Acropoli intera costa ora esattamente una
+finestra. E una coincidenza, ma e la coincidenza giusta, e conviene tarare
+il parametro per mantenerla.
+
+---
+
+## 10. Dalla stima al conto vero
+
+Il bridge del capitolo 6 estrapolava: due letture di `/usage` davano un
+tasso, e fra una lettura e l'altra il consumo si indovinava. Funzionava, ma
+chiedeva di ricordarsi di calibrare, e il numero era tanto buono quanto
+l'ultima lettura.
+
+Il consumo vero c'e gia sul disco. Ogni risposta di Claude Code finisce nel
+transcript della sessione con i suoi contatori: token di input, scritture e
+letture di cache, token di output, e il modello che li ha prodotti. Basta
+moltiplicarli per il listino.
+
+**Il token equivalente.** I token non valgono tutti uguale: l'output di Opus
+costa cinque volte l'input, la lettura di cache un decimo. Sommarli alla
+cieca premierebbe una sessione che rilegge molto contesto e punirebbe una
+che scrive molto codice. Il contatore li converte in dollari col listino, e i
+dollari in TE con `te_per_usd = 200.000`: cosi un TE e esattamente il costo
+di un token di input di Opus, e il numero ha un senso fisico.
+
+**Ricalcolo, mai somma.** Il contatore non aggiunge il consumo nuovo al
+totale vecchio: ricostruisce ogni volta il totale da capo. E la scelta che
+rende il sistema innocuo da ripetere. Un contatore che somma, se scatta due
+volte, conta due volte; uno che ricalcola, se scatta cento volte, da cento
+volte lo stesso numero.
+
+**Lo streaming.** Il transcript riscrive lo stesso messaggio a ogni passo
+dello streaming, con i contatori che crescono. Sommare ogni riga gonfierebbe
+il conto di un fattore tre o quattro. Vale una riga per `message.id`, quella
+con piu output, perche e l'unica completa.
+
+**Il guasto che non si vedeva.** Il primo banco di prova aveva un controllo
+che falliva: con lo stato corrotto, il contatore ripartiva da zero e fissava
+`installed_at` al momento presente, scartando come "precedente
+all'installazione" tutto lo storico. Un incidente al file costava l'intero
+cantiere. Ora ogni scrittura riuscita aggiorna anche una copia di riserva, e
+uno stato illeggibile riparte da li. Uno stato *assente* invece resta un
+reset voluto: e la distinzione fra un guasto e una scelta.
+
+---
+
+## 11. Quanto costa l'Acropoli
+
+Il primo cambio era un divisore: 250 TE per un token di cantiere. Teneva i
+numeri piccoli, ma diceva poco: un rocchio costava 4 di una moneta
+inventata.
+
+**Pesi, non prezzi.** I valori di `COST` sono diventati pesi relativi - un
+rocchio 4, una metopa 18, la Parthenos 400 - e il prezzo vero, in TE, nasce
+dividendo un budget su quei pesi. Le proporzioni fra un blocco e una statua
+restano quelle decise a mano; la scala la decide una sola grandezza.
+
+**La scala e un mese.** L'Acropoli intera deve costare un mese di lavoro a
+pieno regime: quattro settimane e qualcosa in cui si esaurisce ogni volta il
+100% dell'utilizzo settimanale di Claude Code. E una misura che chi usa il
+progetto capisce senza spiegazioni, e che lega il cantiere al ritmo reale del
+lavoro. Quanti TE valga una settimana non e pubblico e dipende dal piano:
+`CANTIERE.weeklyTe` va misurato confrontando due letture di `/usage` con il
+totale del contatore. Finche non lo si misura, resta una stima.
+
+**Il credito che spariva.** Il saldo si salvava solo quando si posava un
+blocco o si muoveva il sole. Il credito arrivato dal contatore veniva segnato
+come "gia consegnato" ma non scritto: ricaricando la pagina prima di posare,
+i TE guadagnati evaporavano. Ora il credito si salva nell'istante in cui
+arriva.
+
+**Chi guarda e chi costruisce.** I primi comandi - posa il blocco, cantiere
+continuo, credito regalato - erano strumenti di lavoro finiti
+nell'interfaccia di tutti. Il cantiere ora si posa da solo, al ritmo dei
+token, e i comandi compaiono solo aggiungendo `?dev` all'indirizzo. Si era
+pensato a due progetti separati, uno per i visitatori e uno per lo sviluppo;
+si e scelto un progetto solo con un interruttore, perche due copie dello
+stesso codice divergono in una settimana.
+
+**Il server che serviva una richiesta alla volta.** Due volte la scena e
+rimasta bloccata sulla schermata d'avvio, e la seconda volta l'errore -
+"Failed to fetch dynamically imported module" - ha portato alla causa. Il
+server statico era a thread singolo: bastava che il browser aprisse una
+connessione in anticipo senza usarla, cosa che fa sempre, perche ogni altra
+richiesta restasse in coda. Con la scena che chiede lo stato ogni cinque
+secondi, la coda non si liberava piu. Il server ora e multithread, e la
+schermata d'avvio, se qualcosa fallisce, scrive l'errore invece di restare
+muta: e stato proprio quel messaggio a trovare il guasto in un minuto.
+
+---
+
+## 12. Senza hook
+
+Il contatore e nato come hook `Stop`: Claude Code lo lanciava alla fine di
+ogni risposta, passandogli il percorso del transcript. Per chi l'ha scritto
+andava benissimo. Per chi trova il progetto su GitHub voleva dire aprire
+`~/.claude/settings.json`, incollarci un blocco JSON col percorso assoluto
+della cartella clonata, e lasciare che uno script scritto da uno sconosciuto
+girasse a ogni risposta in ogni progetto. E il punto in cui un estraneo
+ragionevole chiude la pagina.
+
+**L'hook non era necessario.** Diceva al contatore *quando* guardare e
+*dove*, ma i dati non venivano dall'hook: venivano dai transcript, che Claude
+Code scrive comunque in `~/.claude/projects`. Il contatore ora guarda da se
+quella cartella ogni cinque secondi, e il server della scena lo avvia
+accanto a se. Si clona, si avvia il server, si lavora: nessun file toccato
+fuori dalla cartella del progetto, e disinstallare vuol dire cancellarla.
+
+**Si parte da zero.** Al primo avvio la scansione trova anche i mesi di
+lavoro precedenti. Si poteva regalarli come credito iniziale, e chi installa
+dopo un mese intenso si sarebbe ritrovato mezza Acropoli in piedi. Si e
+scelto di no: il cantiere comincia quando arriva il progetto. Il primo giro
+fissa `installed_at`, e tutto quello che c'era prima resta fuori.
+
+**Quello che la scansione deve sapere e l'hook no.** Guardare tutta la
+cartella, invece di un file per volta, porta tre problemi nuovi.
+
+- *Le sessioni riprese.* Una sessione ripresa puo ricopiare la conversazione
+  precedente in un file nuovo. Con l'hook ogni sessione si contava da sola;
+  con la scansione lo stesso messaggio comparirebbe due volte. Vale una
+  volta, nella sessione dove e apparso per primo.
+- *Le cancellazioni.* Claude Code elimina da solo i transcript vecchi. Se lo
+  stato seguisse il disco alla lettera, una sessione sparita si porterebbe
+  via i suoi blocchi. Una sessione che non c'e piu resta nello stato,
+  archiviata: il consumo c'e stato.
+- *Il costo.* Rileggere tutti i transcript ogni cinque secondi crescerebbe
+  col tempo. I transcript pero crescono solo in coda: il contatore ricorda
+  fin dove ha letto ogni file e legge soltanto le righe nuove, e salta del
+  tutto i file non toccati da prima dell'installazione. Una riga a meta
+  scrittura si aspetta al giro dopo.
+
+**Il confronto.** Sui dati veri, la prima scansione ha dato per le sessioni
+concluse esattamente gli stessi TE dell'hook, al token. La sessione in corso
+risultava piu alta, ed era giusto: l'hook l'aveva contata alla fine della
+risposta precedente, la scansione vedeva gia quella in corso. E una sessione
+che l'hook non aveva mai registrato si e rivelata precedente
+all'installazione: esclusa correttamente, non persa.
+
+**Il contatore muore col server.** Un processo lanciato in background che
+sopravvive al suo padre resta li a leggere file per sempre. Il server passa
+al contatore una pipe, e il contatore se ne va quando la pipe si chiude:
+anche se il server viene ucciso di colpo, senza passare dalla chiusura
+ordinata.
+
+**I modelli nuovi.** Il listino riconosceva i modelli per prefisso, e
+prendeva la prima voce che combaciava: `claude-opus-5-5` veniva prezzato come
+`claude-opus-5` senza dire niente. Ora vince la voce piu specifica, una data
+in coda al nome e lo stesso modello, e una versione che nel listino non c'e
+viene prezzata con la voce piu vicina ma segnalata in `unknown_models`, con
+`model_fallbacks` a dire quale prezzo ha preso in prestito. Il contatore
+rilegge il listino a ogni giro: aggiornarlo vale subito.
+
+---
+
+## 13. Un linguaggio solo
+
+Tolto l'hook, il progetto parlava due lingue. Il server era Python, novanta
+righe che servivano file; il contatore era JavaScript, eseguito da Node; la
+scena, JavaScript nel browser. Chi lo installava doveva avere Python *e*
+Node, e il server doveva lanciare il contatore come programma separato e
+sorvegliarlo - la pipe del capitolo precedente esisteva solo per questo.
+
+**Si riscrive la parte piccola.** Unificare voleva dire riscriverne una. Con
+Python si sarebbe riscritto il contatore, le novecento righe collaudate caso
+per caso: sessioni riprese, subagenti, righe a meta, copia di riserva. Con
+Node bastava riscrivere il server. Si e scelto Node: e la stessa lingua della
+scena, e si butta via la parte banale invece di quella difficile.
+
+**Cosa e cambiato davvero.** Il contatore ora gira dentro il server, nello
+stesso processo: niente pipe, niente processi orfani possibili per
+costruzione. Node gestisce da se molte connessioni insieme, quindi il guasto
+del server a richiesta singola non puo ripresentarsi. Il progetto ha un
+`package.json` senza dipendenze, e si avvia con `npm start`, come chiunque si
+aspetta da un progetto JavaScript.
+
+**Due cose trovate strada facendo.** Il server Python ascoltava su tutte le
+interfacce: lo stato - quanto lavori e su quali progetti - era leggibile da
+chiunque sulla stessa rete. Quello nuovo ascolta solo sul computer locale, e
+per aprirlo alla rete serve chiederlo. E il Python su Windows, con
+`allow_reuse_address`, poteva aprire la stessa porta insieme a un altro
+processo, dividendo a caso le connessioni fra i due: e il sospetto piu
+serio per un "Failed to fetch" comparso una volta sola e mai piu riprodotto.
+Node rifiuta una porta occupata, e lo dice.
+
+**La sicurezza dei file.** Un server statico deve servire la scena e
+nient'altro. Quello nuovo rifiuta i percorsi che risalgono fuori dalla
+cartella, i file e le cartelle nascoste - `.git`, la copia di riserva dello
+stato - anche quando l'indirizzo prova ad aggirare la regola con una barra
+rovesciata, che su Windows e un separatore. Ogni caso ha il suo test.
+
+---
+
+## 14. Il listino che si aggiorna
+
+Il contatore e esatto quanto il listino che usa, e i modelli escono spesso.
+Il giorno in cui si e passati a Claude Opus 5.5, il listino conosceva solo
+Opus 5 e Sonnet 5: Opus 5.5 veniva prezzato come Opus 5, per prefisso, e
+segnalato fra i modelli sconosciuti.
+
+**Quanto sbagliava.** Opus 5.5 costa meno del predecessore, e soprattutto la
+lettura di cache costa $0,20 invece di $0,50. Nel lavoro con Claude Code la
+lettura di cache e piu di meta del conto, perche ogni risposta rilegge tutto
+il contesto. Sugli ottantacinque messaggi Opus 5.5 contati fino a quel
+momento, il cantiere segnava circa 3,5 milioni di TE dove ne valevano 2: il
+74% in piu.
+
+**La regola che sembrava giusta.** Per proteggere il listino da un errore si
+era pensato a un controllo di coerenza: la lettura di cache vale un decimo
+dell'input. Su Opus 5 e vero, su Opus 5.5 vale un ventesimo, su Fable 5.1 un
+quarantesimo. Quel controllo avrebbe rifiutato proprio i prezzi giusti. Il
+listino si verifica nella forma - cinque voci, numeri, niente di mancante -
+e i valori li dice solo la pagina ufficiale.
+
+**Nessuna API per i prezzi.** L'API dei modelli di Anthropic restituisce
+nome, data, contesto e capacita, non quanto costano. La fonte e la pagina
+dei prezzi, che esiste anche in Markdown. Leggerla e un lavoro da agente:
+uno script si romperebbe al primo cambio di impaginazione, un agente legge
+come una persona.
+
+**Proporre, poi applicare.** Il subagente `aggiorna-listino` vive nel
+repository, quindi lo ha chiunque cloni il progetto. Scrive un listino
+candidato, lo controlla, ne misura l'effetto con una prova a secco del
+contatore - stesso calcolo, nessuna scrittura - e si ferma. Sostituisce
+`pricing.json` solo con un via libera esplicito, e se dopo i test qualcosa
+non torna rimette il listino di prima. Un prezzo sbagliato sbaglia il conto
+di tutti senza che nessuno se ne accorga: la decisione resta a una persona.
+
+**Il segnale.** Un agente che va chiamato a mano si dimentica. La scena
+mostra sotto il credito quali prezzi sono stimati, e `CLAUDE.md` chiede a
+Claude Code di controllarlo quando inizia a lavorare nel progetto e di
+proporre l'agente.
+
+**Quello che i transcript dicevano e il contatore no.** Guardando i campi
+veri di `usage` sono emerse due cose. La modalita veloce, registrata in
+`speed`, costa il doppio su Opus 5.5 e Opus 5: il listino ora porta un
+`fast_multiplier`, e una risposta veloce senza moltiplicatore viene
+segnalata invece di essere contata a meta prezzo in silenzio. E Claude Code
+scrive messaggi `<synthetic>`, senza un modello dietro, che finivano fra i
+modelli sconosciuti e avrebbero tenuto acceso l'avviso per sempre: ora non
+contano. Due maggiorazioni della pagina restano fuori di proposito, perche
+nei transcript di un abbonamento non compaiono: l'elaborazione vincolata agli
+Stati Uniti e le ricerche web lato server.
+
+**Quando un prezzo scende.** Il contatore ricalcola tutto, quindi il totale
+scende. La scena non toglie i blocchi posati ne il credito consegnato: si
+ferma, e riparte quando il consumo nuovo ha recuperato la differenza. E il
+comportamento giusto - il cantiere non deve mai disfarsi - ma va detto prima,
+perche visto da fuori sembra un guasto.
+
+---
+
+## 15. Cosa resta da fare
+
+**Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
+panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose
+seguono la composizione reale — stanti al centro, sedute a meta pendenza,
+distese negli angoli dove il timpano si stringe. E un segnaposto onesto, non
+un sostituto della fotogrammetria. Il punto di innesto e
+`setSculptureProvider()` in `src/kit.js`. Resta il solo lavoro che il codice
+non puo fare da se: servono modelli reali dal Museo dell'Acropoli.
+
+**Il fregio ionico del Partenone.** I 160 m della processione panatenaica
+che correvano sopra il muro della cella, dentro il colonnato, non ci sono:
+il sekos ha i muri ma non il fregio. E il pezzo di scultura piu importante
+dell'edificio ed e assente perche condivide il problema del punto sopra.
+
+**Ornati dipinti.** Meandri, palmette e ovoli sulle cornici richiedono una
+texture o una geometria molto piu fitta. Al momento le superfici dipinte sono
+campiture piene: giuste come colore, mute come disegno.

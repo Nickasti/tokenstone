@@ -1,0 +1,3 @@
+# un formato solo per i ritorni a capo, qualunque sistema usi chi lavora:
+# senza, Windows e Mac/Linux vedrebbero differenze che non esistono
+* text=auto eol=lf
