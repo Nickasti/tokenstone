@@ -129,18 +129,38 @@ Cosi il totale torna esatto anche se si aggiungono pezzi, e le proporzioni fra
 un rocchio e una statua restano quelle decise a mano.
 
 `CANTIERE.weeklyTe` e il valore in TE del 100% della finestra settimanale.
-Non e un dato pubblico e dipende dal piano, quindi va misurato. Leggi `/usage`
-in Claude Code e annota la percentuale settimanale insieme al `total_te` di
-`world/world-state.json`. Dopo qualche ora di lavoro rifai le due letture, poi:
+Non e un dato pubblico e dipende dal piano, quindi va misurato, e basta una
+lettura sola. Verso la fine della settimana lancia `/usage` in Claude Code e
+annota due cose: la percentuale settimanale e l'ora del reset. La finestra e
+cominciata sette giorni prima del reset, e il contatore sa dire quanto hai
+consumato da allora, senza scrivere niente:
+
+```bash
+node tools/token-counter/counter.js --dry-run --since 2026-09-28T19:05
+```
+
+(l'ora senza fuso e quella locale). Poi:
 
 ```
-weeklyTe = 100 * (TE2 - TE1) / (percentuale2 - percentuale1)
+weeklyTe = total_te / percentuale * 100
 ```
 
-Piu e ampio l'intervallo, piu la misura e affidabile. Il valore attuale,
-25 milioni, e una stima provvisoria: con quello un rocchio costa circa
-17.600 TE, una metopa 79.000, la Parthenos 1,76 milioni, e una sessione
-lunga (intorno al milione di TE) posa circa l'1% del cantiere.
+Piu alta e la percentuale, piu piccolo e l'errore: `/usage` arrotonda
+all'intero, e al 12% quell'arrotondamento vale piu o meno il 4%. Il contatore
+pero conosce solo Claude Code su questo computer: se nella stessa settimana
+hai usato anche claude.ai, che consuma la stessa quota, il valore esce piu
+basso del vero.
+
+Il valore nel progetto, 31 milioni, viene da una prima misura del 5 ottobre
+2026 (12%, 3.709.015 TE nella finestra) ed e un limite inferiore: quella
+settimana si era usato anche claude.ai. Va rimisurato su una settimana di
+solo Claude Code, e comunque vale per il piano di chi l'ha misurato. Con
+quel valore un rocchio costa circa 21.800 TE, una metopa 98.000, l'ulivo
+sacro 655.000, la Parthenos 2,18 milioni, e un milione di TE posa lo 0,75%
+del cantiere.
+
+La finestra breve di cinque ore di `/usage` non serve allo scopo: misura un
+altro limite, e il rapporto con quello settimanale non e pubblico.
 
 ### I prezzi dei modelli
 

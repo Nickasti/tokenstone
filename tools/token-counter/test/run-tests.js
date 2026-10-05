@@ -336,6 +336,14 @@ verifica('il conto cambia col listino', riepilogo.total_te > leggi(A).total_te, 
 verifica('archiviate col loro prezzo', riepilogo.archived_te, ATTESO.te);
 verifica('peso per modello', typeof riepilogo.by_model['claude-opus-5'].te, 'number');
 
+// --since: quanto e stato consumato da una data in poi, per misurare una
+// finestra di /usage. Conta solo i transcript: le sessioni archiviate no.
+const daData = (data) => JSON.parse(esegui(A, ['--dry-run', '--since', data]).stdout || '{}').total_te;
+verifica('dall\'installazione, transcript sul disco', daData(INSTALLED_AT), ATTESO.te + 1500 + 1400);
+verifica('da una data futura, niente', daData('2100-01-01T00:00:00Z'), 0);
+verifica('--since senza prova a secco rifiutato', esegui(A, ['--since', INSTALLED_AT]).status, 1);
+verifica('stato ancora intatto', fs.readFileSync(A.state, 'utf8') === statoPrima, true);
+
 // --------------------------------------------------------------------------
 console.log('\n13. Il controllo del listino.\n');
 

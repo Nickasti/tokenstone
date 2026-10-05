@@ -108,16 +108,35 @@ export const COST = {
    pesi), cosi il totale torna esatto anche se si aggiungono pezzi.
 
    weeklyTe e' quanti TE vale il 100% della finestra settimanale. Non e' un
-   dato pubblico e dipende dal piano: si misura leggendo /usage due volte, a
-   qualche ora di distanza, e annotando total_te nello stato ogni volta.
-     weeklyTe = 100 * (TE2 - TE1) / (percentuale2 - percentuale1)
-   Il valore qui sotto e' una stima provvisoria, da sostituire con la misura.
+   dato pubblico e dipende dal piano, quindi si misura. Il modo piu preciso
+   e' una lettura sola, verso la fine della finestra: /usage da la
+   percentuale e l'ora del reset, la finestra e' cominciata sette giorni
+   prima del reset, e il contatore sa quanti TE sono caduti da allora.
+     weeklyTe = TE nella finestra / percentuale * 100
+   Piu alta la percentuale, piu piccolo l'errore dell'arrotondamento.
+
+   Prima misura, 5 ottobre 2026: 12% della settimana, 3.709.015 TE di
+   Claude Code nella finestra, quindi 31 milioni. E un limite inferiore, non
+   una misura: in quella settimana si era usato anche claude.ai, e il 12%
+   comprende chat che i transcript non vedono. Il valore vero e piu alto, e
+   va rimisurato su una settimana di solo Claude Code. Vale comunque per il
+   piano di chi l'ha misurato: con un altro piano va rimisurato.
+
+   Per orientarsi: la finestra breve di cinque ore, nello stesso giorno, e
+   arrivata al 42% con 3.626.815 TE, cioe circa 8,6 milioni per una
+   sessione piena. Non serve a ricavare la settimana, perche il rapporto
+   fra i due limiti non e pubblico.
+
+   La misura conta solo Claude Code su questo computer. Se nella stessa
+   settimana si e' usato anche claude.ai, che consuma la stessa quota, la
+   percentuale comprende consumi che i transcript non vedono, e il valore
+   esce piu basso del vero.
 
    Il contatore conta tutti i progetti, non solo questo, ed e' giusto cosi:
    anche la percentuale di /usage li conta tutti, quindi le due misure sono
    coerenti. */
 export const CANTIERE = {
-  weeklyTe: 25000000,   // PROVVISORIO: 100% della settimana, da misurare
+  weeklyTe: 31000000,   // 100% della settimana: limite inferiore, da rimisurare
   weeks: 30 / 7         // un mese
 };
 

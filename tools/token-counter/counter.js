@@ -29,6 +29,8 @@
  *   node counter.js --print            stampa il riepilogo su stdout
  *   node counter.js --dry-run --pricing nuovo.json
  *                                      prova un listino senza scrivere niente
+ *   node counter.js --dry-run --since 2026-09-28T19:05
+ *                                      quanto e stato consumato da una data in poi
  *
  * Il server della scena (tools/server.js) lo carica come modulo e chiama
  * startWatching(): stesso processo, nessun programma da sorvegliare.
@@ -77,13 +79,14 @@ function log(msg) {
 }
 
 function parseArgs(argv) {
-  const out = { watch: false, interval: DEFAULT_INTERVAL_S, print: false, dryRun: false, pricing: null };
+  const out = { watch: false, interval: DEFAULT_INTERVAL_S, print: false, dryRun: false, pricing: null, since: null };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--watch') out.watch = true;
     else if (a === '--print') out.print = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--pricing') out.pricing = argv[++i] || null;
+    else if (a === '--since') out.since = argv[++i] || null;
     else if (a === '--interval') {
       const n = Number(argv[++i]);
       if (Number.isFinite(n) && n > 0) out.interval = n;
@@ -697,14 +700,22 @@ function byModel(messages, pricing) {
  * E cosi che si vede l'effetto di un listino nuovo prima di adottarlo.
  */
 function scanOnce(opts) {
-  const { pricingPath = null, write = true } = opts || {};
+  const { pricingPath = null, write = true, since = null } = opts || {};
+  // contare da una data qualsiasi e solo una prova: lo stato vero ha la sua
+  if (since && write) throw new Error('--since si usa solo con --dry-run');
   const nowIso = new Date().toISOString();
   const pricing = loadPricing(pricingPath);
   const held = write ? acquireLock() : false;
   try {
     // recuperato dalla copia: va riscritto anche se i numeri non cambiano,
     // altrimenti il file principale resta rotto
-    const { state, fresh, recovered } = readState(nowIso);
+    const letto = since ? { state: emptyState(nowIso), fresh: false, recovered: false } : readState(nowIso);
+    if (since) {
+      const ms = Date.parse(since);
+      if (!Number.isFinite(ms)) throw new Error('--since: data non valida, "' + since + '"');
+      letto.state.installed_at = new Date(ms).toISOString();
+    }
+    const { state, fresh, recovered } = letto;
     const installedAtMs = Date.parse(state.installed_at);
 
     // installed_at cambiato vuol dire stato azzerato: quello che ricordo
@@ -796,7 +807,7 @@ function main() {
     return;
   }
   try {
-    const res = scanOnce({ pricingPath: args.pricing, write: !args.dryRun });
+    const res = scanOnce({ pricingPath: args.pricing, write: !args.dryRun, since: args.since });
     if (args.print || args.dryRun) process.stdout.write(JSON.stringify(summary(res), null, 2) + '\n');
     if (!res.found) {
       process.stderr.write('cartella dei transcript non trovata: ' + TRANSCRIPTS_ROOT + '\n');
