@@ -1,3 +1,9 @@
 # un formato solo per i ritorni a capo, qualunque sistema usi chi lavora:
 # senza, Windows e Mac/Linux vedrebbero differenze che non esistono
 * text=auto eol=lf
+
+# tranne i file di avvio di Windows: cmd.exe vuole i ritorni a capo suoi
+*.cmd text eol=crlf
+
+# le icone sono immagini, non testo
+*.png binary

@@ -25,9 +25,12 @@ const counter = require('./token-counter/counter.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const STATE_URL = '/world/world-state.json';
+// con questo un secondo avvio riconosce che sulla porta c'e gia il cantiere
+const PING_URL = '/__acropoli';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
+  '.webmanifest': 'application/manifest+json',
   // i moduli ES si caricano solo con un tipo JavaScript: con un tipo generico
   // il browser li rifiuta, e la scena non parte
   '.js': 'text/javascript; charset=utf-8',
@@ -118,8 +121,11 @@ function handler(req, res) {
 
   if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'solo lettura\n');
 
+  const urlPath = req.url.split('?')[0];
+  if (urlPath === PING_URL) return send(res, 200, JSON.stringify({ app: 'acropoli' }), MIME['.json']);
+
   // lo stato sta dove lo scrive il contatore, che i test possono spostare
-  if (req.url.split('?')[0] === STATE_URL) return serveFile(req, res, counter.STATE_PATH);
+  if (urlPath === STATE_URL) return serveFile(req, res, counter.STATE_PATH);
 
   const file = resolveFile(req.url);
   if (!file) return send(res, 404, 'non trovato\n');
@@ -137,14 +143,38 @@ function openBrowser(url) {
   } catch (_) { /* idem */ }
 }
 
+/** Sulla porta c'e gia il cantiere? Una risposta sola, entro un secondo e mezzo. */
+function isOurServer(port) {
+  return new Promise((resolve) => {
+    const req = http.get({ host: '127.0.0.1', port, path: PING_URL, timeout: 1500 }, (res) => {
+      let body = '';
+      res.setEncoding('utf8');
+      res.on('data', (c) => { body += c; });
+      res.on('end', () => {
+        try { resolve(JSON.parse(body).app === 'acropoli'); } catch (_) { resolve(false); }
+      });
+    });
+    req.on('timeout', () => { req.destroy(); resolve(false); });
+    req.on('error', () => resolve(false));
+  });
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
   const server = http.createServer(handler);
 
-  server.on('error', (err) => {
+  server.on('error', async (err) => {
     if (err.code === 'EADDRINUSE') {
-      process.stderr.write('La porta ' + args.port + ' e gia occupata, forse da un altro server ' +
-        'della scena.\nChiudilo, oppure scegli un\'altra porta: npm start -- 8080\n');
+      // Il doppio clic deve funzionare anche la seconda volta: se il cantiere
+      // e gia acceso, si apre la pagina e basta, invece di un errore.
+      if (await isOurServer(args.port)) {
+        const url = 'http://localhost:' + args.port;
+        process.stdout.write('Il cantiere e gia acceso su ' + url + (args.browser ? ': apro la pagina.\n' : '.\n'));
+        if (args.browser) openBrowser(url);
+        process.exit(0);
+      }
+      process.stderr.write('La porta ' + args.port + ' e gia occupata da un altro programma.\n' +
+        'Chiudilo, oppure scegli un\'altra porta: npm start -- 8080\n');
     } else {
       process.stderr.write('Il server non parte: ' + err.message + '\n');
     }

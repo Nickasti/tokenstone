@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cantiere spento</title>
+<!-- Questa pagina la mostra il service worker quando il server non risponde,
+     quindi deve stare in piedi da sola: niente font esterni, niente script
+     che dipendano dal server. -->
+<style>
+:root{--notte:#0B141D;--marmo:#E9DDC3;--patina:#74AC9B;--soft:rgba(233,221,195,.62)}
+html,body{height:100%;margin:0;background:var(--notte);color:var(--marmo)}
+body{display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box;
+  font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6}
+main{max-width:520px}
+.eyebrow{font-family:ui-monospace,'Cascadia Mono',Menlo,monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--patina);margin:0 0 10px}
+h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:34px;line-height:1.15;margin:0 0 18px}
+p{color:var(--soft);margin:0 0 14px}
+code{font-family:ui-monospace,'Cascadia Mono',Menlo,monospace;font-size:.92em;color:var(--marmo)}
+ul{color:var(--soft);padding-left:20px;margin:0 0 22px}
+button{font:inherit;color:var(--notte);background:var(--patina);border:0;border-radius:2px;
+  padding:9px 18px;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Acropoli · il cantiere e spento</p>
+  <h1>Il server non risponde</h1>
+  <p>La scena ha bisogno del server acceso sul tuo computer. Il lavoro non e
+    perso: appena lo riaccendi, il contatore rilegge le sessioni di Claude Code
+    e il cantiere si rimette in pari.</p>
+  <p>Apri la cartella del progetto e fai doppio clic su</p>
+  <ul>
+    <li><code>Acropoli.cmd</code> su Windows</li>
+    <li><code>Acropoli.command</code> su macOS</li>
+    <li><code>acropoli.sh</code> su Linux</li>
+  </ul>
+  <button onclick="location.reload()">Riprova</button>
+</main>
+</body>
+</html>

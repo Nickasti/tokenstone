@@ -95,6 +95,35 @@ function avvia() {
     r = await richiesta(port, '/', 'POST');
     verifica('solo lettura', r.status, 405);
 
+    console.log('\n1b. Quello che serve per installare la scena come app.\n');
+
+    r = await richiesta(port, '/manifest.webmanifest');
+    verifica('manifesto', [r.status, r.type], [200, 'application/manifest+json']);
+    const manifesto = JSON.parse(r.body || '{}');
+    for (const icona of manifesto.icons || []) {
+      const ri = await richiesta(port, icona.src);
+      verifica('icona ' + icona.src.split('/').pop(), [ri.status, ri.type], [200, icona.type]);
+    }
+    r = await richiesta(port, '/sw.js');
+    verifica('service worker come JavaScript', [r.status, r.type], [200, 'text/javascript']);
+    r = await richiesta(port, '/spento.html');
+    verifica('pagina "cantiere spento"', [r.status, r.type], [200, 'text/html']);
+    r = await richiesta(port, '/__acropoli');
+    verifica('il server si riconosce', JSON.parse(r.body || '{}').app, 'acropoli');
+
+    console.log('\n1c. Un secondo avvio sulla stessa porta non fallisce: trova il');
+    console.log('    cantiere acceso, lo dice ed esce, cosi il doppio clic e sicuro.\n');
+
+    const doppio = spawn(process.execPath, [SERVER, String(port), '--no-browser'], {
+      env: Object.assign({}, process.env, { ACROPOLI_STATE: STATE, ACROPOLI_TRANSCRIPTS: PROJECTS }),
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    let detto = '';
+    doppio.stdout.on('data', (c) => { detto += c; });
+    const uscita = await new Promise((res) => doppio.on('exit', res));
+    verifica('esce senza errore', uscita, 0);
+    verifica('e dice che e gia acceso', /gia acceso/.test(detto), true);
+
     console.log('\n2. Lo stato e quello scritto dal contatore nello stesso processo.\n');
 
     await attendi(600);

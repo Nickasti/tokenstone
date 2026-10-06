@@ -565,7 +565,44 @@ perche visto da fuori sembra un guasto.
 
 ---
 
-## 15. Cosa resta da fare
+## 15. Aprirla senza terminale
+
+Fino a qui la scena si apriva con `npm start`, o chiedendo a Claude di
+avviarla. Per chi la usa ogni giorno, e per chi la scarica da GitHub senza
+essere uno sviluppatore, e troppo.
+
+**Il server non deve stare acceso.** E la scoperta che ha deciso il resto.
+Il cantiere non vive nel server: vive nei transcript che Claude Code salva
+comunque. Spento il server per una notte, alla riaccensione il contatore ha
+recuperato i 776.746 TE consumati nel frattempo, al token. Il server serve a
+guardare, non a contare; quindi non serve farlo partire con il computer, ne
+installare niente che resti acceso.
+
+**Un doppio clic.** Un file di avvio per sistema - `Acropoli.cmd`,
+`Acropoli.command`, `acropoli.sh` - accende il server in una finestra e apre
+la scena; chiusa la finestra, si spegne. Il doppio clic doveva funzionare
+anche la seconda volta: il server ora risponde a un indirizzo con cui si fa
+riconoscere, e un secondo avvio che trova la porta occupata dal cantiere apre
+la pagina invece di dare errore.
+
+**Come app.** Un manifesto e un'icona - la fronte di un tempio, disegnata da
+uno script cosi da poterla rifare - bastano a Chrome ed Edge per installare la
+scena come app. Un service worker fa una cosa sola: se l'app si apre a server
+spento, mostra una pagina che spiega come accenderlo invece dell'errore del
+browser. Non tiene copie della scena, che resterebbero vecchie dopo un
+aggiornamento.
+
+**Due inciampi della verifica.** Il primo: in un profilo di prova dal percorso
+lunghissimo Chrome non riusciva ad aprire la propria cache, e il service
+worker falliva l'installazione. Non era un difetto della scena, ma ha mostrato
+una fragilita vera: ora, se la cache non si apre, il worker si installa lo
+stesso e si perde solo la pagina d'aiuto. Il secondo: una ricarica forzata
+scavalca apposta il service worker, quindi per vedere la pagina d'aiuto la
+prova deve aprire la pagina come fa l'utente, non forzarla.
+
+---
+
+## 16. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

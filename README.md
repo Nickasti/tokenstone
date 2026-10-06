@@ -20,11 +20,46 @@ Serve [Node.js](https://nodejs.org) 18 o successivo, e Claude Code installato
 sullo stesso computer. Nient'altro: il progetto non ha dipendenze, quindi non
 c'e nemmeno un `npm install` da fare.
 
+### Con un doppio clic
+
+Nella cartella del progetto c'e un file di avvio per ogni sistema:
+
+| Sistema | File | |
+|---|---|---|
+| Windows | `Acropoli.cmd` | |
+| macOS | `Acropoli.command` | se il progetto e arrivato come ZIP, la prima volta: clic destro, *Apri* |
+| Linux | `acropoli.sh` | se il file manager non lo esegue: `./acropoli.sh` da terminale |
+
+Si apre una finestra col server e il browser va sulla scena. Per spegnere, si
+chiude la finestra. Il doppio clic e sicuro anche quando il cantiere e gia
+acceso: in quel caso apre solo la pagina.
+
+**Il server non deve stare sempre acceso.** La memoria del cantiere sono i
+transcript che Claude Code salva da se: quando il server parte, il contatore
+li rilegge e si rimette in pari con tutto quello che hai fatto nel
+frattempo. Il server serve per *guardare*. Un limite: Claude Code cancella da
+solo i transcript piu vecchi di un mese, quindi chi non apre la scena per
+piu di un mese perde le sessioni cancellate prima di essere contate.
+
+### Come app
+
+Con il cantiere acceso, Chrome ed Edge permettono di installare la scena come
+app: l'icona *Installa* nella barra dell'indirizzo, oppure dal menu del
+browser. L'Acropoli finisce nel menu Start o nel Dock con la sua icona e si
+apre in una finestra sua. Su Safari per macOS: *File*, *Aggiungi al Dock*.
+Firefox non installa pagine come app.
+
+L'app ha bisogno del server come la pagina. Se la apri col cantiere spento,
+invece dell'errore del browser trovi una pagina che spiega come accenderlo.
+
+### Da terminale
+
 ```bash
 npm start
 ```
 
-Apre <http://localhost:8000> nel browser. Le opzioni vanno dopo `--`:
+Apre <http://localhost:8000> nel browser. Le opzioni vanno dopo `--`, e
+valgono anche per i file di avvio:
 
 ```bash
 npm start -- 8080              # un'altra porta
@@ -302,6 +337,10 @@ src/tokens.js         lettore di world-state.json, credito, fallback simulato
 src/ui.js             pannelli, fasi, slider solare
 src/main.js           scena, camera, loop
 package.json          npm start, npm test; nessuna dipendenza
+Acropoli.cmd          avvio a doppio clic: Windows; Acropoli.command per macOS, acropoli.sh per Linux
+manifest.webmanifest  per installare la scena come app
+sw.js, spento.html    la pagina che l app mostra quando il server e spento
+assets/icons/         icone dell app, generate da tools/make-icons.js
 tools/server.js       server della scena, con il contatore dentro
 tools/test/           test del server
 tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, test/
