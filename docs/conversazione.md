@@ -716,7 +716,53 @@ codice che eseguono non lo prevede: quelle vanno ricaricate a mano, una volta.
 
 ---
 
-## 19. Cosa resta da fare
+## 19. La pagina iniziale
+
+Con piu mondi serviva un posto da cui sceglierli. Le decisioni, prese prima di
+scrivere: il nome provvisorio, TokenStone, va ovunque - pagina, app, file di
+avvio - perche un'identita provvisoria ma coerente vale piu di nessuna; Giza e
+il Foro compaiono gia, come "in arrivo", perche l'idea della piattaforma si
+capisce solo vedendo piu di un mondo; le immagini delle schede sono scatti
+della scena vera; e chi installa il progetto sceglie da se il primo mondo.
+
+**Nessun mondo attivo, all'inizio.** Fino a qui un registro nuovo dava tutto
+all'Acropoli. Ora parte vuoto: i TE si accumulano in attesa, e il primo mondo
+scelto li riceve tutti, dall'installazione in poi. I registri gia esistenti
+non cambiano.
+
+**Visitare non e scegliere.** Si entra in qualunque mondo disponibile senza
+cambiare quello che riceve i token. Scegliere e un gesto a parte, con una
+conferma che dice cosa succede al credito: il mondo lasciato a meta va in
+pausa e tiene tutto, quello compiuto passa il suo avanzo al nuovo.
+
+**La dimostrazione.** Chi apre il progetto senza Claude Code, o vuole sapere
+dove porta un mondo, guarda la costruzione intera in un minuto e mezzo, con la
+camera che segue il cantiere fase per fase. Il credito e finto e resta nella
+pagina: il registro non se ne accorge, e la prova lo verifica.
+
+**Gli scatti.** La stessa scena, in un'altra modalita: tutto costruito, niente
+pannelli, un'ora e un'inquadratura scelte dal mondo. Uno script la apre in
+Chrome senza finestra e salva l'immagine della scheda. Il primo scatto aveva
+meta immagine di cielo; il secondo guarda piu in basso, e il recinto riempie
+la scheda. Una volta su due, all'inizio, il browser senza finestra si
+inceppava al primo caricamento: lo script ora lo dice e riprova. Per Giza e il
+Foro, che una scena ancora non l'hanno, due sagome disegnate a mano: le tre
+piramidi con la Sfinge, un arco e le colonne di un tempio.
+
+**I dollari in una nota.** La pagina mostra i TE. Il loro valore a prezzo di
+listino sta sotto, piccolo, con una spiegazione: con un abbonamento non e
+quello che si paga, ma il modo di pesare allo stesso modo i token di modelli
+diversi. Mostrato in grande, "68 dollari" sarebbe stato letto come una spesa.
+
+**La prova, come la farebbe una persona.** Il test della scena ora parte dalla
+pagina iniziale: vede tre schede e l'invito a scegliere, preme *Comincia*,
+conferma, entra nel mondo, lo guarda crescere con un transcript nuovo, torna
+indietro e trova l'Acropoli in costruzione; poi la dimostrazione, che corre
+senza toccare il registro.
+
+---
+
+## 20. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

@@ -1,16 +1,21 @@
-# Acropoli — cantiere procedurale
+# TokenStone
 
-Ricostruzione interattiva del programma edilizio di Pericle sull'Acropoli di Atene.
-Ogni blocco dei monumenti viene generato proceduralmente e posato spendendo i
-token che consumi davvero lavorando con Claude Code.
+Mondi da costruire passo dopo passo coi token che consumi lavorando con
+Claude Code. Ogni risposta posa una pietra: scegli un mondo, lo guardi
+crescere mentre lavori, e quando l'hai finito - dopo settimane o mesi - ne
+cominci un altro.
 
-Monumenti: Athena Promachos, Partenone, Propilei, Tempio di Atena Nike, Eretteo.
-Piu il pianoro: via Panatenaica, muro nord coi rocchi reimpiegati, altare di
-Atena Polias, Brauronion e Calcoteca, settantaquattro offerte votive e il verde.
-3.280 pezzi indipendenti, ognuno con costo, marca da cantiere e fase storica.
-Il cantiere completo costa un mese di lavoro a pieno regime: quattro
-settimane e qualcosa in cui si esaurisce ogni volta il 100% dell'utilizzo
-settimanale concesso da Claude Code.
+*TokenStone è un nome provvisorio.*
+
+**Il primo mondo è l'Acropoli di Pericle**, ricostruita dalle misure reali:
+Athena Promachos, Partenone, Propilei, Tempio di Atena Nike, Eretteo, più il
+pianoro - via Panatenaica, muro nord coi rocchi reimpiegati, altare di Atena
+Polias, Brauronion e Calcoteca, settantaquattro offerte votive e il verde.
+3.280 pezzi indipendenti, ognuno con costo, marca da cantiere e fase storica,
+per un mese di lavoro a pieno regime: quattro settimane e qualcosa in cui si
+esaurisce ogni volta il 100% dell'utilizzo settimanale concesso da Claude Code.
+
+**In arrivo:** la piana di Giza e il Foro Romano.
 
 ---
 
@@ -26,30 +31,30 @@ Nella cartella del progetto c'e un file di avvio per ogni sistema:
 
 | Sistema | File | |
 |---|---|---|
-| Windows | `Acropoli.cmd` | |
-| macOS | `Acropoli.command` | se il progetto e arrivato come ZIP, la prima volta: clic destro, *Apri* |
-| Linux | `acropoli.sh` | se il file manager non lo esegue: `./acropoli.sh` da terminale |
+| Windows | `TokenStone.cmd` | |
+| macOS | `TokenStone.command` | se il progetto e arrivato come ZIP, la prima volta: clic destro, *Apri* |
+| Linux | `tokenstone.sh` | se il file manager non lo esegue: `./tokenstone.sh` da terminale |
 
-Si apre una finestra col server e il browser va sulla scena. Per spegnere, si
-chiude la finestra. Il doppio clic e sicuro anche quando il cantiere e gia
-acceso: in quel caso apre solo la pagina.
+Si apre una finestra col server e il browser va sulla pagina iniziale. Per
+spegnere, si chiude la finestra. Il doppio clic e sicuro anche quando
+TokenStone e gia acceso: in quel caso apre solo la pagina.
 
 **Il server non deve stare sempre acceso.** La memoria del cantiere sono i
 transcript che Claude Code salva da se: quando il server parte, il contatore
 li rilegge e si rimette in pari con tutto quello che hai fatto nel
 frattempo. Il server serve per *guardare*. Un limite: Claude Code cancella da
-solo i transcript piu vecchi di un mese, quindi chi non apre la scena per
+solo i transcript piu vecchi di un mese, quindi chi non apre TokenStone per
 piu di un mese perde le sessioni cancellate prima di essere contate.
 
 ### Come app
 
-Con il cantiere acceso, Chrome ed Edge permettono di installare la scena come
-app: l'icona *Installa* nella barra dell'indirizzo, oppure dal menu del
-browser. L'Acropoli finisce nel menu Start o nel Dock con la sua icona e si
-apre in una finestra sua. Su Safari per macOS: *File*, *Aggiungi al Dock*.
+Con TokenStone acceso, Chrome ed Edge permettono di installarlo come app:
+l'icona *Installa* nella barra dell'indirizzo, oppure dal menu del browser.
+Finisce nel menu Start o nel Dock con la sua icona e si apre in una finestra
+sua, sulla pagina iniziale. Su Safari per macOS: *File*, *Aggiungi al Dock*.
 Firefox non installa pagine come app.
 
-L'app ha bisogno del server come la pagina. Se la apri col cantiere spento,
+L'app ha bisogno del server come la pagina. Se la apri a server spento,
 invece dell'errore del browser trovi una pagina che spiega come accenderlo.
 
 ### Da terminale
@@ -75,9 +80,8 @@ progetto, dal terminale, dall'estensione o dall'app - aggiunge credito al
 cantiere. Non si modifica nessuna configurazione e non si installa niente
 fuori da questa cartella.
 
-Il cantiere parte da zero: conta solo quello che consumi **dopo** il primo
-avvio, non la tua storia precedente. Fino alla prima risposta la scena dice
-che e in attesa.
+Il conto parte da zero: conta solo quello che consumi **dopo** il primo
+avvio, non la tua storia precedente.
 
 Il server ascolta solo su questo computer. Lo stato dice quanto lavori e su
 quali progetti, e non va esposto alla rete senza volerlo: `--host 0.0.0.0`
@@ -85,17 +89,46 @@ serve a guardare la scena dal telefono, sapendo che chiunque sulla stessa
 rete puo vederla.
 
 Aprire `index.html` direttamente da disco non funziona: il browser blocca i
-moduli ES e la lettura del file di stato.
+moduli ES e la lettura del registro.
 
-### Due modi di aprire la scena
+---
 
-`http://localhost:8000` e la scena come la vede chi guarda: **il cantiere si
-posa da solo**, al ritmo con cui arrivano i token, e non c'e niente da
-cliccare. Un blocco ogni mezzo secondo circa; se il credito arretrato e molto
-- una settimana di lavoro, un cantiere appena riavviato - il ritmo accelera,
-altrimenti smaltire la coda richiederebbe mezz'ora.
+## La pagina iniziale
 
-`http://localhost:8000/?dev` aggiunge i comandi da cantiere: posa singola,
+`http://localhost:8000` mostra il totale dei TE consumati, quale mondo si sta
+costruendo, e una scheda per ogni mondo: *in costruzione*, *in pausa*, *da
+cominciare*, *compiuto* o *in arrivo*, con l'avanzamento di ciascuno.
+
+- **Al primo avvio nessun mondo e attivo.** La pagina chiede di scegliere il
+  primo; intanto i TE si accumulano in attesa, e vanno tutti al mondo scelto.
+- **Visitare non e scegliere.** Si puo entrare in qualunque mondo disponibile,
+  anche in pausa o compiuto, senza cambiare quello che riceve i token.
+- **Cambiare mondo chiede conferma**, e la conferma dice cosa succede al
+  credito: il mondo lasciato a meta va in pausa e tiene tutto; quello compiuto
+  passa il suo avanzo al nuovo.
+- **"Guarda come si costruisce"** apre la dimostrazione: il mondo intero in un
+  minuto e mezzo, dalla prima pietra all'ultima, con la camera che segue il
+  cantiere. Non tocca il registro, ed e il modo di vedere il progetto anche
+  senza Claude Code.
+
+I TE si leggono in pagina; il loro valore in dollari, a prezzo di listino, sta
+in una nota: con un abbonamento non e quello che si paga, e serve solo a
+pesare allo stesso modo i token di modelli diversi.
+
+Le immagini delle schede sono scatti della scena, fatti da uno script in
+Chrome senza finestra: `npm run previews` li rifa per tutti i mondi
+disponibili. I mondi in arrivo hanno una sagoma disegnata, `preview.svg`.
+
+### Dentro un mondo
+
+`/worlds/acropolis/` e il mondo come lo vede chi guarda: **il cantiere si posa
+da solo**, al ritmo con cui arrivano i token, e non c'e niente da cliccare. Un
+blocco ogni mezzo secondo circa; se il credito arretrato e molto - una
+settimana di lavoro, un cantiere appena riavviato - il ritmo accelera,
+altrimenti smaltire la coda richiederebbe mezz'ora. In alto a sinistra, *I
+mondi* riporta alla pagina iniziale.
+
+`?dev` in fondo all'indirizzo aggiunge i comandi da cantiere: posa singola,
 cantiere continuo e il credito regalato della simulazione. Servono a chi
 lavora al codice - vedere una fase precisa, provare una modifica senza
 aspettare i token - e non hanno senso per chi visita. Il credito regalato
@@ -106,9 +139,8 @@ ne accorge. *Riparti*, in `?dev`, torna anche al credito vero.
 
 ## I mondi e il registro
 
-L'Acropoli e il primo di piu mondi da costruire. Il contatore conosce un
-numero solo, il totale dei TE consumati; il **registro**,
-`state/registry.json`, lo divide fra i mondi.
+Il contatore conosce un numero solo, il totale dei TE consumati; il
+**registro**, `state/registry.json`, lo divide fra i mondi.
 
 - **Un mondo attivo alla volta.** Riceve i TE dal momento in cui lo si sceglie.
   Il registro ricorda questi intervalli del totale, i *tratti*.
@@ -116,8 +148,13 @@ numero solo, il totale dei TE consumati; il **registro**,
   mondo lasciato a meta tiene il suo credito e lo ritrova quando torna attivo.
 - **Avanzo.** Quando un mondo e completato, il credito in piu passa al mondo
   scelto dopo. Finche non si sceglie, resta in attesa e non si perde.
-- **Durata.** Ogni mondo dichiara le sue settimane di lavoro, e il suo costo
-  totale ne discende (vedi *Quanto costa un pezzo*).
+- **Durata.** Ogni mondo dichiara nel suo `world.json` le settimane di lavoro,
+  e il suo costo totale ne discende (vedi *Quanto costa un pezzo*).
+
+Ogni mondo sta in `worlds/<id>/` con il suo `world.json`: nome, luogo, epoca,
+descrizione, durata, posizione del sole, stato - `available` o `coming` - e
+immagine della scheda. Il registro conosce i mondi da quei file, e un mondo
+in arrivo non si puo scegliere.
 
 **I blocchi posati non si salvano: si calcolano.** Ogni mondo conosce il costo
 dei suoi pezzi in ordine; dato il credito, quanti se ne pagano e un conto.
@@ -136,15 +173,13 @@ accorge di non averla piu riparte dal registro. Se invece il server non
 risponde per una quindicina di secondi, la scena lo scrive - *scollegato dal
 cantiere* - invece di continuare a sembrare collegata.
 
-Il registro si legge e si scrive su `/api/registry`. Le scritture sono due -
-"scegli mondo" e "riporta avanzamento" - e il server le accetta solo dal
-computer locale, solo come JSON e solo dalla pagina della scena: un altro
-sito aperto nel browser non puo cambiare il cantiere. Per ricominciare da
-capo la divisione del credito basta cancellare `state/registry.json`: al
-riavvio tutto il consumo torna all'Acropoli.
-
-La pagina iniziale, per scegliere fra i mondi, arriva con la fase 3 di
-`TODO.md`.
+Il registro si legge su `/api/registry`, i dati dei mondi su `/api/worlds`.
+Le scritture sono due - "scegli mondo" e "riporta avanzamento" - e il server
+le accetta solo dal computer locale, solo come JSON e solo dalle pagine di
+TokenStone: un altro sito aperto nel browser non puo cambiare il cantiere.
+Per ricominciare da capo la divisione del credito basta cancellare
+`state/registry.json`: al riavvio nessun mondo e attivo, e tutto il consumo
+aspetta il primo mondo scelto.
 
 ---
 
@@ -342,6 +377,7 @@ stanno nel `.gitignore`.
 ```bash
 npm test                                           # listino e tutti i test
 npm run test:scene                                 # la scena in Chrome senza finestra (si salta senza Chrome)
+npm run previews                                   # rifa le immagini delle schede dei mondi
 node tools/token-counter/counter.js --print        # una scansione e il riepilogo
 node tools/token-counter/counter.js --watch        # scansione continua, senza server
 ```
@@ -374,7 +410,8 @@ porta solo quello che lo rende se stesso. I nomi di cartelle, file e campi
 sono in inglese; commenti, interfaccia e documentazione in italiano.
 
 ```
-index.html            porta al mondo (la pagina iniziale arriva con la fase 3)
+index.html            la pagina iniziale: contatore, mondi, scelta
+home/                 il suo stile e il suo script
 engine/               il motore, uguale per tutti i mondi
   scene.js            scena, cielo, luce, camera, credito, posa: startWorld(mondo)
   pieces.js           registro dei pezzi, prezzi, posa, fusione delle mesh
@@ -384,6 +421,7 @@ engine/               il motore, uguale per tutti i mondi
   config.js           quanto vale una settimana (WEEKLY_TE), dono iniziale
   scene.css           lo stile della scena
 worlds/acropolis/     il primo mondo
+  preview.webp        l'immagine della scheda, da npm run previews
   world.json          nome, luogo, epoca, durata, sole: quello che il motore legge
   index.html          la pagina del mondo
   src/main.js         l'Acropoli come mondo: cosa costruire, inquadratura, fasi
@@ -393,14 +431,18 @@ worlds/acropolis/     il primo mondo
   src/kit.js          kit greco: crepidoma, colonnati, trabeazioni, muri, frontoni
   src/terrain.js      heightfield del pianoro e mura di cinta
   src/materials.js    marmo pentelico, policromia, bronzo, oro e avorio
-package.json          npm start, npm test, npm run test:scene; nessuna dipendenza
-Acropoli.cmd          avvio a doppio clic: Windows; Acropoli.command per macOS, acropoli.sh per Linux
+worlds/giza/          in arrivo: world.json e la sagoma della scheda, preview.svg
+worlds/forum/         in arrivo: world.json e la sagoma della scheda, preview.svg
+package.json          npm start, npm test, npm run test:scene, npm run previews; nessuna dipendenza
+TokenStone.cmd        avvio a doppio clic: Windows; TokenStone.command per macOS, tokenstone.sh per Linux
 manifest.webmanifest  per installare la scena come app
 sw.js, offline.html   la pagina che l'app mostra quando il server e spento
 assets/icons/         icone dell'app, generate da tools/make-icons.js
 tools/server.js       il server, con il contatore dentro e il registro su /api/registry
 tools/registry.js     il registro dei cantieri: mondo attivo, tratti di credito, avanzi
 tools/migrate.js      porta lo stato di un'installazione vecchia da world/ a state/
+tools/chrome.js       guidare Chrome senza finestra: per i test della scena e gli scatti
+tools/make-previews.js  gli scatti delle schede: npm run previews
 tools/test/           test del registro, del server e della scena
 tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, test/
 state/                world-state.json del contatore e registry.json (non versionati)
@@ -412,7 +454,11 @@ docs/conversazione.md come è nato il progetto e perché le scelte sono queste
 
 ---
 
-## Il pianoro
+## Il primo mondo: l'Acropoli
+
+Tutto il codice dell'Acropoli sta in `worlds/acropolis/`.
+
+### Il pianoro
 
 Gli edifici sono meta del recinto. L'altra meta e in
 `worlds/acropolis/src/site.js`: la via
@@ -431,7 +477,7 @@ cambiasse ordine, quei primi N sarebbero altri pezzi.
 
 ---
 
-## Raffinatezze ottiche e policromia
+### Raffinatezze ottiche e policromia
 
 Due interruttori in `worlds/acropolis/src/config.js` accendono il Partenone come era davvero.
 
@@ -452,9 +498,9 @@ perche un blocco largo quanto il tempio non puo inarcarsi.
 
 ---
 
-## I due innesti da completare
+### I due innesti da completare
 
-### 1. Sculture fotogrammetrate
+#### 1. Sculture fotogrammetrate
 
 `worlds/acropolis/src/kit.js` espone `setSculptureProvider(fn)`. La funzione riceve
 `(pose, altezza, contesto)` e restituisce un `Object3D` oppure `null`.
@@ -464,7 +510,7 @@ In `worlds/acropolis/src/main.js` c'è già il blocco commentato che carica i GL
 `assets/models/` con `GLTFLoader` e registra il provider. Scarica i modelli
 del Museo dell'Acropoli, mettili lì, togli i commenti.
 
-### 2. HDRI al posto del cielo analitico
+#### 2. HDRI al posto del cielo analitico
 
 `engine/sky.js` espone `useHDRI(url)`. Carica un `.hdr` con `RGBELoader`,
 lo passa al `PMREMGenerator` e sostituisce l'ambiente.
@@ -475,7 +521,7 @@ reali per la latitudine di Atene. Valuta se ti serve davvero rinunciarci.
 
 ---
 
-## Prestazioni
+### Prestazioni
 
 A cantiere completo la scena ha circa 2.500 mesh. Quando una fase si chiude,
 `bakePhase()` fonde le sue mesh in una geometria per materiale: le draw call

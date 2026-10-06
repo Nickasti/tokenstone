@@ -103,10 +103,12 @@ export class CreditSource {
     if (!c.total_te && !sessions) {
       this.info = 'cantiere reale - in attesa della prima risposta di Claude Code';
     } else if (!this.active) {
-      this.info = `in pausa - i token ora vanno a ${d.active || 'nessun mondo'}`;
+      this.info = d.active
+        ? `in pausa - i token ora vanno a un altro mondo`
+        : 'non attivo - sceglilo dalla pagina iniziale per cominciare a costruirlo';
     } else {
+      // i dollari stanno solo nella nota della pagina iniziale: qui contano i TE
       this.info = `cantiere reale - ${fmt(c.total_te)} TE` +
-        (c.total_usd ? ` (${c.total_usd.toFixed(2)} $)` : '') +
         (sessions ? ` da ${sessions} session${sessions === 1 ? 'e' : 'i'}` : '');
     }
 

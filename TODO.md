@@ -1,7 +1,7 @@
 # TokenStone — cosa resta da fare
 
-*TokenStone e un nome provvisorio. Il progetto oggi si chiama ancora Acropoli:
-il nome nuovo entra nella fase 3, con la pagina iniziale.*
+*TokenStone e un nome provvisorio, ma dalla fase 3 e il nome con cui il
+progetto si presenta: pagina iniziale, app, file di avvio.*
 
 L'idea: una piattaforma di mondi da costruire passo dopo passo coi token di
 Claude Code. Chi la usa sceglie un mondo, lo costruisce in settimane o mesi di
@@ -26,6 +26,23 @@ avanti anche mondi moderni o inventati.
   piano di chi lavora, non dal mondo.
 - **Prossimo mondo:** la piana di Giza, dopo aver rifinito l'Acropoli.
 - **Nome provvisorio:** TokenStone.
+
+*6 ottobre 2026, per la fase 3*
+
+- **TokenStone ovunque:** pagina iniziale, app installata e file di avvio
+  (`TokenStone.cmd` e simili). Se il nome definitivo cambiera, si rinomina.
+- **Giza e il Foro compaiono gia**, come schede "in arrivo": nome, luogo,
+  epoca, nessuna data.
+- **Le immagini delle schede sono scatti della scena** completata, fatti da uno
+  script in Chrome senza finestra; per i mondi in arrivo, una sagoma disegnata
+  come l'icona dell'app.
+- **Al primo avvio si sceglie il mondo.** Finche non si sceglie, i TE si
+  accumulano in attesa e vanno tutti al mondo scelto. Il cantiere gia esistente
+  resta com'e, con l'Acropoli attiva.
+- *Predefinite, salvo obiezione:* visitare un mondo non lo rende attivo;
+  cambiare mondo a meta chiede conferma; la dimostrazione dura circa 90
+  secondi e non tocca il registro; in pagina si mostrano i TE, e i dollari solo
+  in una nota.
 
 ---
 
@@ -62,18 +79,28 @@ mondo solo non c'e niente da scegliere. Arriva con la pagina iniziale.
 Il kit greco (colonnati, trabeazioni, frontoni) resta nell'Acropoli: si
 sposta nel motore, o in un kit comune, quando un secondo mondo ne ha bisogno.
 
-### Fase 3 — La pagina iniziale
-- [ ] Nome, contatore totale, una scheda per mondo: in corso, in pausa,
-      compiuto, in arrivo
-- [ ] Scegliere, riprendere, visitare; conferma per cambiare mondo a meta;
+### Fase 3 — La pagina iniziale *(fatta, 6 ottobre)*
+- [x] TokenStone, contatore totale, una scheda per mondo: in costruzione, in
+      pausa, da cominciare, compiuto, in arrivo
+- [x] Scegliere, riprendere, visitare; conferma per cambiare mondo a meta;
       credito in attesa in vista
-- [ ] Modalita dimostrativa: la costruzione accelerata, senza credito, per
-      chi apre il progetto senza Claude Code
-- [ ] Il nome nuovo nell'app installata e nei file di avvio, che si aprono
-      sulla pagina iniziale
+- [x] Primo avvio senza mondo attivo: si sceglie dalla pagina, i TE aspettano
+- [x] `world.json` per Giza e il Foro, con stato "in arrivo"
+- [x] Scatti della scena per le schede (`npm run previews`); sagome per i
+      mondi in arrivo
+- [x] Modalita dimostrativa: 90 secondi dalla prima pietra all'ultima, con la
+      camera che segue il cantiere, senza toccare il registro (`?demo`)
+- [x] TokenStone nell'app installata e nei file di avvio, che si aprono sulla
+      pagina iniziale
+- [x] Le schede aperte prima di un aggiornamento si ricaricano da sole; quelle
+      scollegate lo dicono
+
+Rimasti con il nome vecchio, da rinominare col nome definitivo: le variabili
+d'ambiente `ACROPOLI_*`, le chiavi del browser, la cartella del progetto, e
+l'icona dell'app, che e ancora il frontone dell'Acropoli.
 
 ### Fase 4 — Il modello per i mondi nuovi
-- [ ] `mondi/_modello/`, un mondo minimo da copiare
+- [ ] `worlds/_template/`, un mondo minimo da copiare
 - [ ] Guida: cosa deve fornire un mondo
 
 ### Fase 5 — Rifiniture dell'Acropoli

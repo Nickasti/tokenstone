@@ -1,5 +1,6 @@
 {
   "id": "acropolis",
+  "order": 1,
   "name": "Acropoli",
   "subtitle": "Il programma di Pericle",
   "place": "Atene",
@@ -8,5 +9,5 @@
   "status": "available",
   "weeks": 4.285714285714286,
   "solar": { "lat": 37.9715, "lon": 23.7267, "tz": 3, "dayOfYear": 237 },
-  "preview": null
+  "preview": "preview.webp"
 }

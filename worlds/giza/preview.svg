@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <!-- Sagoma della piana di Giza, finche il mondo non ha una scena: le tre
+       piramidi in diagonale, come le vede chi arriva da sud-est, e la Sfinge. -->
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A2733"/>
+      <stop offset="1" stop-color="#3A3B36"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#cielo)"/>
+  <rect y="700" width="1600" height="300" fill="#4A4234"/>
+  <!-- Micerino, Chefren, Cheope: da lontano a vicino -->
+  <polygon points="190,700 330,590 470,700" fill="#8C7C5C"/>
+  <polygon points="330,590 470,700 400,700" fill="#6F6248"/>
+  <polygon points="430,700 680,420 930,700" fill="#B49F75"/>
+  <polygon points="680,420 930,700 800,700" fill="#8E7D5B"/>
+  <polygon points="760,700 1080,330 1400,700" fill="#D8C49A"/>
+  <polygon points="1080,330 1400,700 1230,700" fill="#A8946D"/>
+  <!-- la Sfinge, davanti -->
+  <path d="M1180,740 h190 v-26 l-26,-16 h-40 l-10,-34 h-34 l-8,34 h-72 z" fill="#C4B08A"/>
+</svg>

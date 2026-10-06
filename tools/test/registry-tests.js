@@ -39,12 +39,17 @@ function rifiuta(nome, fn) {
 const acropolis = (placed) => ({ world: 'acropolis', pieces: 100, cost_te: 1000, gift_te: 50, placed });
 
 // --------------------------------------------------------------------------
-console.log('\n1. Primo avvio: tutto il consumo dall\'installazione va all\'Acropoli.\n');
+console.log('\n1. Primo avvio: nessun mondo attivo, i TE aspettano; il primo mondo\n   scelto riceve tutto il consumo dall\'installazione.\n');
 
 let reg = c.newRegistry(ORA);
-verifica('mondo attivo', reg.active, 'acropolis');
-verifica('credito con 600 TE consumati', c.creditOf(reg, 'acropolis', 600), 600);
+verifica('nessun mondo attivo', reg.active, null);
+verifica('nessuno ha credito', c.creditOf(reg, 'acropolis', 500), 0);
+verifica('500 TE in attesa', c.view(reg, 500).waiting_te, 500);
+c.choose(reg, 'acropolis', 500);
+verifica('scelta l\'Acropoli', reg.active, 'acropolis');
+verifica('riceve anche quelli in attesa', c.creditOf(reg, 'acropolis', 600), 600);
 verifica('gli altri mondi non hanno niente', c.creditOf(reg, 'giza', 600), 0);
+verifica('niente piu in attesa', c.view(reg, 600).waiting_te, 0);
 
 // --------------------------------------------------------------------------
 console.log('\n2. Avanzamento: il punto piu alto raggiunto puo solo salire.\n');

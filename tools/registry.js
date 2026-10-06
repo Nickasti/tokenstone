@@ -32,8 +32,6 @@ const REGISTRY_PATH = process.env.ACROPOLI_REGISTRY ||
 const BACKUP_PATH = path.join(path.dirname(REGISTRY_PATH), '.registry.bak');
 
 const VERSION = 2;
-// il primo cantiere riceve tutto il consumo dall'installazione in poi
-const FIRST_WORLD = 'acropolis';
 // i nomi dei mondi prima che i nomi del codice passassero all'inglese
 const LEGACY_IDS = { acropoli: 'acropolis' };
 
@@ -60,14 +58,30 @@ function loadWorlds() {
 }
 const WORLDS = loadWorlds();
 
+/** I world.json completi, in ordine: quello che la pagina iniziale mostra. */
+function listWorlds() {
+  const out = [];
+  for (const id of Object.keys(loadWorlds())) {
+    try {
+      const meta = JSON.parse(fs.readFileSync(path.join(WORLDS_DIR, id, 'world.json'), 'utf8'));
+      meta.has_page = fs.existsSync(path.join(WORLDS_DIR, id, 'index.html'));
+      out.push(meta);
+    } catch (_) { /* sparito nel frattempo */ }
+  }
+  return out.sort((x, y) => (x.order || 99) - (y.order || 99) || x.id.localeCompare(y.id));
+}
+
 // ----------------------------------------------------------------- calcoli
 
+/* Al primo avvio nessun mondo e attivo: lo sceglie chi usa il progetto,
+   dalla pagina iniziale. Intanto i TE si accumulano, e il primo tratto del
+   mondo scelto parte da zero: riceve tutto il consumo dall'installazione. */
 function newRegistry(nowIso) {
   return {
     version: VERSION,
     created_at: nowIso,
-    active: FIRST_WORLD,
-    segments: [{ world: FIRST_WORLD, from_te: 0, to_te: null }],
+    active: null,
+    segments: [],
     transfers: [],
     worlds: {},
   };
@@ -172,7 +186,13 @@ function choose(reg, id, total) {
   return reg;
 }
 
-/** Quello che serve alla scena e, piu avanti, alla pagina iniziale. */
+function unassigned(reg, total) {
+  let end = 0;
+  for (const s of reg.segments) if (s.to_te !== null) end = Math.max(end, s.to_te);
+  return Math.max(0, total - end);
+}
+
+/** Quello che serve alla scena e alla pagina iniziale. */
 function view(reg, total) {
   const worlds = {};
   for (const id of Object.keys(WORLDS)) {
@@ -190,8 +210,10 @@ function view(reg, total) {
   return {
     active: reg.active,
     worlds,
-    // un mondo completato e ancora attivo accumula credito per il prossimo
-    waiting_te: reg.active ? surplusOf(reg, reg.active, total) : 0,
+    /* il credito che aspetta un mondo: l'avanzo di un mondo completato e
+       ancora attivo, oppure, senza nessun mondo attivo, i TE arrivati da
+       quando l'ultimo tratto si e chiuso - al primo avvio, tutti */
+    waiting_te: reg.active ? surplusOf(reg, reg.active, total) : unassigned(reg, total),
   };
 }
 
@@ -265,6 +287,6 @@ function write(reg) {
 }
 
 module.exports = {
-  REGISTRY_PATH, WORLDS, Refusal,
+  REGISTRY_PATH, WORLDS, Refusal, listWorlds,
   newRegistry, creditOf, surplusOf, completed, report, choose, view, upgrade, read, write,
 };

@@ -46,7 +46,7 @@ const world = startWorld({
     buildAll(scene);
   },
   phases: PHASES,
-  completion: { mark: 'TELOS', text: 'Il programma di Pericle e compiuto - 406 a.C.' },
+  completion: { mark: 'TELOS', text: 'Il programma di Pericle è compiuto - 406 a.C.' },
   view: { az: .62, pol: 1.19, dist: 210, target: [-60, 10, 0] },
   sun: {
     center: [-70, 0, 0],
@@ -54,6 +54,8 @@ const world = startWorld({
   },
   fog: 0x9AA8AE,
   hour: 8.4,
+  // l'immagine della scheda nella pagina iniziale: il recinto intero, a luce calda
+  snapshot: { hour: 16.4, view: { az: .62, pol: .98, dist: 205, target: [-60, 4, 6] } },
   // "vola al cantiere": il monumento della fase in corso, o il Partenone
   focus(phase) {
     const k = FOCUS[phase || 'p-krepis'];

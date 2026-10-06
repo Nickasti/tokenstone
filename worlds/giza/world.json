@@ -1,0 +1,13 @@
+{
+  "id": "giza",
+  "order": 2,
+  "name": "Piana di Giza",
+  "subtitle": "Le piramidi della IV dinastia",
+  "place": "Giza, Egitto",
+  "era": "c. 2560 a.C.",
+  "description": "Le piramidi di Cheope, Chefren e Micerino, la Sfinge e i templi a valle, corso dopo corso.",
+  "status": "coming",
+  "weeks": null,
+  "solar": { "lat": 29.9792, "lon": 31.1342, "tz": 2, "dayOfYear": 196 },
+  "preview": "preview.svg"
+}

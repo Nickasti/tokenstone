@@ -1,14 +1,18 @@
-# Acropoli
+# TokenStone
 
-Scena three.js che costruisce l'Acropoli di Pericle coi token consumati in
-Claude Code. Node 18 o successivo, nessuna dipendenza.
+Mondi da costruire coi token consumati in Claude Code; il primo e l'Acropoli
+di Pericle, in three.js. Node 18 o successivo, nessuna dipendenza. TokenStone
+e un nome provvisorio.
 
 - `npm start` avvia la scena col contatore dentro; `npm test` controlla il
   listino ed esegue i test del contatore, del registro e del server;
-  `npm run test:scene` prova la scena in Chrome senza finestra.
+  `npm run test:scene` prova pagina iniziale e scena in Chrome senza finestra;
+  `npm run previews` rifa le immagini delle schede dei mondi.
 - Il motore e in `engine/`, comune a tutti i mondi; ogni mondo sta in
   `worlds/<id>/` con il suo `world.json`. Quello che vale per un mondo solo
-  non va nel motore.
+  non va nel motore. La pagina iniziale e `index.html` con `home/`.
+- I testi che l'utente legge hanno gli accenti (è, più, così); i commenti del
+  codice possono farne a meno.
 - Nomi di cartelle, file, funzioni e campi dei dati in inglese; commenti, testi
   dell'interfaccia e documentazione in italiano.
 - Non cambiare l'ordine dei pezzi ne il seme dei generatori in

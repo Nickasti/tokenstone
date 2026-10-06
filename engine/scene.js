@@ -73,8 +73,18 @@ export function startWorld(world) {
      non c'e niente da cliccare, si guarda crescere. Con ?dev nell'indirizzo
      tornano i comandi manuali - posa singola, cantiere continuo, credito
      regalato - che servono a chi lavora al codice, non a chi visita. */
-  const DEV = new URLSearchParams(location.search).has('dev');
+  const params = new URLSearchParams(location.search);
+  /* Due modi in piu, che non toccano il registro.
+     ?demo     la costruzione intera in un minuto e mezzo, senza credito: per
+               chi apre il progetto senza Claude Code, o vuole vedere dove va
+     ?snapshot il mondo completato, senza pannelli, fermo: per l'immagine
+               della sua scheda nella pagina iniziale (tools/make-previews.js) */
+  const DEMO = params.has('demo');
+  const SNAPSHOT = params.has('snapshot');
+  const DEV = params.has('dev') && !DEMO && !SNAPSHOT;
+  const DEMO_SECONDS = 90;
   document.body.classList.toggle('dev', DEV);
+  document.body.classList.toggle('snapshot', SNAPSHOT);
 
   /* ─────────── il cantiere si calcola dal credito ───────────
      I blocchi posati non si salvano: dato il credito del mondo, quanti se ne
@@ -102,12 +112,15 @@ export function startWorld(world) {
   }
 
   const credit = new CreditSource(meta.id);
-  const totalCredit = () => START_TE + credit.credit + devBonus;
+  // in dimostrazione e nello scatto il mondo e tutto pagato, per finta
+  const totalCredit = () => (DEMO || SNAPSHOT) ? TOTAL_COST : START_TE + credit.credit + devBonus;
   /* fin dove puo arrivare il cantiere: quanto si paga, e mai meno del punto
      gia raggiunto, cosi un ricalcolo dei prezzi non disfa niente */
   const goal = () => Math.max(Math.min(credit.placedMax, TOTAL), affordable(totalCredit()));
 
-  let placed = 0, autoOn = !DEV, hour = world.hour, synced = false;
+  const shot = world.snapshot || {};
+  let placed = 0, autoOn = !DEV && !SNAPSHOT, hour = SNAPSHOT && shot.hour ? shot.hour : world.hour;
+  let synced = DEMO || SNAPSHOT;   // niente da aspettare dal server
   const flying = [];
 
   function place(i, animate) {
@@ -127,7 +140,11 @@ export function startWorld(world) {
     place(placed, true);
     placed++;
     const next = placed < TOTAL ? pieces[placed].phase : null;
-    if (next !== p.phase) setTimeout(() => bakePhase(p.phase), 700);
+    if (next !== p.phase) {
+      setTimeout(() => bakePhase(p.phase), 700);
+      // in dimostrazione la camera segue il cantiere, fase per fase
+      if (DEMO && next) { const f = world.focus(next); goTo(f.x, f.z, f.dist); }
+    }
     refresh();
     reportSoon();
     return true;
@@ -159,7 +176,7 @@ export function startWorld(world) {
   }
 
   /* ─────────── sole ─────────── */
-  let iblTimer = 0;
+  let iblTimer = 0, shotFrames = 0;
   function applySun(h) {
     const s = solarPosition(h, meta.solar);
     sky.setSun(s.dir);
@@ -190,9 +207,10 @@ export function startWorld(world) {
   }
 
   /* ─────────── camera ─────────── */
-  let { az, pol, dist } = world.view;
+  const v0 = SNAPSHOT && shot.view ? shot.view : world.view;
+  let { az, pol, dist } = v0;
   let tDist = dist;
-  const target = new THREE.Vector3(...world.view.target), tTarget = target.clone();
+  const target = new THREE.Vector3(...v0.target), tTarget = target.clone();
   let idle = 0, drag = false, lx = 0, ly = 0, pinch = 0;
 
   function goTo(x, z, d) { tTarget.set(x, 10, z); tDist = d; idle = 0; }
@@ -325,7 +343,7 @@ export function startWorld(world) {
          credito arretrato e molto - una settimana di lavoro, un cantiere appena
          riavviato - si accelera, altrimenti si starebbe mezz'ora a smaltire
          la coda. */
-      const pace = goal() - placed > 20 ? .06 : .45;
+      const pace = DEMO ? DEMO_SECONDS / TOTAL : goal() - placed > 20 ? .06 : .45;
       acc += dt;
       while (acc > pace) {
         acc -= pace;
@@ -354,10 +372,13 @@ export function startWorld(world) {
     if (iblTimer < 2) {
       iblTimer += dt;
       if (iblTimer >= .25 && iblTimer < 2) { sky.bakeIBL(); iblTimer = 2; }
+    } else if (SNAPSHOT && !window.__snapshotReady && ++shotFrames > 40) {
+      // luce, ombre e riflessi sono pronti: lo script dello scatto puo scattare
+      window.__snapshotReady = true;
     }
 
     idle += dt;
-    if (idle > 5 && !drag) az += dt * .028;
+    if (idle > 5 && !drag && !SNAPSHOT) az += dt * .028;
     sky.follow(camera);
     updateCam();
     renderer.render(scene, camera);
@@ -369,7 +390,14 @@ export function startWorld(world) {
   applySun(hour);
   refresh();
   updateCam();
-  credit.probe();
+  if (SNAPSHOT) {
+    placeAtOnce(TOTAL);
+    credit.info = 'scatto';
+  } else if (DEMO) {
+    credit.info = 'dimostrazione - la costruzione intera in un minuto e mezzo, senza credito';
+  } else {
+    credit.probe();
+  }
   requestAnimationFrame(frame);
 
   return { scene, renderer, camera, sky };

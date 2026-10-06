@@ -1,5 +1,5 @@
 #!/bin/bash
-# Doppio clic (macOS): accende il cantiere e apre la scena nel browser.
+# Doppio clic (macOS): accende TokenStone e apre la pagina iniziale nel browser.
 # Per spegnere, chiudi questa finestra del Terminale.
 # Se il cantiere e gia acceso, apre solo la pagina.
 

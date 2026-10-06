@@ -2,16 +2,65 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Acropoli</title>
-<!-- Per ora l'indirizzo principale porta all'Acropoli, l'unico mondo. Con la
-     fase 3 di TODO.md qui ci sara la pagina iniziale, per scegliere fra i
-     mondi. ?dev e il resto dell'indirizzo passano intatti. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TokenStone — mondi da costruire</title>
+<meta name="description" content="Mondi da costruire passo dopo passo coi token che consumi lavorando con Claude Code.">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#0B141D">
-<script>location.replace('/worlds/acropolis/' + location.search + location.hash);</script>
-<noscript><meta http-equiv="refresh" content="0; url=/worlds/acropolis/"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/home/home.css">
 </head>
-<body style="background:#0B141D"></body>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Mondi da costruire coi token di Claude Code</div>
+    <h1>TokenStone</h1>
+    <p class="lead">Ogni risposta di Claude Code posa una pietra. Scegli un mondo e
+      guardalo crescere mentre lavori: un mondo intero vale settimane di lavoro, e
+      quando l'hai finito ne cominci un altro.</p>
+  </header>
+
+  <section class="counter" aria-label="Il contatore">
+    <div>
+      <div class="lbl">Consumati da quando hai installato TokenStone</div>
+      <div class="big" id="total">—</div>
+    </div>
+    <div class="state" id="state">—</div>
+  </section>
+  <p class="note" id="usd"></p>
+
+  <div class="alert" id="first" hidden>
+    Scegli il primo mondo da costruire: i <b id="first-te">0</b> TE consumati finora
+    andranno tutti a lui, e da lì in poi ogni risposta di Claude Code lo fa crescere.
+  </div>
+
+  <h2>I mondi</h2>
+  <div class="worlds" id="worlds"></div>
+
+  <footer>
+    <p>Il contatore legge dai transcript di Claude Code su questo computer solo i
+      contatori dei token, il modello, l'orario e la cartella di lavoro: mai il testo
+      dei messaggi. Niente va in rete, e lo stato resta nella cartella del progetto.</p>
+    <p>Per riaprire questa pagina: doppio clic su <code>TokenStone.cmd</code>
+      (<code>TokenStone.command</code> su macOS, <code>tokenstone.sh</code> su Linux),
+      oppure l'app installata dal browser.</p>
+  </footer>
+</main>
+
+<dialog id="confirm">
+  <h4 id="confirm-title">—</h4>
+  <div id="confirm-text"></div>
+  <div class="actions">
+    <button class="btn" id="confirm-no" type="button">Annulla</button>
+    <button class="btn primary" id="confirm-ok" type="button">—</button>
+  </div>
+</dialog>
+
+<script type="module" src="/home/home.js"></script>
+</body>
 </html>

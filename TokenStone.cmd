@@ -1,9 +1,9 @@
 @echo off
-rem Doppio clic: accende il cantiere e apre la scena nel browser.
+rem Doppio clic: accende TokenStone e apre la pagina iniziale nel browser.
 rem Per spegnere, chiudi questa finestra.
 rem Se il cantiere e gia acceso, apre solo la pagina.
 
-title Acropoli - cantiere
+title TokenStone
 cd /d "%~dp0"
 
 where node >nul 2>nul

@@ -1,0 +1,13 @@
+{
+  "id": "forum",
+  "order": 3,
+  "name": "Foro Romano",
+  "subtitle": "Il centro di Roma antica",
+  "place": "Roma",
+  "era": "Roma antica",
+  "description": "Templi, basiliche, archi e la via Sacra: il cuore pubblico di Roma, dall'epoca che sceglieremo.",
+  "status": "coming",
+  "weeks": null,
+  "solar": { "lat": 41.8925, "lon": 12.4853, "tz": 1, "dayOfYear": 172 },
+  "preview": "preview.svg"
+}

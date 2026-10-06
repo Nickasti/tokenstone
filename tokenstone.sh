@@ -1,5 +1,5 @@
 #!/bin/bash
-# Doppio clic, o ./acropoli.sh (Linux): accende il cantiere e apre la scena
+# Doppio clic, o ./tokenstone.sh (Linux): accende TokenStone e apre la pagina iniziale
 # nel browser. Per spegnere, Ctrl+C o chiudi il terminale.
 # Se il cantiere e gia acceso, apre solo la pagina.
 

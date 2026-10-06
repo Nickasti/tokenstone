@@ -78,7 +78,7 @@ export class UI {
     this.el.warn.hidden = !warn;
     this.el.warn.textContent = warn || '';
     this.el.warn.title = warn
-      ? 'Il listino non ha ancora il prezzo di questo modello: il credito e una stima. ' +
+      ? 'Il listino non ha ancora il prezzo di questo modello: il credito è una stima. ' +
         'Per correggerlo, chiedi a Claude Code di aggiornare il listino.'
       : '';
     this.el.prog.textContent =
@@ -91,7 +91,7 @@ export class UI {
     this.el.build.disabled = done || tokens < p.cost;
     this.el.build.textContent = done ? 'Cantiere concluso'
       : (tokens < p.cost
-          ? `Servono ${fmt(Math.ceil(p.cost - tokens))} TE in piu`
+          ? `Servono ${fmt(Math.ceil(p.cost - tokens))} TE in più`
           : `Posa il blocco - ${fmt(p.cost)} TE`);
     this.el.auto.disabled = done;
 

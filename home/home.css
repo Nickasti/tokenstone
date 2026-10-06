@@ -1,0 +1,85 @@
+/* La pagina iniziale di TokenStone: il contatore, i mondi, la scelta.
+   Stessi colori e caratteri della scena: il passaggio dalla pagina al mondo
+   non deve sembrare un cambio di sito. */
+
+:root{
+  --notte:#0B141D; --notte2:#101C27; --marmo:#E9DDC3; --marmo2:#BCAA85;
+  --patina:#74AC9B; --minio:#BE5B40;
+  --soft:rgba(233,221,195,.62); --softer:rgba(233,221,195,.34);
+  --line:rgba(116,172,155,.24); --card:rgba(16,28,39,.88);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--notte);color:var(--marmo)}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;font-weight:300;line-height:1.55;
+  -webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}
+
+main{max-width:1180px;margin:0 auto;padding:56px 28px 72px}
+
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--patina);margin-bottom:14px}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(46px,8vw,92px);
+  line-height:.92;letter-spacing:-.025em}
+.lead{max-width:620px;margin-top:22px;font-size:17px;color:var(--soft)}
+
+/* ---- il contatore ---- */
+.counter{margin-top:46px;display:flex;flex-wrap:wrap;gap:16px 46px;align-items:flex-end;
+  padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.counter .lbl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--softer);margin-bottom:6px}
+.counter .big{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);
+  line-height:1;font-variant-numeric:tabular-nums}
+.counter .big small{font-size:.42em;font-weight:300;color:var(--soft);margin-left:6px}
+.counter .state{font-size:15px;color:var(--soft);max-width:420px}
+.counter .state b{color:var(--marmo);font-weight:500}
+.note{margin-top:10px;font-size:12.5px;color:var(--softer)}
+.alert{margin-top:22px;padding:14px 18px;border:1px solid var(--patina);border-radius:2px;
+  background:rgba(116,172,155,.08);font-size:15px}
+.alert[hidden]{display:none}
+
+/* ---- i mondi ---- */
+h2{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--patina);margin:52px 0 18px}
+.worlds{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;
+  display:flex;flex-direction:column}
+.card .img{aspect-ratio:16/10;background:var(--notte2) center/cover no-repeat;position:relative}
+.card.coming .img{filter:saturate(.7)}
+.chip{position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+  letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;border-radius:2px;
+  background:rgba(11,20,29,.82);color:var(--marmo2)}
+.chip.on{color:var(--notte);background:var(--patina)}
+.chip.done{color:var(--notte);background:var(--marmo2)}
+.card .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card h3{font-family:'Fraunces',serif;font-weight:500;font-size:26px;line-height:1.1}
+.card .sub{font-size:13.5px;color:var(--soft);margin-top:3px}
+.card .meta{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--softer);margin-top:12px}
+.card p.desc{font-size:14.5px;color:var(--soft);margin-top:10px;flex:1}
+.bar{height:3px;background:rgba(233,221,195,.08);margin-top:16px;border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--patina);width:0}
+.progress{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
+  color:var(--softer);margin-top:7px;font-variant-numeric:tabular-nums}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.btn{font:inherit;font-size:14px;font-weight:400;text-decoration:none;cursor:pointer;
+  padding:9px 15px;border-radius:2px;border:1px solid var(--line);background:transparent;color:var(--marmo)}
+.btn:hover{border-color:var(--patina)}
+.btn.primary{background:var(--patina);border-color:var(--patina);color:var(--notte);font-weight:500}
+.btn.primary:hover{filter:brightness(1.08)}
+
+/* ---- la conferma ---- */
+dialog{margin:auto;max-width:460px;background:var(--notte2);color:var(--marmo);
+  border:1px solid var(--line);border-radius:3px;padding:26px 26px 22px}
+dialog::backdrop{background:rgba(3,8,12,.66)}
+dialog h4{font-family:'Fraunces',serif;font-weight:500;font-size:24px;margin-bottom:12px}
+dialog p{color:var(--soft);font-size:15px;margin-bottom:10px}
+dialog .actions{justify-content:flex-end}
+
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--softer)}
+footer p+p{margin-top:8px}
+code{font-family:'IBM Plex Mono',monospace;font-size:.92em;color:var(--soft)}
+
+@media (max-width:640px){
+  main{padding:34px 18px 48px}
+  .worlds{grid-template-columns:1fr}
+}

@@ -5,7 +5,7 @@
    il cantiere. Per tutto il resto non c'e: niente copie dei file della scena,
    che con una cache rischierebbero di restare vecchie dopo un aggiornamento. */
 
-const CACHE = 'acropoli-offline-v2';
+const CACHE = 'tokenstone-offline-v1';
 const OFFLINE = '/offline.html';
 
 self.addEventListener('install', (event) => {

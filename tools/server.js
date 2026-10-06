@@ -28,9 +28,11 @@ const { migrateLegacyState } = require('./migrate.js');
 const ROOT = path.resolve(__dirname, '..');
 const STATE_URL = '/state/world-state.json';
 // con questo un secondo avvio riconosce che sulla porta c'e gia il cantiere
-const PING_URL = '/__acropoli';
+const PING_URL = '/__tokenstone';
 // il registro dei cantieri: si legge, e si scrive solo in due modi
 const API_URL = '/api/registry';
+// i dati di ogni mondo, dai loro world.json
+const WORLDS_URL = '/api/worlds';
 const MAX_BODY = 8 * 1024;
 let PORTA = null;
 
@@ -202,7 +204,7 @@ function scrittura(req, res) {
  * browser carica: cambia quando cambia il codice, non a ogni riavvio. Si
  * ricalcola al massimo ogni cinque secondi.
  */
-const CLIENT_PATHS = ['engine', 'worlds', 'index.html', 'offline.html', 'sw.js', 'manifest.webmanifest'];
+const CLIENT_PATHS = ['engine', 'worlds', 'home', 'index.html', 'offline.html', 'sw.js', 'manifest.webmanifest'];
 let clientVersion = { at: 0, value: '' };
 function versioneClient() {
   if (Date.now() - clientVersion.at < 5000) return clientVersion.value;
@@ -243,7 +245,8 @@ function handler(req, res) {
   res.on('finish', () => {
     // la scena chiede lo stato ogni cinque secondi: a riportarlo tutto, il
     // registro non direbbe piu niente
-    const quieto = req.url.startsWith(STATE_URL) || (req.url.startsWith(API_URL) && req.method === 'GET');
+    const quieto = req.url.startsWith(STATE_URL) || req.url.startsWith(WORLDS_URL) ||
+      (req.url.startsWith(API_URL) && req.method === 'GET');
     if (quieto && res.statusCode === 200) return;
     process.stderr.write('  ' + req.method + ' ' + req.url + ' ' + res.statusCode + '\n');
   });
@@ -252,8 +255,9 @@ function handler(req, res) {
   if (urlPath === API_URL && req.method === 'POST') return scrittura(req, res);
   if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'solo lettura\n');
   if (urlPath === API_URL) return lettura(res);
+  if (urlPath === WORLDS_URL) return sendJson(res, 200, registry.listWorlds());
 
-  if (urlPath === PING_URL) return send(res, 200, JSON.stringify({ app: 'acropoli' }), MIME['.json']);
+  if (urlPath === PING_URL) return send(res, 200, JSON.stringify({ app: 'tokenstone' }), MIME['.json']);
 
   // lo stato sta dove lo scrive il contatore, che i test possono spostare
   if (urlPath === STATE_URL) return serveFile(req, res, counter.STATE_PATH);
@@ -282,7 +286,7 @@ function isOurServer(port) {
       res.setEncoding('utf8');
       res.on('data', (c) => { body += c; });
       res.on('end', () => {
-        try { resolve(JSON.parse(body).app === 'acropoli'); } catch (_) { resolve(false); }
+        try { resolve(JSON.parse(body).app === 'tokenstone'); } catch (_) { resolve(false); }
       });
     });
     req.on('timeout', () => { req.destroy(); resolve(false); });
@@ -319,7 +323,7 @@ function main() {
     const port = server.address().port;
     PORTA = port;
     const url = 'http://localhost:' + port;
-    process.stdout.write('Acropoli in ascolto su ' + url + '   (Ctrl+C per fermare)\n');
+    process.stdout.write('TokenStone in ascolto su ' + url + '   (Ctrl+C per fermare)\n');
     if (args.host !== '127.0.0.1') {
       process.stdout.write('  attenzione: ascolto anche su ' + args.host +
         ', la scena e il tuo consumo sono visibili dalla rete\n');

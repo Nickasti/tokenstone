@@ -93,7 +93,11 @@ function avvia() {
     r = await richiesta(port, '/worlds/acropolis/world.json');
     verifica('i dati del mondo', JSON.parse(r.body || '{}').id, 'acropolis');
     r = await richiesta(port, '/');
-    verifica('la radice porta al mondo', (r.body || '').includes('/worlds/acropolis/'), true);
+    verifica('la radice e la pagina iniziale', (r.body || '').includes('<h1>TokenStone</h1>'), true);
+    r = await richiesta(port, '/api/worlds');
+    const elenco = JSON.parse(r.body || '[]');
+    verifica('i mondi, in ordine', elenco.map((w) => w.id + ':' + w.status), ['acropolis:available', 'giza:coming', 'forum:coming']);
+    verifica("solo l'Acropoli ha gia una pagina", elenco.map((w) => w.has_page), [true, false, false]);
     r = await richiesta(port, '/', 'HEAD');
     verifica('HEAD senza corpo', [r.status, r.body], [200, '']);
     r = await richiesta(port, '/non-esiste.js');
@@ -114,8 +118,8 @@ function avvia() {
     verifica('service worker come JavaScript', [r.status, r.type], [200, 'text/javascript']);
     r = await richiesta(port, '/offline.html');
     verifica('pagina "cantiere spento"', [r.status, r.type], [200, 'text/html']);
-    r = await richiesta(port, '/__acropoli');
-    verifica('il server si riconosce', JSON.parse(r.body || '{}').app, 'acropoli');
+    r = await richiesta(port, '/__tokenstone');
+    verifica('il server si riconosce', JSON.parse(r.body || '{}').app, 'tokenstone');
 
     console.log('\n1c. Un secondo avvio sulla stessa porta non fallisce: trova il');
     console.log('    cantiere acceso, lo dice ed esce, cosi il doppio clic e sicuro.\n');
@@ -157,8 +161,12 @@ function avvia() {
     r = await richiesta(port, '/api/registry');
     let api = JSON.parse(r.body || '{}');
     verifica('lettura', [r.status, r.type], [200, 'application/json']);
-    verifica('mondo attivo al primo avvio', api.active, 'acropolis');
-    verifica('tutto il consumo va all\'Acropoli', api.worlds && api.worlds.acropolis.credit_te, 1234);
+    verifica('nessun mondo attivo al primo avvio', api.active, null);
+    verifica('tutto il consumo e in attesa', api.waiting_te, 1234);
+    r = await richiesta(port, '/api/registry', 'POST', JSON.stringify({ action: 'choose', world: 'acropolis' }), { 'Content-Type': 'application/json' });
+    verifica("scelta l'Acropoli, riceve tutto", JSON.parse(r.body || '{}').worlds.acropolis.credit_te, 1234);
+    r = await richiesta(port, '/api/registry', 'POST', JSON.stringify({ action: 'choose', world: 'giza' }), { 'Content-Type': 'application/json' });
+    verifica('un mondo in arrivo non si sceglie', r.status, 400);
     verifica('il totale del contatore e incluso', api.counter && api.counter.total_te, 1234);
     verifica('la versione dei file della scena', /^[0-9a-f]{12}$/.test(api.client_version), true);
     const versione2 = JSON.parse((await richiesta(port, '/api/registry')).body).client_version;
