@@ -98,8 +98,47 @@ altrimenti smaltire la coda richiederebbe mezz'ora.
 `http://localhost:8000/?dev` aggiunge i comandi da cantiere: posa singola,
 cantiere continuo e il credito regalato della simulazione. Servono a chi
 lavora al codice - vedere una fase precisa, provare una modifica senza
-aspettare i token - e non hanno senso per chi visita. Sono la stessa scena e
-lo stesso stato: cambia solo cosa e in mano a chi guarda.
+aspettare i token - e non hanno senso per chi visita. Il credito regalato
+resta in quel browser e non arriva mai al registro: il cantiere vero non se
+ne accorge. *Riparti*, in `?dev`, torna anche al credito vero.
+
+---
+
+## I mondi e il registro
+
+L'Acropoli e il primo di piu mondi da costruire. Il contatore conosce un
+numero solo, il totale dei TE consumati; il **registro**,
+`world/cantiere.json`, lo divide fra i mondi.
+
+- **Un mondo attivo alla volta.** Riceve i TE dal momento in cui lo si sceglie.
+  Il registro ricorda questi intervalli del totale, i *tratti*.
+- **Pausa.** Scegliere un altro mondo chiude il tratto di quello attivo: il
+  mondo lasciato a meta tiene il suo credito e lo ritrova quando torna attivo.
+- **Avanzo.** Quando un mondo e completato, il credito in piu passa al mondo
+  scelto dopo. Finche non si sceglie, resta in attesa e non si perde.
+- **Durata.** Ogni mondo dichiara le sue settimane di lavoro, e il suo costo
+  totale ne discende (vedi *Quanto costa un pezzo*).
+
+**I blocchi posati non si salvano: si calcolano.** Ogni mondo conosce il costo
+dei suoi pezzi in ordine; dato il credito, quanti se ne pagano e un conto.
+Cosi il cantiere e lo stesso in ogni browser e su ogni dispositivo, e niente
+dell'avanzamento vive nel browser, che ricorda solo l'ora del sole. Il registro
+tiene il punto piu alto raggiunto da ogni mondo, perche il cantiere non si
+disfi se i prezzi cambiano, e quanto costa ogni mondo, perche a mondo
+completato si sappia quanto avanza.
+
+*Riparti* non cancella niente: il credito resta, e la scena rivede la
+costruzione dall'inizio, accelerata finche non torna al punto raggiunto.
+
+Il registro si legge e si scrive su `/api/cantiere`. Le scritture sono due -
+"scegli mondo" e "riporta avanzamento" - e il server le accetta solo dal
+computer locale, solo come JSON e solo dalla pagina della scena: un altro
+sito aperto nel browser non puo cambiare il cantiere. Per ricominciare da
+capo la divisione del credito basta cancellare `world/cantiere.json`: al
+riavvio tutto il consumo torna all'Acropoli.
+
+La pagina iniziale, per scegliere fra i mondi, arriva con la fase 3 di
+`TODO.md`.
 
 ---
 
@@ -146,8 +185,8 @@ il contatore la segue.
 2. Il costo in dollari diventa **token equivalenti** con `te_per_usd`
    (200.000). Un TE e il costo di un token di input di Opus: l'output ne vale
    cinque, la lettura di cache un decimo.
-3. La scena accredita i TE cosi come sono, senza divisori: solo la differenza
-   rispetto a quanto ha gia consegnato, che tiene in `localStorage`.
+3. Il registro divide il totale fra i mondi, e ogni mondo spende i suoi TE
+   cosi come sono, senza divisori (vedi *I mondi e il registro*).
 
 ### Quanto costa un pezzo
 
@@ -254,8 +293,8 @@ Claude Opus 5, un ventesimo su Claude Opus 5.5.
 inizia a lavorare qui, e di proporre l'agente se serve.
 
 **Quando un prezzo scende**, il totale ricalcolato scende con lui. I blocchi
-gia posati e il credito gia consegnato restano - la scena non toglie niente -
-ma il cantiere si ferma finche il consumo nuovo non recupera la differenza.
+gia posati restano - il registro ricorda il punto piu alto raggiunto - ma il
+cantiere si ferma finche il consumo nuovo non recupera la differenza.
 Le sessioni archiviate non si ricalcolano: il loro transcript non c'e piu, e
 tengono il prezzo con cui erano state contate.
 
@@ -341,12 +380,13 @@ Acropoli.cmd          avvio a doppio clic: Windows; Acropoli.command per macOS, 
 manifest.webmanifest  per installare la scena come app
 sw.js, spento.html    la pagina che l app mostra quando il server e spento
 assets/icons/         icone dell app, generate da tools/make-icons.js
-tools/server.js       server della scena, con il contatore dentro
-tools/test/           test del server
+tools/server.js       server della scena, con il contatore dentro e il registro su /api/cantiere
+tools/cantiere.js     il registro dei cantieri: mondo attivo, tratti di credito, avanzi
+tools/test/           test del registro e del server
 tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, test/
 .claude/agents/       aggiorna-listino.md, il subagente che aggiorna i prezzi
 CLAUDE.md             istruzioni per Claude Code quando lavora in questo progetto
-world/                world-state.json, scritto dal contatore (non versionato)
+world/                world-state.json del contatore e cantiere.json del registro (non versionati)
 docs/conversazione.md come è nato il progetto e perché le scelte sono queste
 ```
 
@@ -364,9 +404,9 @@ c'era prima. Tutto il resto e stato portato su a spalla e costa token come ogni
 altro blocco. Se aggiungi elementi al pianoro, tieni la stessa linea.
 
 Quello che e sparso a caso - votivi, alberi, macchia, affioramenti - usa un
-generatore con seme fisso. Non toccarlo alla leggera: lo stato salvato in
-`localStorage` e un indice dentro l'elenco dei pezzi, e se l'elenco cambiasse
-ordine quell'indice punterebbe a un altro pezzo.
+generatore con seme fisso. Non toccarlo alla leggera: il cantiere si calcola
+come "i primi N pezzi dell'elenco", e il registro ricorda N. Se l'elenco
+cambiasse ordine, quei primi N sarebbero altri pezzi.
 
 ---
 

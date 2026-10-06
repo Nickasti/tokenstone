@@ -7,6 +7,8 @@ assets/hdri/*.hdr
 # contatore di token: stato del mondo e diario, locali per definizione
 world/world-state.json
 world/.world-state.*
+world/cantiere.json
+world/.cantiere.*
 tools/token-counter/counter.log
 
 # listino candidato dell agente, finche non viene approvato

@@ -36,9 +36,9 @@ function verifica(nome, ottenuto, atteso) {
 const attendi = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** Una richiesta col percorso esatto, senza che il client lo normalizzi. */
-function richiesta(port, percorso, method) {
+function richiesta(port, percorso, method, body, headers) {
   return new Promise((resolve) => {
-    const req = http.request({ host: '127.0.0.1', port, path: percorso, method: method || 'GET' }, (res) => {
+    const req = http.request({ host: '127.0.0.1', port, path: percorso, method: method || 'GET', headers: headers || {} }, (res) => {
       let body = '';
       res.setEncoding('utf8');
       res.on('data', (c) => { body += c; });
@@ -51,7 +51,7 @@ function richiesta(port, percorso, method) {
     });
     req.setTimeout(3000, () => { req.destroy(); resolve({ status: 'nessuna risposta' }); });
     req.on('error', (e) => resolve({ status: 'errore ' + e.code }));
-    req.end();
+    req.end(body === undefined ? undefined : body);
   });
 }
 
@@ -142,6 +142,45 @@ function avvia() {
     await attendi(1200);
     stato = JSON.parse((await richiesta(port, '/world/world-state.json')).body || '{}');
     verifica('il transcript diventa credito', stato.total_te, 1234);
+
+    console.log('\n2b. Il registro dei cantieri: si legge, e si scrive solo nei modi previsti.\n');
+
+    const JSON_H = { 'Content-Type': 'application/json' };
+    const scrivi = (dati, headers) => richiesta(port, '/api/cantiere', 'POST', JSON.stringify(dati), headers || JSON_H);
+
+    r = await richiesta(port, '/api/cantiere');
+    let api = JSON.parse(r.body || '{}');
+    verifica('lettura', [r.status, r.type], [200, 'application/json']);
+    verifica('mondo attivo al primo avvio', api.attivo, 'acropoli');
+    verifica('tutto il consumo va all\'Acropoli', api.mondi && api.mondi.acropoli.credito_te, 1234);
+    verifica('il totale del contatore e incluso', api.contatore && api.contatore.totale_te, 1234);
+    verifica('il registro e su disco', fs.existsSync(path.join(path.dirname(STATE), 'cantiere.json')), true);
+
+    r = await scrivi({ azione: 'riporta', mondo: 'acropoli', pezzi: 3280, costo_te: 1e8, dono_te: 5e5, posati: 7 });
+    verifica('riporto accettato', [r.status, JSON.parse(r.body).mondi.acropoli.posati_max], [200, 7]);
+    r = await richiesta(port, '/api/cantiere');
+    verifica('e ricordato', JSON.parse(r.body).mondi.acropoli.posati_max, 7);
+
+    r = await scrivi({ azione: 'riporta', mondo: 'acropoli', pezzi: 3280, costo_te: 1e8, dono_te: 5e5, posati: 9 },
+      { 'Content-Type': 'application/json', Origin: 'http://localhost:' + port });
+    verifica('dalla pagina della scena', r.status, 200);
+    r = await scrivi({ azione: 'scegli', mondo: 'acropoli' },
+      { 'Content-Type': 'application/json', Origin: 'https://sito-estraneo.example' });
+    verifica('da un altro sito: rifiutato', r.status, 403);
+    r = await richiesta(port, '/api/cantiere', 'POST', '{"azione":"scegli","mondo":"acropoli"}', { 'Content-Type': 'text/plain' });
+    verifica('senza JSON dichiarato: rifiutato', r.status, 415);
+    r = await scrivi({ azione: 'scegli', mondo: 'atlantide' });
+    verifica('mondo sconosciuto: rifiutato', [r.status, /sconosciuto/.test(r.body)], [400, true]);
+    r = await scrivi({ azione: 'demolisci' });
+    verifica('azione sconosciuta: rifiutata', r.status, 400);
+    r = await richiesta(port, '/api/cantiere', 'POST', '{ non json', JSON_H);
+    verifica('JSON rotto: rifiutato', r.status, 400);
+    r = await richiesta(port, '/api/cantiere', 'POST', JSON.stringify({ azione: 'riporta', x: 'a'.repeat(20000) }), JSON_H);
+    verifica('richiesta troppo grande: rifiutata', r.status, 413);
+    r = await richiesta(port, '/api/cantiere', 'PUT', '{}', JSON_H);
+    verifica('altri metodi: rifiutati', r.status, 405);
+    r = await richiesta(port, '/api/cantiere');
+    verifica('dopo i rifiuti il registro e intatto', JSON.parse(r.body).mondi.acropoli.posati_max, 9);
 
     console.log('\n3. Fuori dalla scena non si esce.\n');
 

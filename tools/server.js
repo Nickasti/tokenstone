@@ -22,11 +22,16 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 const counter = require('./token-counter/counter.js');
+const cantiere = require('./cantiere.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const STATE_URL = '/world/world-state.json';
 // con questo un secondo avvio riconosce che sulla porta c'e gia il cantiere
 const PING_URL = '/__acropoli';
+// il registro dei cantieri: si legge, e si scrive solo in due modi
+const API_URL = '/api/cantiere';
+const MAX_BODY = 8 * 1024;
+let PORTA = null;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -111,17 +116,103 @@ function serveFile(req, res, file) {
   });
 }
 
+/** Il totale del contatore e quello che la scena mostra di lui. */
+function leggiContatore() {
+  try {
+    const s = JSON.parse(fs.readFileSync(counter.STATE_PATH, 'utf8'));
+    return {
+      totale_te: Number(s.total_te) || 0,
+      totale_usd: Number(s.total_usd) || 0,
+      sessioni: s.sessions ? Object.keys(s.sessions).length : 0,
+      installato: s.installed_at || null,
+      prezzi_stimati: Array.isArray(s.unknown_models) ? s.unknown_models : [],
+    };
+  } catch (_) {
+    // il contatore non ha ancora scritto niente: il cantiere aspetta
+    return { totale_te: 0, totale_usd: 0, sessioni: 0, installato: null, prezzi_stimati: [] };
+  }
+}
+
+function sendJson(res, status, obj) {
+  send(res, status, JSON.stringify(obj), MIME['.json']);
+}
+
+const LOOPBACK = new Set(['127.0.0.1', '::1', '::ffff:127.0.0.1']);
+
+/**
+ * Le scritture sul registro. Tre controlli, perche ogni pagina aperta nel
+ * browser puo provare a mandare richieste a localhost:
+ * - solo dal computer stesso, anche se il server ascolta sulla rete;
+ * - solo come JSON, che un sito estraneo non puo inviare senza chiedere il
+ *   permesso al server, e il permesso non viene mai dato;
+ * - solo dalla pagina della scena, se il browser dice da dove arriva.
+ */
+function scrittura(req, res) {
+  if (!LOOPBACK.has(req.socket.remoteAddress)) return sendJson(res, 403, { errore: 'solo dal computer locale' });
+  const tipo = (req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+  if (tipo !== 'application/json') return sendJson(res, 415, { errore: 'serve application/json' });
+  const origin = req.headers.origin;
+  if (origin && origin !== 'http://localhost:' + PORTA && origin !== 'http://127.0.0.1:' + PORTA) {
+    return sendJson(res, 403, { errore: 'origine non ammessa' });
+  }
+
+  let body = '';
+  let troppo = false;
+  req.setEncoding('utf8');
+  req.on('data', (c) => {
+    if (troppo) return;
+    body += c;
+    if (body.length > MAX_BODY) {
+      troppo = true;
+      res.setHeader('Connection', 'close');
+      sendJson(res, 413, { errore: 'richiesta troppo grande' });
+    }
+  });
+  req.on('end', () => {
+    if (troppo) return;
+    let dati;
+    try { dati = JSON.parse(body); } catch (_) { return sendJson(res, 400, { errore: 'JSON non valido' }); }
+    if (!dati || typeof dati !== 'object') return sendJson(res, 400, { errore: 'JSON non valido' });
+
+    const now = new Date().toISOString();
+    const totale = leggiContatore().totale_te;
+    const { reg } = cantiere.leggi(now);
+    try {
+      if (dati.azione === 'riporta') cantiere.riporta(reg, dati, totale, now);
+      else if (dati.azione === 'scegli') cantiere.scegli(reg, dati.mondo, totale);
+      else return sendJson(res, 400, { errore: 'azione sconosciuta' });
+    } catch (err) {
+      if (err instanceof cantiere.Rifiuto) return sendJson(res, 400, { errore: err.message });
+      throw err;
+    }
+    cantiere.scrivi(reg);
+    sendJson(res, 200, cantiere.vista(reg, totale));
+  });
+}
+
+function lettura(res) {
+  const now = new Date().toISOString();
+  const contatore = leggiContatore();
+  const { reg, nuovo } = cantiere.leggi(now);
+  // il primo avvio, o un registro recuperato dalla copia, si fissa su disco
+  if (nuovo) cantiere.scrivi(reg);
+  sendJson(res, 200, Object.assign({ contatore }, cantiere.vista(reg, contatore.totale_te)));
+}
+
 function handler(req, res) {
   res.on('finish', () => {
     // la scena chiede lo stato ogni cinque secondi: a riportarlo tutto, il
     // registro non direbbe piu niente
-    if (req.url.startsWith(STATE_URL) && res.statusCode === 200) return;
+    const quieto = req.url.startsWith(STATE_URL) || (req.url.startsWith(API_URL) && req.method === 'GET');
+    if (quieto && res.statusCode === 200) return;
     process.stderr.write('  ' + req.method + ' ' + req.url + ' ' + res.statusCode + '\n');
   });
 
-  if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'solo lettura\n');
-
   const urlPath = req.url.split('?')[0];
+  if (urlPath === API_URL && req.method === 'POST') return scrittura(req, res);
+  if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'solo lettura\n');
+  if (urlPath === API_URL) return lettura(res);
+
   if (urlPath === PING_URL) return send(res, 200, JSON.stringify({ app: 'acropoli' }), MIME['.json']);
 
   // lo stato sta dove lo scrive il contatore, che i test possono spostare
@@ -183,6 +274,7 @@ function main() {
 
   server.listen(args.port, args.host, () => {
     const port = server.address().port;
+    PORTA = port;
     const url = 'http://localhost:' + port;
     process.stdout.write('Acropoli in ascolto su ' + url + '   (Ctrl+C per fermare)\n');
     if (args.host !== '127.0.0.1') {

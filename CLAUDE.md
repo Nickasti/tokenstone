@@ -7,7 +7,10 @@ Claude Code. Node 18 o successivo, nessuna dipendenza.
   listino ed esegue i test del contatore e del server.
 - Commenti, testi dell'interfaccia e documentazione sono in italiano.
 - Non cambiare l'ordine dei pezzi ne il seme dei generatori in `src/site.js`:
-  l'avanzamento salvato e un indice nell'elenco dei pezzi.
+  il cantiere e "i primi N pezzi dell'elenco", e il registro
+  (`world/cantiere.json`) ricorda N.
+- Il registro non si modifica a mano: passa da `/api/cantiere` o da
+  `tools/cantiere.js`, che hanno i controlli.
 - Il contatore legge dai transcript solo `message.usage`, il modello,
   l'orario e la cartella di lavoro. Non fargli leggere il testo dei messaggi.
 - `docs/conversazione.md` e il diario delle decisioni: quando una scelta

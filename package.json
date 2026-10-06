@@ -5,7 +5,7 @@
   "description": "L'Acropoli di Pericle ricostruita blocco per blocco, pagata coi token che consumi lavorando con Claude Code.",
   "scripts": {
     "start": "node tools/server.js",
-    "test": "node tools/token-counter/check-pricing.js && node tools/token-counter/test/run-tests.js && node tools/test/server-tests.js"
+    "test": "node tools/token-counter/check-pricing.js && node tools/token-counter/test/run-tests.js && node tools/test/cantiere-tests.js && node tools/test/server-tests.js"
   },
   "engines": {
     "node": ">=18"

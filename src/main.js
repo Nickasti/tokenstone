@@ -96,9 +96,40 @@ const GRANT_TE = Math.round(1000 * TE_PER_WEIGHT);
 const DEV = new URLSearchParams(location.search).has('dev');
 document.body.classList.toggle('dev', DEV);
 
-let placed = 0, autoOn = !DEV, hour = 8.4;
+/* ─────────── il cantiere si calcola dal credito ───────────
+   I blocchi posati non si salvano: dato il credito del mondo, quanti se ne
+   possono pagare e un conto, lo stesso in ogni browser. COSTO_FINO_A[k] e
+   quanto costano i primi k pezzi, in ordine. */
+const MONDO = 'acropoli';
+const COSTO_FINO_A = [0];
+for (const p of pieces) COSTO_FINO_A.push(COSTO_FINO_A[COSTO_FINO_A.length - 1] + p.cost);
+
+/** Quanti pezzi, dall'inizio, si pagano con un credito: ricerca binaria. */
+function pezziPagabili(credito) {
+  let lo = 0, hi = TOTAL;
+  while (lo < hi) {
+    const mid = (lo + hi + 1) >> 1;
+    if (COSTO_FINO_A[mid] <= credito) lo = mid; else hi = mid - 1;
+  }
+  return lo;
+}
+
+/* Il credito regalato di ?dev vive solo in questo browser e non arriva mai
+   al registro: serve a provare il codice, non a costruire. */
+const DEV_KEY = 'acropoli:dev-credito';
+let devBonus = 0;
+if (DEV) {
+  try { devBonus = Number(localStorage.getItem(DEV_KEY)) || 0; } catch (e) { /* niente */ }
+}
+
+const tokenSource = new TokenSource(MONDO);
+const creditoTotale = () => START_TE + tokenSource.credit + devBonus;
+/* fin dove puo arrivare il cantiere: quanto si paga, e mai meno del punto
+   gia raggiunto, cosi un ricalcolo dei prezzi non disfa niente */
+const traguardo = () => Math.max(Math.min(tokenSource.posatiMax, TOTAL), pezziPagabili(creditoTotale()));
+
+let placed = 0, autoOn = !DEV, hour = 8.4, sincronizzato = false;
 const flying = [];
-const tokenSource = new TokenSource(START_TE);
 
 function place(i, animate) {
   const p = pieces[i];
@@ -112,16 +143,40 @@ function place(i, animate) {
 }
 
 function step() {
-  if (placed >= TOTAL) return false;
+  if (placed >= traguardo()) return false;
   const p = pieces[placed];
-  if (!tokenSource.spend(p.cost)) return false;
   place(placed, true);
   placed++;
   const next = placed < TOTAL ? pieces[placed].phase : null;
   if (next !== p.phase) setTimeout(() => bakePhase(p.phase), 700);
   refresh();
-  save();
+  riportaPresto();
   return true;
+}
+
+/** Posa subito, senza animazione, i primi n pezzi: quello che c'era gia. */
+function posaSubito(n) {
+  for (let i = placed; i < n; i++) place(i, false);
+  placed = Math.max(placed, n);
+  PHASES.forEach(ph => {
+    const idxs = pieces.map((p, i) => p.phase === ph.k ? i : -1).filter(i => i >= 0);
+    if (idxs.length && idxs.every(i => i < placed)) bakePhase(ph.k);
+  });
+}
+
+/* Al server si dice com'e fatto il mondo e fin dove e arrivato, non piu di
+   una volta ogni due secondi: mentre smaltisce una coda il cantiere posa un
+   pezzo ogni pochi centesimi di secondo. Con ?dev si dice solo la forma: il
+   credito regalato non deve alzare il punto raggiunto per davvero. */
+let riportoInAttesa = null;
+function riporta() {
+  riportoInAttesa = null;
+  const dati = { pezzi: TOTAL, costo_te: TOTAL_COST, dono_te: START_TE };
+  if (!DEV) dati.posati = placed;
+  tokenSource.report(dati);
+}
+function riportaPresto() {
+  if (!riportoInAttesa) riportoInAttesa = setTimeout(riporta, 2000);
 }
 
 /* ─────────── sole ─────────── */
@@ -202,20 +257,29 @@ addEventListener('resize', resize);
 const ui = new UI({
   build: () => step(),
   toggleAuto: () => { autoOn = !autoOn; ui.setAuto(autoOn); },
-  grant: () => { tokenSource.grant(GRANT_TE); refresh(); save(); },
+  grant: () => {
+    devBonus += GRANT_TE;
+    try { localStorage.setItem(DEV_KEY, String(devBonus)); } catch (e) { /* niente */ }
+    refresh();
+  },
   setHour: h => { hour = h; applySun(h); save(); },
+  /* Riparti non cancella niente: il cantiere e un conto sul credito, e il
+     credito resta. Si rivede la costruzione dall'inizio, accelerata finche
+     non raggiunge di nuovo il punto a cui era. Con ?dev torna anche al
+     credito vero, senza quello regalato. */
   reset: () => {
     unbakeAll();
     pieces.forEach(p => { p.obj.visible = false; setGhost(p.obj, false); p.obj.position.y = p.y; });
     flying.length = 0;
     placed = 0;
-    tokenSource.balance = START_TE;
-    tokenSource.resetCredit();
-    if (tokenSource.live) tokenSource.fetchOnce();
+    if (DEV) {
+      devBonus = 0;
+      try { localStorage.removeItem(DEV_KEY); } catch (e) { /* niente */ }
+    }
     autoOn = !DEV;   // senza comandi manuali il cantiere deve ripartire da solo
     ui.setAuto(autoOn);
     renderer.shadowMap.needsUpdate = true;
-    refresh(); save();
+    refresh();
   },
   fly: () => {
     const k = FOCUS[placed < TOTAL ? pieces[placed].phase : 'p-krepis'];
@@ -226,41 +290,42 @@ const ui = new UI({
 
 function refresh() {
   ui.render({
-    tokens: tokenSource.balance, placed, total: TOTAL,
+    tokens: creditoTotale() - COSTO_FINO_A[placed], placed, total: TOTAL,
     totalCost: TOTAL_COST, source: tokenSource.info,
     warn: tokenSource.priceWarning
   });
 }
 ui.setGrant(GRANT_TE);
-/* Il credito arriva da solo, fuori da ogni gesto dell'utente: se non lo si
-   salva subito, il contatore lo segna come gia consegnato e una ricarica
-   della pagina lo fa sparire. */
-tokenSource.onChange(() => { refresh(); save(); });
 
-/* ─────────── persistenza ─────────── */
-const KEY = 'acropoli:stato';
+/* Alla prima risposta del server si posa subito quello che era gia stato
+   costruito - anche da un altro browser - e si dice al registro com'e fatto
+   il mondo. Il resto arriva con l'animazione. */
+tokenSource.onChange(() => {
+  if (!sincronizzato && tokenSource.loaded) {
+    sincronizzato = true;
+    posaSubito(Math.min(tokenSource.posatiMax, TOTAL));
+    riporta();
+  }
+  refresh();
+});
+
+/* ─────────── preferenze ───────────
+   Nel browser resta solo l'ora del sole: l'avanzamento e un conto sul
+   credito, e il credito sta nel registro. */
+const ORA_KEY = 'acropoli:ora';
+const VECCHIE_CHIAVI = ['acropoli:stato', 'acropoli:credito-te', 'acropoli:credito'];
 function save() {
-  try {
-    localStorage.setItem(KEY, JSON.stringify({ placed, te: tokenSource.balance, hour }));
-  } catch (e) { /* modalita privata: si continua senza salvare */ }
+  try { localStorage.setItem(ORA_KEY, String(hour)); } catch (e) { /* modalita privata */ }
 }
 function load() {
   try {
-    const s = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (!s) return;
-    /* i salvataggi di prima contavano in unita di peso, non in TE */
-    if (typeof s.te === 'number') tokenSource.balance = s.te;
-    else if (typeof s.tokens === 'number') tokenSource.balance = Math.round(s.tokens * TE_PER_WEIGHT);
-    if (s.hour) { hour = s.hour; ui.el.hour.value = hour; }
-    for (let i = 0; i < s.placed; i++) place(i, false);
-    placed = s.placed;
-    const complete = {};
-    PHASES.forEach(ph => {
-      const idxs = pieces.map((p, i) => p.phase === ph.k ? i : -1).filter(i => i >= 0);
-      if (idxs.length && idxs.every(i => i < placed)) complete[ph.k] = true;
-    });
-    Object.keys(complete).forEach(bakePhase);
-  } catch (e) { /* stato corrotto: si riparte da zero */ }
+    let h = Number(localStorage.getItem(ORA_KEY));
+    // le versioni di prima salvavano l'ora insieme all'avanzamento
+    const vecchio = JSON.parse(localStorage.getItem('acropoli:stato') || 'null');
+    if (!h && vecchio && vecchio.hour) h = vecchio.hour;
+    VECCHIE_CHIAVI.forEach(k => localStorage.removeItem(k));
+    if (h) { hour = h; ui.el.hour.value = hour; save(); }
+  } catch (e) { /* si parte dall'ora predefinita */ }
 }
 
 /* ─────────── loop ─────────── */
@@ -269,18 +334,20 @@ function frame(now) {
   const dt = Math.min((now - last) / 1000, .05);
   last = now;
 
-  if (autoOn) {
+  // si comincia dopo la prima risposta del server, che sa da dove ripartire
+  if (autoOn && sincronizzato) {
     /* Un blocco alla volta, con la calma di chi lo guarda salire. Se pero' il
        credito arretrato e molto - una settimana di lavoro, un cantiere appena
        riavviato - si accelera, altrimenti si starebbe mezz'ora a smaltire
        la coda. */
-    const p = placed < TOTAL ? pieces[placed] : null;
-    const passo = p && tokenSource.balance > p.cost * 20 ? .06 : .45;
+    const passo = traguardo() - placed > 20 ? .06 : .45;
     acc += dt;
     while (acc > passo) {
       acc -= passo;
       if (!step()) {
         if (placed >= TOTAL) { autoOn = false; ui.setAuto(false); }
+        // in attesa di credito il tempo non si accumula: niente raffiche all'arrivo
+        acc = 0;
         break;
       }
     }

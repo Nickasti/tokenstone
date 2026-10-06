@@ -602,7 +602,52 @@ prova deve aprire la pagina come fa l'utente, non forzarla.
 
 ---
 
-## 16. Cosa resta da fare
+## 16. Il cantiere si calcola dal credito
+
+L'Acropoli non resta sola: dopo verranno la piana di Giza, il Foro Romano, e
+forse mondi moderni o inventati. Chi usa il progetto sceglie un mondo, lo
+costruisce in settimane o mesi, e quando l'ha finito - o quando vuole cambiare
+- ne comincia un altro. Le decisioni, prese prima di scrivere codice: un mondo
+si puo mettere in pausa; il credito che avanza a mondo completato passa al
+successivo; ogni mondo ha la sua durata.
+
+**Il problema che c'era gia.** L'avanzamento viveva nel browser: ogni browser
+aveva il suo cantiere, e un profilo nuovo ripartiva da zero mentre i TE
+restavano. Con un mondo solo era un fastidio, con piu mondi sarebbe stato un
+caos di cantieri divergenti.
+
+**Il rovesciamento.** I blocchi posati non si salvano piu: si calcolano. Ogni
+mondo conosce il costo dei suoi pezzi in ordine, e dato il credito sa quanti
+ne puo pagare. E un conto, e lo stesso conto da lo stesso cantiere in ogni
+browser. Nella verifica, un secondo profilo di Chrome mai usato ha mostrato
+subito i 208 blocchi che il primo aveva appena posato, con lo stesso credito
+residuo al TE e lo stesso pezzo successivo.
+
+**Il registro.** Resta da ricordare poco, e lo ricorda il server in
+`world/cantiere.json`: quale mondo riceve i token, e da quando. Il totale del
+contatore viene diviso in tratti, un intervallo per ogni periodo in cui un
+mondo e stato attivo; la pausa chiude un tratto, la ripresa ne apre un altro.
+Quando un mondo completato cede il posto, il suo avanzo passa al nuovo. Per
+ogni mondo si ricorda anche il punto piu alto raggiunto - un listino corretto
+puo abbassare il totale, ma il cantiere non deve disfarsi - e quanto costa,
+perche senza il costo l'avanzo non si calcola.
+
+**Il server comincia a scrivere.** Fino a qui era di sola lettura. Ora accetta
+due scritture, "scegli mondo" e "riporta avanzamento", con tre controlli: solo
+dal computer locale, solo come JSON, solo dalla pagina della scena. Il secondo
+non e un dettaglio: qualunque sito aperto nel browser puo mandare richieste a
+`localhost`, ma non puo mandare JSON a un altro indirizzo senza chiederne il
+permesso, e questo server il permesso non lo da mai.
+
+**Quello che cambia per chi guarda.** Niente, quasi. *Riparti* non azzera piu
+il credito, che non e della scena: rivede la costruzione dall'inizio. Il
+credito regalato di `?dev` resta in quel browser e non tocca il registro, e
+cosi si chiude un punto rimasto aperto da settimane: quel pulsante mescolava
+credito vero e finto.
+
+---
+
+## 17. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose
