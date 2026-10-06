@@ -1,11 +1,16 @@
-import { PHASES } from './config.js';
 import { pieces } from './pieces.js';
 
 const fmt = n => Math.floor(n).toLocaleString('it-IT');
 
+/* Il pannello del cantiere: credito, prossimo blocco, fasi, sole. Le fasi e
+   le parole della fine del cantiere sono del mondo, e arrivano con lui:
+     phases     [{ k, b, y, n, t }] - chiave, edificio, anno, nome, testo
+     completion { mark, text }       - cosa si legge a cantiere compiuto */
 export class UI {
-  constructor(handlers) {
+  constructor(handlers, world) {
     this.h = handlers;
+    this.phases = world.phases;
+    this.completion = world.completion;
     this.el = {
       tok:   document.getElementById('tokval'),
       src:   document.getElementById('toksrc'),
@@ -27,7 +32,7 @@ export class UI {
 
   buildPhaseList() {
     let lastB = '';
-    PHASES.forEach(ph => {
+    this.phases.forEach(ph => {
       ph.total = pieces.filter(p => p.phase === ph.k).length;
       if (ph.b !== lastB) {
         const h = document.createElement('div');
@@ -81,10 +86,8 @@ export class UI {
 
     const done = placed >= total;
     const p = done ? null : pieces[placed];
-    this.el.mark.textContent = done ? 'TELOS' : p.id;
-    this.el.desc.textContent = done
-      ? 'Il programma di Pericle e compiuto - 406 a.C.'
-      : p.desc;
+    this.el.mark.textContent = done ? this.completion.mark : p.id;
+    this.el.desc.textContent = done ? this.completion.text : p.desc;
     this.el.build.disabled = done || tokens < p.cost;
     this.el.build.textContent = done ? 'Cantiere concluso'
       : (tokens < p.cost
@@ -93,7 +96,7 @@ export class UI {
     this.el.auto.disabled = done;
 
     const cur = done ? null : p.phase;
-    PHASES.forEach(ph => {
+    this.phases.forEach(ph => {
       let n = 0;
       for (let i = 0; i < placed; i++) if (pieces[i].phase === ph.k) n++;
       document.getElementById('c-' + ph.k).textContent = `${n}/${ph.total}`;
@@ -102,7 +105,7 @@ export class UI {
         'ph' + (n === ph.total ? ' done' : (ph.k === cur ? ' on' : ''));
     });
 
-    const ph = PHASES.find(x => x.k === cur);
+    const ph = this.phases.find(x => x.k === cur);
     this.el.note.textContent = ph ? ph.t
       : `Cantiere completo: ${fmt(total)} blocchi per ${fmt(totalCost)} TE.`;
   }

@@ -108,7 +108,7 @@ ne accorge. *Riparti*, in `?dev`, torna anche al credito vero.
 
 L'Acropoli e il primo di piu mondi da costruire. Il contatore conosce un
 numero solo, il totale dei TE consumati; il **registro**,
-`world/cantiere.json`, lo divide fra i mondi.
+`state/registry.json`, lo divide fra i mondi.
 
 - **Un mondo attivo alla volta.** Riceve i TE dal momento in cui lo si sceglie.
   Il registro ricorda questi intervalli del totale, i *tratti*.
@@ -130,11 +130,11 @@ completato si sappia quanto avanza.
 *Riparti* non cancella niente: il credito resta, e la scena rivede la
 costruzione dall'inizio, accelerata finche non torna al punto raggiunto.
 
-Il registro si legge e si scrive su `/api/cantiere`. Le scritture sono due -
+Il registro si legge e si scrive su `/api/registry`. Le scritture sono due -
 "scegli mondo" e "riporta avanzamento" - e il server le accetta solo dal
 computer locale, solo come JSON e solo dalla pagina della scena: un altro
 sito aperto nel browser non puo cambiare il cantiere. Per ricominciare da
-capo la divisione del credito basta cancellare `world/cantiere.json`: al
+capo la divisione del credito basta cancellare `state/registry.json`: al
 riavvio tutto il consumo torna all'Acropoli.
 
 La pagina iniziale, per scegliere fra i mondi, arriva con la fase 3 di
@@ -147,7 +147,7 @@ La pagina iniziale, per scegliere fra i mondi, arriva con la fase 3 di
 Claude Code scrive da solo il transcript di ogni sessione in
 `~/.claude/projects/<progetto>/<sessione>.jsonl`. Il contatore,
 `tools/token-counter/counter.js`, legge quei file ogni cinque secondi, pesa
-il consumo sui prezzi di listino e riscrive `world/world-state.json`. La
+il consumo sui prezzi di listino e riscrive `state/world-state.json`. La
 scena rilegge lo stato allo stesso ritmo e trasforma la crescita del totale
 in credito.
 
@@ -157,7 +157,7 @@ Dai transcript prende soltanto quattro cose: i contatori di token in
 `message.usage`, il nome del modello, l'orario della risposta e la cartella di
 lavoro, che serve a sapere da quale progetto arriva una sessione. **Il testo
 dei messaggi - le tue domande, le risposte, il codice - non viene mai letto
-ne copiato.** Non va in rete: lo stato resta in `world/` sul tuo disco.
+ne copiato.** Non va in rete: lo stato resta in `state/` sul tuo disco.
 
 Legge solo mentre il server e acceso. Spegni il server e il contatore si
 ferma con lui; cancella la cartella e non resta niente, perche niente e stato
@@ -190,7 +190,7 @@ il contatore la segue.
 
 ### Quanto costa un pezzo
 
-I pezzi si pagano direttamente in TE. I numeri di `COST` in `config.js` non
+I pezzi si pagano direttamente in TE. I numeri di `COST` nel `config.js` di ogni mondo non
 sono prezzi ma **pesi relativi** (un rocchio 4, una metopa 18, la Parthenos
 400). All'avvio `priceInTe()` ripartisce il budget del cantiere su quei pesi:
 
@@ -317,10 +317,10 @@ tengono il prezzo con cui erano state contate.
   soltanto quello che e stato aggiunto. Una riga ancora a meta scrittura si
   aspetta al giro dopo.
 - **Copia di riserva.** Ogni scrittura riuscita aggiorna anche
-  `world/.world-state.bak`. Se lo stato risulta illeggibile, il contatore
+  `state/.world-state.bak`. Se lo stato risulta illeggibile, il contatore
   riparte da li e conserva `installed_at` e le sessioni. Se invece lo stato
   manca del tutto, lo tratta come un reset voluto: per ricominciare il
-  cantiere da zero basta cancellare `world/world-state.json`.
+  cantiere da zero basta cancellare `state/world-state.json`.
 - **Scrittura atomica e lock.** Lo stato si scrive in un file temporaneo
   rinominato alla fine, e una cartella `.world-state.lock` evita che due
   scansioni si sovrappongano: la scena non legge mai un file a meta.
@@ -335,6 +335,7 @@ stanno nel `.gitignore`.
 
 ```bash
 npm test                                           # listino e tutti i test
+npm run test:scene                                 # la scena in Chrome senza finestra (si salta senza Chrome)
 node tools/token-counter/counter.js --print        # una scansione e il riepilogo
 node tools/token-counter/counter.js --watch        # scansione continua, senza server
 ```
@@ -362,31 +363,44 @@ loro storia e in `docs/conversazione.md`.
 
 ## Struttura
 
+Il progetto e una piattaforma di mondi: il **motore** e comune, ogni **mondo**
+porta solo quello che lo rende se stesso. I nomi di cartelle, file e campi
+sono in inglese; commenti, interfaccia e documentazione in italiano.
+
 ```
-index.html            markup, import map, interfaccia
-src/config.js         misure reali, layout del sito, fasi storiche, raffinatezze, policromia
-src/materials.js      marmo pentelico, policromia, bronzo, oro e avorio
-src/sky.js            scattering Rayleigh + Mie, posizione solare, IBL da cubemap
-src/terrain.js        heightfield del pianoro e mura di cinta
-src/kit.js            libreria modulare: crepidoma, colonnati, trabeazioni, muri, frontoni
-src/buildings.js      i cinque monumenti, assemblati dal kit
-src/site.js           strada, muro nord, altare, santuari minori, votivi, alberi
-src/pieces.js         registro dei pezzi, posa, fusione delle mesh
-src/tokens.js         lettore di world-state.json, credito, fallback simulato
-src/ui.js             pannelli, fasi, slider solare
-src/main.js           scena, camera, loop
-package.json          npm start, npm test; nessuna dipendenza
+index.html            porta al mondo (la pagina iniziale arriva con la fase 3)
+engine/               il motore, uguale per tutti i mondi
+  scene.js            scena, cielo, luce, camera, credito, posa: startWorld(mondo)
+  pieces.js           registro dei pezzi, prezzi, posa, fusione delle mesh
+  credit.js           il credito del mondo, letto dal registro
+  sky.js              scattering Rayleigh + Mie, posizione solare, IBL da cubemap
+  ui.js               pannello del cantiere, fasi, sole
+  config.js           quanto vale una settimana (WEEKLY_TE), dono iniziale
+  scene.css           lo stile della scena
+worlds/acropolis/     il primo mondo
+  world.json          nome, luogo, epoca, durata, sole: quello che il motore legge
+  index.html          la pagina del mondo
+  src/main.js         l'Acropoli come mondo: cosa costruire, inquadratura, fasi
+  src/config.js       misure reali, layout del sito, fasi storiche, pesi dei pezzi
+  src/buildings.js    i cinque monumenti, assemblati dal kit
+  src/site.js         strada, muro nord, altare, santuari minori, votivi, alberi
+  src/kit.js          kit greco: crepidoma, colonnati, trabeazioni, muri, frontoni
+  src/terrain.js      heightfield del pianoro e mura di cinta
+  src/materials.js    marmo pentelico, policromia, bronzo, oro e avorio
+package.json          npm start, npm test, npm run test:scene; nessuna dipendenza
 Acropoli.cmd          avvio a doppio clic: Windows; Acropoli.command per macOS, acropoli.sh per Linux
 manifest.webmanifest  per installare la scena come app
-sw.js, spento.html    la pagina che l app mostra quando il server e spento
-assets/icons/         icone dell app, generate da tools/make-icons.js
-tools/server.js       server della scena, con il contatore dentro e il registro su /api/cantiere
-tools/cantiere.js     il registro dei cantieri: mondo attivo, tratti di credito, avanzi
-tools/test/           test del registro e del server
+sw.js, offline.html   la pagina che l'app mostra quando il server e spento
+assets/icons/         icone dell'app, generate da tools/make-icons.js
+tools/server.js       il server, con il contatore dentro e il registro su /api/registry
+tools/registry.js     il registro dei cantieri: mondo attivo, tratti di credito, avanzi
+tools/migrate.js      porta lo stato di un'installazione vecchia da world/ a state/
+tools/test/           test del registro, del server e della scena
 tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, test/
+state/                world-state.json del contatore e registry.json (non versionati)
 .claude/agents/       aggiorna-listino.md, il subagente che aggiorna i prezzi
 CLAUDE.md             istruzioni per Claude Code quando lavora in questo progetto
-world/                world-state.json del contatore e cantiere.json del registro (non versionati)
+TODO.md               il piano a fasi e le decisioni prese
 docs/conversazione.md come è nato il progetto e perché le scelte sono queste
 ```
 
@@ -394,7 +408,8 @@ docs/conversazione.md come è nato il progetto e perché le scelte sono queste
 
 ## Il pianoro
 
-Gli edifici sono meta del recinto. L'altra meta e in `src/site.js`: la via
+Gli edifici sono meta del recinto. L'altra meta e in
+`worlds/acropolis/src/site.js`: la via
 Panatenaica lastricata, i rocchi del Partenone arcaico murati nel lato nord,
 l'altare di Atena Polias, il Brauronion e la Calcoteca sul lato sud, le offerte
 votive e la piantumazione.
@@ -412,7 +427,7 @@ cambiasse ordine, quei primi N sarebbero altri pezzi.
 
 ## Raffinatezze ottiche e policromia
 
-Due interruttori in `src/config.js` accendono il Partenone come era davvero.
+Due interruttori in `worlds/acropolis/src/config.js` accendono il Partenone come era davvero.
 
 `REFINEMENTS.on` toglie ogni linea retta dall'edificio: stilobate inarcato
 (6 cm sulle fronti, 11 sui fianchi, 17 al centro), colonne inclinate verso
@@ -435,17 +450,17 @@ perche un blocco largo quanto il tempio non puo inarcarsi.
 
 ### 1. Sculture fotogrammetrate
 
-`src/kit.js` espone `setSculptureProvider(fn)`. La funzione riceve
+`worlds/acropolis/src/kit.js` espone `setSculptureProvider(fn)`. La funzione riceve
 `(pose, altezza, contesto)` e restituisce un `Object3D` oppure `null`.
 Se restituisce `null` si ricade sulla scultura procedurale.
 
-In `src/main.js` c'è già il blocco commentato che carica i GLB da
+In `worlds/acropolis/src/main.js` c'è già il blocco commentato che carica i GLB da
 `assets/models/` con `GLTFLoader` e registra il provider. Scarica i modelli
 del Museo dell'Acropoli, mettili lì, togli i commenti.
 
 ### 2. HDRI al posto del cielo analitico
 
-`src/sky.js` espone `useHDRI(url)`. Carica un `.hdr` con `RGBELoader`,
+`engine/sky.js` espone `useHDRI(url)`. Carica un `.hdr` con `RGBELoader`,
 lo passa al `PMREMGenerator` e sostituisce l'ambiente.
 
 Nota: il cielo analitico ha un vantaggio che l'HDRI non ha — l'ora del giorno
@@ -462,4 +477,5 @@ scendono da qualche migliaio a poche decine. La mappa delle ombre si ricalcola
 solo quando un pezzo si posa, mai a ogni frame.
 
 Se il frame rate cala su macchine deboli, i parametri da toccare sono
-`FLUTE_SEGMENTS` in `config.js` e la dimensione della shadow map in `main.js`.
+`FLUTE_SEGMENTS` in `worlds/acropolis/src/config.js` e la dimensione della
+shadow map in `engine/scene.js`.

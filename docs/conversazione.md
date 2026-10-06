@@ -647,7 +647,51 @@ credito vero e finto.
 
 ---
 
-## 17. Cosa resta da fare
+## 17. Un motore, piu mondi
+
+Il codice era nato per un monumento solo, e lo diceva in ogni file: la scena
+leggeva la latitudine di Atene, il pannello le fasi di Pericle, la camera
+partiva puntata sul pianoro. Per ospitare la piana di Giza o il Foro Romano
+bisognava separare quello che e di ogni mondo da quello che e dell'Acropoli.
+
+**La linea di separazione.** Nel motore, `engine/`, va quello che e uguale
+ovunque: il registro dei pezzi e la loro posa, il credito, il cielo, il
+pannello, il ciclo della scena, lo stile. Nel mondo, `worlds/acropolis/`, va
+quello che lo rende se stesso: le misure, gli edifici, il pianoro, il
+terreno, le fasi, l'inquadratura, le parole della fine. Il motore espone una
+funzione sola, `startWorld(mondo)`, e il mondo gliela chiama passando i suoi
+pezzi. Il sole e un parametro: basta cambiare latitudine per stare a Giza.
+
+**Il kit greco resta all'Acropoli.** Colonnati, trabeazioni e frontoni
+potrebbero servire al Foro, che ha ordini suoi ma parenti. Estrarli adesso
+avrebbe voluto dire indovinare di che forma ha bisogno un mondo che non
+esiste ancora: si spostano quando il secondo mondo li chiede.
+
+**I nomi in inglese.** Cartelle, file e campi dei dati sono passati
+all'inglese, perche e la lingua in cui legge chi apre un repository, mentre
+commenti, interfaccia e documentazione restano in italiano. La cartella dello
+stato e diventata `state/` - `world/` si confondeva con `worlds/` - e il
+registro `registry.json`. Chi aveva gia il progetto non deve fare niente: al
+primo avvio il server sposta lo stato e converte il registro, compreso il
+nome del mondo, da `acropoli` ad `acropolis`. Provata prima su una copia, la
+migrazione ha conservato al TE il credito e i 208 blocchi raggiunti.
+
+**`world.json`.** Ogni mondo ha un file di dati che il motore e la futura
+pagina iniziale leggono: nome, luogo, epoca, descrizione, durata in
+settimane, posizione del sole, stato - disponibile o in arrivo - e
+un'anteprima. Il registro conosce i mondi da quei file, e rifiuta di
+attivarne uno che non e ancora disponibile. La quota settimanale invece
+esce dai mondi e va nel motore: dipende da chi lavora, non da dove.
+
+**La prova della scena.** Fino a qui la scena la verificavo a mano, pilotando
+Chrome dal protocollo di debug. Ora e un test, `npm run test:scene`: apre la
+scena in un Chrome senza finestra, controlla che la radice porti al mondo,
+che non ci siano errori, che un transcript nuovo diventi blocchi posati e che
+il registro li ricordi. Dove Chrome non c'e, si salta e lo dice.
+
+---
+
+## 18. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

@@ -15,13 +15,15 @@ avanti anche mondi moderni o inventati.
 
 *6 ottobre 2026*
 
+- **Nomi in inglese** per cartelle, file e campi dei dati; commenti,
+  interfaccia e documentazione in italiano.
 - **Pausa.** Un mondo si puo mettere in pausa per cominciarne un altro, e
   riprendere quando si vuole. Il credito va solo al mondo attivo.
 - **Avanzo.** Il credito che avanza quando un mondo e completato passa al
   mondo scelto dopo.
 - **Durata.** Ogni mondo ha la sua, dichiarata in settimane di lavoro a pieno
-  regime. `weeklyTe` resta uno solo: dipende dal piano di chi lavora, non dal
-  mondo.
+  regime. `WEEKLY_TE`, in `engine/config.js`, resta uno solo: dipende dal
+  piano di chi lavora, non dal mondo.
 - **Prossimo mondo:** la piana di Giza, dopo aver rifinito l'Acropoli.
 - **Nome provvisorio:** TokenStone.
 
@@ -30,7 +32,7 @@ avanti anche mondi moderni o inventati.
 ## Il piano
 
 ### Fase 1 — Il cantiere si calcola dal credito *(fatta, 6 ottobre)*
-- [x] Registro `world/cantiere.json`: mondo attivo, tratti di credito, e per
+- [x] Registro (oggi `state/registry.json`): mondo attivo, tratti di credito, e per
       ogni mondo pezzi, costo, dono iniziale e punto piu alto raggiunto
 - [x] I blocchi posati si ricavano dal credito: stesso cantiere in ogni
       browser, niente piu avanzamento nel `localStorage`
@@ -46,11 +48,19 @@ avanti anche mondi moderni o inventati.
 La scelta del mondo esiste nel registro ma non ancora nell'interfaccia: con un
 mondo solo non c'e niente da scegliere. Arriva con la pagina iniziale.
 
-### Fase 2 — Piu mondi nella struttura, niente di visibile
-- [ ] L'Acropoli in `mondi/acropoli/`, le parti comuni in una cartella condivisa
-- [ ] `mondo.json` per ogni mondo: nome, luogo, epoca, durata, latitudine,
-      stato, anteprima. La durata dell'Acropoli esce da `config.js`
-- [ ] Test automatico della scena (richiede Chrome: un comando a parte)
+### Fase 2 — Piu mondi nella struttura, niente di visibile *(fatta, 6 ottobre)*
+- [x] L'Acropoli in `worlds/acropolis/`, il motore comune in `engine/`
+- [x] `world.json` per ogni mondo: nome, luogo, epoca, durata, sole, stato,
+      anteprima. La durata dell'Acropoli e uscita da `config.js`; la quota
+      settimanale e passata al motore, in `engine/config.js`
+- [x] Nomi di cartelle, file e campi in inglese (decisione del 6 ottobre);
+      lo stato in `state/`, il registro in `state/registry.json`
+- [x] Migrazione automatica delle installazioni vecchie, provata su una copia
+      e poi sullo stato vero
+- [x] Test della scena in Chrome senza finestra: `npm run test:scene`
+
+Il kit greco (colonnati, trabeazioni, frontoni) resta nell'Acropoli: si
+sposta nel motore, o in un kit comune, quando un secondo mondo ne ha bisogno.
 
 ### Fase 3 — La pagina iniziale
 - [ ] Nome, contatore totale, una scheda per mondo: in corso, in pausa,

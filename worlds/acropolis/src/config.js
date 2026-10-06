@@ -74,13 +74,15 @@ export const ERECHTHEION = {
    triglifi e taenia, cioe il minimo indiscutibile. */
 export const POLYCHROMY = { on: true };
 
-/* ---- posizione solare: Atene ---- */
-export const SOLAR = { lat: 37.9715, lon: 23.7267, tz: 3, dayOfYear: 237 };
+/* La posizione del sole - Atene, 25 agosto - e la durata del cantiere, un
+   mese di lavoro, stanno in world.json: sono i dati che il motore e la
+   pagina iniziale leggono di ogni mondo. */
 
 /* ---- peso relativo di ogni tipo di pezzo ----
    Non sono token: dicono quanto costa un pezzo rispetto agli altri (una
    metopa vale quattro rocchi e mezzo, la Parthenos cento). Il prezzo vero,
-   in TE, lo fissa CANTIERE qui sotto ridistribuendo il budget su questi pesi. */
+   in TE, lo fissa il motore ridistribuendo il budget del mondo su questi
+   pesi: vedi engine/config.js. */
 export const COST = {
   step: 6, drum: 4, capital: 9, ionicBase: 7,
   wall: 5, architrave: 9, triglyph: 7, metope: 18, ionicFrieze: 15,
@@ -93,56 +95,6 @@ export const COST = {
   kore: 38, tripod: 30, herm: 18, stele: 12, basin: 16,
   sacredOlive: 120, tree: 22, shrub: 8
 };
-
-/* ---- quanto costa l'Acropoli ----
-
-   Il contatore in tools/token-counter scrive in world/world-state.json un
-   totale in "token equivalenti": i token davvero consumati, pesati sul prezzo
-   di listino (l'output costa cinque volte l'input, la lettura di cache un
-   decimo). I pezzi si pagano direttamente in TE, senza conversioni.
-
-   La misura del cantiere e' un mese di lavoro a pieno regime: ogni settimana
-   si esaurisce il 100% dell'utilizzo concesso da Claude Code, e dopo un mese
-   l'ultimo blocco e' posato. Il budget totale, weeklyTe * weeks, viene
-   ripartito sui pesi di COST: ogni pezzo costa peso * (budget / somma dei
-   pesi), cosi il totale torna esatto anche se si aggiungono pezzi.
-
-   weeklyTe e' quanti TE vale il 100% della finestra settimanale. Non e' un
-   dato pubblico e dipende dal piano, quindi si misura. Il modo piu preciso
-   e' una lettura sola, verso la fine della finestra: /usage da la
-   percentuale e l'ora del reset, la finestra e' cominciata sette giorni
-   prima del reset, e il contatore sa quanti TE sono caduti da allora.
-     weeklyTe = TE nella finestra / percentuale * 100
-   Piu alta la percentuale, piu piccolo l'errore dell'arrotondamento.
-
-   Prima misura, 5 ottobre 2026: 12% della settimana, 3.709.015 TE di
-   Claude Code nella finestra, quindi 31 milioni. E un limite inferiore, non
-   una misura: in quella settimana si era usato anche claude.ai, e il 12%
-   comprende chat che i transcript non vedono. Il valore vero e piu alto, e
-   va rimisurato su una settimana di solo Claude Code. Vale comunque per il
-   piano di chi l'ha misurato: con un altro piano va rimisurato.
-
-   Per orientarsi: la finestra breve di cinque ore, nello stesso giorno, e
-   arrivata al 42% con 3.626.815 TE, cioe circa 8,6 milioni per una
-   sessione piena. Non serve a ricavare la settimana, perche il rapporto
-   fra i due limiti non e pubblico.
-
-   La misura conta solo Claude Code su questo computer. Se nella stessa
-   settimana si e' usato anche claude.ai, che consuma la stessa quota, la
-   percentuale comprende consumi che i transcript non vedono, e il valore
-   esce piu basso del vero.
-
-   Il contatore conta tutti i progetti, non solo questo, ed e' giusto cosi:
-   anche la percentuale di /usage li conta tutti, quindi le due misure sono
-   coerenti. */
-export const CANTIERE = {
-  weeklyTe: 31000000,   // 100% della settimana: limite inferiore, da rimisurare
-  weeks: 30 / 7         // un mese
-};
-
-/* Ogni quanto la scena rilegge lo stato del contatore, in millisecondi.
-   Il contatore scansiona allo stesso ritmo: piu spesso non servirebbe. */
-export const WORLD_POLL_MS = 5000;
 
 /* ---- sequenza storica del cantiere ---- */
 export const PHASES = [

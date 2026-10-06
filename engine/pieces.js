@@ -1,8 +1,15 @@
 import * as THREE from 'three';
-import { M } from './materials.js';
 
 /* Registro globale dei pezzi. Ogni blocco e un'entita indipendente
-   con costo, marca da cantiere e fase storica. */
+   con costo, marca da cantiere e fase storica. E il motore di ogni mondo:
+   il mondo aggiunge i suoi pezzi in ordine di posa, il motore li prezza, li
+   posa e li fonde. */
+
+/* il blocco in volo, prima di cristallizzare nel suo materiale: lo stesso
+   verderame in ogni mondo, perche e il segno del cantiere, non del luogo */
+const GHOST = new THREE.MeshStandardMaterial({
+  color: 0x74AC9B, emissive: 0x2C6A5B, emissiveIntensity: 1.4,
+  roughness: .35, metalness: 0, transparent: true, opacity: .52 });
 
 export const pieces = [];
 let scene = null;
@@ -39,7 +46,7 @@ export function priceInTe(budgetTe) {
 export function setGhost(obj, on) {
   obj.traverse(o => {
     if (!o.isMesh) return;
-    if (on) { o.userData._m = o.userData._m || o.material; o.material = M.ghost; }
+    if (on) { o.userData._m = o.userData._m || o.material; o.material = GHOST; }
     else if (o.userData._m) o.material = o.userData._m;
   });
 }

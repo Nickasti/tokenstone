@@ -3,7 +3,7 @@ import { M } from './materials.js';
 import { SITE, PARTHENON as P, PROPYLAEA as PR, NIKE as NK, ERECHTHEION as ER, COST, REFINEMENTS as RF } from './config.js';
 import { krepis, colonnade, entablature, walls, gable, statue, caryatid, mk, box, G,
          makeCurve, axisPositions } from './kit.js';
-import { addPiece, mark } from './pieces.js';
+import { addPiece, mark } from '/engine/pieces.js';
 import { outcrops, plantings, northWall, sacredWay, greatAltar,
          sanctuaries, votives } from './site.js';
 

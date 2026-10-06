@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { M } from './materials.js';
 import { COST, FLUTE_SEGMENTS, POLYCHROMY as PC } from './config.js';
-import { addPiece, mark } from './pieces.js';
+import { addPiece, mark } from '/engine/pieces.js';
 
 const PI = Math.PI;
 

@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { SOLAR } from './config.js';
 
 /* Cielo analitico: scattering singolo Rayleigh + Mie.
    Non e un gradiente. Lo spessore ottico viene calcolato separatamente
@@ -32,13 +31,15 @@ export function skySample(dir, sun) {
 export const sunAtten = sun => KR.map(k => Math.exp(-k * opticalDepth(sun[1]) * 0.118));
 
 /* Posizione solare reale. Declinazione, equazione del tempo,
-   angolo orario: la stessa procedura di un almanacco nautico. */
-export function solarPosition(hour) {
-  const lat = SOLAR.lat * PI / 180;
-  const decl = 23.44 * PI / 180 * Math.sin(2 * PI * (284 + SOLAR.dayOfYear) / 365);
-  const B = 2 * PI * (SOLAR.dayOfYear - 81) / 364;
+   angolo orario: la stessa procedura di un almanacco nautico.
+   solar viene dal world.json del mondo: latitudine e longitudine in gradi,
+   fuso orario in ore, giorno dell'anno. */
+export function solarPosition(hour, solar) {
+  const lat = solar.lat * PI / 180;
+  const decl = 23.44 * PI / 180 * Math.sin(2 * PI * (284 + solar.dayOfYear) / 365);
+  const B = 2 * PI * (solar.dayOfYear - 81) / 364;
   const eot = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
-  const lst = hour + (4 * (SOLAR.lon - 15 * SOLAR.tz) + eot) / 60;
+  const lst = hour + (4 * (solar.lon - 15 * solar.tz) + eot) / 60;
   const H = (lst - 12) * 15 * PI / 180;
   const alt = Math.asin(Math.sin(decl) * Math.sin(lat) + Math.cos(decl) * Math.cos(lat) * Math.cos(H));
   let az = Math.acos(Math.min(1, Math.max(-1,

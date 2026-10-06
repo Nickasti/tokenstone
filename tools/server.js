@@ -22,14 +22,15 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 const counter = require('./token-counter/counter.js');
-const cantiere = require('./cantiere.js');
+const registry = require('./registry.js');
+const { migrateLegacyState } = require('./migrate.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const STATE_URL = '/world/world-state.json';
+const STATE_URL = '/state/world-state.json';
 // con questo un secondo avvio riconosce che sulla porta c'e gia il cantiere
 const PING_URL = '/__acropoli';
 // il registro dei cantieri: si legge, e si scrive solo in due modi
-const API_URL = '/api/cantiere';
+const API_URL = '/api/registry';
 const MAX_BODY = 8 * 1024;
 let PORTA = null;
 
@@ -121,15 +122,15 @@ function leggiContatore() {
   try {
     const s = JSON.parse(fs.readFileSync(counter.STATE_PATH, 'utf8'));
     return {
-      totale_te: Number(s.total_te) || 0,
-      totale_usd: Number(s.total_usd) || 0,
-      sessioni: s.sessions ? Object.keys(s.sessions).length : 0,
-      installato: s.installed_at || null,
-      prezzi_stimati: Array.isArray(s.unknown_models) ? s.unknown_models : [],
+      total_te: Number(s.total_te) || 0,
+      total_usd: Number(s.total_usd) || 0,
+      sessions: s.sessions ? Object.keys(s.sessions).length : 0,
+      installed_at: s.installed_at || null,
+      estimated_prices: Array.isArray(s.unknown_models) ? s.unknown_models : [],
     };
   } catch (_) {
     // il contatore non ha ancora scritto niente: il cantiere aspetta
-    return { totale_te: 0, totale_usd: 0, sessioni: 0, installato: null, prezzi_stimati: [] };
+    return { total_te: 0, total_usd: 0, sessions: 0, installed_at: null, estimated_prices: [] };
   }
 }
 
@@ -148,12 +149,12 @@ const LOOPBACK = new Set(['127.0.0.1', '::1', '::ffff:127.0.0.1']);
  * - solo dalla pagina della scena, se il browser dice da dove arriva.
  */
 function scrittura(req, res) {
-  if (!LOOPBACK.has(req.socket.remoteAddress)) return sendJson(res, 403, { errore: 'solo dal computer locale' });
+  if (!LOOPBACK.has(req.socket.remoteAddress)) return sendJson(res, 403, { error: 'solo dal computer locale' });
   const tipo = (req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
-  if (tipo !== 'application/json') return sendJson(res, 415, { errore: 'serve application/json' });
+  if (tipo !== 'application/json') return sendJson(res, 415, { error: 'serve application/json' });
   const origin = req.headers.origin;
   if (origin && origin !== 'http://localhost:' + PORTA && origin !== 'http://127.0.0.1:' + PORTA) {
-    return sendJson(res, 403, { errore: 'origine non ammessa' });
+    return sendJson(res, 403, { error: 'origine non ammessa' });
   }
 
   let body = '';
@@ -165,38 +166,38 @@ function scrittura(req, res) {
     if (body.length > MAX_BODY) {
       troppo = true;
       res.setHeader('Connection', 'close');
-      sendJson(res, 413, { errore: 'richiesta troppo grande' });
+      sendJson(res, 413, { error: 'richiesta troppo grande' });
     }
   });
   req.on('end', () => {
     if (troppo) return;
     let dati;
-    try { dati = JSON.parse(body); } catch (_) { return sendJson(res, 400, { errore: 'JSON non valido' }); }
-    if (!dati || typeof dati !== 'object') return sendJson(res, 400, { errore: 'JSON non valido' });
+    try { dati = JSON.parse(body); } catch (_) { return sendJson(res, 400, { error: 'JSON non valido' }); }
+    if (!dati || typeof dati !== 'object') return sendJson(res, 400, { error: 'JSON non valido' });
 
     const now = new Date().toISOString();
-    const totale = leggiContatore().totale_te;
-    const { reg } = cantiere.leggi(now);
+    const total = leggiContatore().total_te;
+    const { reg } = registry.read(now);
     try {
-      if (dati.azione === 'riporta') cantiere.riporta(reg, dati, totale, now);
-      else if (dati.azione === 'scegli') cantiere.scegli(reg, dati.mondo, totale);
-      else return sendJson(res, 400, { errore: 'azione sconosciuta' });
+      if (dati.action === 'report') registry.report(reg, dati, total, now);
+      else if (dati.action === 'choose') registry.choose(reg, dati.world, total);
+      else return sendJson(res, 400, { error: 'azione sconosciuta' });
     } catch (err) {
-      if (err instanceof cantiere.Rifiuto) return sendJson(res, 400, { errore: err.message });
+      if (err instanceof registry.Refusal) return sendJson(res, 400, { error: err.message });
       throw err;
     }
-    cantiere.scrivi(reg);
-    sendJson(res, 200, cantiere.vista(reg, totale));
+    registry.write(reg);
+    sendJson(res, 200, registry.view(reg, total));
   });
 }
 
 function lettura(res) {
   const now = new Date().toISOString();
-  const contatore = leggiContatore();
-  const { reg, nuovo } = cantiere.leggi(now);
-  // il primo avvio, o un registro recuperato dalla copia, si fissa su disco
-  if (nuovo) cantiere.scrivi(reg);
-  sendJson(res, 200, Object.assign({ contatore }, cantiere.vista(reg, contatore.totale_te)));
+  const counterView = leggiContatore();
+  const { reg, dirty } = registry.read(now);
+  // il primo avvio, un registro recuperato o convertito, si fissa su disco
+  if (dirty) registry.write(reg);
+  sendJson(res, 200, Object.assign({ counter: counterView }, registry.view(reg, counterView.total_te)));
 }
 
 function handler(req, res) {
@@ -252,6 +253,9 @@ function isOurServer(port) {
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  // un'installazione vecchia teneva lo stato in world/: lo si sposta prima di tutto
+  const moved = migrateLegacyState();
+  if (moved.length) process.stdout.write('  stato spostato da world/ a state/: ' + moved.join(', ') + '\n');
   const server = http.createServer(handler);
 
   server.on('error', async (err) => {

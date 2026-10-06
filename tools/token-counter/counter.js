@@ -5,7 +5,7 @@
  * Claude Code scrive da solo il transcript di ogni sessione in
  * ~/.claude/projects/<progetto>/<sessione>.jsonl. Il contatore legge quei
  * file, pesa il consumo sul prezzo di listino e riscrive
- * world/world-state.json. Il mondo legge quel file e cresce.
+ * state/world-state.json. Il mondo legge quel file e cresce.
  *
  * Non serve nessun hook e nessuna configurazione: basta che giri sulla stessa
  * macchina dove si usa Claude Code, in qualunque forma (terminale, estensione,
@@ -47,7 +47,7 @@ const APP_ROOT = path.resolve(SCRIPT_DIR, '..', '..');
 // Gli override servono ai test, per non sporcare lo stato vero.
 const PRICING_PATH = process.env.ACROPOLI_PRICING || path.join(SCRIPT_DIR, 'pricing.json');
 const LOG_PATH = process.env.ACROPOLI_LOG || path.join(SCRIPT_DIR, 'counter.log');
-const STATE_PATH = process.env.ACROPOLI_STATE || path.join(APP_ROOT, 'world', 'world-state.json');
+const STATE_PATH = process.env.ACROPOLI_STATE || path.join(APP_ROOT, 'state', 'world-state.json');
 const STATE_DIR = path.dirname(STATE_PATH);
 const LOCK_PATH = path.join(STATE_DIR, '.world-state.lock');
 const BACKUP_PATH = path.join(STATE_DIR, '.world-state.bak');
@@ -800,6 +800,8 @@ function startWatching(intervalS) {
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  // un'installazione vecchia teneva lo stato in world/: lo si sposta prima di leggerlo
+  require('../migrate.js').migrateLegacyState();
   if (args.watch) {
     process.stdout.write('contatore: leggo ' + TRANSCRIPTS_ROOT + ', scrivo ' + STATE_PATH +
       ', ogni ' + args.interval + ' s\n');

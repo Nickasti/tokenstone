@@ -86,8 +86,14 @@ function avvia() {
     let r = await richiesta(port, '/');
     verifica('pagina', [r.status, r.type], [200, 'text/html']);
     verifica('niente cache', r.cache, 'no-store');
-    r = await richiesta(port, '/src/main.js');
-    verifica('modulo come JavaScript', [r.status, r.type], [200, 'text/javascript']);
+    r = await richiesta(port, '/engine/scene.js');
+    verifica('modulo del motore come JavaScript', [r.status, r.type], [200, 'text/javascript']);
+    r = await richiesta(port, '/worlds/acropolis/');
+    verifica('la pagina del mondo', [r.status, r.type], [200, 'text/html']);
+    r = await richiesta(port, '/worlds/acropolis/world.json');
+    verifica('i dati del mondo', JSON.parse(r.body || '{}').id, 'acropolis');
+    r = await richiesta(port, '/');
+    verifica('la radice porta al mondo', (r.body || '').includes('/worlds/acropolis/'), true);
     r = await richiesta(port, '/', 'HEAD');
     verifica('HEAD senza corpo', [r.status, r.body], [200, '']);
     r = await richiesta(port, '/non-esiste.js');
@@ -106,7 +112,7 @@ function avvia() {
     }
     r = await richiesta(port, '/sw.js');
     verifica('service worker come JavaScript', [r.status, r.type], [200, 'text/javascript']);
-    r = await richiesta(port, '/spento.html');
+    r = await richiesta(port, '/offline.html');
     verifica('pagina "cantiere spento"', [r.status, r.type], [200, 'text/html']);
     r = await richiesta(port, '/__acropoli');
     verifica('il server si riconosce', JSON.parse(r.body || '{}').app, 'acropoli');
@@ -127,7 +133,7 @@ function avvia() {
     console.log('\n2. Lo stato e quello scritto dal contatore nello stesso processo.\n');
 
     await attendi(600);
-    r = await richiesta(port, '/world/world-state.json?t=1');
+    r = await richiesta(port, '/state/world-state.json?t=1');
     let stato = JSON.parse(r.body || '{}');
     verifica('stato servito', [r.status, r.type], [200, 'application/json']);
     verifica('creato adesso, non quello vero', Date.parse(stato.installed_at) >= avvio - 1000, true);
@@ -140,54 +146,54 @@ function avvia() {
     fs.mkdirSync(path.join(PROJECTS, 'prova'), { recursive: true });
     fs.writeFileSync(path.join(PROJECTS, 'prova', 'sessione.jsonl'), riga + '\n');
     await attendi(1200);
-    stato = JSON.parse((await richiesta(port, '/world/world-state.json')).body || '{}');
+    stato = JSON.parse((await richiesta(port, '/state/world-state.json')).body || '{}');
     verifica('il transcript diventa credito', stato.total_te, 1234);
 
     console.log('\n2b. Il registro dei cantieri: si legge, e si scrive solo nei modi previsti.\n');
 
     const JSON_H = { 'Content-Type': 'application/json' };
-    const scrivi = (dati, headers) => richiesta(port, '/api/cantiere', 'POST', JSON.stringify(dati), headers || JSON_H);
+    const scrivi = (dati, headers) => richiesta(port, '/api/registry', 'POST', JSON.stringify(dati), headers || JSON_H);
 
-    r = await richiesta(port, '/api/cantiere');
+    r = await richiesta(port, '/api/registry');
     let api = JSON.parse(r.body || '{}');
     verifica('lettura', [r.status, r.type], [200, 'application/json']);
-    verifica('mondo attivo al primo avvio', api.attivo, 'acropoli');
-    verifica('tutto il consumo va all\'Acropoli', api.mondi && api.mondi.acropoli.credito_te, 1234);
-    verifica('il totale del contatore e incluso', api.contatore && api.contatore.totale_te, 1234);
-    verifica('il registro e su disco', fs.existsSync(path.join(path.dirname(STATE), 'cantiere.json')), true);
+    verifica('mondo attivo al primo avvio', api.active, 'acropolis');
+    verifica('tutto il consumo va all\'Acropoli', api.worlds && api.worlds.acropolis.credit_te, 1234);
+    verifica('il totale del contatore e incluso', api.counter && api.counter.total_te, 1234);
+    verifica('il registro e su disco', fs.existsSync(path.join(path.dirname(STATE), 'registry.json')), true);
 
-    r = await scrivi({ azione: 'riporta', mondo: 'acropoli', pezzi: 3280, costo_te: 1e8, dono_te: 5e5, posati: 7 });
-    verifica('riporto accettato', [r.status, JSON.parse(r.body).mondi.acropoli.posati_max], [200, 7]);
-    r = await richiesta(port, '/api/cantiere');
-    verifica('e ricordato', JSON.parse(r.body).mondi.acropoli.posati_max, 7);
+    r = await scrivi({ action: 'report', world: 'acropolis', pieces: 3280, cost_te: 1e8, gift_te: 5e5, placed: 7 });
+    verifica('riporto accettato', [r.status, JSON.parse(r.body).worlds.acropolis.placed_max], [200, 7]);
+    r = await richiesta(port, '/api/registry');
+    verifica('e ricordato', JSON.parse(r.body).worlds.acropolis.placed_max, 7);
 
-    r = await scrivi({ azione: 'riporta', mondo: 'acropoli', pezzi: 3280, costo_te: 1e8, dono_te: 5e5, posati: 9 },
+    r = await scrivi({ action: 'report', world: 'acropolis', pieces: 3280, cost_te: 1e8, gift_te: 5e5, placed: 9 },
       { 'Content-Type': 'application/json', Origin: 'http://localhost:' + port });
     verifica('dalla pagina della scena', r.status, 200);
-    r = await scrivi({ azione: 'scegli', mondo: 'acropoli' },
+    r = await scrivi({ action: 'choose', world: 'acropolis' },
       { 'Content-Type': 'application/json', Origin: 'https://sito-estraneo.example' });
     verifica('da un altro sito: rifiutato', r.status, 403);
-    r = await richiesta(port, '/api/cantiere', 'POST', '{"azione":"scegli","mondo":"acropoli"}', { 'Content-Type': 'text/plain' });
+    r = await richiesta(port, '/api/registry', 'POST', '{"action":"choose","world":"acropolis"}', { 'Content-Type': 'text/plain' });
     verifica('senza JSON dichiarato: rifiutato', r.status, 415);
-    r = await scrivi({ azione: 'scegli', mondo: 'atlantide' });
+    r = await scrivi({ action: 'choose', world: 'atlantide' });
     verifica('mondo sconosciuto: rifiutato', [r.status, /sconosciuto/.test(r.body)], [400, true]);
-    r = await scrivi({ azione: 'demolisci' });
+    r = await scrivi({ action: 'demolisci' });
     verifica('azione sconosciuta: rifiutata', r.status, 400);
-    r = await richiesta(port, '/api/cantiere', 'POST', '{ non json', JSON_H);
+    r = await richiesta(port, '/api/registry', 'POST', '{ non json', JSON_H);
     verifica('JSON rotto: rifiutato', r.status, 400);
-    r = await richiesta(port, '/api/cantiere', 'POST', JSON.stringify({ azione: 'riporta', x: 'a'.repeat(20000) }), JSON_H);
+    r = await richiesta(port, '/api/registry', 'POST', JSON.stringify({ action: 'report', x: 'a'.repeat(20000) }), JSON_H);
     verifica('richiesta troppo grande: rifiutata', r.status, 413);
-    r = await richiesta(port, '/api/cantiere', 'PUT', '{}', JSON_H);
+    r = await richiesta(port, '/api/registry', 'PUT', '{}', JSON_H);
     verifica('altri metodi: rifiutati', r.status, 405);
-    r = await richiesta(port, '/api/cantiere');
-    verifica('dopo i rifiuti il registro e intatto', JSON.parse(r.body).mondi.acropoli.posati_max, 9);
+    r = await richiesta(port, '/api/registry');
+    verifica('dopo i rifiuti il registro e intatto', JSON.parse(r.body).worlds.acropolis.placed_max, 9);
 
     console.log('\n3. Fuori dalla scena non si esce.\n');
 
     verifica('risalire la cartella', (await richiesta(port, '/../package.json')).status, 404);
     verifica('risalire, codificato', (await richiesta(port, '/%2e%2e/%2e%2e/package.json')).status, 404);
-    verifica('file nascosto', (await richiesta(port, '/world/.world-state.bak')).status, 404);
-    verifica('nascosto con la barra rovesciata', (await richiesta(port, '/world%5C.world-state.bak')).status, 404);
+    verifica('file nascosto', (await richiesta(port, '/state/.world-state.bak')).status, 404);
+    verifica('nascosto con la barra rovesciata', (await richiesta(port, '/state%5C.world-state.bak')).status, 404);
     verifica('cartella nascosta', (await richiesta(port, '/.git/config')).status, 404);
     verifica('carattere nullo', (await richiesta(port, '/index.html%00.js')).status, 404);
 
@@ -198,7 +204,7 @@ function avvia() {
     await new Promise((r) => muta.on('connect', r));
     const t0 = Date.now();
     const tutte = await Promise.all(Array.from({ length: 20 }, (_, i) =>
-      richiesta(port, i % 2 ? '/src/config.js' : '/world/world-state.json')));
+      richiesta(port, i % 2 ? '/engine/config.js' : '/state/world-state.json')));
     verifica('venti richieste, tutte servite', tutte.every((x) => x.status === 200), true);
     verifica('senza aspettare la muta', Date.now() - t0 < 2000, true);
     muta.destroy();

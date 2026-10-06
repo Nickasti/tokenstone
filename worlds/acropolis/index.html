@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Acropoli — cantiere pericleo</title>
+<!-- installabile come app: manifesto, icone, colore della barra -->
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0B141D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- three.js come modulo ES: qui GLTFLoader e RGBELoader sono disponibili -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<link rel="stylesheet" href="/engine/scene.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<header>
+  <div class="eyebrow">Cantiere procedurale · Atene</div>
+  <h1>Acropoli</h1>
+  <div class="sub">IL PROGRAMMA DI PERICLE · 456 — 406 A.C.</div>
+</header>
+
+<aside id="phases">
+  <h2>Sequenza di cantiere</h2>
+  <div id="phlist"></div>
+  <div id="note"></div>
+</aside>
+
+<div id="solar">
+  <div class="lbl">Ora ad Atene · 25 agosto</div>
+  <div id="solarval">—</div>
+  <input type="range" id="hour" min="4.5" max="20.5" step="0.1" value="8.4"
+         aria-label="Ora del giorno">
+</div>
+
+<div id="dock">
+  <div class="row1">
+    <div class="tok">
+      <div class="lbl">Credito · TE</div>
+      <div class="tokval" id="tokval">—</div>
+      <div id="toksrc">—</div>
+      <div id="tokwarn" hidden></div>
+    </div>
+    <div class="next">
+      <div class="lbl">Prossimo blocco</div>
+      <div class="mark" id="mark">—</div>
+      <div class="desc" id="desc">—</div>
+    </div>
+  </div>
+  <div class="row2">
+    <button class="key" id="build">Posa il blocco</button>
+    <button id="auto">Cantiere continuo</button>
+    <button id="add">+ credito</button>
+  </div>
+  <div class="row3">
+    <span id="prog">0 / 0 blocchi</span>
+    <span>
+      <button id="fly">VOLA AL CANTIERE</button> ·
+      <button id="reset">RIPARTI</button> ·
+      <button id="tog">FASI</button>
+    </span>
+  </div>
+</div>
+
+<div id="boot">Taglio dei blocchi in corso…</div>
+
+<script type="module">
+  /* La schermata di avvio va tolta da fuori del modulo che carica la scena:
+     se l'import fallisce, il codice che sta dentro non gira piu e la scritta
+     resterebbe li per sempre, senza dire cosa e andato storto. */
+  const boot = document.getElementById('boot');
+  const fallito = (msg) => {
+    boot.classList.remove('gone');
+    boot.classList.add('err');
+    boot.textContent = 'Il cantiere non si apre: ' + msg +
+      '  —  la console del browser (F12) ha il dettaglio.';
+  };
+  addEventListener('error', e => { if (e instanceof ErrorEvent) fallito(e.message); });
+  addEventListener('unhandledrejection', e =>
+    fallito((e.reason && e.reason.message) || 'una promessa e stata rifiutata'));
+
+  import('./src/main.js')
+    .then(() => setTimeout(() => boot.classList.add('gone'), 400))
+    .catch(err => fallito(err.message));
+
+  // l'app installata, aperta a server spento, spiega come accenderlo
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
+</script>
+</body>
+</html>

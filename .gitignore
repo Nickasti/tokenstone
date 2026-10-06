@@ -5,10 +5,10 @@ assets/models/*.glb
 assets/hdri/*.hdr
 
 # contatore di token: stato del mondo e diario, locali per definizione
-world/world-state.json
-world/.world-state.*
-world/cantiere.json
-world/.cantiere.*
+state/world-state.json
+state/.world-state.*
+state/registry.json
+state/.registry.*
 tools/token-counter/counter.log
 
 # listino candidato dell agente, finche non viene approvato

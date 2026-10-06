@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { M } from './materials.js';
 import { COST, PLATEAU } from './config.js';
 import { G, box, mk, statue, walls, colonnade } from './kit.js';
-import { addPiece, mark } from './pieces.js';
+import { addPiece, mark } from '/engine/pieces.js';
 import { terrainH, rimShape, wallTop } from './terrain.js';
 
 const PI = Math.PI;

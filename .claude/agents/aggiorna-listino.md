@@ -20,7 +20,7 @@ tempi, e il secondo tempo lo decide l'utente.
 
 ## Proposta
 
-1. **Cosa manca.** Leggi `world/world-state.json`: `unknown_models` elenca i
+1. **Cosa manca.** Leggi `state/world-state.json`: `unknown_models` elenca i
    modelli incontrati senza un prezzo proprio, e `model_fallbacks` dice quale
    prezzo hanno preso in prestito. Un nome che finisce con ` (fast)` vuol dire
    che manca la maggiorazione della modalita veloce per quel modello. Leggi

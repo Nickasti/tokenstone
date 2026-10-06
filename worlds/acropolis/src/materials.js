@@ -33,10 +33,6 @@ export const M = {
 
   oro     : new THREE.MeshStandardMaterial({ color:0xC8A04E, roughness:.30, metalness:.85 }),
   bronzo  : new THREE.MeshStandardMaterial({ color:0x6E7F55, roughness:.42, metalness:.90 }),
-  avorio  : new THREE.MeshStandardMaterial({ color:0xEDE3CE, roughness:.55, metalness:0 }),
-
-  /* il blocco in volo, prima di cristallizzare in marmo */
-  ghost   : new THREE.MeshStandardMaterial({
-              color:0x74AC9B, emissive:0x2C6A5B, emissiveIntensity:1.4,
-              roughness:.35, metalness:0, transparent:true, opacity:.52 })
+  avorio  : new THREE.MeshStandardMaterial({ color:0xEDE3CE, roughness:.55, metalness:0 })
+  // il blocco in volo, verderame, e del motore: engine/pieces.js
 };
