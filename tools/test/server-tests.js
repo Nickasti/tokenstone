@@ -160,6 +160,9 @@ function avvia() {
     verifica('mondo attivo al primo avvio', api.active, 'acropolis');
     verifica('tutto il consumo va all\'Acropoli', api.worlds && api.worlds.acropolis.credit_te, 1234);
     verifica('il totale del contatore e incluso', api.counter && api.counter.total_te, 1234);
+    verifica('la versione dei file della scena', /^[0-9a-f]{12}$/.test(api.client_version), true);
+    const versione2 = JSON.parse((await richiesta(port, '/api/registry')).body).client_version;
+    verifica('stabile finche i file non cambiano', versione2, api.client_version);
     verifica('il registro e su disco', fs.existsSync(path.join(path.dirname(STATE), 'registry.json')), true);
 
     r = await scrivi({ action: 'report', world: 'acropolis', pieces: 3280, cost_te: 1e8, gift_te: 5e5, placed: 7 });

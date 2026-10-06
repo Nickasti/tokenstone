@@ -191,13 +191,52 @@ function scrittura(req, res) {
   });
 }
 
+/*
+ * La versione dei file della scena. Una scheda aperta prima di un
+ * aggiornamento continua a eseguire il codice di prima: se il server cambia
+ * il modo di parlare, quella scheda resta scollegata e mostra un cantiere che
+ * non e piu quello vero. Con la versione in ogni risposta, la scheda si
+ * accorge che i file sono cambiati e si ricarica da sola.
+ *
+ * E un'impronta di nome, dimensione e data di modifica dei file che il
+ * browser carica: cambia quando cambia il codice, non a ogni riavvio. Si
+ * ricalcola al massimo ogni cinque secondi.
+ */
+const CLIENT_PATHS = ['engine', 'worlds', 'index.html', 'offline.html', 'sw.js', 'manifest.webmanifest'];
+let clientVersion = { at: 0, value: '' };
+function versioneClient() {
+  if (Date.now() - clientVersion.at < 5000) return clientVersion.value;
+  const parti = [];
+  const visita = (rel) => {
+    let st;
+    try { st = fs.statSync(path.join(ROOT, rel)); } catch (_) { return; }
+    if (st.isDirectory()) {
+      for (const e of fs.readdirSync(path.join(ROOT, rel)).sort()) {
+        if (!e.startsWith('.')) visita(rel + '/' + e);
+      }
+    } else {
+      parti.push(rel + ':' + st.size + ':' + Math.round(st.mtimeMs));
+    }
+  };
+  CLIENT_PATHS.forEach(visita);
+  // solo per i test: un file in piu, per simulare un aggiornamento senza
+  // toccare i file del progetto
+  if (process.env.ACROPOLI_CLIENT_STAMP) {
+    try { parti.push('stamp:' + fs.readFileSync(process.env.ACROPOLI_CLIENT_STAMP, 'utf8')); } catch (_) { /* niente */ }
+  }
+  const value = require('crypto').createHash('sha1').update(parti.join('\n')).digest('hex').slice(0, 12);
+  clientVersion = { at: Date.now(), value };
+  return value;
+}
+
 function lettura(res) {
   const now = new Date().toISOString();
   const counterView = leggiContatore();
   const { reg, dirty } = registry.read(now);
   // il primo avvio, un registro recuperato o convertito, si fissa su disco
   if (dirty) registry.write(reg);
-  sendJson(res, 200, Object.assign({ counter: counterView }, registry.view(reg, counterView.total_te)));
+  sendJson(res, 200, Object.assign({ counter: counterView, client_version: versioneClient() },
+    registry.view(reg, counterView.total_te)));
 }
 
 function handler(req, res) {

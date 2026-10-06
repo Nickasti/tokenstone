@@ -15,6 +15,8 @@
 import { POLL_MS } from './config.js';
 
 const API = '/api/registry';
+// dopo tre giri senza risposta - quindici secondi - la scena lo dice
+const MAX_MISSED = 3;
 
 const fmt = n => Math.round(n).toLocaleString('it-IT');
 
@@ -30,6 +32,8 @@ export class CreditSource {
     this.placedMax = 0;     // il punto piu alto raggiunto, da qualunque browser
     this.active = true;
     this.waiting = 0;
+    this.version = null;    // la versione dei file con cui questa scheda e partita
+    this.missed = 0;
   }
 
   onChange(fn) { this.listeners.push(fn); }
@@ -52,10 +56,27 @@ export class CreditSource {
       if (!r.ok) throw new Error(r.status);
       const d = await r.json();
       if (!d || !d.worlds || !d.worlds[this.world]) throw new Error('registro senza ' + this.world);
+
+      /* I file della scena sono cambiati da quando questa scheda e partita:
+         il codice che sta eseguendo non e piu quello del server, e col tempo
+         mostrerebbe un cantiere che non e quello vero. Si ricarica, e
+         riparte dal registro come ogni scheda nuova. */
+      if (d.client_version) {
+        if (this.version && d.client_version !== this.version) { location.reload(); return true; }
+        this.version = d.client_version;
+      }
+
       this.live = true;
+      this.missed = 0;
       this.apply(d);
       return true;
     } catch (e) {
+      /* Il server puo sparire per un momento: si continua con l'ultimo credito
+         noto. Se pero non torna, la scena non deve sembrare collegata. */
+      if (this.live && ++this.missed === MAX_MISSED) {
+        this.info = 'scollegato dal cantiere - il server non risponde, i numeri sono fermi';
+        this.emit();
+      }
       return false;
     }
   }
@@ -110,9 +131,6 @@ export class CreditSource {
 
   poll() {
     if (this._t) clearInterval(this._t);
-    this._t = setInterval(() => {
-      /* il server puo sparire: si continua con l'ultimo credito noto */
-      this.fetchOnce();
-    }, POLL_MS);
+    this._t = setInterval(() => this.fetchOnce(), POLL_MS);
   }
 }

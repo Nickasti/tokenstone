@@ -130,6 +130,12 @@ completato si sappia quanto avanza.
 *Riparti* non cancella niente: il credito resta, e la scena rivede la
 costruzione dall'inizio, accelerata finche non torna al punto raggiunto.
 
+Una scheda aperta prima di un aggiornamento del progetto si ricarica da sola:
+il server dichiara la versione dei file della scena, e la scheda che si
+accorge di non averla piu riparte dal registro. Se invece il server non
+risponde per una quindicina di secondi, la scena lo scrive - *scollegato dal
+cantiere* - invece di continuare a sembrare collegata.
+
 Il registro si legge e si scrive su `/api/registry`. Le scritture sono due -
 "scegli mondo" e "riporta avanzamento" - e il server le accetta solo dal
 computer locale, solo come JSON e solo dalla pagina della scena: un altro

@@ -691,7 +691,32 @@ il registro li ricordi. Dove Chrome non c'e, si salta e lo dice.
 
 ---
 
-## 18. Cosa resta da fare
+## 18. La scheda rimasta indietro
+
+Due finestre sulla stessa Acropoli, e due cantieri diversi: in una la via
+Panatenaica era a 48 lastre su 303, nell'altra a 239. Il conto vero, fatto
+coi costi dei pezzi e col credito del registro, dava 289 blocchi e 50 lastre:
+la prima aveva ragione, ed era solo ancora in corsa.
+
+La seconda era una scheda aperta la mattina, prima della fase 1, mai
+ricaricata. Eseguiva il codice di allora, quello del saldo tenuto nel
+browser, che con piu schede aperte o dopo un *Riparti* poteva accreditare due
+volte lo stesso credito. Con la fase 2 gli indirizzi del server erano
+cambiati, e da li la scheda era rimasta scollegata del tutto: ma non lo
+diceva, e continuava a posare blocchi con un saldo che si era gonfiata da
+sola, quasi il doppio di quelli pagati.
+
+Il difetto non era nel codice di oggi, ma nel modo di sparire. Due rimedi.
+Il server dichiara in ogni risposta la versione dei file della scena, un'impronta
+di nomi, dimensioni e date: una scheda che la vede cambiare sa che il suo
+codice e vecchio, e si ricarica. E una scheda che non riceve risposte per tre
+giri smette di sembrare collegata e scrive *scollegato dal cantiere*. Le
+schede aperte prima di questa correzione non possono saperlo, perche il
+codice che eseguono non lo prevede: quelle vanno ricaricate a mano, una volta.
+
+---
+
+## 19. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

@@ -118,7 +118,10 @@ async function aspetta(valuta, expr, ms) {
     ACROPOLI_LOG: path.join(TMP, 'counter.log'),
     ACROPOLI_PRICING: PRICING,
     ACROPOLI_TRANSCRIPTS: projects,
+    // cambiarlo vale come un aggiornamento dei file della scena
+    ACROPOLI_CLIENT_STAMP: path.join(TMP, 'stamp.txt'),
   });
+  fs.writeFileSync(path.join(TMP, 'stamp.txt'), 'prima');
 
   const server = spawn(process.execPath, [SERVER, '0', '--no-browser', '--interval', '0.3'],
     { env, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -171,6 +174,18 @@ async function aspetta(valuta, expr, ms) {
     await aspetta(dev.valuta, "location.search === '?dev' && document.body.classList.contains('dev')", 30000);
     verifica('indirizzo con ?dev', await dev.valuta('location.pathname + location.search'), '/worlds/acropolis/?dev');
     verifica('comandi visibili', await dev.valuta("getComputedStyle(document.querySelector('.row2')).display"), 'flex');
+
+    console.log('\n4. Una scheda aperta prima di un aggiornamento si ricarica da sola.\n');
+    await dev.valuta('window.__vecchia = true');
+    fs.writeFileSync(path.join(TMP, 'stamp.txt'), 'dopo');
+    verifica('si e ricaricata', await aspetta(dev.valuta, 'window.__vecchia !== true', 20000), true);
+    verifica('e riparte collegata', await aspetta(dev.valuta,
+      "document.getElementById('toksrc').textContent.startsWith('cantiere reale')", 30000), true);
+
+    console.log('\n5. Se il server sparisce, la scena lo dice invece di sembrare collegata.\n');
+    server.kill();
+    verifica('scollegata', await aspetta(dev.valuta,
+      "document.getElementById('toksrc').textContent.startsWith('scollegato')", 30000), true);
   } catch (err) {
     falliti++;
     console.log('  FALLITO ' + err.message);
