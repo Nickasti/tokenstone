@@ -42,11 +42,12 @@ export class CreditSource {
   async probe() {
     const ok = await this.fetchOnce();
     if (!ok) {
-      this.info = 'simulazione - contatore non raggiungibile';
+      if (!this.unregistered) this.info = 'simulazione - contatore non raggiungibile';
       this.loaded = true;
       this.emit();
     }
-    this.poll();
+    // un mondo fuori dal registro non ha niente da rileggere
+    if (!this.unregistered) this.poll();
     return ok;
   }
 
@@ -55,7 +56,15 @@ export class CreditSource {
       const r = await fetch(API, { cache: 'no-store' });
       if (!r.ok) throw new Error(r.status);
       const d = await r.json();
-      if (!d || !d.worlds || !d.worlds[this.world]) throw new Error('registro senza ' + this.world);
+      /* Il server risponde, ma questo mondo non e nel registro: e il modello,
+         o un mondo appena creato e non ancora disponibile. Non riceve token, e
+         la scena lo dice invece di dare la colpa al contatore. */
+      if (d && d.worlds && !d.worlds[this.world]) {
+        this.info = 'fuori dal registro - questo mondo non riceve token, il credito è simulato';
+        this.unregistered = true;
+        return false;
+      }
+      if (!d || !d.worlds) throw new Error('risposta senza mondi');
 
       /* I file della scena sono cambiati da quando questa scheda e partita:
          il codice che sta eseguendo non e piu quello del server, e col tempo

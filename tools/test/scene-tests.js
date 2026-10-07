@@ -155,6 +155,10 @@ const FONTE = "document.getElementById('toksrc').textContent";
       'Ora a Nessun luogo · 21 giugno');
     verifica('costruisce', await waitFor(tpl.valuta, PROG + ' > 3', 30000), true);
     verifica('nessun errore', tpl.errori, []);
+    // aperto senza ?demo: non e nel registro, e deve dirlo cosi
+    await tpl.valuta("location.href = '/worlds/_template/'");
+    verifica('fuori dal registro, e lo dice', await waitFor(tpl.valuta,
+      FONTE + ".startsWith('fuori dal registro')", 45000), true);
 
     console.log('\n8. Se il server sparisce, la scena lo dice invece di sembrare collegata.\n');
     // la stessa scheda torna al cantiere vero: una dimostrazione il server non lo interroga
