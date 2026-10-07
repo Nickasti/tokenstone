@@ -20,6 +20,7 @@ export class UI {
       build: document.getElementById('build'),
       auto:  document.getElementById('auto'),
       add:   document.getElementById('add'),
+      rush:  document.getElementById('rush'),
       prog:  document.getElementById('prog'),
       note:  document.getElementById('note'),
       list:  document.getElementById('phlist'),
@@ -55,6 +56,8 @@ export class UI {
     this.el.build.onclick = () => this.h.build();
     this.el.auto.onclick  = () => this.h.toggleAuto();
     this.el.add.onclick   = () => this.h.grant();
+    // la pagina di un mondo vecchio puo non avere il pulsante
+    if (this.el.rush) this.el.rush.onclick = () => this.h.rush();
     this.el.hour.oninput  = e => this.h.setHour(parseFloat(e.target.value));
     document.getElementById('reset').onclick = () => this.h.reset();
     document.getElementById('fly').onclick   = () => this.h.fly();

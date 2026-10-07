@@ -1,13 +1,18 @@
 {
   "id": "_template",
   "order": 99,
-  "name": "Mondo di prova",
+  "name": "Torre di prova",
   "subtitle": "Il modello da cui nasce ogni mondo",
   "place": "Nessun luogo",
-  "era": "Oggi",
-  "description": "Una torre a gradoni su una piazza lastricata, con qualche albero: il minimo che serve per vedere come funziona un mondo.",
+  "era": "Un tempo inventato",
+  "description": "Una torre di pietra da miniatura fantasy: il basamento col portale, il corpo rotondo con due balconate, la torretta con la finestra a losanghe e il tetto di scandole.",
   "status": "coming",
   "weeks": 0.5,
-  "solar": { "lat": 41.9, "lon": 12.5, "tz": 1, "dayOfYear": 172 },
+  "solar": {
+    "lat": 41.9,
+    "lon": 12.5,
+    "tz": 1,
+    "dayOfYear": 172
+  },
   "preview": null
 }

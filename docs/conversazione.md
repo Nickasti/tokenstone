@@ -806,7 +806,33 @@ mondo, come fargli l'immagine della scheda.
 
 ---
 
-## 21. Cosa resta da fare
+## 21. La torre di prova
+
+Provare il modello voleva dire aspettare: anche in dimostrazione, novanta
+secondi per vedere l'effetto di una modifica sono troppi. Due modalita per chi
+sviluppa. `?demo=10` fa la dimostrazione in dieci secondi, o in quanti se ne
+vogliono. In `?dev`, *Tutto in 10 s* finisce il mondo da dove si trova, con il
+credito finto di `?dev`: il registro non se ne accorge.
+
+**Il modello cambia faccia.** La torre a gradoni mostrava il meccanismo, ma
+non i casi che un mondo vero incontra quasi subito. Al suo posto, una torre
+copiata da una miniatura fantasy: un basamento quadrato col portale, un corpo
+rotondo con due balconate, una torretta snella con la finestra a losanghe, una
+lanterna e un tetto conico di scandole. Cinquecento pezzi che insegnano i muri
+dritti e quelli rotondi a conci sfalsati, le aperture lasciate nei corsi, gli
+archi fatti di conci veri - posati uno per uno, dentro un gruppo girato verso
+la loro parete - le balconate, un tetto a filari.
+
+**Guardarla, non solo scriverla.** La prima fotografia ha mostrato due errori
+che il codice non diceva: i vani erano larghi il doppio degli archi che li
+chiudevano, e la composizione era a specchio rispetto alla miniatura, con la
+torretta nascosta dietro il corpo rotondo. Corretti, la seconda fotografia
+somiglia all'originale: le balconate a sinistra, la torretta che sale a destra
+col suo rigonfiamento.
+
+---
+
+## 22. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

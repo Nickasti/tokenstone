@@ -101,7 +101,10 @@ export function startWorld(world) {
   const DEMO = params.has('demo');
   const SNAPSHOT = params.has('snapshot');
   const DEV = params.has('dev') && !DEMO && !SNAPSHOT;
-  const DEMO_SECONDS = 90;
+  // ?demo dura 90 secondi; ?demo=10 ne dura 10, per chi deve guardare in fretta
+  const DEMO_SECONDS = Math.min(600, Math.max(3, Number(params.get('demo')) || 90));
+  // "Tutto in 10 s" di ?dev: il passo con cui finire il mondo da dove si trova
+  let rushPace = null;
   document.body.classList.toggle('dev', DEV);
   document.body.classList.toggle('snapshot', SNAPSHOT);
 
@@ -276,6 +279,16 @@ export function startWorld(world) {
   const ui = new UI({
     build: () => step(),
     toggleAuto: () => { autoOn = !autoOn; ui.setAuto(autoOn); },
+    /* Tutto in 10 s: il credito finto basta a finire il mondo, e il passo e
+       quello che lo finisce in dieci secondi. Solo in ?dev, solo qui. */
+    rush: () => {
+      devBonus = Math.max(devBonus, TOTAL_COST);
+      try { localStorage.setItem(DEV_KEY, String(devBonus)); } catch (e) { /* niente */ }
+      rushPace = 10 / Math.max(1, TOTAL - placed);
+      autoOn = true;
+      ui.setAuto(true);
+      refresh();
+    },
     grant: () => {
       devBonus += GRANT_TE;
       try { localStorage.setItem(DEV_KEY, String(devBonus)); } catch (e) { /* niente */ }
@@ -291,6 +304,7 @@ export function startWorld(world) {
       pieces.forEach(p => { p.obj.visible = false; setGhost(p.obj, false); p.obj.position.y = p.y; });
       flying.length = 0;
       placed = 0;
+      rushPace = null;
       if (DEV) {
         devBonus = 0;
         try { localStorage.removeItem(DEV_KEY); } catch (e) { /* niente */ }
@@ -357,7 +371,7 @@ export function startWorld(world) {
        scheda, per esempio - quindi il tempo si tronca. In dimostrazione pero
        conta il tempo vero: su un computer lento, coi fotogrammi radi, i 90
        secondi diventerebbero tre minuti. */
-    const dt = Math.min((now - last) / 1000, DEMO ? .25 : .05);
+    const dt = Math.min((now - last) / 1000, DEMO || rushPace ? .25 : .05);
     last = now;
 
     // si comincia dopo la prima risposta del server, che sa da dove ripartire
@@ -366,12 +380,12 @@ export function startWorld(world) {
          credito arretrato e molto - una settimana di lavoro, un cantiere appena
          riavviato - si accelera, altrimenti si starebbe mezz'ora a smaltire
          la coda. */
-      const pace = DEMO ? DEMO_SECONDS / TOTAL : goal() - placed > 20 ? .06 : .45;
+      const pace = rushPace || (DEMO ? DEMO_SECONDS / TOTAL : goal() - placed > 20 ? .06 : .45);
       acc += dt;
       while (acc > pace) {
         acc -= pace;
         if (!step()) {
-          if (placed >= TOTAL) { autoOn = false; ui.setAuto(false); }
+          if (placed >= TOTAL) { autoOn = false; rushPace = null; ui.setAuto(false); }
           // in attesa di credito il tempo non si accumula: niente raffiche all'arrivo
           acc = 0;
           break;

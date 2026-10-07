@@ -149,8 +149,8 @@ const FONTE = "document.getElementById('toksrc').textContent";
     const tpl = await connect(debugPort, base + '/worlds/_template/?demo');
     verifica('si apre', await waitFor(tpl.valuta,
       "(document.getElementById('boot') || {}).className === 'gone'", 45000), true);
-    verifica('nome dal world.json', await tpl.valuta("document.querySelector('h1').textContent"), 'Mondo di prova');
-    verifica('titolo della scheda', await tpl.valuta('document.title'), 'Mondo di prova — TokenStone');
+    verifica('nome dal world.json', await tpl.valuta("document.querySelector('h1').textContent"), 'Torre di prova');
+    verifica('titolo della scheda', await tpl.valuta('document.title'), 'Torre di prova — TokenStone');
     verifica('ora e data del sole', await tpl.valuta("document.querySelector('[data-world=solar]').textContent"),
       'Ora a Nessun luogo · 21 giugno');
     verifica('costruisce', await waitFor(tpl.valuta, PROG + ' > 3', 30000), true);

@@ -2,8 +2,10 @@
 
 Questa guida porta da zero a un mondo che si sceglie dalla pagina iniziale e
 si costruisce coi token. Il modello da cui partire e `worlds/_template/`: una
-torre a gradoni su una piazza lastricata, con qualche albero. Funziona gia, e
-ogni sua parte e commentata.
+torre di pietra da miniatura fantasy, con il basamento, il corpo rotondo, due
+balconate, la torretta e il tetto di scandole. Funziona gia, ogni sua parte e
+commentata, e mostra i casi che servono quasi sempre: muri dritti e rotondi,
+aperture, archi di conci, pezzi dentro un gruppo, un tetto a filari.
 
 ## Com'e fatto un mondo
 
@@ -122,10 +124,13 @@ npm start
 
 poi, nel browser:
 
-- `/worlds/<id>/?demo` - il mondo intero in 90 secondi, con la camera che
-  segue il cantiere. E il modo piu rapido di controllare ordine e fasi.
-- `/worlds/<id>/?dev` - i comandi da cantiere: posa singola e credito regalato,
-  per fermarsi su una fase precisa. Non tocca il registro.
+- `/worlds/<id>/?demo=10` - il mondo intero in dieci secondi, con la camera
+  che segue il cantiere: il modo piu rapido di controllare ordine e fasi.
+  Senza numero dura 90 secondi, come la dimostrazione della pagina iniziale.
+- `/worlds/<id>/?dev` - i comandi da cantiere: posa singola, credito regalato
+  e *Tutto in 10 s*, che finisce il mondo da dove si trova. Per fermarsi su una
+  fase precisa, o vedere in fretta il risultato di una modifica. Non tocca il
+  registro.
 - `/worlds/<id>/?snapshot` - il mondo completo, fermo e senza pannelli: e
   l'inquadratura dell'immagine della scheda.
 

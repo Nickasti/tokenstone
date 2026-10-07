@@ -100,8 +100,8 @@ d'ambiente `ACROPOLI_*`, le chiavi del browser, la cartella del progetto, e
 l'icona dell'app, che e ancora il frontone dell'Acropoli.
 
 ### Fase 4 — Il modello per i mondi nuovi *(fatta, 7 ottobre)*
-- [x] `worlds/_template/`, un mondo minimo da copiare: una torre a gradoni su
-      una piazza, con tre fasi, commentato riga per riga
+- [x] `worlds/_template/`, un mondo da copiare: la torre di prova, da una
+      miniatura fantasy, 501 pezzi in sei fasi, commentata riga per riga
 - [x] `npm run new-world -- <id> "Nome"`: copia il modello; per un mondo gia
       annunciato, come Giza, aggiunge pagina e codice e tiene il world.json
 - [x] Guida: `docs/creare-un-mondo.md`
@@ -109,6 +109,7 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
 - [x] Nel motore il generatore con seme (`engine/random.js`) e il dono
       iniziale come quota del mondo, non piu come numero fisso
 - [x] La dimostrazione tiene i suoi 90 secondi anche su un computer lento
+- [x] Modalita rapide per chi sviluppa: `?demo=10`, e *Tutto in 10 s* in `?dev`
 
 ### Fase 5 — Rifiniture dell'Acropoli
 - [ ] Lista da fare insieme. Candidati: il fregio ionico del Partenone (manca),

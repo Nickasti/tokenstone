@@ -108,7 +108,7 @@ cominciare*, *compiuto* o *in arrivo*, con l'avanzamento di ciascuno.
   passa il suo avanzo al nuovo.
 - **"Guarda come si costruisce"** apre la dimostrazione: il mondo intero in un
   minuto e mezzo, dalla prima pietra all'ultima, con la camera che segue il
-  cantiere. Non tocca il registro, ed e il modo di vedere il progetto anche
+  cantiere. `?demo=10` la fa durare dieci secondi: il numero e libero. Non tocca il registro, ed e il modo di vedere il progetto anche
   senza Claude Code.
 
 I TE si leggono in pagina; il loro valore in dollari, a prezzo di listino, sta
@@ -129,7 +129,8 @@ altrimenti smaltire la coda richiederebbe mezz'ora. In alto a sinistra, *I
 mondi* riporta alla pagina iniziale.
 
 `?dev` in fondo all'indirizzo aggiunge i comandi da cantiere: posa singola,
-cantiere continuo e il credito regalato della simulazione. Servono a chi
+cantiere continuo, il credito regalato della simulazione e *Tutto in 10 s*,
+che finisce il mondo in dieci secondi da dove si trova. Servono a chi
 lavora al codice - vedere una fase precisa, provare una modifica senza
 aspettare i token - e non hanno senso per chi visita. Il credito regalato
 resta in quel browser e non arriva mai al registro: il cantiere vero non se
@@ -437,7 +438,7 @@ worlds/acropolis/     il primo mondo
   src/kit.js          kit greco: crepidoma, colonnati, trabeazioni, muri, frontoni
   src/terrain.js      heightfield del pianoro e mura di cinta
   src/materials.js    marmo pentelico, policromia, bronzo, oro e avorio
-worlds/_template/     il modello dei mondi nuovi: una torre a gradoni, commentata
+worlds/_template/     il modello dei mondi nuovi: la torre di prova, commentata
 worlds/giza/          in arrivo: world.json e la sagoma della scheda, preview.svg
 worlds/forum/         in arrivo: world.json e la sagoma della scheda, preview.svg
 package.json          npm start, npm test, test:scene, previews, new-world; nessuna dipendenza

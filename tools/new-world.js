@@ -75,7 +75,7 @@ process.stdout.write([
   'Adesso:',
   '  1. ' + (announced ? 'controlla' : 'compila') + ' ' + path.join(rel, 'world.json') + ': luogo, epoca, durata, sole',
   '  2. scrivi il mondo in ' + path.join(rel, 'src', 'main.js') + ' (parte dalla torre di prova)',
-  '  3. guardalo: npm start, poi /worlds/' + id + '/?demo',
+  '  3. guardalo: npm start, poi /worlds/' + id + '/?demo=10',
   '  4. quando e pronto: "status": "available" in world.json, e npm run previews -- ' + id,
   '',
   'La guida passo per passo: docs/creare-un-mondo.md',
