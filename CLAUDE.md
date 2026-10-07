@@ -11,6 +11,9 @@ e un nome provvisorio.
 - Il motore e in `engine/`, comune a tutti i mondi; ogni mondo sta in
   `worlds/<id>/` con il suo `world.json`. Quello che vale per un mondo solo
   non va nel motore. La pagina iniziale e `index.html` con `home/`.
+- Un mondo nuovo si comincia con `npm run new-world -- <id> "Nome"`, dal
+  modello `worlds/_template/`; la guida e `docs/creare-un-mondo.md`. Quello che
+  si sparge a caso usa `seeded` di `engine/random.js`, mai `Math.random`.
 - I testi che l'utente legge hanno gli accenti (è, più, così); i commenti del
   codice possono farne a meno.
 - Nomi di cartelle, file, funzioni e campi dei dati in inglese; commenti, testi

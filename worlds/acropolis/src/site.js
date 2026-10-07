@@ -3,6 +3,7 @@ import { M } from './materials.js';
 import { COST, PLATEAU } from './config.js';
 import { G, box, mk, statue, walls, colonnade } from './kit.js';
 import { addPiece, mark } from '/engine/pieces.js';
+import { seeded } from '/engine/random.js';
 import { terrainH, rimShape, wallTop } from './terrain.js';
 
 const PI = Math.PI;
@@ -19,17 +20,9 @@ const PI = Math.PI;
    Qui c e solo cio che e stato portato su e messo in opera, e quindi
    costa token come ogni altro blocco. */
 
-/* Generatore deterministico. La disposizione deve essere identica a ogni
-   ricarica: lo stato salvato e un indice dentro l elenco dei pezzi, e se
-   l elenco cambiasse ordine punterebbe a un altro pezzo. */
-function seeded(s) {
-  return function () {
-    s = s + 0x6D2B79F5 | 0;
-    let t = Math.imul(s ^ s >>> 15, 1 | s);
-    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-    return ((t ^ t >>> 14) >>> 0) / 4294967296;
-  };
-}
+/* Il generatore deterministico e del motore, engine/random.js: la
+   disposizione deve essere identica a ogni ricarica, perche il cantiere e
+   "i primi N pezzi dell'elenco". */
 
 /* ---------- appoggio al suolo ----------
    Il pianoro ondula di circa un metro: un pezzo posato a quota fissa

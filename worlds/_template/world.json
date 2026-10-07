@@ -1,0 +1,13 @@
+{
+  "id": "_template",
+  "order": 99,
+  "name": "Mondo di prova",
+  "subtitle": "Il modello da cui nasce ogni mondo",
+  "place": "Nessun luogo",
+  "era": "Oggi",
+  "description": "Una torre a gradoni su una piazza lastricata, con qualche albero: il minimo che serve per vedere come funziona un mondo.",
+  "status": "coming",
+  "weeks": 0.5,
+  "solar": { "lat": 41.9, "lon": 12.5, "tz": 1, "dayOfYear": 172 },
+  "preview": null
+}

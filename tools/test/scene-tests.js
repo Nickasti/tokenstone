@@ -131,7 +131,7 @@ const FONTE = "document.getElementById('toksrc').textContent";
     const d0 = await home.valuta(PROG);
     await attendi(5000);
     const d1 = await home.valuta(PROG);
-    verifica('piu blocchi al secondo del cantiere vero', d1 - d0 > 30, true);
+    verifica('la dimostrazione avanza', d1 > d0, true);
     await attendi(2500);
     verifica('il registro non si e mosso', (await registro()).worlds.acropolis.placed_max, posatiPrima);
 
@@ -145,9 +145,23 @@ const FONTE = "document.getElementById('toksrc').textContent";
     verifica('si e ricaricata', await waitFor(dev.valuta, 'window.__vecchia !== true', 20000), true);
     verifica('e riparte collegata', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 30000), true);
 
-    console.log('\n7. Se il server sparisce, la scena lo dice invece di sembrare collegata.\n');
+    console.log('\n7. Il modello dei mondi nuovi si apre, prende i testi da world.json e costruisce.\n');
+    const tpl = await connect(debugPort, base + '/worlds/_template/?demo');
+    verifica('si apre', await waitFor(tpl.valuta,
+      "(document.getElementById('boot') || {}).className === 'gone'", 45000), true);
+    verifica('nome dal world.json', await tpl.valuta("document.querySelector('h1').textContent"), 'Mondo di prova');
+    verifica('titolo della scheda', await tpl.valuta('document.title'), 'Mondo di prova — TokenStone');
+    verifica('ora e data del sole', await tpl.valuta("document.querySelector('[data-world=solar]').textContent"),
+      'Ora a Nessun luogo · 21 giugno');
+    verifica('costruisce', await waitFor(tpl.valuta, PROG + ' > 3', 30000), true);
+    verifica('nessun errore', tpl.errori, []);
+
+    console.log('\n8. Se il server sparisce, la scena lo dice invece di sembrare collegata.\n');
+    // la stessa scheda torna al cantiere vero: una dimostrazione il server non lo interroga
+    await tpl.valuta("location.href = '/worlds/acropolis/'");
+    await waitFor(tpl.valuta, FONTE + ".startsWith('cantiere reale')", 45000);
     server.kill();
-    verifica('scollegata', await waitFor(dev.valuta, FONTE + ".startsWith('scollegato')", 30000), true);
+    verifica('scollegata', await waitFor(tpl.valuta, FONTE + ".startsWith('scollegato')", 30000), true);
   } catch (err) {
     falliti++;
     console.log('  FALLITO ' + err.message);

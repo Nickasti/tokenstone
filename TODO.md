@@ -99,9 +99,16 @@ Rimasti con il nome vecchio, da rinominare col nome definitivo: le variabili
 d'ambiente `ACROPOLI_*`, le chiavi del browser, la cartella del progetto, e
 l'icona dell'app, che e ancora il frontone dell'Acropoli.
 
-### Fase 4 — Il modello per i mondi nuovi
-- [ ] `worlds/_template/`, un mondo minimo da copiare
-- [ ] Guida: cosa deve fornire un mondo
+### Fase 4 — Il modello per i mondi nuovi *(fatta, 7 ottobre)*
+- [x] `worlds/_template/`, un mondo minimo da copiare: una torre a gradoni su
+      una piazza, con tre fasi, commentato riga per riga
+- [x] `npm run new-world -- <id> "Nome"`: copia il modello; per un mondo gia
+      annunciato, come Giza, aggiunge pagina e codice e tiene il world.json
+- [x] Guida: `docs/creare-un-mondo.md`
+- [x] L'intestazione della scena viene da world.json (`data-world`)
+- [x] Nel motore il generatore con seme (`engine/random.js`) e il dono
+      iniziale come quota del mondo, non piu come numero fisso
+- [x] La dimostrazione tiene i suoi 90 secondi anche su un computer lento
 
 ### Fase 5 — Rifiniture dell'Acropoli
 - [ ] Lista da fare insieme. Candidati: il fregio ionico del Partenone (manca),

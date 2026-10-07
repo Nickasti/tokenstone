@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { WEEKLY_TE, GIFT_WEIGHT, GRANT_WEIGHT } from './config.js';
+import { WEEKLY_TE, GIFT_SHARE, GRANT_SHARE } from './config.js';
 import { Sky, solarPosition, skySample, sunAtten } from './sky.js';
 import { initPieces, pieces, setGhost, bakePhase, unbakeAll, priceInTe } from './pieces.js';
 import { CreditSource } from './credit.js';
@@ -19,8 +19,26 @@ import { UI } from './ui.js';
      hour        l'ora del giorno all'apertura
      focus(k)    { x, z, dist }: dove vola la camera per la fase k
      legacy      { hourKeys, dropKeys }: chiavi del browser di versioni vecchie */
+/* L'intestazione della pagina, da world.json. Una pagina che vuole i testi
+   dal mondo li segna con data-world - name, place, sub, solar - e un titolo
+   con data-world-title: cosi la pagina di un mondo nuovo e la stessa del
+   modello. Le pagine che scrivono i loro testi a mano restano come sono. */
+function fillHeader(meta) {
+  const set = (key, text) => document.querySelectorAll(`[data-world="${key}"]`)
+    .forEach(e => { e.textContent = text; });
+  const day = new Date(2001, 0, meta.solar.dayOfYear)
+    .toLocaleDateString('it-IT', { day: 'numeric', month: 'long' });
+  const a = /^[aeiou]/i.test(meta.place) ? 'ad' : 'a';
+  set('name', meta.name);
+  set('place', meta.place);
+  set('sub', [meta.subtitle, meta.era].filter(Boolean).join(' · ').toUpperCase());
+  set('solar', `Ora ${a} ${meta.place} · ${day}`);
+  if (document.querySelector('title[data-world-title]')) document.title = `${meta.name} — TokenStone`;
+}
+
 export function startWorld(world) {
   const { meta } = world;
+  fillHeader(meta);
   const PI = Math.PI;
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -63,10 +81,11 @@ export function startWorld(world) {
      ripartisce sui pesi dei pezzi, e da li vengono anche il dono iniziale e
      il credito regalato di ?dev. */
   const TOTAL = pieces.length;
-  const TE_PER_WEIGHT = priceInTe(WEEKLY_TE * meta.weeks);
+  const BUDGET = WEEKLY_TE * meta.weeks;
+  priceInTe(BUDGET);
   const TOTAL_COST = pieces.reduce((s, p) => s + p.cost, 0);
-  const START_TE = Math.round(GIFT_WEIGHT * TE_PER_WEIGHT);
-  const GRANT_TE = Math.round(GRANT_WEIGHT * TE_PER_WEIGHT);
+  const START_TE = Math.round(GIFT_SHARE * BUDGET);
+  const GRANT_TE = Math.round(GRANT_SHARE * BUDGET);
 
   /* ─────────── due modi di stare davanti alla scena ───────────
      Normalmente il cantiere avanza da solo, al ritmo con cui arrivano i token:
@@ -334,7 +353,11 @@ export function startWorld(world) {
   /* ─────────── loop ─────────── */
   let last = performance.now(), acc = 0;
   function frame(now) {
-    const dt = Math.min((now - last) / 1000, .05);
+    /* Un fotogramma lungo non deve far saltare la scena - dopo un cambio di
+       scheda, per esempio - quindi il tempo si tronca. In dimostrazione pero
+       conta il tempo vero: su un computer lento, coi fotogrammi radi, i 90
+       secondi diventerebbero tre minuti. */
+    const dt = Math.min((now - last) / 1000, DEMO ? .25 : .05);
     last = now;
 
     // si comincia dopo la prima risposta del server, che sa da dove ripartire

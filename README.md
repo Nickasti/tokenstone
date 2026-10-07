@@ -156,6 +156,10 @@ descrizione, durata, posizione del sole, stato - `available` o `coming` - e
 immagine della scheda. Il registro conosce i mondi da quei file, e un mondo
 in arrivo non si puo scegliere.
 
+**Un mondo nuovo** si comincia dal modello, `worlds/_template/`:
+`npm run new-world -- <id> "Nome"`. Il percorso completo, da li alla
+pubblicazione, e in [docs/creare-un-mondo.md](docs/creare-un-mondo.md).
+
 **I blocchi posati non si salvano: si calcolano.** Ogni mondo conosce il costo
 dei suoi pezzi in ordine; dato il credito, quanti se ne pagano e un conto.
 Cosi il cantiere e lo stesso in ogni browser e su ogni dispositivo, e niente
@@ -378,6 +382,7 @@ stanno nel `.gitignore`.
 npm test                                           # listino e tutti i test
 npm run test:scene                                 # la scena in Chrome senza finestra (si salta senza Chrome)
 npm run previews                                   # rifa le immagini delle schede dei mondi
+npm run new-world -- <id> "Nome"                    # un mondo nuovo, dal modello
 node tools/token-counter/counter.js --print        # una scansione e il riepilogo
 node tools/token-counter/counter.js --watch        # scansione continua, senza server
 ```
@@ -419,6 +424,7 @@ engine/               il motore, uguale per tutti i mondi
   sky.js              scattering Rayleigh + Mie, posizione solare, IBL da cubemap
   ui.js               pannello del cantiere, fasi, sole
   config.js           quanto vale una settimana (WEEKLY_TE), dono iniziale
+  random.js           il generatore con seme, per spargere le cose sempre uguali
   scene.css           lo stile della scena
 worlds/acropolis/     il primo mondo
   preview.webp        l'immagine della scheda, da npm run previews
@@ -431,9 +437,10 @@ worlds/acropolis/     il primo mondo
   src/kit.js          kit greco: crepidoma, colonnati, trabeazioni, muri, frontoni
   src/terrain.js      heightfield del pianoro e mura di cinta
   src/materials.js    marmo pentelico, policromia, bronzo, oro e avorio
+worlds/_template/     il modello dei mondi nuovi: una torre a gradoni, commentata
 worlds/giza/          in arrivo: world.json e la sagoma della scheda, preview.svg
 worlds/forum/         in arrivo: world.json e la sagoma della scheda, preview.svg
-package.json          npm start, npm test, npm run test:scene, npm run previews; nessuna dipendenza
+package.json          npm start, npm test, test:scene, previews, new-world; nessuna dipendenza
 TokenStone.cmd        avvio a doppio clic: Windows; TokenStone.command per macOS, tokenstone.sh per Linux
 manifest.webmanifest  per installare la scena come app
 sw.js, offline.html   la pagina che l'app mostra quando il server e spento
@@ -443,6 +450,7 @@ tools/registry.js     il registro dei cantieri: mondo attivo, tratti di credito,
 tools/migrate.js      porta lo stato di un'installazione vecchia da world/ a state/
 tools/chrome.js       guidare Chrome senza finestra: per i test della scena e gli scatti
 tools/make-previews.js  gli scatti delle schede: npm run previews
+tools/new-world.js    un mondo nuovo dal modello: npm run new-world
 tools/test/           test del registro, del server e della scena
 tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, test/
 state/                world-state.json del contatore e registry.json (non versionati)
@@ -450,6 +458,7 @@ state/                world-state.json del contatore e registry.json (non versio
 CLAUDE.md             istruzioni per Claude Code quando lavora in questo progetto
 TODO.md               il piano a fasi e le decisioni prese
 docs/conversazione.md come è nato il progetto e perché le scelte sono queste
+docs/creare-un-mondo.md  la guida per aggiungere un mondo
 ```
 
 ---

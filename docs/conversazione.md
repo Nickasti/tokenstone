@@ -762,7 +762,51 @@ senza toccare il registro.
 
 ---
 
-## 20. Cosa resta da fare
+## 20. Il modello dei mondi
+
+Il motore separato dal mondo, la pagina iniziale, il registro: tutto era
+pronto per un secondo mondo, ma l'unico esempio di mondo era l'Acropoli,
+tremila pezzi e cinque file. Per cominciare la piana di Giza - o per chi,
+scaricato il progetto, volesse costruire il suo - serviva un punto di
+partenza piccolo.
+
+**Un mondo minimo, ma vero.** `worlds/_template/` e una torre a gradoni su una
+piazza lastricata, con un anello di alberi: centoquindici pezzi, tre fasi, un
+file solo. Non e uno scheletro vuoto: si apre, si costruisce, ha la sua
+dimostrazione. Ogni parte e commentata, perche e da li che si impara cosa
+deve fornire un mondo. Il trattino basso nel nome lo tiene fuori dal registro
+e dalla pagina iniziale.
+
+**Il generatore.** `npm run new-world -- <id> "Nome"` copia il modello e
+segna il mondo *in arrivo*. Per Giza, che ha gia il suo world.json, aggiunge
+solo pagina e codice. Non sovrascrive mai un mondo che ha gia una pagina.
+
+**La pagina di un mondo e sempre la stessa.** Nome, luogo, epoca, l'ora e la
+data del sole: il motore li prende da world.json e li scrive negli elementi
+segnati `data-world`. Un mondo nuovo non riscrive la sua pagina.
+
+**Due cose salite nel motore.** Il generatore con seme, che l'Acropoli usava
+per spargere alberi e offerte, serve a qualunque mondo che spargera qualcosa:
+e passato in `engine/random.js`, identico riga per riga, perche cambiarlo
+avrebbe spostato ogni albero del pianoro. E il dono iniziale: valeva 300 unita
+di peso, che per l'Acropoli sono l'1% del mondo e per la torre di prova il
+70%. Ora e una quota del budget, l'1,25%, uguale per tutti.
+
+**La dimostrazione e il tempo vero.** Il motore tronca il tempo di ogni
+fotogramma, perche un fotogramma lungo - dopo un cambio di scheda - non faccia
+saltare la scena. Su un computer lento, coi fotogrammi radi, la dimostrazione
+di 90 secondi diventava di tre minuti. In dimostrazione ora conta il tempo
+vero. L'ha trovato la prova della scena, fallendo: misurava una velocita in un
+Chrome senza finestra che disegna tremila pezzi col processore.
+
+**La guida.** `docs/creare-un-mondo.md` porta dal modello alla pubblicazione:
+world.json campo per campo, i pezzi e il loro ordine - che dopo la
+pubblicazione non si cambia piu - i parametri del motore, come guardare il
+mondo, come fargli l'immagine della scheda.
+
+---
+
+## 21. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

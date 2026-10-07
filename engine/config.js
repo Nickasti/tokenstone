@@ -48,10 +48,11 @@
 export const WEEKLY_TE = 31000000;   // 100% della settimana: limite inferiore, da rimisurare
 
 /* Il dono con cui comincia ogni mondo, e il credito che regala il pulsante di
-   ?dev, in unita di peso: qualche pezzo, e qualche fase. Diventano TE con i
-   prezzi del mondo. */
-export const GIFT_WEIGHT = 300;
-export const GRANT_WEIGHT = 1000;
+   ?dev: una quota del budget del mondo, non un numero fisso. Un numero fisso
+   vale l'1% di un mondo grande e mezzo mondo di uno piccolo. All'Acropoli il
+   dono da i primi pezzi: l'ulivo sacro e un po' di verde. */
+export const GIFT_SHARE = 0.0125;
+export const GRANT_SHARE = 0.04;
 
 /* Ogni quanto la scena rilegge il registro, in millisecondi. Il contatore
    scansiona allo stesso ritmo: piu spesso non servirebbe. */
