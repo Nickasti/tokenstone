@@ -278,7 +278,8 @@ hai usato anche claude.ai, che consuma la stessa quota, il valore esce piu
 basso del vero.
 
 Il valore nel progetto, 66 milioni, viene da due letture sulla settimana dal
-5 ottobre 2026 alle 19:05, con solo Claude Code: 12% con 7.729.500 TE e 19%
+5 ottobre 2026 alle 19:05, con solo Claude Code, fatte tutte e due il 7 ottobre
+con il totale da inizio settimana: 12% con 7.729.500 TE e 19%
 con 12.681.526 TE. Con l'arrotondamento di `/usage` la prima dice 61,8-67,2
 milioni e la seconda 65,0-68,5: il valore vero sta fra 65,0 e 67,2. Una prima
 misura del 5 ottobre aveva dato 31 milioni, ma quella settimana si era usato

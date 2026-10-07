@@ -30,11 +30,14 @@
    settimana si era usato anche claude.ai, che i transcript non vedono.
 
    Seconda misura, sulla finestra dal 5 ottobre alle 19:05, con solo Claude
-   Code: il 6 ottobre 12% con 7.729.500 TE, cioe 64,4 milioni; il 7 ottobre
+   Code. Due letture nella stessa finestra, il 7 ottobre, ognuna col totale
+   da inizio finestra: alle 12:45 12% con 7.729.500 TE, cioe 64,4 milioni;
    alle 16:45 19% con 12.681.526 TE, cioe 66,7 milioni. /usage arrotonda
    all'intero, quindi le due letture dicono 61,8-67,2 e 65,0-68,5 milioni:
    tutte e due sono vere solo fra 65,0 e 67,2. Il valore e il centro, 66
-   milioni. Vale per il piano di chi l'ha misurato: con un altro piano va
+   milioni. Torna anche la differenza fra le due: 4.952.026 TE per il 7%
+   in piu, 70,7 milioni, ma con un arrotondamento del 6-8% che la rende
+   poco precisa (62-83 milioni). Vale per il piano di chi l'ha misurato: con un altro piano va
    rimisurato.
 
    Per orientarsi: la finestra breve di cinque ore, il 5 ottobre, e

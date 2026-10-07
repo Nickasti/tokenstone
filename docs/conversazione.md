@@ -852,7 +852,9 @@ quanti TE sono caduti da allora.
 La prima misura, il 5 ottobre, aveva dato 31 milioni, ma era sporca: quella
 settimana si era usato anche claude.ai, che consuma la stessa quota senza
 lasciare transcript. Cosi la settimana dopo e stata tenuta pulita, solo
-Claude Code, con due letture: 12% con 7.729.500 TE, poi 19% con 12.681.526.
+Claude Code, con due letture nella stessa settimana, il 7 ottobre: 12% la
+mattina con 7.729.500 TE, 19% il pomeriggio con 12.681.526, ognuna col totale
+da inizio settimana.
 /usage arrotonda all'intero, quindi ogni lettura e un intervallo - 61,8-67,2
 milioni la prima, 65,0-68,5 la seconda - e il valore vero sta dove si
 sovrappongono, fra 65,0 e 67,2. Nel progetto: 66 milioni.
