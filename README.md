@@ -277,13 +277,15 @@ pero conosce solo Claude Code su questo computer: se nella stessa settimana
 hai usato anche claude.ai, che consuma la stessa quota, il valore esce piu
 basso del vero.
 
-Il valore nel progetto, 31 milioni, viene da una prima misura del 5 ottobre
-2026 (12%, 3.709.015 TE nella finestra) ed e un limite inferiore: quella
-settimana si era usato anche claude.ai. Va rimisurato su una settimana di
-solo Claude Code, e comunque vale per il piano di chi l'ha misurato. Con
-quel valore un rocchio costa circa 21.800 TE, una metopa 98.000, l'ulivo
-sacro 655.000, la Parthenos 2,18 milioni, e un milione di TE posa lo 0,75%
-del cantiere.
+Il valore nel progetto, 66 milioni, viene da due letture sulla settimana dal
+5 ottobre 2026 alle 19:05, con solo Claude Code: 12% con 7.729.500 TE e 19%
+con 12.681.526 TE. Con l'arrotondamento di `/usage` la prima dice 61,8-67,2
+milioni e la seconda 65,0-68,5: il valore vero sta fra 65,0 e 67,2. Una prima
+misura del 5 ottobre aveva dato 31 milioni, ma quella settimana si era usato
+anche claude.ai. Vale per il piano di chi l'ha misurato. Con 66 milioni un
+rocchio costa circa 46.000 TE, una metopa 209.000, l'ulivo sacro 1,39
+milioni, la Parthenos 4,6 milioni, e un milione di TE posa lo 0,35% del
+cantiere.
 
 La finestra breve di cinque ore di `/usage` non serve allo scopo: misura un
 altro limite, e il rapporto con quello settimanale non e pubblico.

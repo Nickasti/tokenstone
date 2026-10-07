@@ -842,7 +842,30 @@ clic, e in inglese, con la versione italiana sotto.
 
 ---
 
-## 22. Cosa resta da fare
+## 22. La settimana misurata
+
+Il prezzo dei blocchi dipende da una sola grandezza: quanti TE vale il 100%
+della quota settimanale di Claude Code. Non e un dato pubblico, quindi si
+misura: la percentuale di /usage, l'ora del reset, e il contatore che sa
+quanti TE sono caduti da allora.
+
+La prima misura, il 5 ottobre, aveva dato 31 milioni, ma era sporca: quella
+settimana si era usato anche claude.ai, che consuma la stessa quota senza
+lasciare transcript. Cosi la settimana dopo e stata tenuta pulita, solo
+Claude Code, con due letture: 12% con 7.729.500 TE, poi 19% con 12.681.526.
+/usage arrotonda all'intero, quindi ogni lettura e un intervallo - 61,8-67,2
+milioni la prima, 65,0-68,5 la seconda - e il valore vero sta dove si
+sovrappongono, fra 65,0 e 67,2. Nel progetto: 66 milioni.
+
+Il valore vecchio era la meta di quello vero, e i prezzi raddoppiano: un
+rocchio passa da 21.800 a 46.000 TE, e l'Acropoli intera vale 283 milioni.
+I blocchi gia posati restano dove sono - il cantiere non arretra mai - ma il
+credito non li copre piu tutti: il cantiere si ferma finche i token non
+recuperano il prezzo nuovo, e poi riprende.
+
+---
+
+## 23. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

@@ -26,13 +26,18 @@
    Piu alta la percentuale, piu piccolo l'errore dell'arrotondamento.
 
    Prima misura, 5 ottobre 2026: 12% della settimana, 3.709.015 TE di
-   Claude Code nella finestra, quindi 31 milioni. E un limite inferiore, non
-   una misura: in quella settimana si era usato anche claude.ai, e il 12%
-   comprende chat che i transcript non vedono. Il valore vero e piu alto, e
-   va rimisurato su una settimana di solo Claude Code. Vale comunque per il
-   piano di chi l'ha misurato: con un altro piano va rimisurato.
+   Claude Code, quindi 31 milioni. Era un limite inferiore: in quella
+   settimana si era usato anche claude.ai, che i transcript non vedono.
 
-   Per orientarsi: la finestra breve di cinque ore, nello stesso giorno, e
+   Seconda misura, sulla finestra dal 5 ottobre alle 19:05, con solo Claude
+   Code: il 6 ottobre 12% con 7.729.500 TE, cioe 64,4 milioni; il 7 ottobre
+   alle 16:45 19% con 12.681.526 TE, cioe 66,7 milioni. /usage arrotonda
+   all'intero, quindi le due letture dicono 61,8-67,2 e 65,0-68,5 milioni:
+   tutte e due sono vere solo fra 65,0 e 67,2. Il valore e il centro, 66
+   milioni. Vale per il piano di chi l'ha misurato: con un altro piano va
+   rimisurato.
+
+   Per orientarsi: la finestra breve di cinque ore, il 5 ottobre, e
    arrivata al 42% con 3.626.815 TE, cioe circa 8,6 milioni per una
    sessione piena. Non serve a ricavare la settimana, perche il rapporto
    fra i due limiti non e pubblico.
@@ -45,7 +50,7 @@
    Il contatore conta tutti i progetti, non solo questo, ed e giusto cosi:
    anche la percentuale di /usage li conta tutti, quindi le due misure sono
    coerenti. */
-export const WEEKLY_TE = 31000000;   // 100% della settimana: limite inferiore, da rimisurare
+export const WEEKLY_TE = 66000000;   // 100% della settimana, misurato il 7 ottobre 2026
 
 /* Il dono con cui comincia ogni mondo, e il credito che regala il pulsante di
    ?dev: una quota del budget del mondo, non un numero fisso. Un numero fisso

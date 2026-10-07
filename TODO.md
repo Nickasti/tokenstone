@@ -130,9 +130,8 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
 
 ## In parallelo
 
-- [ ] **Misura settimanale** *(in corso)*: finestra pulita dal 5 ottobre alle
-      19:05, solo Claude Code. Quando `/usage` segna almeno il 10%, si fa il
-      conto con `--since` e il limite inferiore di 31 milioni diventa una misura
+- [x] **Misura settimanale**: 66 milioni di TE, da due letture con solo Claude
+      Code (12% e 19% della settimana dal 5 ottobre alle 19:05)
 - [ ] Licenza e attribuzioni alle fonti storiche
 - [ ] README per GitHub: immagini della scena, scelta della lingua
 - [ ] Pubblicazione su GitHub
