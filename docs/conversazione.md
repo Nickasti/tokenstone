@@ -837,7 +837,8 @@ quattro ingressi - guardarla in dieci secondi, aprirla in modalita sviluppo,
 aprire cosi anche l'Acropoli, leggere la guida. La guida si apre nel
 browser: il server ora manda i file `.md` come testo semplice, invece di
 farli scaricare. E `npm run previews -- _template` fotografa anche la torre,
-che nell'elenco dei mondi non c'e.
+che nell'elenco dei mondi non c'e. La guida, che ora chi visita apre con un
+clic, e in inglese, con la versione italiana sotto.
 
 ---
 
