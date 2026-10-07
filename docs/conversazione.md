@@ -830,6 +830,15 @@ torretta nascosta dietro il corpo rotondo. Corretti, la seconda fotografia
 somiglia all'originale: le balconate a sinistra, la torretta che sale a destra
 col suo rigonfiamento.
 
+**Una funzione che nessuno vede non esiste.** `?dev` e `?demo=10` si
+trovavano solo sapendo cosa scrivere nell'indirizzo. Ora la pagina iniziale
+ha, sotto i mondi, il laboratorio: la torre di prova con la sua fotografia e
+quattro ingressi - guardarla in dieci secondi, aprirla in modalita sviluppo,
+aprire cosi anche l'Acropoli, leggere la guida. La guida si apre nel
+browser: il server ora manda i file `.md` come testo semplice, invece di
+farli scaricare. E `npm run previews -- _template` fotografa anche la torre,
+che nell'elenco dei mondi non c'e.
+
 ---
 
 ## 22. Cosa resta da fare

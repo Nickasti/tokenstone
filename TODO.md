@@ -110,6 +110,8 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
       iniziale come quota del mondo, non piu come numero fisso
 - [x] La dimostrazione tiene i suoi 90 secondi anche su un computer lento
 - [x] Modalita rapide per chi sviluppa: `?demo=10`, e *Tutto in 10 s* in `?dev`
+- [x] Il laboratorio nella pagina iniziale: la torre di prova, `?dev` e la
+      guida a portata di clic, invece che nascosti nell'indirizzo
 
 ### Fase 5 — Rifiniture dell'Acropoli
 - [ ] Lista da fare insieme. Candidati: il fregio ionico del Partenone (manca),

@@ -136,6 +136,12 @@ aspettare i token - e non hanno senso per chi visita. Il credito regalato
 resta in quel browser e non arriva mai al registro: il cantiere vero non se
 ne accorge. *Riparti*, in `?dev`, torna anche al credito vero.
 
+Per non lasciarla nascosta, la pagina iniziale ha in fondo **il laboratorio**:
+la torre di prova, il modello dei mondi nuovi, con quattro ingressi - la
+torre che si costruisce in dieci secondi, la torre in `?dev`, l'Acropoli in
+`?dev` e la guida per creare un mondo. Niente di quello che si fa da li
+consuma credito o tocca il cantiere vero.
+
 ---
 
 ## I mondi e il registro

@@ -12,6 +12,7 @@
  * scatto non legge e non scrive il cantiere vero.
  *
  *   node tools/make-previews.js [id ...]   solo alcuni mondi
+ *   node tools/make-previews.js _template  la torre di prova, per il laboratorio
  */
 'use strict';
 
@@ -48,6 +49,11 @@ const HEIGHT = 1000;
   const scelti = process.argv.slice(2);
   const mondi = (await (await fetch(base + '/api/worlds')).json())
     .filter((w) => w.status === 'available' && w.has_page && (!scelti.length || scelti.includes(w.id)));
+  // la torre di prova non e nell'elenco dei mondi: si fotografa solo se la si nomina
+  for (const id of scelti) {
+    if (!mondi.some((w) => w.id === id) && /^_?[a-z][a-z0-9-]*$/.test(id) &&
+        fs.existsSync(path.join(ROOT, 'worlds', id, 'index.html'))) mondi.push({ id });
+  }
 
   const debugPort = 9300 + Math.floor(Math.random() * 400);
   const chrome = launch(browser, { profileDir: path.join(tmp, 'p'), debugPort, width: WIDTH, height: HEIGHT });

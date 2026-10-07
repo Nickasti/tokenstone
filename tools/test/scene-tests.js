@@ -87,6 +87,14 @@ const FONTE = "document.getElementById('toksrc').textContent";
     verifica('invito a scegliere il primo mondo', await home.valuta("!document.getElementById('first').hidden"), true);
     verifica('i mondi in arrivo non hanno pulsanti', await home.valuta(
       "[...document.querySelectorAll('.card.coming')].every(c => !c.querySelector('.btn'))"), true);
+    verifica('il laboratorio si vede, con i suoi ingressi', await home.valuta(
+      "[...document.querySelectorAll('#lab .btn')].map(a => a.getAttribute('href'))"),
+      ['/worlds/_template/?demo=10', '/worlds/_template/?dev', '/worlds/acropolis/?dev', '/docs/creare-un-mondo.md']);
+    const guida = await fetch(base + '/docs/creare-un-mondo.md');
+    verifica('la guida si legge nel browser', guida.status + ' ' + guida.headers.get('content-type'),
+      '200 text/plain; charset=utf-8');
+    const foto = await fetch(base + '/worlds/_template/preview.webp');
+    verifica('la torre ha la sua immagine', foto.status, 200);
 
     console.log('\n2. Comincia l\'Acropoli: conferma, e si entra nel mondo.\n');
     await home.valuta("document.querySelector('.card.new .btn.primary').click()");

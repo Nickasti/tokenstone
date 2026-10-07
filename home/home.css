@@ -67,6 +67,15 @@ h2{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter
 .btn.primary{background:var(--patina);border-color:var(--patina);color:var(--notte);font-weight:500}
 .btn.primary:hover{filter:brightness(1.08)}
 
+/* ---- il laboratorio: la torre di prova, per chi vuole smanettare ---- */
+.lab{background:var(--card);border:1px dashed var(--line);border-radius:3px;overflow:hidden;
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.lab .img{display:block;min-height:240px;background:var(--notte2) center/cover no-repeat}
+.lab .body{padding:22px 24px 24px}
+.lab h3{font-family:'Fraunces',serif;font-weight:500;font-size:26px;line-height:1.1}
+.lab .sub{font-size:13.5px;color:var(--soft);margin-top:3px}
+.lab p.desc{font-size:14.5px;color:var(--soft);margin-top:12px;max-width:620px}
+
 /* ---- la conferma ---- */
 dialog{margin:auto;max-width:460px;background:var(--notte2);color:var(--marmo);
   border:1px solid var(--line);border-radius:3px;padding:26px 26px 22px}
@@ -82,4 +91,6 @@ code{font-family:'IBM Plex Mono',monospace;font-size:.92em;color:var(--soft)}
 @media (max-width:640px){
   main{padding:34px 18px 48px}
   .worlds{grid-template-columns:1fr}
+  .lab{grid-template-columns:1fr}
+  .lab .img{min-height:0;aspect-ratio:16/10}
 }
