@@ -865,6 +865,11 @@ I blocchi gia posati restano dove sono - il cantiere non arretra mai - ma il
 credito non li copre piu tutti: il cantiere si ferma finche i token non
 recuperano il prezzo nuovo, e poi riprende.
 
+Il pannello pero lo diceva male: il credito sotto zero, -8,4 milioni di TE,
+sembrava un debito. Ora, quando i blocchi posati costano piu del credito,
+il pannello scrive *Mancano* e quanti TE servono perche il cantiere riparta,
+con una riga che spiega che i prezzi sono saliti.
+
 ---
 
 ## 23. Cosa resta da fare

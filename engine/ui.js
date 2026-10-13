@@ -13,6 +13,7 @@ export class UI {
     this.completion = world.completion;
     this.el = {
       tok:   document.getElementById('tokval'),
+      lbl:   document.querySelector('#dock .tok .lbl'),
       src:   document.getElementById('toksrc'),
       warn:  document.getElementById('tokwarn'),
       mark:  document.getElementById('mark'),
@@ -76,14 +77,25 @@ export class UI {
 
   render(state) {
     const { tokens, placed, total, totalCost, source, warn } = state;
-    this.el.tok.textContent = fmt(tokens);
+    /* Credito sotto zero: i blocchi gia posati costano piu del credito. Succede
+       quando i prezzi salgono - una nuova misura della settimana - perche il
+       cantiere non torna mai indietro. Non e un debito da mostrare col meno:
+       e quanto manca perche il cantiere riparta. */
+    const behind = tokens < 0;
+    if (this.el.lbl) this.el.lbl.textContent = behind ? 'Mancano · TE' : 'Credito · TE';
+    this.el.tok.textContent = fmt(Math.abs(tokens));
+    this.el.tok.classList.toggle('behind', behind);
     this.el.src.textContent = source;
-    this.el.warn.hidden = !warn;
-    this.el.warn.textContent = warn || '';
+    this.el.warn.hidden = !warn && !behind;
+    this.el.warn.textContent = warn ||
+      (behind ? 'prezzi saliti: il cantiere aspetta i token' : '');
     this.el.warn.title = warn
       ? 'Il listino non ha ancora il prezzo di questo modello: il credito è una stima. ' +
         'Per correggerlo, chiedi a Claude Code di aggiornare il listino.'
-      : '';
+      : behind
+        ? 'I blocchi posati restano dove sono, ma ai prezzi di adesso costano più del credito raccolto. ' +
+          'Finché i token non coprono la differenza, il cantiere aspetta.'
+        : '';
     this.el.prog.textContent =
       `${placed.toLocaleString('it-IT')} / ${total.toLocaleString('it-IT')} BLOCCHI`;
 
