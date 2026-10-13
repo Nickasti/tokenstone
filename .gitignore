@@ -15,3 +15,7 @@ tools/token-counter/counter.log
 tools/token-counter/pricing.candidate.json
 tools/token-counter/pricing.json.prima
 .claude/settings.local.json
+
+# graphify: il grafo si salva, ma questi due file hanno percorsi di questo computer
+graphify-out/.graphify_python
+graphify-out/.graphify_root

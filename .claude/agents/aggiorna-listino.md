@@ -1,6 +1,6 @@
 ---
 name: aggiorna-listino
-description: Aggiorna tools/token-counter/pricing.json con i prezzi ufficiali di Anthropic. Da usare quando l'utente chiede di aggiornare il listino o i prezzi dei modelli, o quando world/world-state.json ha unknown_models non vuoto. Di norma prepara una proposta e non modifica pricing.json; lo modifica solo se la richiesta dice esplicitamente di applicare una proposta che l'utente ha approvato.
+description: Aggiorna tools/token-counter/pricing.json con i prezzi ufficiali di Anthropic. Da usare quando l'utente chiede di aggiornare il listino o i prezzi dei modelli, o quando state/world-state.json ha unknown_models non vuoto. Di norma prepara una proposta e non modifica pricing.json; lo modifica solo se la richiesta dice esplicitamente di applicare una proposta che l'utente ha approvato.
 tools: Read, Write, Edit, Bash, WebFetch, Glob, Grep
 ---
 
