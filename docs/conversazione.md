@@ -872,7 +872,33 @@ con una riga che spiega che i prezzi sono saliti.
 
 ---
 
-## 23. Cosa resta da fare
+## 23. La mappa del progetto
+
+Il progetto e cresciuto abbastanza perche rileggerlo costi: ogni sessione che
+parte da zero spende contesto - cioe token - per ritrovare dove sta cosa. Con
+graphify il progetto ha ora una mappa: codice, documenti e immagini diventano
+un grafo di 615 nodi e 1.059 collegamenti, raggruppati in 33 comunita - gli
+edifici dell'Acropoli, il contatore, il registro, il diario, la pagina
+iniziale. `CLAUDE.md` dice di interrogare il grafo prima di aprire i file.
+
+Il codice lo legge graphify da solo, senza modelli. Documenti e immagini
+invece vanno capiti: doveva farlo Gemini, gratis, ma il piano gratuito si e
+fermato a venti richieste al giorno, e il lavoro l'hanno fatto sei subagenti
+di Claude - circa 394.000 token, finiti anche loro nel cantiere.
+
+La mappa ha trovato subito un errore vero: il subagente del listino citava
+ancora `world/world-state.json`, il percorso di prima dello spostamento in
+`state/`. E un collegamento "ambiguo" fra il listino e il TODO, segnalato
+proprio perche non tornava.
+
+Gli hook che graphify aggiunge per ricordare di usare il grafo puntano
+all'installazione di questo computer: stanno nelle impostazioni locali, non
+nel repository. E prima di pubblicare va pulito un nodo che porta nel nome
+il percorso completo della cartella.
+
+---
+
+## 24. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

@@ -288,6 +288,12 @@ rocchio costa circa 46.000 TE, una metopa 209.000, l'ulivo sacro 1,39
 milioni, la Parthenos 4,6 milioni, e un milione di TE posa lo 0,35% del
 cantiere.
 
+**Se i prezzi salgono**, come dopo questa misura, i blocchi gia posati restano
+dove sono, ma possono costare piu del credito raccolto. Il pannello allora non
+mostra un credito negativo: scrive *Mancano*, in ambra, con i TE che servono
+perche il cantiere riparta, e il cantiere aspetta finche i token non li
+coprono.
+
 La finestra breve di cinque ore di `/usage` non serve allo scopo: misura un
 altro limite, e il rapporto con quello settimanale non e pubblico.
 
@@ -468,8 +474,21 @@ state/                world-state.json del contatore e registry.json (non versio
 CLAUDE.md             istruzioni per Claude Code quando lavora in questo progetto
 TODO.md               il piano a fasi e le decisioni prese
 docs/conversazione.md come è nato il progetto e perché le scelte sono queste
-docs/creare-un-mondo.md  la guida per aggiungere un mondo
+docs/creare-un-mondo.md  la guida per aggiungere un mondo, in inglese e in italiano
+graphify-out/         il grafo del progetto (graphify): graph.html da sfogliare,
+                      GRAPH_REPORT.md, graph.json per interrogarlo
 ```
+
+**Il grafo del progetto.** `graphify-out/` contiene una mappa di codice,
+documenti e immagini: funzioni, concetti, decisioni e i loro collegamenti,
+raggruppati in comunità. Serve a Claude Code per orientarsi spendendo meno
+contesto: invece di rileggere i file, interroga il grafo
+(`graphify query "..."`, `graphify path`, `graphify explain`), come dice
+`CLAUDE.md`. `graph.html` si apre in un browser qualsiasi. Dopo una modifica
+al codice `graphify update .` lo aggiorna senza costi; per documenti e
+immagini serve `/graphify --update`, che li fa rileggere a un modello. Serve
+[graphify](https://github.com/safishamsi/graphify) installato; il progetto
+funziona anche senza.
 
 ---
 

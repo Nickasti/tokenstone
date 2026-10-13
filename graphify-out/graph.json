@@ -4605,17 +4605,964 @@
       "norm_label": "buildterrain()"
     },
     {
-      "label": "Come \u00e8 nato questo progetto (conversazione.md)",
+      "label": "aggiorna-listino.md",
+      "file_type": "document",
+      "source_file": ".claude/agents/aggiorna-listino.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_agents_aggiorna_listino",
+      "community": 34,
+      "norm_label": "aggiorna-listino.md"
+    },
+    {
+      "label": "Modalita",
+      "file_type": "document",
+      "source_file": ".claude/agents/aggiorna-listino.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "claude_agents_aggiorna_listino_modalita",
+      "community": 34,
+      "norm_label": "modalita"
+    },
+    {
+      "label": "Proposta",
+      "file_type": "document",
+      "source_file": ".claude/agents/aggiorna-listino.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "claude_agents_aggiorna_listino_proposta",
+      "community": 34,
+      "norm_label": "proposta"
+    },
+    {
+      "label": "Applicazione",
+      "file_type": "document",
+      "source_file": ".claude/agents/aggiorna-listino.md",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "claude_agents_aggiorna_listino_applicazione",
+      "community": 34,
+      "norm_label": "applicazione"
+    },
+    {
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude",
+      "community": 18,
+      "norm_label": "claude.md"
+    },
+    {
+      "label": "TokenStone",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_tokenstone",
+      "community": 18,
+      "norm_label": "tokenstone"
+    },
+    {
+      "label": "Listino dei prezzi",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "claude_listino_dei_prezzi",
+      "community": 18,
+      "norm_label": "listino dei prezzi"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "claude_graphify",
+      "community": 18,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 5,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "TokenStone",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_tokenstone",
+      "community": 11,
+      "norm_label": "tokenstone"
+    },
+    {
+      "label": "Avvio rapido",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "readme_avvio_rapido",
+      "community": 11,
+      "norm_label": "avvio rapido"
+    },
+    {
+      "label": "Con un doppio clic",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "readme_con_un_doppio_clic",
+      "community": 11,
+      "norm_label": "con un doppio clic"
+    },
+    {
+      "label": "Come app",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "readme_come_app",
+      "community": 11,
+      "norm_label": "come app"
+    },
+    {
+      "label": "Da terminale",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "readme_da_terminale",
+      "community": 11,
+      "norm_label": "da terminale"
+    },
+    {
+      "label": "La pagina iniziale",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "readme_la_pagina_iniziale",
+      "community": 11,
+      "norm_label": "la pagina iniziale"
+    },
+    {
+      "label": "Dentro un mondo",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "readme_dentro_un_mondo",
+      "community": 11,
+      "norm_label": "dentro un mondo"
+    },
+    {
+      "label": "I mondi e il registro",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "readme_i_mondi_e_il_registro",
+      "community": 11,
+      "norm_label": "i mondi e il registro"
+    },
+    {
+      "label": "Il contatore di token",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L197",
+      "_origin": "ast",
+      "id": "readme_il_contatore_di_token",
+      "community": 11,
+      "norm_label": "il contatore di token"
+    },
+    {
+      "label": "Cosa legge, e cosa no",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L206",
+      "_origin": "ast",
+      "id": "readme_cosa_legge_e_cosa_no",
+      "community": 11,
+      "norm_label": "cosa legge, e cosa no"
+    },
+    {
+      "label": "Cosa conta",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L221",
+      "_origin": "ast",
+      "id": "readme_cosa_conta",
+      "community": 11,
+      "norm_label": "cosa conta"
+    },
+    {
+      "label": "Dai token al credito",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "readme_dai_token_al_credito",
+      "community": 11,
+      "norm_label": "dai token al credito"
+    },
+    {
+      "label": "Quanto costa un pezzo",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "_origin": "ast",
+      "id": "readme_quanto_costa_un_pezzo",
+      "community": 11,
+      "norm_label": "quanto costa un pezzo"
+    },
+    {
+      "label": "I prezzi dei modelli",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L300",
+      "_origin": "ast",
+      "id": "readme_i_prezzi_dei_modelli",
+      "community": 11,
+      "norm_label": "i prezzi dei modelli"
+    },
+    {
+      "label": "Aggiornare il listino",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L327",
+      "_origin": "ast",
+      "id": "readme_aggiornare_il_listino",
+      "community": 11,
+      "norm_label": "aggiornare il listino"
+    },
+    {
+      "label": "Le scelte che proteggono il conto",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L362",
+      "_origin": "ast",
+      "id": "readme_le_scelte_che_proteggono_il_conto",
+      "community": 11,
+      "norm_label": "le scelte che proteggono il conto"
+    },
+    {
+      "label": "Comandi utili",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L395",
+      "_origin": "ast",
+      "id": "readme_comandi_utili",
+      "community": 11,
+      "norm_label": "comandi utili"
+    },
+    {
+      "label": "Se avevi installato l'hook",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L414",
+      "_origin": "ast",
+      "id": "readme_se_avevi_installato_l_hook",
+      "community": 11,
+      "norm_label": "se avevi installato l'hook"
+    },
+    {
+      "label": "Struttura",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L427",
+      "_origin": "ast",
+      "id": "readme_struttura",
+      "community": 11,
+      "norm_label": "struttura"
+    },
+    {
+      "label": "Il primo mondo: l'Acropoli",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L495",
+      "_origin": "ast",
+      "id": "readme_il_primo_mondo_l_acropoli",
+      "community": 11,
+      "norm_label": "il primo mondo: l'acropoli"
+    },
+    {
+      "label": "Il pianoro",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L499",
+      "_origin": "ast",
+      "id": "readme_il_pianoro",
+      "community": 11,
+      "norm_label": "il pianoro"
+    },
+    {
+      "label": "Raffinatezze ottiche e policromia",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L518",
+      "_origin": "ast",
+      "id": "readme_raffinatezze_ottiche_e_policromia",
+      "community": 11,
+      "norm_label": "raffinatezze ottiche e policromia"
+    },
+    {
+      "label": "I due innesti da completare",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L539",
+      "_origin": "ast",
+      "id": "readme_i_due_innesti_da_completare",
+      "community": 11,
+      "norm_label": "i due innesti da completare"
+    },
+    {
+      "label": "1. Sculture fotogrammetrate",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L541",
+      "_origin": "ast",
+      "id": "readme_1_sculture_fotogrammetrate",
+      "community": 11,
+      "norm_label": "1. sculture fotogrammetrate"
+    },
+    {
+      "label": "2. HDRI al posto del cielo analitico",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L551",
+      "_origin": "ast",
+      "id": "readme_2_hdri_al_posto_del_cielo_analitico",
+      "community": 11,
+      "norm_label": "2. hdri al posto del cielo analitico"
+    },
+    {
+      "label": "Prestazioni",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L562",
+      "_origin": "ast",
+      "id": "readme_prestazioni",
+      "community": 11,
+      "norm_label": "prestazioni"
+    },
+    {
+      "label": "TODO.md",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "todo",
+      "community": 33,
+      "norm_label": "todo.md"
+    },
+    {
+      "label": "TokenStone \u2014 cosa resta da fare",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "todo_tokenstone_cosa_resta_da_fare",
+      "community": 33,
+      "norm_label": "tokenstone \u2014 cosa resta da fare"
+    },
+    {
+      "label": "Decisioni prese",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "todo_decisioni_prese",
+      "community": 33,
+      "norm_label": "decisioni prese"
+    },
+    {
+      "label": "Il piano",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "todo_il_piano",
+      "community": 33,
+      "norm_label": "il piano"
+    },
+    {
+      "label": "Fase 1 \u2014 Il cantiere si calcola dal credito *(fatta, 6 ottobre)*",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "todo_fase_1_il_cantiere_si_calcola_dal_credito_fatta_6_ottobre",
+      "community": 33,
+      "norm_label": "fase 1 \u2014 il cantiere si calcola dal credito *(fatta, 6 ottobre)*"
+    },
+    {
+      "label": "Fase 2 \u2014 Piu mondi nella struttura, niente di visibile *(fatta, 6 ottobre)*",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "todo_fase_2_piu_mondi_nella_struttura_niente_di_visibile_fatta_6_ottobre",
+      "community": 33,
+      "norm_label": "fase 2 \u2014 piu mondi nella struttura, niente di visibile *(fatta, 6 ottobre)*"
+    },
+    {
+      "label": "Fase 3 \u2014 La pagina iniziale *(fatta, 6 ottobre)*",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "todo_fase_3_la_pagina_iniziale_fatta_6_ottobre",
+      "community": 33,
+      "norm_label": "fase 3 \u2014 la pagina iniziale *(fatta, 6 ottobre)*"
+    },
+    {
+      "label": "Fase 4 \u2014 Il modello per i mondi nuovi *(fatta, 7 ottobre)*",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "todo_fase_4_il_modello_per_i_mondi_nuovi_fatta_7_ottobre",
+      "community": 33,
+      "norm_label": "fase 4 \u2014 il modello per i mondi nuovi *(fatta, 7 ottobre)*"
+    },
+    {
+      "label": "Fase 5 \u2014 Rifiniture dell'Acropoli",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "todo_fase_5_rifiniture_dell_acropoli",
+      "community": 33,
+      "norm_label": "fase 5 \u2014 rifiniture dell'acropoli"
+    },
+    {
+      "label": "Fase 6 \u2014 La piana di Giza",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "todo_fase_6_la_piana_di_giza",
+      "community": 33,
+      "norm_label": "fase 6 \u2014 la piana di giza"
+    },
+    {
+      "label": "Fase 7 \u2014 Il Foro Romano",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "todo_fase_7_il_foro_romano",
+      "community": 33,
+      "norm_label": "fase 7 \u2014 il foro romano"
+    },
+    {
+      "label": "In parallelo",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "todo_in_parallelo",
+      "community": 33,
+      "norm_label": "in parallelo"
+    },
+    {
+      "label": "Decisioni aperte",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L154",
+      "_origin": "ast",
+      "id": "todo_decisioni_aperte",
+      "community": 33,
+      "norm_label": "decisioni aperte"
+    },
+    {
+      "label": "Piu avanti",
+      "file_type": "document",
+      "source_file": "TODO.md",
+      "source_location": "L161",
+      "_origin": "ast",
+      "id": "todo_piu_avanti",
+      "community": 33,
+      "norm_label": "piu avanti"
+    },
+    {
+      "label": "conversazione.md",
       "file_type": "document",
       "source_file": "docs/conversazione.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
+      "source_location": "L1",
+      "_origin": "ast",
       "id": "docs_conversazione",
       "community": 8,
-      "norm_label": "come e nato questo progetto (conversazione.md)"
+      "norm_label": "conversazione.md"
+    },
+    {
+      "label": "Come \u00e8 nato questo progetto",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "community": 8,
+      "norm_label": "come e nato questo progetto"
+    },
+    {
+      "label": "1. La domanda di partenza",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "docs_conversazione_1_la_domanda_di_partenza",
+      "community": 8,
+      "norm_label": "1. la domanda di partenza"
+    },
+    {
+      "label": "2. \u00abIl modello \u00e8 fatto di triangoli: posso scomporli uno per uno?\u00bb",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "docs_conversazione_2_il_modello_\u00e8_fatto_di_triangoli_posso_scomporli_uno_per_uno",
+      "community": 8,
+      "norm_label": "2. \u00abil modello e fatto di triangoli: posso scomporli uno per uno?\u00bb"
+    },
+    {
+      "label": "3. La svolta: generazione procedurale",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "docs_conversazione_3_la_svolta_generazione_procedurale",
+      "community": 8,
+      "norm_label": "3. la svolta: generazione procedurale"
+    },
+    {
+      "label": "4. Primo prototipo: il solo Partenone",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "docs_conversazione_4_primo_prototipo_il_solo_partenone",
+      "community": 8,
+      "norm_label": "4. primo prototipo: il solo partenone"
+    },
+    {
+      "label": "5. Espansione al complesso pericleo",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "docs_conversazione_5_espansione_al_complesso_pericleo",
+      "community": 8,
+      "norm_label": "5. espansione al complesso pericleo"
+    },
+    {
+      "label": "6. Il ponte con i token reali",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "docs_conversazione_6_il_ponte_con_i_token_reali",
+      "community": 8,
+      "norm_label": "6. il ponte con i token reali"
+    },
+    {
+      "label": "7. Le linee che non sono rette",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "docs_conversazione_7_le_linee_che_non_sono_rette",
+      "community": 8,
+      "norm_label": "7. le linee che non sono rette"
+    },
+    {
+      "label": "8. Il marmo non era bianco",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L213",
+      "_origin": "ast",
+      "id": "docs_conversazione_8_il_marmo_non_era_bianco",
+      "community": 8,
+      "norm_label": "8. il marmo non era bianco"
+    },
+    {
+      "label": "9. Il pianoro",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L238",
+      "_origin": "ast",
+      "id": "docs_conversazione_9_il_pianoro",
+      "community": 8,
+      "norm_label": "9. il pianoro"
+    },
+    {
+      "label": "10. Dalla stima al conto vero",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L323",
+      "_origin": "ast",
+      "id": "docs_conversazione_10_dalla_stima_al_conto_vero",
+      "community": 8,
+      "norm_label": "10. dalla stima al conto vero"
+    },
+    {
+      "label": "11. Quanto costa l'Acropoli",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L363",
+      "_origin": "ast",
+      "id": "docs_conversazione_11_quanto_costa_l_acropoli",
+      "community": 8,
+      "norm_label": "11. quanto costa l'acropoli"
+    },
+    {
+      "label": "12. Senza hook",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L408",
+      "_origin": "ast",
+      "id": "docs_conversazione_12_senza_hook",
+      "community": 8,
+      "norm_label": "12. senza hook"
+    },
+    {
+      "label": "13. Un linguaggio solo",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L471",
+      "_origin": "ast",
+      "id": "docs_conversazione_13_un_linguaggio_solo",
+      "community": 8,
+      "norm_label": "13. un linguaggio solo"
+    },
+    {
+      "label": "14. Il listino che si aggiorna",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L509",
+      "_origin": "ast",
+      "id": "docs_conversazione_14_il_listino_che_si_aggiorna",
+      "community": 8,
+      "norm_label": "14. il listino che si aggiorna"
+    },
+    {
+      "label": "15. Aprirla senza terminale",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L568",
+      "_origin": "ast",
+      "id": "docs_conversazione_15_aprirla_senza_terminale",
+      "community": 8,
+      "norm_label": "15. aprirla senza terminale"
+    },
+    {
+      "label": "16. Il cantiere si calcola dal credito",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L605",
+      "_origin": "ast",
+      "id": "docs_conversazione_16_il_cantiere_si_calcola_dal_credito",
+      "community": 8,
+      "norm_label": "16. il cantiere si calcola dal credito"
+    },
+    {
+      "label": "17. Un motore, piu mondi",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L650",
+      "_origin": "ast",
+      "id": "docs_conversazione_17_un_motore_piu_mondi",
+      "community": 8,
+      "norm_label": "17. un motore, piu mondi"
+    },
+    {
+      "label": "18. La scheda rimasta indietro",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L694",
+      "_origin": "ast",
+      "id": "docs_conversazione_18_la_scheda_rimasta_indietro",
+      "community": 8,
+      "norm_label": "18. la scheda rimasta indietro"
+    },
+    {
+      "label": "19. La pagina iniziale",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L719",
+      "_origin": "ast",
+      "id": "docs_conversazione_19_la_pagina_iniziale",
+      "community": 8,
+      "norm_label": "19. la pagina iniziale"
+    },
+    {
+      "label": "20. Il modello dei mondi",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L765",
+      "_origin": "ast",
+      "id": "docs_conversazione_20_il_modello_dei_mondi",
+      "community": 8,
+      "norm_label": "20. il modello dei mondi"
+    },
+    {
+      "label": "21. La torre di prova",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L809",
+      "_origin": "ast",
+      "id": "docs_conversazione_21_la_torre_di_prova",
+      "community": 8,
+      "norm_label": "21. la torre di prova"
+    },
+    {
+      "label": "22. La settimana misurata",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L845",
+      "_origin": "ast",
+      "id": "docs_conversazione_22_la_settimana_misurata",
+      "community": 8,
+      "norm_label": "22. la settimana misurata"
+    },
+    {
+      "label": "23. La mappa del progetto",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L875",
+      "_origin": "ast",
+      "id": "docs_conversazione_23_la_mappa_del_progetto",
+      "community": 8,
+      "norm_label": "23. la mappa del progetto"
+    },
+    {
+      "label": "24. Cosa resta da fare",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L901",
+      "_origin": "ast",
+      "id": "docs_conversazione_24_cosa_resta_da_fare",
+      "community": 8,
+      "norm_label": "24. cosa resta da fare"
+    },
+    {
+      "label": "creare-un-mondo.md",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo",
+      "community": 5,
+      "norm_label": "creare-un-mondo.md"
+    },
+    {
+      "label": "Creating a world",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_creating_a_world",
+      "community": 5,
+      "norm_label": "creating a world"
+    },
+    {
+      "label": "How a world is made",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_how_a_world_is_made",
+      "community": 5,
+      "norm_label": "how a world is made"
+    },
+    {
+      "label": "1. Start from the template",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_1_start_from_the_template",
+      "community": 5,
+      "norm_label": "1. start from the template"
+    },
+    {
+      "label": "2. world.json",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_2_world_json",
+      "community": 5,
+      "norm_label": "2. world.json"
+    },
+    {
+      "label": "3. The code: src/main.js",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_3_the_code_src_main_js",
+      "community": 5,
+      "norm_label": "3. the code: src/main.js"
+    },
+    {
+      "label": "The pieces",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_the_pieces",
+      "community": 5,
+      "norm_label": "the pieces"
+    },
+    {
+      "label": "startWorld",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_startworld",
+      "community": 5,
+      "norm_label": "startworld"
+    },
+    {
+      "label": "4. Look at it",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_4_look_at_it",
+      "community": 5,
+      "norm_label": "4. look at it"
+    },
+    {
+      "label": "5. The card's picture",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_5_the_card_s_picture",
+      "community": 5,
+      "norm_label": "5. the card's picture"
+    },
+    {
+      "label": "6. Publish it",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_6_publish_it",
+      "community": 5,
+      "norm_label": "6. publish it"
+    },
+    {
+      "label": "Creare un mondo",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L174",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_creare_un_mondo",
+      "community": 5,
+      "norm_label": "creare un mondo"
+    },
+    {
+      "label": "Com'\u00e8 fatto un mondo",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L185",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_com_\u00e8_fatto_un_mondo",
+      "community": 5,
+      "norm_label": "com'e fatto un mondo"
+    },
+    {
+      "label": "1. Comincia dal modello",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L203",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_1_comincia_dal_modello",
+      "community": 5,
+      "norm_label": "1. comincia dal modello"
+    },
+    {
+      "label": "2. world.json",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L214",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_2_world_json_214",
+      "community": 5,
+      "norm_label": "2. world.json"
+    },
+    {
+      "label": "3. Il codice: src/main.js",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_3_il_codice_src_main_js",
+      "community": 5,
+      "norm_label": "3. il codice: src/main.js"
+    },
+    {
+      "label": "I pezzi",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L236",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_i_pezzi",
+      "community": 5,
+      "norm_label": "i pezzi"
+    },
+    {
+      "label": "startWorld",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L268",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_startworld_268",
+      "community": 5,
+      "norm_label": "startworld"
+    },
+    {
+      "label": "4. Guardalo",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L294",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_4_guardalo",
+      "community": 5,
+      "norm_label": "4. guardalo"
+    },
+    {
+      "label": "5. L'immagine della scheda",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L318",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_5_l_immagine_della_scheda",
+      "community": 5,
+      "norm_label": "5. l'immagine della scheda"
+    },
+    {
+      "label": "6. Pubblicalo",
+      "file_type": "document",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L330",
+      "_origin": "ast",
+      "id": "docs_creare_un_mondo_6_pubblicalo",
+      "community": 5,
+      "norm_label": "6. pubblicalo"
     },
     {
       "label": "La Acr\u00f3polis de Atenas (Sketchfab, CC-BY 4.0)",
@@ -4626,9 +5573,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_sketchfab_acropolis_model",
-      "community": 8,
-      "norm_label": "la acropolis de atenas (sketchfab, cc-by 4.0)"
+      "community": 84,
+      "norm_label": "la acropolis de atenas (sketchfab, cc-by 4.0)",
+      "id": "docs_conversazione_sketchfab_acropolis_model"
     },
     {
       "label": "ancientathens3d.com (Dimitris Tsalkanis)",
@@ -4639,9 +5586,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_ancientathens3d",
-      "community": 8,
-      "norm_label": "ancientathens3d.com (dimitris tsalkanis)"
+      "community": 46,
+      "norm_label": "ancientathens3d.com (dimitris tsalkanis)",
+      "id": "docs_conversazione_ancientathens3d"
     },
     {
       "label": "parthenon3d.com (Juan de Lara)",
@@ -4652,9 +5599,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_parthenon3d",
-      "community": 8,
-      "norm_label": "parthenon3d.com (juan de lara)"
+      "community": 72,
+      "norm_label": "parthenon3d.com (juan de lara)",
+      "id": "docs_conversazione_parthenon3d"
     },
     {
       "label": "GLB node hierarchy vs triangles",
@@ -4666,9 +5613,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Triangles are GPU primitives, not marble blocks; meaningful decomposition requires separating node hierarchy (Blender Separate by Loose Parts/Material).",
-      "id": "docs_conversazione_glb_node_hierarchy",
-      "community": 8,
-      "norm_label": "glb node hierarchy vs triangles"
+      "community": 59,
+      "norm_label": "glb node hierarchy vs triangles",
+      "id": "docs_conversazione_glb_node_hierarchy"
     },
     {
       "label": "Procedural geometry generation",
@@ -4680,9 +5627,9 @@
       "author": null,
       "contributor": null,
       "rationale": "No downloadable model has drum-by-drum granularity; code generates every buildable piece. The downloaded photogrammetry (modern Acropolis) was dropped as anachronistic for 440 BC.",
-      "id": "docs_conversazione_procedural_generation",
-      "community": 8,
-      "norm_label": "procedural geometry generation"
+      "community": 77,
+      "norm_label": "procedural geometry generation",
+      "id": "docs_conversazione_procedural_generation"
     },
     {
       "label": "Parametric heightfield plateau",
@@ -4694,9 +5641,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Gives an editable, historically coherent plateau instead of the modern scan with 19th-century retaining walls.",
-      "id": "docs_conversazione_parametric_heightfield",
-      "community": 5,
-      "norm_label": "parametric heightfield plateau"
+      "community": 71,
+      "norm_label": "parametric heightfield plateau",
+      "id": "docs_conversazione_parametric_heightfield"
     },
     {
       "label": "Parthenon prototype (1,089 pieces, real measures)",
@@ -4707,9 +5654,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_parthenon_prototype",
-      "community": 8,
-      "norm_label": "parthenon prototype (1,089 pieces, real measures)"
+      "community": 73,
+      "norm_label": "parthenon prototype (1,089 pieces, real measures)",
+      "id": "docs_conversazione_parthenon_prototype"
     },
     {
       "label": "Mason marks (marche da cantiere, e.g. KIWN 14/d)",
@@ -4721,9 +5668,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Greek masons really marked blocks for assembly.",
-      "id": "docs_conversazione_mason_marks",
-      "community": 8,
-      "norm_label": "mason marks (marche da cantiere, e.g. kiwn 14/d)"
+      "community": 64,
+      "norm_label": "mason marks (marche da cantiere, e.g. kiwn 14/d)",
+      "id": "docs_conversazione_mason_marks"
     },
     {
       "label": "Token-to-stone ghost block placement",
@@ -4735,9 +5682,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Block descends as verdigris ghost and solidifies; mirrors historical crane hoisting.",
-      "id": "docs_conversazione_token_to_stone",
-      "community": 8,
-      "norm_label": "token-to-stone ghost block placement"
+      "community": 90,
+      "norm_label": "token-to-stone ghost block placement",
+      "id": "docs_conversazione_token_to_stone"
     },
     {
       "label": "Periclean complex (Promachos, Propylaea, Athena Nike, Erechtheion)",
@@ -4748,9 +5695,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_pericles_complex",
-      "community": 8,
-      "norm_label": "periclean complex (promachos, propylaea, athena nike, erechtheion)"
+      "community": 74,
+      "norm_label": "periclean complex (promachos, propylaea, athena nike, erechtheion)",
+      "id": "docs_conversazione_pericles_complex"
     },
     {
       "label": "Unfinished Propylaea south wing",
@@ -4761,9 +5708,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_unfinished_propylaea",
-      "community": 8,
-      "norm_label": "unfinished propylaea south wing"
+      "community": 94,
+      "norm_label": "unfinished propylaea south wing",
+      "id": "docs_conversazione_unfinished_propylaea"
     },
     {
       "label": "Analytic sky (Rayleigh + Mie scattering, PMREMGenerator IBL)",
@@ -4775,9 +5722,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Chosen over HDRI so time of day is a continuous parameter; sun position from real equations at Athens latitude 37.97N.",
-      "id": "docs_conversazione_analytic_sky",
-      "community": 5,
-      "norm_label": "analytic sky (rayleigh + mie scattering, pmremgenerator ibl)"
+      "community": 44,
+      "norm_label": "analytic sky (rayleigh + mie scattering, pmremgenerator ibl)",
+      "id": "docs_conversazione_analytic_sky"
     },
     {
       "label": "bakePhase() mesh merging",
@@ -4789,9 +5736,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Merges a closed phase's meshes per material, cutting draw calls from thousands to dozens.",
-      "id": "docs_conversazione_bakephase",
-      "community": 8,
-      "norm_label": "bakephase() mesh merging"
+      "community": 48,
+      "norm_label": "bakephase() mesh merging",
+      "id": "docs_conversazione_bakephase"
     },
     {
       "label": "/usage estimation bridge (usage_store.py)",
@@ -4803,9 +5750,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Claude Code usage not exposed via API; two calibrations give a rate extrapolated until next reading. Superseded in \u00a710 by transcript counting.",
-      "id": "docs_conversazione_usage_estimation_bridge",
-      "community": 13,
-      "norm_label": "/usage estimation bridge (usage_store.py)"
+      "community": 95,
+      "norm_label": "/usage estimation bridge (usage_store.py)",
+      "id": "docs_conversazione_usage_estimation_bridge"
     },
     {
       "label": "TOKENS_PER_PERCENT = 240",
@@ -4816,9 +5763,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_tokens_per_percent",
-      "community": 13,
-      "norm_label": "tokens_per_percent = 240"
+      "community": 91,
+      "norm_label": "tokens_per_percent = 240",
+      "id": "docs_conversazione_tokens_per_percent"
     },
     {
       "label": "Optical refinements (REFINEMENTS in config.js)",
@@ -4830,9 +5777,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Deliberate corrections against optical illusion; each toggleable with on:false for comparison.",
-      "id": "docs_conversazione_optical_refinements",
-      "community": 8,
-      "norm_label": "optical refinements (refinements in config.js)"
+      "community": 69,
+      "norm_label": "optical refinements (refinements in config.js)",
+      "id": "docs_conversazione_optical_refinements"
     },
     {
       "label": "Stylobate curvature (makeCurve)",
@@ -4844,9 +5791,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Returns height and local slope so blocks are tilted, not only raised; crepidoma split from 36 to 108 pieces.",
-      "id": "docs_conversazione_stylobate_curvature",
-      "community": 8,
-      "norm_label": "stylobate curvature (makecurve)"
+      "community": 88,
+      "norm_label": "stylobate curvature (makecurve)",
+      "id": "docs_conversazione_stylobate_curvature"
     },
     {
       "label": "Column inward inclination (1:171, per-face)",
@@ -4858,9 +5805,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Single convergence point gave 157mm at corners vs ~65 attested; inclination is constant per face, applied drum by drum with spin composed before tilt.",
-      "id": "docs_conversazione_column_inclination",
-      "community": 8,
-      "norm_label": "column inward inclination (1:171, per-face)"
+      "community": 51,
+      "norm_label": "column inward inclination (1:171, per-face)",
+      "id": "docs_conversazione_column_inclination"
     },
     {
       "label": "Thicker corner columns (1.945 vs 1.905 m)",
@@ -4871,9 +5818,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_corner_column_thickening",
-      "community": 8,
-      "norm_label": "thicker corner columns (1.945 vs 1.905 m)"
+      "community": 52,
+      "norm_label": "thicker corner columns (1.945 vs 1.905 m)",
+      "id": "docs_conversazione_corner_column_thickening"
     },
     {
       "label": "Angle contraction of corner intercolumniations",
@@ -4885,9 +5832,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Lets the triglyph fall on the entablature corner without mutilating the corner metope.",
-      "id": "docs_conversazione_angle_contraction",
-      "community": 8,
-      "norm_label": "angle contraction of corner intercolumniations"
+      "community": 47,
+      "norm_label": "angle contraction of corner intercolumniations",
+      "id": "docs_conversazione_angle_contraction"
     },
     {
       "label": "Polychromy (POLYCHROMY.on)",
@@ -4899,9 +5846,9 @@
       "author": null,
       "contributor": null,
       "rationale": "White marble is a modern misconception; paint applied as details within existing pieces so build cost is unchanged.",
-      "id": "docs_conversazione_polychromy",
-      "community": 8,
-      "norm_label": "polychromy (polychromy.on)"
+      "community": 75,
+      "norm_label": "polychromy (polychromy.on)",
+      "id": "docs_conversazione_polychromy"
     },
     {
       "label": "Erechtheion frieze inlay (friezeMat in entablature())",
@@ -4912,9 +5859,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_erechtheion_frieze_inlay",
-      "community": 8,
-      "norm_label": "erechtheion frieze inlay (friezemat in entablature())"
+      "community": 58,
+      "norm_label": "erechtheion frieze inlay (friezemat in entablature())",
+      "id": "docs_conversazione_erechtheion_frieze_inlay"
     },
     {
       "label": "Bedrock is free, everything carried up is paid",
@@ -4926,9 +5873,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Makes the game legible: what you see was either bought or is geology.",
-      "id": "docs_conversazione_bedrock_cost_rule",
-      "community": 5,
-      "norm_label": "bedrock is free, everything carried up is paid"
+      "community": 49,
+      "norm_label": "bedrock is free, everything carried up is paid",
+      "id": "docs_conversazione_bedrock_cost_rule"
     },
     {
       "label": "Panathenaic Way (Catmull-Rom, 17 points)",
@@ -4939,9 +5886,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_panathenaic_way",
-      "community": 5,
-      "norm_label": "panathenaic way (catmull-rom, 17 points)"
+      "community": 70,
+      "norm_label": "panathenaic way (catmull-rom, 17 points)",
+      "id": "docs_conversazione_panathenaic_way"
     },
     {
       "label": "North wall with Themistocles' reused drums",
@@ -4953,9 +5900,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Drums placed at absolute height inside wall face (shared coping function in terrain.js), spaced by arc-length table, not angle.",
-      "id": "docs_conversazione_north_wall_drums",
-      "community": 5,
-      "norm_label": "north wall with themistocles' reused drums"
+      "community": 68,
+      "norm_label": "north wall with themistocles' reused drums",
+      "id": "docs_conversazione_north_wall_drums"
     },
     {
       "label": "Altar of Athena Polias",
@@ -4966,9 +5913,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_altar_athena_polias",
-      "community": 5,
-      "norm_label": "altar of athena polias"
+      "community": 43,
+      "norm_label": "altar of athena polias",
+      "id": "docs_conversazione_altar_athena_polias"
     },
     {
       "label": "Brauronion and Chalkotheke",
@@ -4980,9 +5927,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Built with the same kit, verifying the kit works beyond its five original cases.",
-      "id": "docs_conversazione_brauronion_chalkotheke",
-      "community": 8,
-      "norm_label": "brauronion and chalkotheke"
+      "community": 50,
+      "norm_label": "brauronion and chalkotheke",
+      "id": "docs_conversazione_brauronion_chalkotheke"
     },
     {
       "label": "Anathemata (74 votive offerings, rejection sampling)",
@@ -4993,9 +5940,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_anathemata",
-      "community": 5,
-      "norm_label": "anathemata (74 votive offerings, rejection sampling)"
+      "community": 45,
+      "norm_label": "anathemata (74 votive offerings, rejection sampling)",
+      "id": "docs_conversazione_anathemata"
     },
     {
       "label": "Sacred olive of Athena (first piece, 479)",
@@ -5006,9 +5953,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_sacred_olive",
       "community": 31,
-      "norm_label": "sacred olive of athena (first piece, 479)"
+      "norm_label": "sacred olive of athena (first piece, 479)",
+      "id": "docs_conversazione_sacred_olive"
     },
     {
       "label": "Determinism via fixed-seed generator",
@@ -5020,9 +5967,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Saved state is an index into the piece list; if order changed per reload the index would point elsewhere. Later moved to engine/random.js unchanged line by line.",
-      "id": "docs_conversazione_determinism_seeded_rng",
-      "community": 5,
-      "norm_label": "determinism via fixed-seed generator"
+      "community": 56,
+      "norm_label": "determinism via fixed-seed generator",
+      "id": "docs_conversazione_determinism_seeded_rng"
     },
     {
       "label": "Token Equivalent (TE, te_per_usd = 200,000)",
@@ -5034,9 +5981,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Tokens priced via list price then converted, so one TE equals one Opus input token; avoids rewarding cache reads over output.",
-      "id": "docs_conversazione_token_equivalent",
-      "community": 13,
-      "norm_label": "token equivalent (te, te_per_usd = 200,000)"
+      "community": 89,
+      "norm_label": "token equivalent (te, te_per_usd = 200,000)",
+      "id": "docs_conversazione_token_equivalent"
     },
     {
       "label": "Transcript-based usage counter",
@@ -5047,9 +5994,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_transcript_counter",
-      "community": 13,
-      "norm_label": "transcript-based usage counter"
+      "community": 93,
+      "norm_label": "transcript-based usage counter",
+      "id": "docs_conversazione_transcript_counter"
     },
     {
       "label": "Recompute, never sum (idempotent counter)",
@@ -5061,9 +6008,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A summing counter double-counts if triggered twice; a recomputing one is harmless to repeat.",
-      "id": "docs_conversazione_recompute_never_sum",
-      "community": 13,
-      "norm_label": "recompute, never sum (idempotent counter)"
+      "community": 78,
+      "norm_label": "recompute, never sum (idempotent counter)",
+      "id": "docs_conversazione_recompute_never_sum"
     },
     {
       "label": "Streaming dedup: one row per message.id",
@@ -5074,9 +6021,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_streaming_dedup",
-      "community": 13,
-      "norm_label": "streaming dedup: one row per message.id"
+      "community": 87,
+      "norm_label": "streaming dedup: one row per message.id",
+      "id": "docs_conversazione_streaming_dedup"
     },
     {
       "label": "State backup copy (corrupt vs absent state)",
@@ -5088,9 +6035,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Corrupt state used to reset installed_at and discard history; unreadable state now restores from backup, absent state remains an intentional reset.",
-      "id": "docs_conversazione_state_backup",
-      "community": 13,
-      "norm_label": "state backup copy (corrupt vs absent state)"
+      "community": 86,
+      "norm_label": "state backup copy (corrupt vs absent state)",
+      "id": "docs_conversazione_state_backup"
     },
     {
       "label": "COST as relative weights, not prices",
@@ -5102,9 +6049,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Proportions decided by hand; a single budget sets the scale.",
-      "id": "docs_conversazione_cost_weights",
-      "community": 5,
-      "norm_label": "cost as relative weights, not prices"
+      "community": 53,
+      "norm_label": "cost as relative weights, not prices",
+      "id": "docs_conversazione_cost_weights"
     },
     {
       "label": "Weekly quota scale (CANTIERE.weeklyTe, one month per Acropolis)",
@@ -5115,9 +6062,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_weekly_quota_scale",
-      "community": 5,
-      "norm_label": "weekly quota scale (cantiere.weeklyte, one month per acropolis)"
+      "community": 98,
+      "norm_label": "weekly quota scale (cantiere.weeklyte, one month per acropolis)",
+      "id": "docs_conversazione_weekly_quota_scale"
     },
     {
       "label": "?dev mode switch (single project)",
@@ -5129,9 +6076,9 @@
       "author": null,
       "contributor": null,
       "rationale": "One project with a switch instead of two copies, because duplicated code diverges within a week.",
-      "id": "docs_conversazione_dev_mode_switch",
       "community": 30,
-      "norm_label": "?dev mode switch (single project)"
+      "norm_label": "?dev mode switch (single project)",
+      "id": "docs_conversazione_dev_mode_switch"
     },
     {
       "label": "Single-threaded static server bug ('Failed to fetch dynamically imported module')",
@@ -5142,9 +6089,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_single_thread_server_bug",
-      "community": 13,
-      "norm_label": "single-threaded static server bug ('failed to fetch dynamically imported module')"
+      "community": 83,
+      "norm_label": "single-threaded static server bug ('failed to fetch dynamically imported module')",
+      "id": "docs_conversazione_single_thread_server_bug"
     },
     {
       "label": "Hookless scanning of ~/.claude/projects",
@@ -5156,9 +6103,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Stop hook required editing ~/.claude/settings.json and running a stranger's script everywhere; data came from transcripts anyway. Handles resumed sessions, deletions (archived), incremental reads.",
-      "id": "docs_conversazione_hookless_scanning",
-      "community": 13,
-      "norm_label": "hookless scanning of ~/.claude/projects"
+      "community": 60,
+      "norm_label": "hookless scanning of ~/.claude/projects",
+      "id": "docs_conversazione_hookless_scanning"
     },
     {
       "label": "installed_at: start from zero",
@@ -5170,9 +6117,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Prior months of usage are not gifted as credit; the building site starts when the project arrives.",
-      "id": "docs_conversazione_installed_at",
-      "community": 13,
-      "norm_label": "installed_at: start from zero"
+      "community": 62,
+      "norm_label": "installed_at: start from zero",
+      "id": "docs_conversazione_installed_at"
     },
     {
       "label": "Pricing list (pricing.json, unknown_models, model_fallbacks, fast_multiplier)",
@@ -5184,9 +6131,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Most specific prefix wins; validated by shape only since cache-read ratio varies by model; synthetic messages ignored.",
-      "id": "docs_conversazione_pricing_list",
-      "community": 13,
-      "norm_label": "pricing list (pricing.json, unknown_models, model_fallbacks, fast_multiplier)"
+      "community": 76,
+      "norm_label": "pricing list (pricing.json, unknown_models, model_fallbacks, fast_multiplier)",
+      "id": "docs_conversazione_pricing_list"
     },
     {
       "label": "aggiorna-listino subagent (propose then apply)",
@@ -5198,9 +6145,9 @@
       "author": null,
       "contributor": null,
       "rationale": "No pricing API; an agent reads the pricing page like a person, dry-runs the counter, and replaces pricing.json only with explicit approval.",
-      "id": "docs_conversazione_aggiorna_listino_agent",
       "community": 13,
-      "norm_label": "aggiorna-listino subagent (propose then apply)"
+      "norm_label": "aggiorna-listino subagent (propose then apply)",
+      "id": "docs_conversazione_aggiorna_listino_agent"
     },
     {
       "label": "Single language: Node server with in-process counter",
@@ -5212,9 +6159,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Rewrite the trivial 90-line Python server, not the 900-line tested counter; no pipe, no orphan processes, zero-dependency package.json.",
-      "id": "docs_conversazione_node_unification",
-      "community": 13,
-      "norm_label": "single language: node server with in-process counter"
+      "community": 67,
+      "norm_label": "single language: node server with in-process counter",
+      "id": "docs_conversazione_node_unification"
     },
     {
       "label": "Server security (localhost only, no traversal/hidden files, JSON-only writes)",
@@ -5225,9 +6172,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_server_security",
-      "community": 13,
-      "norm_label": "server security (localhost only, no traversal/hidden files, json-only writes)"
+      "community": 82,
+      "norm_label": "server security (localhost only, no traversal/hidden files, json-only writes)",
+      "id": "docs_conversazione_server_security"
     },
     {
       "label": "Double-click launchers and PWA service worker",
@@ -5239,9 +6186,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Server only needed to watch, not to count; service worker only shows help page when server is off, keeps no stale scene copies.",
-      "id": "docs_conversazione_launchers_pwa",
-      "community": 13,
-      "norm_label": "double-click launchers and pwa service worker"
+      "community": 63,
+      "norm_label": "double-click launchers and pwa service worker",
+      "id": "docs_conversazione_launchers_pwa"
     },
     {
       "label": "Progress computed from credit (not saved)",
@@ -5253,9 +6200,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Browser-local progress diverged across profiles; computing placed blocks from ordered piece costs and credit yields the same site everywhere.",
-      "id": "docs_conversazione_credit_derived_progress",
-      "community": 5,
-      "norm_label": "progress computed from credit (not saved)"
+      "community": 54,
+      "norm_label": "progress computed from credit (not saved)",
+      "id": "docs_conversazione_credit_derived_progress"
     },
     {
       "label": "Registry (state/registry.json, formerly world/cantiere.json)",
@@ -5267,9 +6214,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Records active world and time segments; pause/resume, leftover credit carried to next world, high-water mark so the site never regresses.",
-      "id": "docs_conversazione_registry",
-      "community": 5,
-      "norm_label": "registry (state/registry.json, formerly world/cantiere.json)"
+      "community": 79,
+      "norm_label": "registry (state/registry.json, formerly world/cantiere.json)",
+      "id": "docs_conversazione_registry"
     },
     {
       "label": "Multi-world platform (Acropolis, Giza, Roman Forum)",
@@ -5280,9 +6227,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_multi_world_platform",
-      "community": 5,
-      "norm_label": "multi-world platform (acropolis, giza, roman forum)"
+      "community": 65,
+      "norm_label": "multi-world platform (acropolis, giza, roman forum)",
+      "id": "docs_conversazione_multi_world_platform"
     },
     {
       "label": "Engine/world separation (engine/ vs worlds/acropolis/, startWorld)",
@@ -5294,9 +6241,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Engine holds what is equal everywhere; Greek kit stays in Acropolis until a second world needs it, to avoid guessing its shape.",
-      "id": "docs_conversazione_engine_world_separation",
-      "community": 5,
-      "norm_label": "engine/world separation (engine/ vs worlds/acropolis/, startworld)"
+      "community": 57,
+      "norm_label": "engine/world separation (engine/ vs worlds/acropolis/, startworld)",
+      "id": "docs_conversazione_engine_world_separation"
     },
     {
       "label": "world.json world metadata",
@@ -5307,9 +6254,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_world_json",
-      "community": 5,
-      "norm_label": "world.json world metadata"
+      "community": 99,
+      "norm_label": "world.json world metadata",
+      "id": "docs_conversazione_world_json"
     },
     {
       "label": "Headless scene test (npm run test:scene)",
@@ -5320,9 +6267,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_scene_test",
-      "community": 5,
-      "norm_label": "headless scene test (npm run test:scene)"
+      "community": 80,
+      "norm_label": "headless scene test (npm run test:scene)",
+      "id": "docs_conversazione_scene_test"
     },
     {
       "label": "Scene file version fingerprint and auto-reload",
@@ -5334,9 +6281,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A stale tab kept placing blocks with an inflated browser-side balance; fingerprint triggers reload, three missed polls show 'scollegato dal cantiere'.",
-      "id": "docs_conversazione_version_fingerprint",
-      "community": 5,
-      "norm_label": "scene file version fingerprint and auto-reload"
+      "community": 96,
+      "norm_label": "scene file version fingerprint and auto-reload",
+      "id": "docs_conversazione_version_fingerprint"
     },
     {
       "label": "TokenStone home page (world selection)",
@@ -5348,9 +6295,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Visiting is not choosing; registry starts empty and the first chosen world receives all TE since install.",
-      "id": "docs_conversazione_tokenstone_home_page",
-      "community": 5,
-      "norm_label": "tokenstone home page (world selection)"
+      "community": 92,
+      "norm_label": "tokenstone home page (world selection)",
+      "id": "docs_conversazione_tokenstone_home_page"
     },
     {
       "label": "Demo mode (?demo, real-time clock)",
@@ -5361,9 +6308,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_demo_mode",
-      "community": 5,
-      "norm_label": "demo mode (?demo, real-time clock)"
+      "community": 55,
+      "norm_label": "demo mode (?demo, real-time clock)",
+      "id": "docs_conversazione_demo_mode"
     },
     {
       "label": "Snapshot mode and preview cards",
@@ -5374,9 +6321,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_snapshot_previews",
-      "community": 5,
-      "norm_label": "snapshot mode and preview cards"
+      "community": 85,
+      "norm_label": "snapshot mode and preview cards",
+      "id": "docs_conversazione_snapshot_previews"
     },
     {
       "label": "World template (worlds/_template, fantasy tower)",
@@ -5387,9 +6334,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_world_template",
-      "community": 8,
-      "norm_label": "world template (worlds/_template, fantasy tower)"
+      "community": 100,
+      "norm_label": "world template (worlds/_template, fantasy tower)",
+      "id": "docs_conversazione_world_template"
     },
     {
       "label": "new-world generator (npm run new-world)",
@@ -5400,9 +6347,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_new_world_generator",
-      "community": 8,
-      "norm_label": "new-world generator (npm run new-world)"
+      "community": 66,
+      "norm_label": "new-world generator (npm run new-world)",
+      "id": "docs_conversazione_new_world_generator"
     },
     {
       "label": "Initial gift as 1.25% budget share",
@@ -5413,9 +6360,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_initial_gift",
-      "community": 5,
-      "norm_label": "initial gift as 1.25% budget share"
+      "community": 61,
+      "norm_label": "initial gift as 1.25% budget share",
+      "id": "docs_conversazione_initial_gift"
     },
     {
       "label": "Measured weekly quota (66 million TE)",
@@ -5427,9 +6374,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Rounded /usage readings form intervals; true value lies in their overlap (65.0-67.2M). Panel shows 'Mancano' instead of negative credit.",
-      "id": "docs_conversazione_weekly_measurement",
-      "community": 5,
-      "norm_label": "measured weekly quota (66 million te)"
+      "community": 97,
+      "norm_label": "measured weekly quota (66 million te)",
+      "id": "docs_conversazione_weekly_measurement"
     },
     {
       "label": "setSculptureProvider() photogrammetry hook",
@@ -5440,9 +6387,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_sculpture_provider",
-      "community": 27,
-      "norm_label": "setsculptureprovider() photogrammetry hook"
+      "community": 81,
+      "norm_label": "setsculptureprovider() photogrammetry hook",
+      "id": "docs_conversazione_sculpture_provider"
     },
     {
       "label": "Missing Parthenon Ionic frieze",
@@ -5453,22 +6400,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_conversazione_ionic_frieze_missing",
       "community": 27,
-      "norm_label": "missing parthenon ionic frieze"
-    },
-    {
-      "label": "Creating a world (creare-un-mondo.md)",
-      "file_type": "document",
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "docs_creare_un_mondo",
-      "community": 8,
-      "norm_label": "creating a world (creare-un-mondo.md)"
+      "norm_label": "missing parthenon ionic frieze",
+      "id": "docs_conversazione_ionic_frieze_missing"
     },
     {
       "label": "World folder layout (world.json, index.html, src/main.js, preview.webp)",
@@ -5479,9 +6413,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_world_folder_layout",
-      "community": 5,
-      "norm_label": "world folder layout (world.json, index.html, src/main.js, preview.webp)"
+      "community": 110,
+      "norm_label": "world folder layout (world.json, index.html, src/main.js, preview.webp)",
+      "id": "docs_creare_un_mondo_world_folder_layout"
     },
     {
       "label": "world.json fields (id, order, status, weeks, solar, preview)",
@@ -5493,9 +6427,9 @@
       "author": null,
       "contributor": null,
       "rationale": "weeks sets the price: world budget = WEEKLY_TE (engine/config.js) x weeks.",
-      "id": "docs_creare_un_mondo_world_json_schema",
-      "community": 5,
-      "norm_label": "world.json fields (id, order, status, weeks, solar, preview)"
+      "community": 111,
+      "norm_label": "world.json fields (id, order, status, weeks, solar, preview)",
+      "id": "docs_creare_un_mondo_world_json_schema"
     },
     {
       "label": "addPiece(phase, object, weight, mark, description, drop)",
@@ -5506,9 +6440,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_addpiece",
-      "community": 5,
-      "norm_label": "addpiece(phase, object, weight, mark, description, drop)"
+      "community": 101,
+      "norm_label": "addpiece(phase, object, weight, mark, description, drop)",
+      "id": "docs_creare_un_mondo_addpiece"
     },
     {
       "label": "Piece order invariant after publication",
@@ -5520,9 +6454,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Registry stores 'first N of the list'; reordering would make N point at other pieces. New pieces only appended.",
-      "id": "docs_creare_un_mondo_piece_order_invariant",
-      "community": 5,
-      "norm_label": "piece order invariant after publication"
+      "community": 104,
+      "norm_label": "piece order invariant after publication",
+      "id": "docs_creare_un_mondo_piece_order_invariant"
     },
     {
       "label": "Seeded generator (engine/random.js, never Math.random)",
@@ -5533,22 +6467,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_seeded_random",
-      "community": 5,
-      "norm_label": "seeded generator (engine/random.js, never math.random)"
-    },
-    {
-      "label": "startWorld({meta, build, phases, completion, view, sun, fog, hour, snapshot, focus})",
-      "file_type": "concept",
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "docs_creare_un_mondo_startworld",
-      "community": 5,
-      "norm_label": "startworld({meta, build, phases, completion, view, sun, fog, hour, snapshot, focus})"
+      "community": 107,
+      "norm_label": "seeded generator (engine/random.js, never math.random)",
+      "id": "docs_creare_un_mondo_seeded_random"
     },
     {
       "label": "Greek architecture kit (worlds/acropolis/src/kit.js)",
@@ -5560,9 +6481,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Moves to a shared place when a second world needs it, instead of being copied.",
-      "id": "docs_creare_un_mondo_greek_kit",
-      "community": 5,
-      "norm_label": "greek architecture kit (worlds/acropolis/src/kit.js)"
+      "community": 102,
+      "norm_label": "greek architecture kit (worlds/acropolis/src/kit.js)",
+      "id": "docs_creare_un_mondo_greek_kit"
     },
     {
       "label": "Template world (worlds/_template stone tower)",
@@ -5573,9 +6494,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_template",
-      "community": 8,
-      "norm_label": "template world (worlds/_template stone tower)"
+      "community": 108,
+      "norm_label": "template world (worlds/_template stone tower)",
+      "id": "docs_creare_un_mondo_template"
     },
     {
       "label": "npm run new-world",
@@ -5586,9 +6507,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_new_world_command",
-      "community": 8,
-      "norm_label": "npm run new-world"
+      "community": 103,
+      "norm_label": "npm run new-world",
+      "id": "docs_creare_un_mondo_new_world_command"
     },
     {
       "label": "View modes (?demo=10, ?dev, ?snapshot)",
@@ -5599,9 +6520,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_view_modes",
-      "community": 5,
-      "norm_label": "view modes (?demo=10, ?dev, ?snapshot)"
+      "community": 109,
+      "norm_label": "view modes (?demo=10, ?dev, ?snapshot)",
+      "id": "docs_creare_un_mondo_view_modes"
     },
     {
       "label": "npm run previews (card picture)",
@@ -5612,9 +6533,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_previews_command",
-      "community": 5,
-      "norm_label": "npm run previews (card picture)"
+      "community": 105,
+      "norm_label": "npm run previews (card picture)",
+      "id": "docs_creare_un_mondo_previews_command"
     },
     {
       "label": "Publishing a world (status available, npm test, test:scene, commit)",
@@ -5625,36 +6546,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_creare_un_mondo_publish_steps",
-      "community": 5,
-      "norm_label": "publishing a world (status available, npm test, test:scene, commit)"
-    },
-    {
-      "label": "README TokenStone",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme",
-      "community": 11,
-      "norm_label": "readme tokenstone"
-    },
-    {
-      "label": "TokenStone (piattaforma di mondi)",
-      "file_type": "concept",
-      "source_file": "README.md",
-      "source_location": "L1-L18",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Worlds built step by step with Claude Code token usage; one world lasts weeks or months; engine is shared, each world brings only what makes it itself. Name is provisional.",
-      "id": "readme_tokenstone",
-      "community": 11,
-      "norm_label": "tokenstone (piattaforma di mondi)"
+      "community": 106,
+      "norm_label": "publishing a world (status available, npm test, test:scene, commit)",
+      "id": "docs_creare_un_mondo_publish_steps"
     },
     {
       "label": "Mondo: Acropoli di Pericle",
@@ -5666,9 +6560,9 @@
       "author": null,
       "contributor": null,
       "rationale": "3,280 independent pieces with cost, mason's mark and historical phase, sized for about a month at 100% weekly Claude Code usage.",
-      "id": "readme_acropoli_di_pericle",
-      "community": 11,
-      "norm_label": "mondo: acropoli di pericle"
+      "community": 17,
+      "norm_label": "mondo: acropoli di pericle",
+      "id": "readme_acropoli_di_pericle"
     },
     {
       "label": "Mondo in arrivo: Piana di Giza",
@@ -5679,9 +6573,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_piana_di_giza",
-      "community": 11,
-      "norm_label": "mondo in arrivo: piana di giza"
+      "community": 121,
+      "norm_label": "mondo in arrivo: piana di giza",
+      "id": "readme_piana_di_giza"
     },
     {
       "label": "Mondo in arrivo: Foro Romano",
@@ -5692,9 +6586,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_foro_romano",
-      "community": 11,
-      "norm_label": "mondo in arrivo: foro romano"
+      "community": 115,
+      "norm_label": "mondo in arrivo: foro romano",
+      "id": "readme_foro_romano"
     },
     {
       "label": "Token Equivalenti (TE)",
@@ -5706,9 +6600,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Dollar cost at list price converted via te_per_usd (200,000): one TE = one Opus input token. Weighs tokens of different models on the same scale; the dollar value is only shown in a note because subscribers don't pay it.",
-      "id": "readme_token_equivalenti",
-      "community": 24,
-      "norm_label": "token equivalenti (te)"
+      "community": 17,
+      "norm_label": "token equivalenti (te)",
+      "id": "readme_token_equivalenti"
     },
     {
       "label": "Registro dei mondi (state/registry.json)",
@@ -5720,9 +6614,9 @@
       "author": null,
       "contributor": null,
       "rationale": "The counter knows only one total; the registry splits it among worlds via segments of the total, remembers the highest point reached per world (so price drops never un-build) and each world's cost (to compute carryover).",
-      "id": "readme_registro_dei_mondi",
-      "community": 18,
-      "norm_label": "registro dei mondi (state/registry.json)"
+      "community": 126,
+      "norm_label": "registro dei mondi (state/registry.json)",
+      "id": "readme_registro_dei_mondi"
     },
     {
       "label": "Tratti di credito (un mondo attivo alla volta)",
@@ -5733,9 +6627,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_tratti_di_credito",
-      "community": 18,
-      "norm_label": "tratti di credito (un mondo attivo alla volta)"
+      "community": 131,
+      "norm_label": "tratti di credito (un mondo attivo alla volta)",
+      "id": "readme_tratti_di_credito"
     },
     {
       "label": "Pausa e avanzo del credito",
@@ -5747,9 +6641,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A half-built world keeps its credit when paused; a completed world passes surplus to the next chosen one, which waits and is never lost.",
-      "id": "readme_pausa_e_avanzo",
-      "community": 19,
-      "norm_label": "pausa e avanzo del credito"
+      "community": 17,
+      "norm_label": "pausa e avanzo del credito",
+      "id": "readme_pausa_e_avanzo"
     },
     {
       "label": "I blocchi posati si calcolano, non si salvano",
@@ -5761,9 +6655,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Given credit and ordered piece costs, placed blocks are a computation; the site is identical in every browser/device and nothing of progress lives in the browser.",
-      "id": "readme_cantiere_calcolato_dal_credito",
-      "community": 18,
-      "norm_label": "i blocchi posati si calcolano, non si salvano"
+      "community": 114,
+      "norm_label": "i blocchi posati si calcolano, non si salvano",
+      "id": "readme_cantiere_calcolato_dal_credito"
     },
     {
       "label": "Prezzo dei pezzi da pesi relativi (priceInTe)",
@@ -5775,9 +6669,9 @@
       "author": null,
       "contributor": null,
       "rationale": "COST values are relative weights; budget = weeklyTe * weeks, cost(p) = weight(p) * budget / sum(weights), so the total stays exact when pieces are added while hand-tuned proportions are preserved.",
-      "id": "readme_prezzo_pezzi_pesi_relativi",
-      "community": 24,
-      "norm_label": "prezzo dei pezzi da pesi relativi (priceinte)"
+      "community": 124,
+      "norm_label": "prezzo dei pezzi da pesi relativi (priceinte)",
+      "id": "readme_prezzo_pezzi_pesi_relativi"
     },
     {
       "label": "Misura di CANTIERE.weeklyTe (66 milioni TE)",
@@ -5789,9 +6683,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Weekly TE value is not public and plan-dependent; measured from /usage percentage plus counter --dry-run --since: weeklyTe = total_te / pct * 100. Two readings (12% and 19%) bound it to 65.0-67.2M; earlier 31M reading was polluted by claude.ai use. 5-hour window is a different limit and is not used.",
-      "id": "readme_weekly_te_misura",
-      "community": 24,
-      "norm_label": "misura di cantiere.weeklyte (66 milioni te)"
+      "community": 133,
+      "norm_label": "misura di cantiere.weeklyte (66 milioni te)",
+      "id": "readme_weekly_te_misura"
     },
     {
       "label": "Contatore di token (transcript Claude Code)",
@@ -5803,9 +6697,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Reads ~/.claude/projects/*/*.jsonl every five seconds, weighs usage at list price and rewrites state/world-state.json; counts all projects, only after first start (installed_at), only on this computer; runs inside the server so no orphan processes.",
-      "id": "readme_contatore_di_token",
       "community": 24,
-      "norm_label": "contatore di token (transcript claude code)"
+      "norm_label": "contatore di token (transcript claude code)",
+      "id": "readme_contatore_di_token"
     },
     {
       "label": "Privacy: solo message.usage, modello, orario, cartella",
@@ -5817,23 +6711,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Message text, questions, answers and code are never read or copied; nothing goes to the network; state stays in state/.",
-      "id": "readme_privacy_solo_usage",
-      "community": 19,
-      "norm_label": "privacy: solo message.usage, modello, orario, cartella"
-    },
-    {
-      "label": "Le scelte che proteggono il conto",
-      "file_type": "rationale",
-      "source_file": "README.md",
-      "source_location": "L356-L387",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Recompute never sum (idempotent scans); one message counted once (highest output per message.id, first session wins); subagents roll into parent session; deleted sessions kept as archived; tail-only reads; backup .world-state.bak; atomic write + .world-state.lock; single process inside the server.",
-      "id": "readme_scelte_che_proteggono_il_conto",
-      "community": 24,
-      "norm_label": "le scelte che proteggono il conto"
+      "community": 17,
+      "norm_label": "privacy: solo message.usage, modello, orario, cartella",
+      "id": "readme_privacy_solo_usage"
     },
     {
       "label": "Listino prezzi modelli (pricing.json)",
@@ -5845,9 +6725,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Re-read every cycle so corrections apply without restart. Models matched by exact name or dated suffix; unknown versions priced from nearest entry but flagged in unknown_models/model_fallbacks. fast_multiplier covers /fast mode; <synthetic> messages don't count.",
-      "id": "readme_listino_prezzi_modelli",
-      "community": 21,
-      "norm_label": "listino prezzi modelli (pricing.json)"
+      "community": 118,
+      "norm_label": "listino prezzi modelli (pricing.json)",
+      "id": "readme_listino_prezzi_modelli"
     },
     {
       "label": "unknown_models e model_fallbacks",
@@ -5858,9 +6738,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_unknown_models",
-      "community": 21,
-      "norm_label": "unknown_models e model_fallbacks"
+      "community": 132,
+      "norm_label": "unknown_models e model_fallbacks",
+      "id": "readme_unknown_models"
     },
     {
       "label": "Quando un prezzo scende",
@@ -5872,9 +6752,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Recomputed total drops, but placed blocks remain because the registry remembers the highest point; the site pauses until new usage catches up. Archived sessions keep their original price.",
-      "id": "readme_prezzo_che_scende",
-      "community": 21,
-      "norm_label": "quando un prezzo scende"
+      "community": 123,
+      "norm_label": "quando un prezzo scende",
+      "id": "readme_prezzo_che_scende"
     },
     {
       "label": "Modalita dimostrativa (?demo)",
@@ -5886,9 +6766,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Whole world in about 90 s with camera following; ?demo=N sets duration; never touches the registry, so the project can be seen without Claude Code.",
-      "id": "readme_modalita_dimostrativa",
-      "community": 19,
-      "norm_label": "modalita dimostrativa (?demo)"
+      "community": 119,
+      "norm_label": "modalita dimostrativa (?demo)",
+      "id": "readme_modalita_dimostrativa"
     },
     {
       "label": "Modalita sviluppo (?dev)",
@@ -5900,9 +6780,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Single placement, continuous build, gifted simulation credit and 'Tutto in 10 s'; gifted credit stays in the browser and never reaches the registry.",
-      "id": "readme_modalita_dev",
       "community": 17,
-      "norm_label": "modalita sviluppo (?dev)"
+      "norm_label": "modalita sviluppo (?dev)",
+      "id": "readme_modalita_dev"
     },
     {
       "label": "Il laboratorio (torre di prova)",
@@ -5914,9 +6794,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Surfaces dev modes and the world template from the home page instead of hiding them in the URL; nothing there consumes credit.",
-      "id": "readme_laboratorio",
       "community": 17,
-      "norm_label": "il laboratorio (torre di prova)"
+      "norm_label": "il laboratorio (torre di prova)",
+      "id": "readme_laboratorio"
     },
     {
       "label": "Scritture del registro solo locali, JSON, da pagine TokenStone",
@@ -5928,9 +6808,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Only two writes ('scegli mondo', 'riporta avanzamento') accepted from localhost as JSON from TokenStone pages so another site in the browser cannot alter the site; server listens only locally because state reveals work habits.",
-      "id": "readme_sicurezza_scritture_registro",
-      "community": 18,
-      "norm_label": "scritture del registro solo locali, json, da pagine tokenstone"
+      "community": 130,
+      "norm_label": "scritture del registro solo locali, json, da pagine tokenstone",
+      "id": "readme_sicurezza_scritture_registro"
     },
     {
       "label": "Ricarica automatica su nuova versione / scollegato dal cantiere",
@@ -5941,9 +6821,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_ricarica_su_versione",
-      "community": 19,
-      "norm_label": "ricarica automatica su nuova versione / scollegato dal cantiere"
+      "community": 127,
+      "norm_label": "ricarica automatica su nuova versione / scollegato dal cantiere",
+      "id": "readme_ricarica_su_versione"
     },
     {
       "label": "TokenStone come app installabile (PWA)",
@@ -5954,9 +6834,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_app_installabile",
-      "community": 17,
-      "norm_label": "tokenstone come app installabile (pwa)"
+      "community": 112,
+      "norm_label": "tokenstone come app installabile (pwa)",
+      "id": "readme_app_installabile"
     },
     {
       "label": "Avvio a doppio clic (TokenStone.cmd / .command / tokenstone.sh)",
@@ -5968,9 +6848,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Server need not stay on: transcripts are the site's memory and the counter catches up on start; caveat is Claude Code deletes transcripts older than a month.",
-      "id": "readme_avvio_doppio_clic",
       "community": 17,
-      "norm_label": "avvio a doppio clic (tokenstone.cmd / .command / tokenstone.sh)"
+      "norm_label": "avvio a doppio clic (tokenstone.cmd / .command / tokenstone.sh)",
+      "id": "readme_avvio_doppio_clic"
     },
     {
       "label": "La roccia affiorante non si paga",
@@ -5982,9 +6862,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Bedrock existed before; everything carried up by hand costs tokens.",
-      "id": "readme_roccia_non_si_paga",
-      "community": 11,
-      "norm_label": "la roccia affiorante non si paga"
+      "community": 128,
+      "norm_label": "la roccia affiorante non si paga",
+      "id": "readme_roccia_non_si_paga"
     },
     {
       "label": "Ordine dei pezzi e generatore con seme fisso",
@@ -5996,9 +6876,9 @@
       "author": null,
       "contributor": null,
       "rationale": "The site is 'the first N pieces of the list' and the registry remembers N; changing order or seed would make those N different pieces.",
-      "id": "readme_ordine_pezzi_e_seme_fisso",
-      "community": 18,
-      "norm_label": "ordine dei pezzi e generatore con seme fisso"
+      "community": 120,
+      "norm_label": "ordine dei pezzi e generatore con seme fisso",
+      "id": "readme_ordine_pezzi_e_seme_fisso"
     },
     {
       "label": "Raffinatezze ottiche (REFINEMENTS)",
@@ -6010,9 +6890,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Curved stylobate, inward column tilt 1:171, thickened corner columns, contracted corner intercolumniations; crepidoma goes from 36 to 108 blocks because a temple-wide block cannot curve.",
-      "id": "readme_raffinatezze_ottiche",
-      "community": 11,
-      "norm_label": "raffinatezze ottiche (refinements)"
+      "community": 125,
+      "norm_label": "raffinatezze ottiche (refinements)",
+      "id": "readme_raffinatezze_ottiche"
     },
     {
       "label": "Policromia (POLYCHROMY)",
@@ -6023,9 +6903,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_policromia",
-      "community": 11,
-      "norm_label": "policromia (polychromy)"
+      "community": 122,
+      "norm_label": "policromia (polychromy)",
+      "id": "readme_policromia"
     },
     {
       "label": "Sculture fotogrammetrate (setSculptureProvider)",
@@ -6036,9 +6916,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_sculture_fotogrammetrate",
-      "community": 11,
-      "norm_label": "sculture fotogrammetrate (setsculptureprovider)"
+      "community": 129,
+      "norm_label": "sculture fotogrammetrate (setsculptureprovider)",
+      "id": "readme_sculture_fotogrammetrate"
     },
     {
       "label": "HDRI al posto del cielo analitico (useHDRI)",
@@ -6050,9 +6930,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Analytic sky keeps time of day as a continuous parameter with real solar equations for Athens' latitude; HDRI would give that up.",
-      "id": "readme_hdri_vs_cielo_analitico",
-      "community": 11,
-      "norm_label": "hdri al posto del cielo analitico (usehdri)"
+      "community": 116,
+      "norm_label": "hdri al posto del cielo analitico (usehdri)",
+      "id": "readme_hdri_vs_cielo_analitico"
     },
     {
       "label": "Prestazioni: bakePhase e ombre su posa",
@@ -6064,9 +6944,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Merging a closed phase's meshes per material drops draw calls from thousands to dozens; shadow map recomputed only on placement.",
-      "id": "readme_bakephase_prestazioni",
-      "community": 11,
-      "norm_label": "prestazioni: bakephase e ombre su posa"
+      "community": 113,
+      "norm_label": "prestazioni: bakephase e ombre su posa",
+      "id": "readme_bakephase_prestazioni"
     },
     {
       "label": "Hook Stop e server Python/FastAPI (versioni precedenti)",
@@ -6077,22 +6957,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_hook_stop_legacy",
-      "community": 24,
-      "norm_label": "hook stop e server python/fastapi (versioni precedenti)"
-    },
-    {
-      "label": "CLAUDE.md istruzioni progetto",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude",
-      "community": 18,
-      "norm_label": "claude.md istruzioni progetto"
+      "community": 117,
+      "norm_label": "hook stop e server python/fastapi (versioni precedenti)",
+      "id": "readme_hook_stop_legacy"
     },
     {
       "label": "Convenzione: nomi in inglese, testi in italiano",
@@ -6103,9 +6970,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "claude_convenzioni_lingua",
       "community": 19,
-      "norm_label": "convenzione: nomi in inglese, testi in italiano"
+      "norm_label": "convenzione: nomi in inglese, testi in italiano",
+      "id": "claude_convenzioni_lingua"
     },
     {
       "label": "Regola: cio che vale per un mondo solo non va nel motore",
@@ -6117,9 +6984,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Random scattering must use seeded from engine/random.js, never Math.random.",
-      "id": "claude_motore_vs_mondo",
-      "community": 18,
-      "norm_label": "regola: cio che vale per un mondo solo non va nel motore"
+      "community": 41,
+      "norm_label": "regola: cio che vale per un mondo solo non va nel motore",
+      "id": "claude_motore_vs_mondo"
     },
     {
       "label": "Controllo unknown_models a inizio lavoro",
@@ -6131,9 +6998,9 @@
       "author": null,
       "contributor": null,
       "rationale": "pricing.json is never edited by hand or without user approval; always via the subagent which proposes first and applies on approval. pricing-test.json is never touched.",
-      "id": "claude_controllo_unknown_models",
-      "community": 21,
-      "norm_label": "controllo unknown_models a inizio lavoro"
+      "community": 39,
+      "norm_label": "controllo unknown_models a inizio lavoro",
+      "id": "claude_controllo_unknown_models"
     },
     {
       "label": "Il registro non si modifica a mano",
@@ -6144,9 +7011,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "claude_registro_non_a_mano",
-      "community": 18,
-      "norm_label": "il registro non si modifica a mano"
+      "community": 42,
+      "norm_label": "il registro non si modifica a mano",
+      "id": "claude_registro_non_a_mano"
     },
     {
       "label": "docs/conversazione.md come diario delle decisioni (append-only)",
@@ -6157,22 +7024,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "claude_diario_decisioni",
-      "community": 18,
-      "norm_label": "docs/conversazione.md come diario delle decisioni (append-only)"
-    },
-    {
-      "label": "TODO TokenStone: piano a fasi",
-      "file_type": "document",
-      "source_file": "TODO.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "todo",
-      "community": 11,
-      "norm_label": "todo tokenstone: piano a fasi"
+      "community": 40,
+      "norm_label": "docs/conversazione.md come diario delle decisioni (append-only)",
+      "id": "claude_diario_decisioni"
     },
     {
       "label": "Decisioni prese (6 ottobre 2026)",
@@ -6184,9 +7038,9 @@
       "author": null,
       "contributor": null,
       "rationale": "English names; pause; carryover; per-world duration with a single WEEKLY_TE (plan-dependent, not world-dependent); Giza next; TokenStone everywhere; coming-soon cards; first launch chooses the world; visiting is not choosing.",
-      "id": "todo_decisioni_6_ottobre",
-      "community": 19,
-      "norm_label": "decisioni prese (6 ottobre 2026)"
+      "community": 134,
+      "norm_label": "decisioni prese (6 ottobre 2026)",
+      "id": "todo_decisioni_6_ottobre"
     },
     {
       "label": "Fase 1: il cantiere si calcola dal credito",
@@ -6197,9 +7051,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "todo_fase_1_cantiere_dal_credito",
-      "community": 18,
-      "norm_label": "fase 1: il cantiere si calcola dal credito"
+      "community": 135,
+      "norm_label": "fase 1: il cantiere si calcola dal credito",
+      "id": "todo_fase_1_cantiere_dal_credito"
     },
     {
       "label": "Fase 2: piu mondi nella struttura (engine/ + worlds/)",
@@ -6211,9 +7065,9 @@
       "author": null,
       "contributor": null,
       "rationale": "The Greek kit stays in the Acropolis until a second world needs it.",
-      "id": "todo_fase_2_piu_mondi",
-      "community": 18,
-      "norm_label": "fase 2: piu mondi nella struttura (engine/ + worlds/)"
+      "community": 136,
+      "norm_label": "fase 2: piu mondi nella struttura (engine/ + worlds/)",
+      "id": "todo_fase_2_piu_mondi"
     },
     {
       "label": "Fase 3: la pagina iniziale",
@@ -6224,9 +7078,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "todo_fase_3_pagina_iniziale",
-      "community": 19,
-      "norm_label": "fase 3: la pagina iniziale"
+      "community": 137,
+      "norm_label": "fase 3: la pagina iniziale",
+      "id": "todo_fase_3_pagina_iniziale"
     },
     {
       "label": "Fase 4: il modello per i mondi nuovi",
@@ -6238,9 +7092,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Template tower of 501 pieces in six phases from a fantasy miniature; scene header from world.json (data-world).",
-      "id": "todo_fase_4_modello_mondi",
-      "community": 17,
-      "norm_label": "fase 4: il modello per i mondi nuovi"
+      "community": 138,
+      "norm_label": "fase 4: il modello per i mondi nuovi",
+      "id": "todo_fase_4_modello_mondi"
     },
     {
       "label": "Fase 5: rifiniture dell'Acropoli",
@@ -6251,9 +7105,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "todo_fase_5_rifiniture_acropoli",
-      "community": 11,
-      "norm_label": "fase 5: rifiniture dell'acropoli"
+      "community": 139,
+      "norm_label": "fase 5: rifiniture dell'acropoli",
+      "id": "todo_fase_5_rifiniture_acropoli"
     },
     {
       "label": "Fase 6: la piana di Giza (kit egizio)",
@@ -6264,9 +7118,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "todo_fase_6_giza",
-      "community": 11,
-      "norm_label": "fase 6: la piana di giza (kit egizio)"
+      "community": 140,
+      "norm_label": "fase 6: la piana di giza (kit egizio)",
+      "id": "todo_fase_6_giza"
     },
     {
       "label": "Fase 7: il Foro Romano (kit romano)",
@@ -6277,9 +7131,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "todo_fase_7_foro_romano",
-      "community": 11,
-      "norm_label": "fase 7: il foro romano (kit romano)"
+      "community": 141,
+      "norm_label": "fase 7: il foro romano (kit romano)",
+      "id": "todo_fase_7_foro_romano"
     },
     {
       "label": "npx tokenstone (avvio senza clonare)",
@@ -6290,9 +7144,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "todo_npx_tokenstone",
-      "community": 11,
-      "norm_label": "npx tokenstone (avvio senza clonare)"
+      "community": 142,
+      "norm_label": "npx tokenstone (avvio senza clonare)",
+      "id": "todo_npx_tokenstone"
     },
     {
       "label": "Subagente aggiorna-listino",
@@ -6304,9 +7158,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A wrong price silently skews everyone's site, so the agent works in two stages and the user decides the second.",
-      "id": "_claude_agents_aggiorna_listino",
       "community": 21,
-      "norm_label": "subagente aggiorna-listino"
+      "norm_label": "subagente aggiorna-listino",
+      "id": "_claude_agents_aggiorna_listino"
     },
     {
       "label": "Modalita proposta (listino candidato)",
@@ -6318,9 +7172,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Read unknown_models/model_fallbacks, fetch only the official Anthropic pricing page, write pricing.candidate.json, verify with check-pricing.js and two counter --dry-run runs, report total_te before/after, then stop.",
-      "id": "_claude_agents_aggiorna_listino_modalita_proposta",
-      "community": 21,
-      "norm_label": "modalita proposta (listino candidato)"
+      "community": 36,
+      "norm_label": "modalita proposta (listino candidato)",
+      "id": "_claude_agents_aggiorna_listino_modalita_proposta"
     },
     {
       "label": "Modalita applicazione (con rollback)",
@@ -6332,9 +7186,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Backup to pricing.json.prima, swap in candidate, run npm test, restore on failure.",
-      "id": "_claude_agents_aggiorna_listino_modalita_applicazione",
-      "community": 21,
-      "norm_label": "modalita applicazione (con rollback)"
+      "community": 35,
+      "norm_label": "modalita applicazione (con rollback)",
+      "id": "_claude_agents_aggiorna_listino_modalita_applicazione"
     },
     {
       "label": "Regole: non inventare, non dedurre da proporzioni",
@@ -6346,9 +7200,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Ratios differ per model (cache read is 1/10 input on Opus 5, 1/20 on Opus 5.5); missing entries stay out; never remove disappeared models since archived sessions may reference them; do not change te_per_usd or default_model.",
-      "id": "_claude_agents_aggiorna_listino_regole_non_inventare",
-      "community": 21,
-      "norm_label": "regole: non inventare, non dedurre da proporzioni"
+      "community": 38,
+      "norm_label": "regole: non inventare, non dedurre da proporzioni",
+      "id": "_claude_agents_aggiorna_listino_regole_non_inventare"
     },
     {
       "label": "pricing.candidate.json",
@@ -6359,9 +7213,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_claude_agents_aggiorna_listino_pricing_candidate",
-      "community": 21,
-      "norm_label": "pricing.candidate.json"
+      "community": 37,
+      "norm_label": "pricing.candidate.json",
+      "id": "_claude_agents_aggiorna_listino_pricing_candidate"
     },
     {
       "label": "index.html (pagina iniziale TokenStone)",
@@ -6372,9 +7226,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "index",
-      "community": 19,
-      "norm_label": "index.html (pagina iniziale tokenstone)"
+      "community": 17,
+      "norm_label": "index.html (pagina iniziale tokenstone)",
+      "id": "index"
     },
     {
       "label": "Sezione contatore (#total, #state, #usd)",
@@ -6385,9 +7239,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "index_counter",
-      "community": 24,
-      "norm_label": "sezione contatore (#total, #state, #usd)"
+      "community": 17,
+      "norm_label": "sezione contatore (#total, #state, #usd)",
+      "id": "index_counter"
     },
     {
       "label": "Griglia dei mondi (#worlds)",
@@ -6398,9 +7252,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "index_worlds",
-      "community": 19,
-      "norm_label": "griglia dei mondi (#worlds)"
+      "community": 17,
+      "norm_label": "griglia dei mondi (#worlds)",
+      "id": "index_worlds"
     },
     {
       "label": "Sezione laboratorio (#lab)",
@@ -6411,9 +7265,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "index_lab",
       "community": 17,
-      "norm_label": "sezione laboratorio (#lab)"
+      "norm_label": "sezione laboratorio (#lab)",
+      "id": "index_lab"
     },
     {
       "label": "Dialogo di conferma cambio mondo (#confirm)",
@@ -6424,9 +7278,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "index_confirm",
-      "community": 19,
-      "norm_label": "dialogo di conferma cambio mondo (#confirm)"
+      "community": 17,
+      "norm_label": "dialogo di conferma cambio mondo (#confirm)",
+      "id": "index_confirm"
     },
     {
       "label": "offline.html (TokenStone spento)",
@@ -6438,9 +7292,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Shown by the service worker when the server is down, so it must stand alone: no external fonts, no server-dependent scripts.",
-      "id": "offline",
       "community": 17,
-      "norm_label": "offline.html (tokenstone spento)"
+      "norm_label": "offline.html (tokenstone spento)",
+      "id": "offline"
     },
     {
       "label": "worlds/_template/index.html (pagina scena del modello)",
@@ -6452,9 +7306,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Header texts are data-world placeholders filled by the engine from world.json, so the template is world-agnostic.",
-      "id": "worlds__template_index",
       "community": 17,
-      "norm_label": "worlds/_template/index.html (pagina scena del modello)"
+      "norm_label": "worlds/_template/index.html (pagina scena del modello)",
+      "id": "worlds__template_index"
     },
     {
       "label": "fallito() boot error handler (template)",
@@ -6466,9 +7320,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Boot screen removed from outside the scene module: if the import fails, code inside never runs and the message would stay forever without saying what went wrong.",
-      "id": "worlds__template_index_fallito",
       "community": 17,
-      "norm_label": "fallito() boot error handler (template)"
+      "norm_label": "fallito() boot error handler (template)",
+      "id": "worlds__template_index_fallito"
     },
     {
       "label": "worlds/acropolis/index.html (pagina scena Acropoli)",
@@ -6479,9 +7333,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_acropolis_index",
       "community": 17,
-      "norm_label": "worlds/acropolis/index.html (pagina scena acropoli)"
+      "norm_label": "worlds/acropolis/index.html (pagina scena acropoli)",
+      "id": "worlds_acropolis_index"
     },
     {
       "label": "fallito() boot error handler (Acropoli)",
@@ -6492,9 +7346,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_acropolis_index_fallito",
       "community": 17,
-      "norm_label": "fallito() boot error handler (acropoli)"
+      "norm_label": "fallito() boot error handler (acropoli)",
+      "id": "worlds_acropolis_index_fallito"
     },
     {
       "label": "Dock del cantiere (#dock: credito, prossimo blocco, comandi)",
@@ -6505,9 +7359,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_acropolis_index_scene_dock",
       "community": 17,
-      "norm_label": "dock del cantiere (#dock: credito, prossimo blocco, comandi)"
+      "norm_label": "dock del cantiere (#dock: credito, prossimo blocco, comandi)",
+      "id": "worlds_acropolis_index_scene_dock"
     },
     {
       "label": "icon.svg (vector app icon)",
@@ -6518,9 +7372,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "assets_icons_icon",
       "community": 23,
-      "norm_label": "icon.svg (vector app icon)"
+      "norm_label": "icon.svg (vector app icon)",
+      "id": "assets_icons_icon"
     },
     {
       "label": "Greek Temple (Acropolis) Logo Mark",
@@ -6532,9 +7386,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Flat pixel-geometric temple: triangular pediment, terracotta frieze band, entablature, four columns and three-step stylobate; evokes the 'Acropoli' brand name.",
-      "id": "assets_icons_icon_greek_temple_logo",
       "community": 23,
-      "norm_label": "greek temple (acropolis) logo mark"
+      "norm_label": "greek temple (acropolis) logo mark",
+      "id": "assets_icons_icon_greek_temple_logo"
     },
     {
       "label": "Brand Palette (navy #0b141d, parchment #e9ddc3, terracotta #be5b40)",
@@ -6545,9 +7399,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "assets_icons_icon_brand_palette",
       "community": 23,
-      "norm_label": "brand palette (navy #0b141d, parchment #e9ddc3, terracotta #be5b40)"
+      "norm_label": "brand palette (navy #0b141d, parchment #e9ddc3, terracotta #be5b40)",
+      "id": "assets_icons_icon_brand_palette"
     },
     {
       "label": "icon-192.png (PWA icon 192px)",
@@ -6558,9 +7412,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "assets_icons_icon_192",
       "community": 23,
-      "norm_label": "icon-192.png (pwa icon 192px)"
+      "norm_label": "icon-192.png (pwa icon 192px)",
+      "id": "assets_icons_icon_192"
     },
     {
       "label": "icon-512.png (PWA icon 512px)",
@@ -6571,9 +7425,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "assets_icons_icon_512",
       "community": 23,
-      "norm_label": "icon-512.png (pwa icon 512px)"
+      "norm_label": "icon-512.png (pwa icon 512px)",
+      "id": "assets_icons_icon_512"
     },
     {
       "label": "icon-maskable-512.png (maskable PWA icon)",
@@ -6585,9 +7439,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Full-bleed navy background with no rounded corners and the temple shrunk into the center safe zone so OS-applied masks (circle/squircle) do not crop the mark.",
-      "id": "assets_icons_icon_maskable_512",
       "community": 23,
-      "norm_label": "icon-maskable-512.png (maskable pwa icon)"
+      "norm_label": "icon-maskable-512.png (maskable pwa icon)",
+      "id": "assets_icons_icon_maskable_512"
     },
     {
       "label": "apple-touch-icon.png (iOS home screen icon)",
@@ -6599,9 +7453,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Square full-bleed (180px) since iOS applies its own corner rounding.",
-      "id": "assets_icons_apple_touch_icon",
       "community": 23,
-      "norm_label": "apple-touch-icon.png (ios home screen icon)"
+      "norm_label": "apple-touch-icon.png (ios home screen icon)",
+      "id": "assets_icons_apple_touch_icon"
     },
     {
       "label": "Template World Preview Image",
@@ -6612,9 +7466,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds__template_preview",
       "community": 26,
-      "norm_label": "template world preview image"
+      "norm_label": "template world preview image",
+      "id": "worlds__template_preview"
     },
     {
       "label": "Stone Tower Model (Template World)",
@@ -6625,9 +7479,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds__template_preview_stone_tower",
       "community": 26,
-      "norm_label": "stone tower model (template world)"
+      "norm_label": "stone tower model (template world)",
+      "id": "worlds__template_preview_stone_tower"
     },
     {
       "label": "Square Stone Base with Arched Door",
@@ -6638,9 +7492,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds__template_preview_square_base",
       "community": 26,
-      "norm_label": "square stone base with arched door"
+      "norm_label": "square stone base with arched door",
+      "id": "worlds__template_preview_square_base"
     },
     {
       "label": "Cylindrical Turret with Lattice Window",
@@ -6651,9 +7505,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds__template_preview_cylindrical_turret",
       "community": 26,
-      "norm_label": "cylindrical turret with lattice window"
+      "norm_label": "cylindrical turret with lattice window",
+      "id": "worlds__template_preview_cylindrical_turret"
     },
     {
       "label": "Conical Slate Roof with Open Belfry",
@@ -6664,9 +7518,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds__template_preview_conical_roof",
       "community": 26,
-      "norm_label": "conical slate roof with open belfry"
+      "norm_label": "conical slate roof with open belfry",
+      "id": "worlds__template_preview_conical_roof"
     },
     {
       "label": "Spiral Balconies / External Stair",
@@ -6677,9 +7531,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds__template_preview_spiral_balconies",
       "community": 26,
-      "norm_label": "spiral balconies / external stair"
+      "norm_label": "spiral balconies / external stair",
+      "id": "worlds__template_preview_spiral_balconies"
     },
     {
       "label": "Flat Ground Plane with Sky Gradient",
@@ -6690,9 +7544,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds__template_preview_ground_plane",
       "community": 26,
-      "norm_label": "flat ground plane with sky gradient"
+      "norm_label": "flat ground plane with sky gradient",
+      "id": "worlds__template_preview_ground_plane"
     },
     {
       "label": "Acropolis World Preview Render",
@@ -6704,9 +7558,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Aerial 3/4 thumbnail of a low-poly 3D scene of the Athenian Acropolis, likely used as the world selection/preview image for the 'acropolis' world.",
-      "id": "worlds_acropolis_preview",
       "community": 22,
-      "norm_label": "acropolis world preview render"
+      "norm_label": "acropolis world preview render",
+      "id": "worlds_acropolis_preview"
     },
     {
       "label": "Parthenon-style Peripteral Temple",
@@ -6718,9 +7572,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Largest building in the scene: long colonnaded temple with stacked-slab roof and red/blue painted frieze band, evoking original polychromy.",
-      "id": "worlds_acropolis_preview_parthenon_temple",
       "community": 22,
-      "norm_label": "parthenon-style peripteral temple"
+      "norm_label": "parthenon-style peripteral temple",
+      "id": "worlds_acropolis_preview_parthenon_temple"
     },
     {
       "label": "Erechtheion-style Secondary Temple",
@@ -6731,9 +7585,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_acropolis_preview_erechtheion_building",
       "community": 22,
-      "norm_label": "erechtheion-style secondary temple"
+      "norm_label": "erechtheion-style secondary temple",
+      "id": "worlds_acropolis_preview_erechtheion_building"
     },
     {
       "label": "Propylaea / Western Building Cluster",
@@ -6745,9 +7599,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Group of smaller block buildings (incl. a small Nike-like temple and a large polychrome-roofed hall) at the far end of the plateau; identification is approximate.",
-      "id": "worlds_acropolis_preview_propylaea_complex",
       "community": 22,
-      "norm_label": "propylaea / western building cluster"
+      "norm_label": "propylaea / western building cluster",
+      "id": "worlds_acropolis_preview_propylaea_complex"
     },
     {
       "label": "Athena Promachos-style Bronze Statue",
@@ -6758,9 +7612,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_acropolis_preview_athena_statue",
       "community": 22,
-      "norm_label": "athena promachos-style bronze statue"
+      "norm_label": "athena promachos-style bronze statue",
+      "id": "worlds_acropolis_preview_athena_statue"
     },
     {
       "label": "Paved Processional Way (Panathenaic path)",
@@ -6771,9 +7625,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_acropolis_preview_processional_way",
       "community": 22,
-      "norm_label": "paved processional way (panathenaic path)"
+      "norm_label": "paved processional way (panathenaic path)",
+      "id": "worlds_acropolis_preview_processional_way"
     },
     {
       "label": "Procedural Hilltop Terrain with Perimeter Path",
@@ -6785,9 +7639,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Rolling sandy hill with flat plateau, ring road/wall around the edge, scattered olive trees, hexagonal stones and small pillars; hazy beige fog backdrop.",
-      "id": "worlds_acropolis_preview_hilltop_terrain",
       "community": 22,
-      "norm_label": "procedural hilltop terrain with perimeter path"
+      "norm_label": "procedural hilltop terrain with perimeter path",
+      "id": "worlds_acropolis_preview_hilltop_terrain"
     },
     {
       "label": "Low-poly Instanced Scene Style",
@@ -6799,9 +7653,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Buildings appear built from stacked slabs/blocks and repeated primitives (columns, trees, hex tiles), suggesting procedural or instanced generation with simple flat shading.",
-      "id": "worlds_acropolis_preview_low_poly_style",
       "community": 22,
-      "norm_label": "low-poly instanced scene style"
+      "norm_label": "low-poly instanced scene style",
+      "id": "worlds_acropolis_preview_low_poly_style"
     },
     {
       "label": "Forum World Preview (Roman Forum silhouette)",
@@ -6813,9 +7667,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Placeholder silhouette shown until the world has a real scene: a triumphal arch with three passages and the surviving columns of a temple against the Palatine.",
-      "id": "worlds_forum_preview",
       "community": 25,
-      "norm_label": "forum world preview (roman forum silhouette)"
+      "norm_label": "forum world preview (roman forum silhouette)",
+      "id": "worlds_forum_preview"
     },
     {
       "label": "Triumphal Arch (three fornici + attic)",
@@ -6826,9 +7680,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_forum_preview_triumphal_arch",
       "community": 25,
-      "norm_label": "triumphal arch (three fornici + attic)"
+      "norm_label": "triumphal arch (three fornici + attic)",
+      "id": "worlds_forum_preview_triumphal_arch"
     },
     {
       "label": "Temple Columns with surviving entablature",
@@ -6839,9 +7693,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_forum_preview_temple_columns",
       "community": 25,
-      "norm_label": "temple columns with surviving entablature"
+      "norm_label": "temple columns with surviving entablature",
+      "id": "worlds_forum_preview_temple_columns"
     },
     {
       "label": "Giza World Preview (Giza plateau silhouette)",
@@ -6853,9 +7707,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Placeholder silhouette shown until the world has a real scene: the three pyramids in diagonal as seen arriving from the south-east, with the Sphinx in front.",
-      "id": "worlds_giza_preview",
       "community": 25,
-      "norm_label": "giza world preview (giza plateau silhouette)"
+      "norm_label": "giza world preview (giza plateau silhouette)",
+      "id": "worlds_giza_preview"
     },
     {
       "label": "Three Pyramids (Menkaure, Khafre, Khufu)",
@@ -6866,9 +7720,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_giza_preview_three_pyramids",
       "community": 25,
-      "norm_label": "three pyramids (menkaure, khafre, khufu)"
+      "norm_label": "three pyramids (menkaure, khafre, khufu)",
+      "id": "worlds_giza_preview_three_pyramids"
     },
     {
       "label": "Great Sphinx",
@@ -6879,9 +7733,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "worlds_giza_preview_sphinx",
       "community": 25,
-      "norm_label": "great sphinx"
+      "norm_label": "great sphinx",
+      "id": "worlds_giza_preview_sphinx"
     },
     {
       "label": "World Preview Placeholder Silhouette",
@@ -6893,9 +7747,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Each world ships a 1600x1000 SVG silhouette with a shared dark sky gradient ('cielo', #1A2733 top) used as preview 'finche il mondo non ha una scena' (until the world has a scene).",
-      "id": "world_preview_placeholder_pattern",
       "community": 25,
-      "norm_label": "world preview placeholder silhouette"
+      "norm_label": "world preview placeholder silhouette",
+      "id": "world_preview_placeholder_pattern"
     }
   ],
   "links": [
@@ -15784,984 +16638,914 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "cites",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a71",
+      "source_file": ".claude/agents/aggiorna-listino.md",
+      "source_location": "L94",
       "weight": 1.0,
-      "source": "docs_conversazione",
-      "target": "docs_conversazione_ancientathens3d"
+      "source": "claude_agents_aggiorna_listino",
+      "target": "claude_agents_aggiorna_listino_applicazione",
+      "confidence_score": 1.0
     },
     {
-      "relation": "cites",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a71",
+      "source_file": ".claude/agents/aggiorna-listino.md",
+      "source_location": "L13",
       "weight": 1.0,
-      "source": "docs_conversazione",
-      "target": "docs_conversazione_parthenon3d"
+      "source": "claude_agents_aggiorna_listino",
+      "target": "claude_agents_aggiorna_listino_modalita",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a71",
+      "source_file": ".claude/agents/aggiorna-listino.md",
+      "source_location": "L21",
       "weight": 1.0,
-      "source": "docs_conversazione",
-      "target": "docs_conversazione_sketchfab_acropolis_model"
+      "source": "claude_agents_aggiorna_listino",
+      "target": "claude_agents_aggiorna_listino_proposta",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a720",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
       "weight": 1.0,
-      "source": "docs_conversazione",
-      "target": "docs_creare_un_mondo"
+      "source": "claude",
+      "target": "claude_tokenstone",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a72",
+      "source_file": "CLAUDE.md",
+      "source_location": "L43",
       "weight": 1.0,
-      "source": "docs_conversazione_glb_node_hierarchy",
-      "target": "docs_conversazione_sketchfab_acropolis_model"
+      "source": "claude_tokenstone",
+      "target": "claude_graphify",
+      "confidence_score": 1.0
     },
     {
-      "relation": "conceptually_related_to",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a73",
+      "source_file": "CLAUDE.md",
+      "source_location": "L32",
       "weight": 1.0,
-      "source": "docs_conversazione_parametric_heightfield",
-      "target": "docs_conversazione_sketchfab_acropolis_model"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a72-3",
-      "weight": 1.0,
-      "source": "docs_conversazione_glb_node_hierarchy",
-      "target": "docs_conversazione_procedural_generation"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a74",
-      "weight": 1.0,
-      "source": "docs_conversazione_parthenon_prototype",
-      "target": "docs_conversazione_procedural_generation"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a79",
-      "weight": 1.0,
-      "source": "docs_conversazione_bedrock_cost_rule",
-      "target": "docs_conversazione_parametric_heightfield"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a79",
-      "weight": 1.0,
-      "source": "docs_conversazione_north_wall_drums",
-      "target": "docs_conversazione_parametric_heightfield"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a79",
-      "weight": 1.0,
-      "source": "docs_conversazione_panathenaic_way",
-      "target": "docs_conversazione_parametric_heightfield"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a77",
-      "weight": 1.0,
-      "source": "docs_conversazione_optical_refinements",
-      "target": "docs_conversazione_parthenon_prototype"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a74",
-      "weight": 1.0,
-      "source": "docs_conversazione_parthenon_prototype",
-      "target": "docs_conversazione_mason_marks"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a74",
-      "weight": 1.0,
-      "source": "docs_conversazione_parthenon_prototype",
-      "target": "docs_conversazione_token_to_stone"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a75",
-      "weight": 1.0,
-      "source": "docs_conversazione_pericles_complex",
-      "target": "docs_conversazione_parthenon_prototype"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a78",
-      "weight": 1.0,
-      "source": "docs_conversazione_polychromy",
-      "target": "docs_conversazione_parthenon_prototype"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a75",
-      "weight": 1.0,
-      "source": "docs_conversazione_bakephase",
-      "target": "docs_conversazione_pericles_complex"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a79",
-      "weight": 1.0,
-      "source": "docs_conversazione_brauronion_chalkotheke",
-      "target": "docs_conversazione_pericles_complex"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a75",
-      "weight": 1.0,
-      "source": "docs_conversazione_unfinished_propylaea",
-      "target": "docs_conversazione_pericles_complex"
+      "source": "claude_tokenstone",
+      "target": "claude_listino_dei_prezzi",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a717",
-      "weight": 1.0,
-      "source": "docs_conversazione_engine_world_separation",
-      "target": "docs_conversazione_analytic_sky"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a710",
-      "weight": 1.0,
-      "source": "docs_conversazione_transcript_counter",
-      "target": "docs_conversazione_usage_estimation_bridge"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a76",
-      "weight": 1.0,
-      "source": "docs_conversazione_usage_estimation_bridge",
-      "target": "docs_conversazione_tokens_per_percent"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a77",
-      "weight": 1.0,
-      "source": "docs_conversazione_optical_refinements",
-      "target": "docs_conversazione_angle_contraction"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a77",
-      "weight": 1.0,
-      "source": "docs_conversazione_optical_refinements",
-      "target": "docs_conversazione_column_inclination"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a77",
-      "weight": 1.0,
-      "source": "docs_conversazione_optical_refinements",
-      "target": "docs_conversazione_corner_column_thickening"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a77",
-      "weight": 1.0,
-      "source": "docs_conversazione_optical_refinements",
-      "target": "docs_conversazione_stylobate_curvature"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a78",
-      "weight": 1.0,
-      "source": "docs_conversazione_polychromy",
-      "target": "docs_conversazione_erechtheion_frieze_inlay"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_conversazione_bedrock_cost_rule",
-      "target": "docs_creare_un_mondo_addpiece"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a79",
-      "weight": 1.0,
-      "source": "docs_conversazione_anathemata",
-      "target": "docs_conversazione_panathenaic_way"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a79",
-      "weight": 1.0,
-      "source": "docs_conversazione_panathenaic_way",
-      "target": "docs_conversazione_altar_athena_polias"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a79",
-      "weight": 1.0,
-      "source": "docs_conversazione_anathemata",
-      "target": "docs_conversazione_determinism_seeded_rng"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_seeded_random",
-      "target": "docs_conversazione_determinism_seeded_rng"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a712, \u00a714",
-      "weight": 1.0,
-      "source": "docs_conversazione_pricing_list",
-      "target": "docs_conversazione_token_equivalent"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a710",
-      "weight": 1.0,
-      "source": "docs_conversazione_token_equivalent",
-      "target": "docs_conversazione_transcript_counter"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a712",
-      "weight": 1.0,
-      "source": "docs_conversazione_hookless_scanning",
-      "target": "docs_conversazione_transcript_counter"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a715",
-      "weight": 1.0,
-      "source": "docs_conversazione_launchers_pwa",
-      "target": "docs_conversazione_transcript_counter"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a713",
-      "weight": 1.0,
-      "source": "docs_conversazione_node_unification",
-      "target": "docs_conversazione_transcript_counter"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a710",
-      "weight": 1.0,
-      "source": "docs_conversazione_recompute_never_sum",
-      "target": "docs_conversazione_transcript_counter"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a710",
-      "weight": 1.0,
-      "source": "docs_conversazione_state_backup",
-      "target": "docs_conversazione_transcript_counter"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a710",
-      "weight": 1.0,
-      "source": "docs_conversazione_streaming_dedup",
-      "target": "docs_conversazione_transcript_counter"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a710",
-      "weight": 1.0,
-      "source": "docs_conversazione_state_backup",
-      "target": "docs_conversazione_installed_at"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a711",
-      "weight": 1.0,
-      "source": "docs_conversazione_cost_weights",
-      "target": "docs_conversazione_weekly_quota_scale"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a716",
-      "weight": 1.0,
-      "source": "docs_conversazione_credit_derived_progress",
-      "target": "docs_conversazione_cost_weights"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a720",
-      "weight": 1.0,
-      "source": "docs_conversazione_initial_gift",
-      "target": "docs_conversazione_cost_weights"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_addpiece",
-      "target": "docs_conversazione_cost_weights"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a722",
-      "weight": 1.0,
-      "source": "docs_conversazione_weekly_measurement",
-      "target": "docs_conversazione_weekly_quota_scale"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a72",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_world_json_schema",
-      "target": "docs_conversazione_weekly_quota_scale"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a713",
-      "weight": 1.0,
-      "source": "docs_conversazione_node_unification",
-      "target": "docs_conversazione_single_thread_server_bug"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a712",
-      "weight": 1.0,
-      "source": "docs_conversazione_installed_at",
-      "target": "docs_conversazione_hookless_scanning"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a714",
-      "weight": 1.0,
-      "source": "docs_conversazione_aggiorna_listino_agent",
-      "target": "docs_conversazione_pricing_list"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a713",
-      "weight": 1.0,
-      "source": "docs_conversazione_server_security",
-      "target": "docs_conversazione_node_unification"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a716",
-      "weight": 1.0,
-      "source": "docs_conversazione_server_security",
-      "target": "docs_conversazione_registry"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a716",
-      "weight": 1.0,
-      "source": "docs_conversazione_credit_derived_progress",
-      "target": "docs_conversazione_registry"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a716",
-      "weight": 1.0,
-      "source": "docs_conversazione_multi_world_platform",
-      "target": "docs_conversazione_credit_derived_progress"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a718",
-      "weight": 1.0,
-      "source": "docs_conversazione_version_fingerprint",
-      "target": "docs_conversazione_credit_derived_progress"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_piece_order_invariant",
-      "target": "docs_conversazione_credit_derived_progress"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a717",
-      "weight": 1.0,
-      "source": "docs_conversazione_scene_test",
-      "target": "docs_conversazione_registry"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a719",
-      "weight": 1.0,
-      "source": "docs_conversazione_tokenstone_home_page",
-      "target": "docs_conversazione_registry"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a717",
-      "weight": 1.0,
-      "source": "docs_conversazione_world_json",
-      "target": "docs_conversazione_registry"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a717",
-      "weight": 1.0,
-      "source": "docs_conversazione_engine_world_separation",
-      "target": "docs_conversazione_multi_world_platform"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a719",
-      "weight": 1.0,
-      "source": "docs_conversazione_tokenstone_home_page",
-      "target": "docs_conversazione_multi_world_platform"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a717",
-      "weight": 1.0,
-      "source": "docs_conversazione_world_json",
-      "target": "docs_conversazione_engine_world_separation"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a720",
-      "weight": 1.0,
-      "source": "docs_conversazione_world_template",
-      "target": "docs_conversazione_engine_world_separation"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_greek_kit",
-      "target": "docs_conversazione_engine_world_separation"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_startworld",
-      "target": "docs_conversazione_engine_world_separation"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a72",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_world_json_schema",
-      "target": "docs_conversazione_world_json"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a719",
-      "weight": 1.0,
-      "source": "docs_conversazione_demo_mode",
-      "target": "docs_conversazione_tokenstone_home_page"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a719",
-      "weight": 1.0,
-      "source": "docs_conversazione_snapshot_previews",
-      "target": "docs_conversazione_tokenstone_home_page"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a74",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_view_modes",
-      "target": "docs_conversazione_demo_mode"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a75",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_previews_command",
-      "target": "docs_conversazione_snapshot_previews"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a720",
-      "weight": 1.0,
-      "source": "docs_conversazione_new_world_generator",
-      "target": "docs_conversazione_world_template"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "intro",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_template",
-      "target": "docs_conversazione_world_template"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a71",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_new_world_command",
-      "target": "docs_conversazione_new_world_generator"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/conversazione.md",
-      "source_location": "\u00a723",
-      "weight": 1.0,
-      "source": "docs_conversazione_sculpture_provider",
-      "target": "docs_conversazione_ionic_frieze_missing"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "intro",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo",
-      "target": "docs_creare_un_mondo_template"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "How a world is made",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_world_folder_layout",
-      "target": "docs_creare_un_mondo_world_json_schema"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a76",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_publish_steps",
-      "target": "docs_creare_un_mondo_world_json_schema"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_startworld",
-      "target": "docs_creare_un_mondo_world_json_schema"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_addpiece",
-      "target": "docs_creare_un_mondo_piece_order_invariant"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a76",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_publish_steps",
-      "target": "docs_creare_un_mondo_piece_order_invariant"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a73",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_seeded_random",
-      "target": "docs_creare_un_mondo_piece_order_invariant"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a75",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_previews_command",
-      "target": "docs_creare_un_mondo_startworld"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a74",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_view_modes",
-      "target": "docs_creare_un_mondo_startworld"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/creare-un-mondo.md",
-      "source_location": "\u00a71",
-      "weight": 1.0,
-      "source": "docs_creare_un_mondo_new_world_command",
-      "target": "docs_creare_un_mondo_template"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L347",
+      "source_location": "L168",
       "weight": 1.0,
       "source": "readme",
-      "target": "claude"
+      "target": "docs_creare_un_mondo",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L428",
-      "weight": 1.0,
-      "source": "readme",
-      "target": "index"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
       "source": "readme",
-      "target": "readme_tokenstone"
+      "target": "readme_tokenstone",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L469",
-      "weight": 1.0,
-      "source": "readme",
-      "target": "todo"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L10",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "readme_tokenstone",
-      "target": "readme_acropoli_di_pericle"
+      "target": "readme_avvio_rapido",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L18",
+      "source_location": "L147",
       "weight": 1.0,
       "source": "readme_tokenstone",
-      "target": "readme_foro_romano"
+      "target": "readme_i_mondi_e_il_registro",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L532",
+      "source_location": "L197",
       "weight": 1.0,
       "source": "readme_tokenstone",
-      "target": "readme_hdri_vs_cielo_analitico"
+      "target": "readme_il_contatore_di_token",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L18",
+      "source_location": "L495",
       "weight": 1.0,
       "source": "readme_tokenstone",
-      "target": "readme_piana_di_giza"
+      "target": "readme_il_primo_mondo_l_acropoli",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L545",
+      "source_location": "L96",
       "weight": 1.0,
-      "source": "readme_acropoli_di_pericle",
-      "target": "readme_bakephase_prestazioni"
+      "source": "readme_tokenstone",
+      "target": "readme_la_pagina_iniziale",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L501",
+      "source_location": "L427",
       "weight": 1.0,
-      "source": "readme_acropoli_di_pericle",
-      "target": "readme_policromia"
+      "source": "readme_tokenstone",
+      "target": "readme_struttura",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L501",
+      "source_location": "L49",
       "weight": 1.0,
-      "source": "readme_acropoli_di_pericle",
-      "target": "readme_raffinatezze_ottiche"
+      "source": "readme_avvio_rapido",
+      "target": "readme_come_app",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L488",
+      "source_location": "L28",
       "weight": 1.0,
-      "source": "readme_acropoli_di_pericle",
-      "target": "readme_roccia_non_si_paga"
+      "source": "readme_avvio_rapido",
+      "target": "readme_con_un_doppio_clic",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L522",
+      "source_location": "L60",
       "weight": 1.0,
-      "source": "readme_acropoli_di_pericle",
-      "target": "readme_sculture_fotogrammetrate"
+      "source": "readme_avvio_rapido",
+      "target": "readme_da_terminale",
+      "confidence_score": 1.0
     },
     {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "readme_la_pagina_iniziale",
+      "target": "readme_dentro_un_mondo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L327",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_aggiornare_il_listino",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L395",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_comandi_utili",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_cosa_conta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L206",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_cosa_legge_e_cosa_no",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_dai_token_al_credito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L300",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_i_prezzi_dei_modelli",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L362",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_le_scelte_che_proteggono_il_conto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_quanto_costa_un_pezzo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L414",
+      "weight": 1.0,
+      "source": "readme_il_contatore_di_token",
+      "target": "readme_se_avevi_installato_l_hook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L539",
+      "weight": 1.0,
+      "source": "readme_il_primo_mondo_l_acropoli",
+      "target": "readme_i_due_innesti_da_completare",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L499",
+      "weight": 1.0,
+      "source": "readme_il_primo_mondo_l_acropoli",
+      "target": "readme_il_pianoro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L562",
+      "weight": 1.0,
+      "source": "readme_il_primo_mondo_l_acropoli",
+      "target": "readme_prestazioni",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L518",
+      "weight": 1.0,
+      "source": "readme_il_primo_mondo_l_acropoli",
+      "target": "readme_raffinatezze_ottiche_e_policromia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L541",
+      "weight": 1.0,
+      "source": "readme_i_due_innesti_da_completare",
+      "target": "readme_1_sculture_fotogrammetrate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L551",
+      "weight": 1.0,
+      "source": "readme_i_due_innesti_da_completare",
+      "target": "readme_2_hdri_al_posto_del_cielo_analitico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "TODO.md",
-      "source_location": "L116-L119",
+      "source_location": "L1",
       "weight": 1.0,
-      "source": "todo_fase_5_rifiniture_acropoli",
-      "target": "readme_acropoli_di_pericle"
+      "source": "todo",
+      "target": "todo_tokenstone_cosa_resta_da_fare",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "todo_tokenstone_cosa_resta_da_fare",
+      "target": "todo_decisioni_aperte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "todo_tokenstone_cosa_resta_da_fare",
+      "target": "todo_decisioni_prese",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "todo_tokenstone_cosa_resta_da_fare",
+      "target": "todo_il_piano",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "todo_tokenstone_cosa_resta_da_fare",
+      "target": "todo_in_parallelo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "todo_tokenstone_cosa_resta_da_fare",
+      "target": "todo_piu_avanti",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "todo_il_piano",
+      "target": "todo_fase_1_il_cantiere_si_calcola_dal_credito_fatta_6_ottobre",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "todo_il_piano",
+      "target": "todo_fase_2_piu_mondi_nella_struttura_niente_di_visibile_fatta_6_ottobre",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "todo_il_piano",
+      "target": "todo_fase_3_la_pagina_iniziale_fatta_6_ottobre",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "todo_il_piano",
+      "target": "todo_fase_4_il_modello_per_i_mondi_nuovi_fatta_7_ottobre",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "todo_il_piano",
+      "target": "todo_fase_5_rifiniture_dell_acropoli",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "todo_il_piano",
+      "target": "todo_fase_6_la_piana_di_giza",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TODO.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "todo_il_piano",
+      "target": "todo_fase_7_il_foro_romano",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_conversazione",
+      "target": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L323",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_10_dalla_stima_al_conto_vero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L363",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_11_quanto_costa_l_acropoli",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L408",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_12_senza_hook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L471",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_13_un_linguaggio_solo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L509",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_14_il_listino_che_si_aggiorna",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L568",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_15_aprirla_senza_terminale",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L605",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_16_il_cantiere_si_calcola_dal_credito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L650",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_17_un_motore_piu_mondi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L694",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_18_la_scheda_rimasta_indietro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L719",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_19_la_pagina_iniziale",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_1_la_domanda_di_partenza",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L765",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_20_il_modello_dei_mondi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L809",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_21_la_torre_di_prova",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L845",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_22_la_settimana_misurata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L875",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_23_la_mappa_del_progetto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L901",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_24_cosa_resta_da_fare",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_2_il_modello_\u00e8_fatto_di_triangoli_posso_scomporli_uno_per_uno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_3_la_svolta_generazione_procedurale",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_4_primo_prototipo_il_solo_partenone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_5_espansione_al_complesso_pericleo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_6_il_ponte_con_i_token_reali",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_7_le_linee_che_non_sono_rette",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_8_il_marmo_non_era_bianco",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_9_il_pianoro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo",
+      "target": "docs_creare_un_mondo_creare_un_mondo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo",
+      "target": "docs_creare_un_mondo_creating_a_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creating_a_world",
+      "target": "docs_creare_un_mondo_1_start_from_the_template",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creating_a_world",
+      "target": "docs_creare_un_mondo_2_world_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creating_a_world",
+      "target": "docs_creare_un_mondo_3_the_code_src_main_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creating_a_world",
+      "target": "docs_creare_un_mondo_4_look_at_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creating_a_world",
+      "target": "docs_creare_un_mondo_5_the_card_s_picture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creating_a_world",
+      "target": "docs_creare_un_mondo_6_publish_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creating_a_world",
+      "target": "docs_creare_un_mondo_how_a_world_is_made",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_3_the_code_src_main_js",
+      "target": "docs_creare_un_mondo_startworld",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_3_the_code_src_main_js",
+      "target": "docs_creare_un_mondo_the_pieces",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creare_un_mondo",
+      "target": "docs_creare_un_mondo_1_comincia_dal_modello",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creare_un_mondo",
+      "target": "docs_creare_un_mondo_2_world_json_214",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creare_un_mondo",
+      "target": "docs_creare_un_mondo_3_il_codice_src_main_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L294",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creare_un_mondo",
+      "target": "docs_creare_un_mondo_4_guardalo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L318",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creare_un_mondo",
+      "target": "docs_creare_un_mondo_5_l_immagine_della_scheda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L330",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creare_un_mondo",
+      "target": "docs_creare_un_mondo_6_pubblicalo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_creare_un_mondo",
+      "target": "docs_creare_un_mondo_com_\u00e8_fatto_un_mondo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L236",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_3_il_codice_src_main_js",
+      "target": "docs_creare_un_mondo_i_pezzi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/creare-un-mondo.md",
+      "source_location": "L268",
+      "weight": 1.0,
+      "source": "docs_creare_un_mondo_3_il_codice_src_main_js",
+      "target": "docs_creare_un_mondo_startworld_268",
+      "confidence_score": 1.0
     },
     {
       "relation": "implements",
@@ -16774,26 +17558,6 @@
       "target": "readme_acropoli_di_pericle"
     },
     {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L121",
-      "weight": 1.0,
-      "source": "todo_fase_6_giza",
-      "target": "readme_piana_di_giza"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L126",
-      "weight": 1.0,
-      "source": "todo_fase_7_foro_romano",
-      "target": "readme_foro_romano"
-    },
-    {
       "relation": "shares_data_with",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
@@ -16802,116 +17566,6 @@
       "weight": 1.0,
       "source": "index_counter",
       "target": "readme_token_equivalenti"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L232-L241",
-      "weight": 1.0,
-      "source": "readme_contatore_di_token",
-      "target": "readme_token_equivalenti"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L245",
-      "weight": 1.0,
-      "source": "readme_prezzo_pezzi_pesi_relativi",
-      "target": "readme_token_equivalenti"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L149-L150",
-      "weight": 1.0,
-      "source": "readme_registro_dei_mondi",
-      "target": "readme_token_equivalenti"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L25-L26",
-      "weight": 1.0,
-      "source": "claude_registro_non_a_mano",
-      "target": "readme_registro_dei_mondi"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L170-L176",
-      "weight": 1.0,
-      "source": "readme_cantiere_calcolato_dal_credito",
-      "target": "readme_registro_dei_mondi"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L135-L137",
-      "weight": 1.0,
-      "source": "readme_modalita_dev",
-      "target": "readme_registro_dei_mondi"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L154-L157",
-      "weight": 1.0,
-      "source": "readme_pausa_e_avanzo",
-      "target": "readme_registro_dei_mondi"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L350-L354",
-      "weight": 1.0,
-      "source": "readme_prezzo_che_scende",
-      "target": "readme_registro_dei_mondi"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L187-L193",
-      "weight": 1.0,
-      "source": "readme_sicurezza_scritture_registro",
-      "target": "readme_registro_dei_mondi"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L152-L153",
-      "weight": 1.0,
-      "source": "readme_tratti_di_credito",
-      "target": "readme_registro_dei_mondi"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L52-L53",
-      "weight": 1.0,
-      "source": "todo_fase_1_cantiere_dal_credito",
-      "target": "readme_registro_dei_mondi"
     },
     {
       "relation": "implements",
@@ -16924,136 +17578,6 @@
       "target": "readme_pausa_e_avanzo"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L20-L23",
-      "weight": 1.0,
-      "source": "todo_decisioni_6_ottobre",
-      "target": "readme_pausa_e_avanzo"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L492-L495",
-      "weight": 1.0,
-      "source": "readme_ordine_pezzi_e_seme_fisso",
-      "target": "readme_cantiere_calcolato_dal_credito"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "README.md",
-      "source_location": "L358-L360",
-      "weight": 1.0,
-      "source": "readme_scelte_che_proteggono_il_conto",
-      "target": "readme_cantiere_calcolato_dal_credito"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L51-L55",
-      "weight": 1.0,
-      "source": "todo_fase_1_cantiere_dal_credito",
-      "target": "readme_cantiere_calcolato_dal_credito"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L250-L258",
-      "weight": 1.0,
-      "source": "readme_prezzo_pezzi_pesi_relativi",
-      "target": "readme_weekly_te_misura"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L262-L266",
-      "weight": 1.0,
-      "source": "readme_weekly_te_misura",
-      "target": "readme_contatore_di_token"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L133-L134",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "readme_weekly_te_misura"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L42-L47",
-      "weight": 1.0,
-      "source": "readme_avvio_doppio_clic",
-      "target": "readme_contatore_di_token"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L234-L236",
-      "weight": 1.0,
-      "source": "readme_contatore_di_token",
-      "target": "readme_listino_prezzi_modelli"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L408-L417",
-      "weight": 1.0,
-      "source": "readme_hook_stop_legacy",
-      "target": "readme_contatore_di_token"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L206-L216",
-      "weight": 1.0,
-      "source": "readme_privacy_solo_usage",
-      "target": "readme_contatore_di_token"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L356-L387",
-      "weight": 1.0,
-      "source": "readme_scelte_che_proteggono_il_conto",
-      "target": "readme_contatore_di_token"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "CLAUDE.md",
-      "source_location": "L27-L28",
-      "weight": 1.0,
-      "source": "claude",
-      "target": "readme_privacy_solo_usage"
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -17062,96 +17586,6 @@
       "weight": 1.0,
       "source": "index",
       "target": "readme_privacy_solo_usage"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L321-L348",
-      "weight": 1.0,
-      "source": "readme_listino_prezzi_modelli",
-      "target": "_claude_agents_aggiorna_listino"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L300-L306",
-      "weight": 1.0,
-      "source": "readme_listino_prezzi_modelli",
-      "target": "readme_unknown_models"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L350",
-      "weight": 1.0,
-      "source": "readme_prezzo_che_scende",
-      "target": "readme_listino_prezzi_modelli"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L23-L26",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino_modalita_proposta",
-      "target": "readme_unknown_models"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "CLAUDE.md",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "claude_controllo_unknown_models",
-      "target": "readme_unknown_models"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L88-L90",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino_modalita_proposta",
-      "target": "readme_prezzo_che_scende"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L140-L141",
-      "weight": 1.0,
-      "source": "readme_laboratorio",
-      "target": "readme_modalita_dimostrativa"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L91-L92",
-      "weight": 1.0,
-      "source": "todo_fase_3_pagina_iniziale",
-      "target": "readme_modalita_dimostrativa"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L139-L143",
-      "weight": 1.0,
-      "source": "readme_laboratorio",
-      "target": "readme_modalita_dev"
     },
     {
       "relation": "implements",
@@ -17174,36 +17608,6 @@
       "target": "readme_laboratorio"
     },
     {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L113-L114",
-      "weight": 1.0,
-      "source": "todo_fase_4_modello_mondi",
-      "target": "readme_laboratorio"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L95-L96",
-      "weight": 1.0,
-      "source": "todo_fase_3_pagina_iniziale",
-      "target": "readme_ricarica_su_versione"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L57-L58",
-      "weight": 1.0,
-      "source": "readme_app_installabile",
-      "target": "offline"
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -17212,276 +17616,6 @@
       "weight": 1.0,
       "source": "offline",
       "target": "readme_avvio_doppio_clic"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "CLAUDE.md",
-      "source_location": "L21-L24",
-      "weight": 1.0,
-      "source": "claude",
-      "target": "readme_ordine_pezzi_e_seme_fisso"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L151-L152",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "readme_sculture_fotogrammetrate"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L32",
-      "weight": 1.0,
-      "source": "claude",
-      "target": "claude_controllo_unknown_models"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "claude",
-      "target": "claude_convenzioni_lingua"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "claude",
-      "target": "claude_diario_decisioni"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "claude",
-      "target": "claude_motore_vs_mondo"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "claude",
-      "target": "claude_registro_non_a_mano"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L18-L19",
-      "weight": 1.0,
-      "source": "todo_decisioni_6_ottobre",
-      "target": "claude_convenzioni_lingua"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "CLAUDE.md",
-      "source_location": "L11-L13",
-      "weight": 1.0,
-      "source": "claude_motore_vs_mondo",
-      "target": "todo_fase_2_piu_mondi"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "claude_controllo_unknown_models",
-      "target": "_claude_agents_aggiorna_listino"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "AMBIGUOUS",
-      "confidence_score": 0.2,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino",
-      "target": "todo"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_decisioni_6_ottobre"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_fase_1_cantiere_dal_credito"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_fase_2_piu_mondi"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L82",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_fase_3_pagina_iniziale"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L102",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_fase_4_modello_mondi"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L116",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_fase_5_rifiniture_acropoli"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L121",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_fase_6_giza"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L126",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_fase_7_foro_romano"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "TODO.md",
-      "source_location": "L153",
-      "weight": 1.0,
-      "source": "todo",
-      "target": "todo_npx_tokenstone"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L82-L96",
-      "weight": 1.0,
-      "source": "todo_fase_3_pagina_iniziale",
-      "target": "index"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "TODO.md",
-      "source_location": "L103-L108",
-      "weight": 1.0,
-      "source": "todo_fase_4_modello_mondi",
-      "target": "worlds__template_index"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino",
-      "target": "_claude_agents_aggiorna_listino_modalita_applicazione"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino",
-      "target": "_claude_agents_aggiorna_listino_modalita_proposta"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino_modalita_proposta",
-      "target": "_claude_agents_aggiorna_listino_pricing_candidate"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L55-L65",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino_regole_non_inventare",
-      "target": "_claude_agents_aggiorna_listino_modalita_proposta"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".claude/agents/aggiorna-listino.md",
-      "source_location": "L99",
-      "weight": 1.0,
-      "source": "_claude_agents_aggiorna_listino_modalita_applicazione",
-      "target": "_claude_agents_aggiorna_listino_pricing_candidate"
     },
     {
       "relation": "references",
@@ -18086,5 +18220,5 @@
       "source_file": "worlds/acropolis/preview.webp"
     }
   ],
-  "built_at_commit": "a952af7a530ca78c445b0892611ea433da98f35e"
+  "built_at_commit": "b75c583c7ce661a64d5be27df5595263b9e26c8e"
 }

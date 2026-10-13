@@ -132,6 +132,18 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
 
 - [x] **Misura settimanale**: 66 milioni di TE, da due letture con solo Claude
       Code (12% e 19% della settimana dal 5 ottobre alle 19:05)
+- [x] Il pannello dice *Mancano* invece di un credito negativo, quando i
+      prezzi salgono e i blocchi posati costano piu del credito
+- [x] La guida per creare un mondo in inglese, con la versione italiana sotto
+- [x] Il grafo del progetto con graphify (`graphify-out/`), collegato a
+      `CLAUDE.md` per spendere meno contesto
+- [ ] Rileggere i documenti nel grafo (`/graphify --update`): README, TODO
+      e diario sono cambiati dopo l'estrazione. Gemini gratuito ha un limite
+      di 20 richieste al giorno; altrimenti li legge Claude
+- [ ] Prima di pubblicare: nel grafo il nodo di `home/home.js` ha nel nome il
+      percorso completo di questo computer; rigenerarlo o pulirlo
+- [ ] Rimisurare la settimana con una percentuale piu alta, per stringere i
+      66 milioni (oggi fra 65,0 e 67,2)
 - [ ] Licenza e attribuzioni alle fonti storiche
 - [ ] README per GitHub: immagini della scena, scelta della lingua
 - [ ] Pubblicazione su GitHub
