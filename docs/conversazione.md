@@ -1027,7 +1027,35 @@ portici, e ora si legge fra le colonne del peristilio.
 
 ---
 
-## 29. Cosa resta da fare
+## 29. Misurare prima di alleggerire
+
+L'ultimo punto della fase 5 erano le prestazioni, e si e cominciato
+misurando. Le draw call erano gia poche, circa 160, perche ogni fase chiusa
+si fonde in una geometria per materiale. I triangoli, a cantiere completo,
+sono 420.000: due terzi nelle colonne e nei muri, 80.000 nel terreno. Per
+una scheda grafica vera non e molto.
+
+Su un computer debole costano invece i pixel, e due abitudini del motore.
+La scena si disegnava fino a 1,75 volte la risoluzione dello schermo,
+sempre. La mappa delle ombre, 4096 per 4096, si ridisegnava a ogni blocco
+che atterrava: quando il cantiere smaltisce una coda, una quindicina di
+volte al secondo. E a cantiere fermo si disegnavano comunque sessanta
+fotogrammi al secondo per una camera che gira di un grado e mezzo.
+
+Cosi ora il motore si regola da solo. Se i fotogrammi scendono sotto i 33
+al secondo, la risoluzione cala a gradini, e dal terzo gradino anche la
+mappa delle ombre; se abbondano, risale, e il gradino si ricorda. Le ombre
+si rifanno al massimo ogni 160 ms. A riposo si disegna un fotogramma su
+due.
+
+Una cosa questa sessione non ha potuto misurare: il browser di prova emula
+la scheda grafica sul processore, dove pesano i triangoli e non i pixel.
+Li le due versioni vanno uguali, e la qualita adattiva scende fino in fondo
+come deve. Il guadagno vero va provato su un computer vero.
+
+---
+
+## 30. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

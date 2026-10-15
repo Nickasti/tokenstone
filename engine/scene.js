@@ -45,7 +45,6 @@ export function startWorld(world) {
   /* ─────────── renderer ─────────── */
   const canvas = document.getElementById('c');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.shadowMap.autoUpdate = false;          // si aggiorna solo quando un pezzo si posa
@@ -72,6 +71,60 @@ export function startWorld(world) {
   Object.assign(sun.shadow.camera, world.sun.shadow);
   sun.target.position.set(...world.sun.center);
   scene.add(sun, sun.target);
+
+  /* ─────────── ombre a rate ───────────
+     La mappa delle ombre copre tutto il pianoro, a 4096 x 4096, e ridisegnarla
+     vuol dire ridisegnare la scena intera dal punto di vista del sole. Prima
+     succedeva a ogni blocco posato: quando il cantiere smaltisce una coda, una
+     ventina di volte al secondo. Ora chi cambia qualcosa la segna come da
+     rifare, e la si rifa al massimo ogni SHADOW_MS. */
+  const SHADOW_MS = 160;
+  let shadowDirty = true, lastShadow = -1e9;
+  function dirtyShadow() { shadowDirty = true; }
+  function flushShadow(now) {
+    if (shadowDirty && now - lastShadow >= SHADOW_MS) {
+      renderer.shadowMap.needsUpdate = true;
+      shadowDirty = false;
+      lastShadow = now;
+    }
+  }
+
+  /* ─────────── qualita adattiva ───────────
+     Su un computer lento il costo vero sono i pixel: la scena e disegnata
+     fino a 1,75 volte la risoluzione dello schermo, con ombre morbide e un
+     cielo calcolato pixel per pixel. Se per due secondi i fotogrammi restano
+     sotto i 33 al secondo si scende di un gradino - meno pixel, poi ombre a
+     2048 - e se per dieci secondi abbondano si risale. Il gradino raggiunto
+     si ricorda nel browser, cosi alla prossima apertura si parte gia giusti.
+     Lo scatto delle schede resta sempre al massimo. */
+  const DPR = Math.min(devicePixelRatio, 1.75);
+  const QUALITY = [DPR, Math.min(DPR, 1.25), 1, .75];
+  const Q_KEY = 'tokenstone:quality';
+  let qLevel = 0;
+  try { qLevel = Math.min(QUALITY.length - 1, Math.max(0, Number(localStorage.getItem(Q_KEY)) || 0)); } catch (e) { /* niente */ }
+  function applyQuality() {
+    renderer.setPixelRatio(QUALITY[qLevel]);
+    const size = qLevel >= 2 ? Math.min(2048, SM) : SM;
+    if (sun.shadow.mapSize.x !== size) {
+      sun.shadow.mapSize.set(size, size);
+      if (sun.shadow.map) { sun.shadow.map.dispose(); sun.shadow.map = null; }
+    }
+    renderer.setSize(innerWidth, innerHeight, false);
+    dirtyShadow();
+  }
+  let qSum = 0, qN = 0, qGood = 0;
+  function measureQuality(ms) {
+    if (SNAPSHOT || document.hidden || ms > 1000) return;   // un cambio di scheda non e lentezza
+    qSum += ms; qN++;
+    if (qSum < 2000) return;
+    const avg = qSum / qN;
+    qSum = 0; qN = 0;
+    if (avg > 30 && qLevel < QUALITY.length - 1) { qLevel++; qGood = 0; }
+    else if (avg < 13 && qLevel > 0 && ++qGood >= 5) { qLevel--; qGood = 0; }
+    else return;
+    applyQuality();
+    try { localStorage.setItem(Q_KEY, String(qLevel)); } catch (e) { /* niente */ }
+  }
 
   initPieces(scene);
   world.build(scene);
@@ -152,8 +205,8 @@ export function startWorld(world) {
       p.obj.position.y = p.y + p.drop;
       setGhost(p.obj, true);
       flying.push({ p, t: 0 });
-    } else p.obj.position.y = p.y;
-    renderer.shadowMap.needsUpdate = true;
+    } else { p.obj.position.y = p.y; dirtyShadow(); }
+    // un blocco in volo non ha ancora un'ombra che conti: la si ridisegna quando atterra
   }
 
   function step() {
@@ -225,7 +278,7 @@ export function startWorld(world) {
     ui.setSolar(`${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}` +
       `  -  altezza ${(s.alt * 180 / PI).toFixed(1)}deg  -  azimut ${(s.az * 180 / PI).toFixed(0)}deg`);
     iblTimer = 0;
-    renderer.shadowMap.needsUpdate = true;
+    dirtyShadow();
   }
 
   /* ─────────── camera ─────────── */
@@ -271,7 +324,7 @@ export function startWorld(world) {
     renderer.setSize(innerWidth, innerHeight, false);
     camera.aspect = innerWidth / innerHeight;
     camera.updateProjectionMatrix();
-    renderer.shadowMap.needsUpdate = true;
+    dirtyShadow();
   }
   addEventListener('resize', resize);
 
@@ -311,7 +364,7 @@ export function startWorld(world) {
       }
       autoOn = !DEV;   // senza comandi manuali il cantiere deve ripartire da solo
       ui.setAuto(autoOn);
-      renderer.shadowMap.needsUpdate = true;
+      dirtyShadow();
       refresh();
     },
     fly: () => {
@@ -365,13 +418,14 @@ export function startWorld(world) {
   }
 
   /* ─────────── loop ─────────── */
-  let last = performance.now(), acc = 0;
+  let last = performance.now(), acc = 0, skip = false, renderedLast = false;
   function frame(now) {
     /* Un fotogramma lungo non deve far saltare la scena - dopo un cambio di
        scheda, per esempio - quindi il tempo si tronca. In dimostrazione pero
        conta il tempo vero: su un computer lento, coi fotogrammi radi, i 90
        secondi diventerebbero tre minuti. */
     const dt = Math.min((now - last) / 1000, DEMO || rushPace ? .25 : .05);
+    if (renderedLast) measureQuality(now - last);
     last = now;
 
     // si comincia dopo la prima risposta del server, che sa da dove ripartire
@@ -400,7 +454,7 @@ export function startWorld(world) {
         f.p.obj.position.y = f.p.y;
         setGhost(f.p.obj, false);
         flying.splice(i, 1);
-        renderer.shadowMap.needsUpdate = true;
+        dirtyShadow();
       } else {
         f.p.obj.position.y = f.p.y + f.p.drop * Math.pow(1 - f.t, 3);
       }
@@ -418,10 +472,19 @@ export function startWorld(world) {
     if (idle > 5 && !drag && !SNAPSHOT) az += dt * .028;
     sky.follow(camera);
     updateCam();
+    /* A cantiere fermo si muove solo la camera, di un grado e mezzo al
+       secondo: basta un fotogramma su due. Il computer resta piu fresco, e
+       la misura della qualita si ferma, perche fotogrammi saltati non sono
+       fotogrammi lenti. */
+    const calm = idle > 5 && !drag && !flying.length && !shadowDirty && iblTimer >= 2 && !SNAPSHOT;
+    if (calm && (skip = !skip)) { renderedLast = false; requestAnimationFrame(frame); return; }
+    flushShadow(now);
     renderer.render(scene, camera);
+    renderedLast = true;
     requestAnimationFrame(frame);
   }
 
+  applyQuality();
   resize();
   load();
   applySun(hour);

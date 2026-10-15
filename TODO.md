@@ -19,6 +19,8 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
+- [x] Prestazioni: qualita adattiva, ombre a rate, fotogrammi a riposo.
+      La fase 5 e completa
 - [x] Il fregio delle Panatenee sul Partenone: 46 pezzi nuovi, in fondo al
       cantiere; il mondo passa da 3280 a 3326 pezzi
 - [x] Frontoni del Partenone con le loro storie, e le figure est di nuovo visibili
@@ -33,7 +35,9 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase 5: le prestazioni, ultimo punto della lista
+- [ ] Provare le prestazioni su un computer vero, debole: in prova la scheda
+      grafica e emulata e misura solo i triangoli, non i pixel
+- [ ] Fase 6: la piana di Giza (decidere la durata; proposta: tre mesi)
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
 
 ## Bloccato
@@ -144,7 +148,7 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
 - [x] Il laboratorio nella pagina iniziale: la torre di prova, `?dev` e la
       guida a portata di clic, invece che nascosti nell'indirizzo
 
-### Fase 5 — Rifiniture dell'Acropoli
+### Fase 5 — Rifiniture dell'Acropoli *(fatta, 15 ottobre)*
 - [x] Le lastre della via Panatenaica orientate lungo la strada, e la
       pendenza misurata sugli assi del pezzo gia girato (`layOnGround`)
 - [x] Piani spianati sotto gli edifici (`PADS` in `src/config.js`)
@@ -162,7 +166,8 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
       dietro il timpano
 - [x] Fregio delle Panatenee: 46 pezzi nuovi in fondo all'elenco, fase
       `p-zoforo` (`src/frieze.js`)
-- [ ] Prestazioni
+- [x] Prestazioni: qualita adattiva della risoluzione e delle ombre, ombre
+      ridisegnate al massimo ogni 160 ms, un fotogramma su due a riposo
 
 ### Fase 6 — La piana di Giza
 - [ ] Ricerca sulle fonti; IV dinastia, intorno al 2560 a.C.

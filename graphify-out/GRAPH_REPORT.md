@@ -1,16 +1,16 @@
 # Graph Report - acropoli  (2026-10-15)
 
 ## Corpus Check
-- 47 files · ~69,903 words
+- 47 files · ~70,828 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 751 nodes · 1103 edges · 145 communities (29 shown, 116 thin omitted)
+- 752 nodes · 1104 edges · 145 communities (29 shown, 116 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 55 edges (avg confidence: 0.65)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e0bfc52d`
+- Built from commit: `becd37e5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -161,8 +161,8 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `mk()` - 40 edges
-2. `box()` - 30 edges
-3. `Come è nato questo progetto` - 30 edges
+2. `Come è nato questo progetto` - 31 edges
+3. `box()` - 30 edges
 4. `G()` - 22 edges
 5. `scanOnce()` - 15 edges
 6. `buildAll()` - 15 edges
@@ -200,8 +200,8 @@
 ## Communities (145 total, 116 thin omitted)
 
 ### Community 0 - "Edifici dell'Acropoli"
-Cohesion: 0.09
-Nodes (76): buildAll(), erechtheion(), nike(), parthenon(), PEDIMENTS, promachos(), propylaea(), siteGroup() (+68 more)
+Cohesion: 0.12
+Nodes (64): buildAll(), erechtheion(), nike(), parthenon(), PEDIMENTS, promachos(), propylaea(), siteGroup() (+56 more)
 
 ### Community 1 - "Credito e pannello della scena"
 Cohesion: 0.07
@@ -233,7 +233,7 @@ Nodes (23): attendi(), connect(), findBrowser(), fs, launch(), path, { spawn, sp
 
 ### Community 8 - "Diario: fonti e raffinatezze"
 Cohesion: 0.06
-Nodes (30): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+22 more)
+Nodes (31): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+23 more)
 
 ### Community 9 - "Torre di prova (codice)"
 Cohesion: 0.19
@@ -293,7 +293,7 @@ Nodes (7): Template World Preview Image, Conical Slate Roof with Open Belfry, Cy
 
 ### Community 33 - "Il piano"
 Cohesion: 0.12
-Nodes (16): Bloccato, Decisioni aperte, Decisioni prese, Fase 1 — Il cantiere si calcola dal credito *(fatta, 6 ottobre)*, Fase 2 — Piu mondi nella struttura, niente di visibile *(fatta, 6 ottobre)*, Fase 3 — La pagina iniziale *(fatta, 6 ottobre)*, Fase 4 — Il modello per i mondi nuovi *(fatta, 7 ottobre)*, Fase 5 — Rifiniture dell'Acropoli (+8 more)
+Nodes (16): Bloccato, Decisioni aperte, Decisioni prese, Fase 1 — Il cantiere si calcola dal credito *(fatta, 6 ottobre)*, Fase 2 — Piu mondi nella struttura, niente di visibile *(fatta, 6 ottobre)*, Fase 3 — La pagina iniziale *(fatta, 6 ottobre)*, Fase 4 — Il modello per i mondi nuovi *(fatta, 7 ottobre)*, Fase 5 — Rifiniture dell'Acropoli *(fatta, 15 ottobre)* (+8 more)
 
 ### Community 34 - "aggiorna-listino.md"
 Cohesion: 0.50
@@ -304,15 +304,15 @@ Cohesion: 0.20
 Nodes (3): C, ORN, stripCache
 
 ### Community 144 - "config.js"
-Cohesion: 0.16
-Nodes (19): ERECHTHEION, FOCUS, NIKE, PADS, PHASES, PLATEAU, PROPYLAEA, REFINEMENTS (+11 more)
+Cohesion: 0.09
+Nodes (31): COST, ERECHTHEION, FOCUS, NIKE, PADS, PARTHENON, PHASES, PLATEAU (+23 more)
 
 ## Ambiguous Edges - Review These
 - `Acropolis World Preview Render` → `Propylaea / Western Building Cluster`  [AMBIGUOUS]
   worlds/acropolis/preview.webp · relation: references
 
 ## Knowledge Gaps
-- **365 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+360 more)
+- **366 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+361 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -321,15 +321,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Acropolis World Preview Render` and `Propylaea / Western Building Cluster`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **Why does `scene()` connect `Edifici dell'Acropoli` to `Torre di prova (codice)`?**
+- **Why does `scene()` connect `config.js` to `Torre di prova (codice)`?**
   _High betweenness centrality (0.034) - this node is a cross-community bridge._
-- **Why does `BASE` connect `Torre di prova (codice)` to `Edifici dell'Acropoli`?**
+- **Why does `BASE` connect `Torre di prova (codice)` to `config.js`?**
   _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Why does `mesh()` connect `Torre di prova (codice)` to `Credito e pannello della scena`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **What connects `GHOST`, `counters`, `mergedByPhase` to the rest of the system?**
-  _397 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _398 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Edifici dell'Acropoli` be split into smaller, more focused modules?**
-  _Cohesion score 0.09007458405048767 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12335381913959614 - nodes in this community are weakly interconnected._
 - **Should `Credito e pannello della scena` be split into smaller, more focused modules?**
   _Cohesion score 0.07088989441930618 - nodes in this community are weakly interconnected._

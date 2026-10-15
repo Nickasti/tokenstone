@@ -581,9 +581,22 @@ reali per la latitudine di Atene. Valuta se ti serve davvero rinunciarci.
 
 A cantiere completo la scena ha circa 2.500 mesh. Quando una fase si chiude,
 `bakePhase()` fonde le sue mesh in una geometria per materiale: le draw call
-scendono da qualche migliaio a poche decine. La mappa delle ombre si ricalcola
-solo quando un pezzo si posa, mai a ogni frame.
+scendono da qualche migliaio a circa 160, e restano li anche a cantiere
+completo. I triangoli sono circa 420.000: colonne e muri di marmo ne fanno
+due terzi, il terreno 80.000.
 
-Se il frame rate cala su macchine deboli, i parametri da toccare sono
-`FLUTE_SEGMENTS` in `worlds/acropolis/src/config.js` e la dimensione della
-shadow map in `engine/scene.js`.
+Su un computer debole pesano di piu i pixel, e il motore si regola da solo:
+- **Qualita adattiva.** Se per due secondi i fotogrammi restano sotto i 33
+  al secondo, la risoluzione scende di un gradino (1,75 - 1,25 - 1 - 0,75
+  volte lo schermo) e dal terzo gradino la mappa delle ombre passa da 4096
+  a 2048. Se per dieci secondi i fotogrammi abbondano, risale. Il gradino si
+  ricorda nel browser. Lo scatto delle schede resta sempre al massimo.
+- **Ombre a rate.** La mappa delle ombre si ridisegna solo quando qualcosa
+  cambia, e al massimo ogni 160 ms: mentre il cantiere smaltisce una coda,
+  non a ogni blocco che atterra.
+- **Fotogrammi a riposo.** Quando niente si muove, a parte la lenta rotazione
+  della camera, si disegna un fotogramma su due.
+
+Se serve ancora margine, i parametri da toccare sono `FLUTE_SEGMENTS` in
+`worlds/acropolis/src/config.js` e la risoluzione del terreno in
+`worlds/acropolis/src/terrain.js`.

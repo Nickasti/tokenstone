@@ -20,9 +20,9 @@
     "semantic_hash": "5335bec66301c8f435a50c9d0286d4f2"
   },
   "engine/scene.js": {
-    "mtime": 1792083019.7099588,
-    "ast_hash": "7f316978bd714c1275ef297945e1b75e",
-    "semantic_hash": "7f316978bd714c1275ef297945e1b75e"
+    "mtime": 1792083877.438248,
+    "ast_hash": "75e3747fa42b84ef32ec47e77c60f95d",
+    "semantic_hash": ""
   },
   "engine/sky.js": {
     "mtime": 1791296195.9444218,
@@ -205,18 +205,18 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792083046.2037773,
-    "ast_hash": "66cbe0fd9d38f738683609e7fbe13d40",
+    "mtime": 1792084086.3357596,
+    "ast_hash": "0bbe86a50f4f06f831575b506c0acdc1",
     "semantic_hash": ""
   },
   "TODO.md": {
-    "mtime": 1792083067.5837154,
-    "ast_hash": "7474019efe7a31c1545bef5d67f63954",
+    "mtime": 1792084110.5461943,
+    "ast_hash": "279231a38ad261f0c37a191244ebe383",
     "semantic_hash": ""
   },
   "docs/conversazione.md": {
-    "mtime": 1792083069.223687,
-    "ast_hash": "cb3df274be388722a476f8294bcd1cfc",
+    "mtime": 1792084113.5169463,
+    "ast_hash": "3ebde16fc02a38dc87ad0fd8cc429caf",
     "semantic_hash": ""
   },
   "docs/creare-un-mondo.md": {
@@ -275,7 +275,7 @@
     "semantic_hash": "fe57a25ab8779c20aea634b941fd1963"
   },
   "worlds/acropolis/preview.webp": {
-    "mtime": 1792083221.9593995,
+    "mtime": 1792084055.9351008,
     "ast_hash": "d9a76b32278548de08d150f91acf48c0",
     "semantic_hash": ""
   },

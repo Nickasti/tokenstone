@@ -1,16 +1,16 @@
 # Graph Report - acropoli  (2026-10-15)
 
 ## Corpus Check
-- 46 files · ~67,277 words
+- 47 files · ~69,903 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 736 nodes · 1065 edges · 145 communities (29 shown, 116 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 53 edges (avg confidence: 0.64)
+- 751 nodes · 1103 edges · 145 communities (29 shown, 116 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 55 edges (avg confidence: 0.65)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `08f77180`
+- Built from commit: `e0bfc52d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -160,13 +160,13 @@
 - config.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `mk()` - 38 edges
-2. `Come è nato questo progetto` - 29 edges
-3. `box()` - 28 edges
+1. `mk()` - 40 edges
+2. `box()` - 30 edges
+3. `Come è nato questo progetto` - 30 edges
 4. `G()` - 22 edges
 5. `scanOnce()` - 15 edges
-6. `colonnade()` - 15 edges
-7. `buildAll()` - 14 edges
+6. `buildAll()` - 15 edges
+7. `colonnade()` - 15 edges
 8. `parthenon()` - 13 edges
 9. `gable()` - 13 edges
 10. `pedimentFigure()` - 12 edges
@@ -174,13 +174,13 @@
 ## Surprising Connections (you probably didn't know these)
 - `bakePhase()` --indirect_call--> `mesh()`  [INFERRED]
   engine/pieces.js → worlds/_template/src/main.js
+- `parthenonFrieze()` --indirect_call--> `el()`  [INFERRED]
+  worlds/acropolis/src/frieze.js → home/home.js
 - `worlds/acropolis/index.html (pagina scena Acropoli)` --implements--> `Mondo: Acropoli di Pericle`  [INFERRED]
   worlds/acropolis/index.html → README.md
+- `scene()` --indirect_call--> `BASE`  [INFERRED]
+  worlds/acropolis/src/frieze.js → worlds/_template/src/main.js
 - `Sezione contatore (#total, #state, #usd)` --shares_data_with--> `Token Equivalenti (TE)`  [INFERRED]
-  index.html → README.md
-- `Dialogo di conferma cambio mondo (#confirm)` --implements--> `Pausa e avanzo del credito`  [INFERRED]
-  index.html → README.md
-- `index.html (pagina iniziale TokenStone)` --references--> `Privacy: solo message.usage, modello, orario, cartella`  [EXTRACTED]
   index.html → README.md
 
 ## Import Cycles
@@ -200,8 +200,8 @@
 ## Communities (145 total, 116 thin omitted)
 
 ### Community 0 - "Edifici dell'Acropoli"
-Cohesion: 0.12
-Nodes (64): buildAll(), erechtheion(), nike(), parthenon(), PEDIMENTS, promachos(), propylaea(), siteGroup() (+56 more)
+Cohesion: 0.09
+Nodes (76): buildAll(), erechtheion(), nike(), parthenon(), PEDIMENTS, promachos(), propylaea(), siteGroup() (+68 more)
 
 ### Community 1 - "Credito e pannello della scena"
 Cohesion: 0.07
@@ -232,8 +232,8 @@ Cohesion: 0.10
 Nodes (23): attendi(), connect(), findBrowser(), fs, launch(), path, { spawn, spawnSync }, waitFor() (+15 more)
 
 ### Community 8 - "Diario: fonti e raffinatezze"
-Cohesion: 0.07
-Nodes (29): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+21 more)
+Cohesion: 0.06
+Nodes (30): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+22 more)
 
 ### Community 9 - "Torre di prova (codice)"
 Cohesion: 0.19
@@ -244,8 +244,8 @@ Cohesion: 0.12
 Nodes (19): base, chunk(), colorAt(), CRC, crc32(), files, fs, hex() (+11 more)
 
 ### Community 11 - "README: mondi e resa"
-Cohesion: 0.08
-Nodes (26): 1. Sculture fotogrammetrate, 2. HDRI al posto del cielo analitico, Aggiornare il listino, Avvio rapido, Comandi utili, Come app, Con un doppio clic, Cosa conta (+18 more)
+Cohesion: 0.07
+Nodes (27): 1. Sculture fotogrammetrate, 2. HDRI al posto del cielo analitico, Aggiornare il listino, Avvio rapido, Comandi utili, Come app, Con un doppio clic, Cosa conta (+19 more)
 
 ### Community 12 - "Test del server"
 Cohesion: 0.12
@@ -304,15 +304,15 @@ Cohesion: 0.20
 Nodes (3): C, ORN, stripCache
 
 ### Community 144 - "config.js"
-Cohesion: 0.14
-Nodes (21): COST, ERECHTHEION, FOCUS, NIKE, PADS, PARTHENON, PHASES, PLATEAU (+13 more)
+Cohesion: 0.16
+Nodes (19): ERECHTHEION, FOCUS, NIKE, PADS, PHASES, PLATEAU, PROPYLAEA, REFINEMENTS (+11 more)
 
 ## Ambiguous Edges - Review These
 - `Acropolis World Preview Render` → `Propylaea / Western Building Cluster`  [AMBIGUOUS]
   worlds/acropolis/preview.webp · relation: references
 
 ## Knowledge Gaps
-- **360 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+355 more)
+- **365 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+360 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -321,15 +321,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Acropolis World Preview Render` and `Propylaea / Western Building Cluster`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **Why does `bakePhase()` connect `Credito e pannello della scena` to `Torre di prova (codice)`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **Why does `scene()` connect `Edifici dell'Acropoli` to `Torre di prova (codice)`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **Why does `BASE` connect `Torre di prova (codice)` to `Edifici dell'Acropoli`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Why does `mesh()` connect `Torre di prova (codice)` to `Credito e pannello della scena`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `TokenStone` connect `README: mondi e resa` to `Scelte di progetto del cantiere`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **What connects `GHOST`, `counters`, `mergedByPhase` to the rest of the system?**
-  _392 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _397 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Edifici dell'Acropoli` be split into smaller, more focused modules?**
-  _Cohesion score 0.12020460358056266 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09007458405048767 - nodes in this community are weakly interconnected._
 - **Should `Credito e pannello della scena` be split into smaller, more focused modules?**
   _Cohesion score 0.07088989441930618 - nodes in this community are weakly interconnected._
