@@ -19,6 +19,7 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
+- [x] Frontoni del Partenone con le loro storie, e le figure est di nuovo visibili
 - [x] Ornati dipinti su cornici, capitelli, antefisse e acroteri; tetti pieni
 - [x] Via Panatenaica: le lastre seguono la strada (prima, girate a specchio,
       facevano zig-zag sulle curve e lasciavano passare la sabbia)
@@ -30,7 +31,7 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase 5: sculture dei frontoni, poi il fregio, poi le prestazioni
+- [ ] Fase 5: il fregio delle Panatenee, poi le prestazioni
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
 
 ## Bloccato
@@ -153,7 +154,10 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
       rampanti, ovoli su architravi e capitelli ionici, palmette di antefisse
       e acroteri (`src/ornaments.js`)
 - [x] Le file di tegole pendevano al contrario: ora il tetto e pieno
-- [ ] Sculture dei frontoni leggibili
+- [x] Sculture dei frontoni leggibili: Atena e Poseidone con ulivo e tridente
+      a ovest, Zeus in trono e Atena armata a est, i cavalli del Sole e
+      della Luna negli angoli; le figure del frontone est erano nascoste
+      dietro il timpano
 - [ ] Fregio delle Panatenee (pezzi nuovi, in fondo all'elenco)
 - [ ] Prestazioni
 

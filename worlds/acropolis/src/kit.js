@@ -141,6 +141,7 @@ export function statue(h, pose, cloth, skin, context) {
     const custom = sculptureProvider(pose, h, context || {});
     if (custom) {
       custom.traverse(o => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
+      custom.userData.custom = true;
       return custom;
     }
   }
@@ -169,6 +170,139 @@ export function statue(h, pose, cloth, skin, context) {
     g.position.y = h * .30;
   }
   g.traverse(o => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
+  return g;
+}
+
+/* ---------- i frontoni del Partenone ----------
+   Una figura generica, stante o seduta, non dice niente da venti metri. Le
+   figure dei frontoni si riconoscevano dagli attributi e dai gesti: la
+   lancia, l'elmo e lo scudo di Atena, il tridente di Poseidone, il trono di
+   Zeus, i cavalli del Sole che sorgono e quelli della Luna che tramontano.
+   Il corpo resta quello di statue(), e il provider fotogrammetrico puo
+   sostituirlo; gli attributi si aggiungono solo alle figure procedurali. */
+
+const cyl = (r1, r2, h, n, mat) => mk(G(`pc${r1.toFixed(3)}${r2.toFixed(3)}${h.toFixed(3)}${n}`,
+  () => new THREE.CylinderGeometry(r1, r2, h, n)), mat);
+
+function spear(h, mat) {
+  const g = new THREE.Group();
+  const shaft = cyl(h * .012, h * .012, h * 1.15, 6, mat); shaft.position.y = h * .575; g.add(shaft);
+  const tip = mk(G('pst' + h.toFixed(2), () => new THREE.ConeGeometry(h * .03, h * .09, 6)), mat);
+  tip.position.y = h * 1.19; g.add(tip);
+  return g;
+}
+
+function trident(h, mat) {
+  const g = spear(h, mat);
+  g.remove(g.children[1]);
+  const bar = mk(box(h * .16, h * .02, h * .02), mat); bar.position.y = h * 1.15; g.add(bar);
+  [-1, 0, 1].forEach(k => {
+    const p = cyl(h * .01, h * .01, h * .12, 5, mat); p.position.set(k * h * .07, h * 1.21, 0); g.add(p);
+  });
+  return g;
+}
+
+function shield(h, mat) {
+  const sh = cyl(h * .17, h * .17, h * .025, 22, mat);
+  sh.rotation.x = PI / 2;
+  return sh;
+}
+
+/* l'elmo corinzio con il cimiero: lo portano Atena e nessun altro */
+function helmet(h, mat) {
+  const g = new THREE.Group();
+  const cap = mk(G('phe' + h.toFixed(2), () => new THREE.SphereGeometry(h * .085, 12, 8, 0, PI * 2, 0, PI * .6)), mat);
+  g.add(cap);
+  const crest = mk(box(h * .025, h * .07, h * .17), M.minio); crest.position.y = h * .075; g.add(crest);
+  g.position.y = h * .865;
+  return g;
+}
+
+function throne(h) {
+  const g = new THREE.Group();
+  const seat = mk(box(h * .36, h * .30, h * .34), M.marmo2); seat.position.set(0, h * .15, -h * .04); g.add(seat);
+  const back = mk(box(h * .36, h * .42, h * .05), M.marmo2); back.position.set(0, h * .5, -h * .2); g.add(back);
+  return g;
+}
+
+/* Un cavallo, o solo la testa e il collo quando emerge dal piano del
+   frontone come i cavalli del Sole all'alba. `rise` e quanto ne esce. */
+function horse(h, rise = 1) {
+  const g = new THREE.Group();
+  const neck = cyl(h * .07, h * .11, h * .42, 10, M.marmo); neck.position.set(0, h * .2, h * .05); neck.rotation.x = .5;
+  const head = mk(box(h * .1, h * .1, h * .26), M.marmo); head.position.set(0, h * .42, h * .2); head.rotation.x = .55;
+  const ear = mk(box(h * .03, h * .07, h * .03), M.marmo); ear.position.set(0, h * .5, h * .1);
+  g.add(neck, head, ear);
+  if (rise >= 1) {
+    const body = mk(G('phb' + h.toFixed(2), () => new THREE.SphereGeometry(h * .2, 14, 10)), M.marmo);
+    body.scale.set(.85, .9, 1.9); body.position.set(0, -h * .05, -h * .3); g.add(body);
+    [[-1, .1], [1, .1], [-1, -.65], [1, -.65]].forEach(([sx, sz]) => {
+      const leg = cyl(h * .035, h * .03, h * .42, 6, M.marmo);
+      leg.position.set(sx * h * .1, -h * .3, sz * h); g.add(leg);
+    });
+    g.position.y = h * .5;
+  } else {
+    g.position.y = -h * .45 * (1 - rise);
+  }
+  return g;
+}
+
+/* un ulivo piccolo, il dono di Atena: tronco e chioma, dipinti */
+function sacredOlive(h) {
+  const g = new THREE.Group();
+  const t = cyl(h * .035, h * .05, h * .5, 7, M.corteccia); t.position.y = h * .25; g.add(t);
+  [[0, .62, 0, .2], [-.12, .55, .05, .15], [.13, .57, -.03, .16]].forEach(([x, y, z, r]) => {
+    const c = mk(G('pol' + r + h.toFixed(2), () => new THREE.IcosahedronGeometry(h * r, 0)), M.fronda);
+    c.position.set(x * h, y * h, z * h); g.add(c);
+  });
+  return g;
+}
+
+/* `spec`: { role, pose, label, lean } - il ruolo sceglie gli attributi. */
+export function pedimentFigure(spec, fh, face, room) {
+  const { role, pose, lean = 0 } = spec;
+  const g = new THREE.Group();
+  const body = (h, p) => statue(h, p, M.marmo, M.marmo2, { pediment: face, role });
+
+  if (role === 'helios' || role === 'selene') {
+    /* i carri del Sole e della Luna: due teste di cavallo che escono dal
+       piano (il Sole) o vi affondano (la Luna) */
+    const up = role === 'helios' ? .75 : .45;
+    /* negli angoli il timpano e basso: la misura la da lo spazio, non la figura */
+    const hh = Math.max(1.2, room * 2.6);
+    [-1, 1].forEach(k => { const h = horse(hh, up); h.position.x = k * hh * .22; h.rotation.y = role === 'helios' ? .3 : -.3; g.add(h); });
+    return g;
+  }
+  if (role === 'horses') {
+    const h = horse(fh * .95); h.rotation.y = lean > 0 ? -.5 : .5; g.add(h);
+    return g;
+  }
+
+  const fig = body(pose === 'reclining' ? fh * 1.5 : fh, pose);
+  g.add(fig);
+  if (fig.userData.custom) return g;
+
+  if (role === 'athena' || role === 'athena-born') {
+    g.add(helmet(fh, M.bronzo));
+    const sp = spear(fh, M.bronzo); sp.position.set(fh * .2, 0, fh * .05); g.add(sp);
+    const sh = shield(fh, M.bronzo); sh.position.set(-fh * .22, fh * .45, fh * .03); sh.rotation.y = .5; g.add(sh);
+    if (role === 'athena') {
+      /* l ulivo cresce fra lei e Poseidone, verso il centro del frontone */
+      const ol = sacredOlive(fh * .8); ol.position.set(fh * .45, 0, -fh * .1); g.add(ol);
+    }
+  } else if (role === 'poseidon') {
+    const tr = trident(fh, M.bronzo); tr.position.set(-fh * .2, 0, fh * .05); g.add(tr);
+  } else if (role === 'zeus') {
+    const th = throne(fh); g.add(th);
+    const sc = spear(fh * .8, M.oro); sc.position.set(fh * .2, 0, fh * .05); sc.remove(sc.children[1]); g.add(sc);
+  } else if (role === 'kekrops') {
+    /* Cecrope, il re con la coda di serpente: un anello ai suoi piedi */
+    const sn = mk(G('psn' + fh.toFixed(2), () => new THREE.TorusGeometry(fh * .16, fh * .045, 6, 16, PI * 1.5)), M.marmo);
+    sn.rotation.x = PI / 2; sn.position.set(fh * .1, fh * .05, fh * .08); g.add(sn);
+  }
+  /* Atena e Poseidone si allontanano l'una dall'altro: la composizione a V
+     che si legge anche dalla citta */
+  if (lean) g.rotation.z = lean;
   return g;
 }
 
@@ -414,7 +548,7 @@ export function walls({ g, w, l, h, courses, th, y0, phase, tag, mat, cost, curv
 
 /** Frontoni e falde. Le pose seguono la composizione reale:
     stanti al centro, sedute a meta pendenza, distese negli angoli. */
-export function gable({ g, w, l, y0, pedH, depth, phase, figs, slabs, roofRows, curve }) {
+export function gable({ g, w, l, y0, pedH, depth, phase, figs, slabs, roofRows, curve, cast }) {
   const N = slabs || 4, D = depth || .9;
   const poses = ['reclining', 'seated', 'standing', 'standing', 'seated', 'reclining'];
 
@@ -446,15 +580,22 @@ export function gable({ g, w, l, y0, pedH, depth, phase, figs, slabs, roofRows, 
     for (let i = 0; i < (figs || 0); i++) {
       const t = (i + .5) / figs, x = (t - .5) * w * .88;
       const room = pedH * (1 - Math.abs(x) / (w / 2));
-      const pose = poses[Math.round(t * (poses.length - 1))];
+      const spec = cast && cast[face] && cast[face][i];
+      const pose = spec ? spec.pose : poses[Math.round(t * (poses.length - 1))];
       const fh = Math.max(1.1, Math.min(room * .92, pedH * .78));
-      const f = statue(pose === 'reclining' ? fh * 1.5 : fh, pose, M.marmo, M.marmo2,
-                       { pediment: face, index: i });
-      f.position.set(x, y0 + pedH * .06 + rise(curve, x, z), z - D / 2);
+      const f = spec ? pedimentFigure(spec, fh, face, room)
+        : statue(pose === 'reclining' ? fh * 1.5 : fh, pose, M.marmo, M.marmo2, { pediment: face, index: i });
+      /* le figure stanno sul piano del geison, davanti al timpano: la lastra
+         va da z - D/2 a z + D/2, e il fuori e dalla parte di side. Prima
+         stavano a z - D/2, che a ovest e la faccia esterna ma a est e quella
+         interna: le figure del frontone est erano dentro il tempio. */
+      const fz = z + side * (D / 2 + .32);
+      f.position.set(x, y0 + pedH * .06 + rise(curve, x, fz), fz);
       f.rotation.y += side > 0 ? 0 : PI;
-      const label = pose === 'reclining' ? 'distesa' : pose === 'seated' ? 'seduta' : 'stante';
+      const label = spec ? spec.label
+        : pose === 'reclining' ? 'figura distesa' : pose === 'seated' ? 'figura seduta' : 'figura stante';
       addPiece(phase, f, COST.sculpture, mark('AGALMA'),
-        `frontone ${face} - figura ${i + 1} (${label})`, 10, g);
+        `frontone ${face} - ${label}`, 10, g);
     }
   });
 

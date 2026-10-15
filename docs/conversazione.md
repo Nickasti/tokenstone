@@ -982,7 +982,26 @@ Ora e pieno.
 
 ---
 
-## 27. Cosa resta da fare
+## 27. Chi sta nei frontoni
+
+Le sei figure di ogni frontone erano corpi generici - in piedi al centro,
+sedute a meta, distese negli angoli - e da terra non dicevano niente. Un
+frontone greco si leggeva dagli attributi. Ora a ovest Atena, con l'elmo,
+la lancia e lo scudo, e Poseidone, con il tridente, si allontanano in una V,
+e fra loro cresce l'ulivo che vince la contesa per l'Attica; ai lati
+Cecrope col suo serpente e i cavalli del carro di Poseidone, negli angoli i
+due fiumi. A est Zeus in trono, Atena appena nata e gia armata, Dioniso e
+le dee sedute, e negli angoli le teste dei cavalli del Sole che sorge e
+della Luna che tramonta. Il pannello del cantiere li chiama per nome.
+
+Guardando il frontone est e venuto fuori perche fosse sempre sembrato
+vuoto: le figure stavano sulla faccia interna della lastra del timpano. A
+ovest quella faccia e anche l'esterna, a est no, e le statue erano dentro
+il tempio. Ora stanno tutte sul piano del geison, davanti al timpano.
+
+---
+
+## 28. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

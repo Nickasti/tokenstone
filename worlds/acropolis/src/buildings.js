@@ -34,6 +34,31 @@ function promachos(scene) {
   addPiece('promachos', f, COST.promachos, 'AQHNA PROMAXOS', 'bronzo di Fidia - visibile dal mare', 16, g);
 }
 
+/* Chi sta nei frontoni del Partenone, da sud a nord (x locale crescente).
+   A ovest la contesa fra Atena e Poseidone per l'Attica: lei offre l'ulivo,
+   lui la sorgente salata, e i due si allontanano in una V. A est la nascita
+   di Atena dalla testa di Zeus, fra il Sole che sorge e la Luna che
+   tramonta. Le figure vere erano una ventina per frontone: qui sono sei, e
+   le sei che fanno capire la storia. */
+const PEDIMENTS = {
+  ovest: [
+    { role: 'river',    pose: 'reclining', label: "l'Ilisso, dio fluviale" },
+    { role: 'horses',   pose: 'seated',    label: 'i cavalli del carro di Poseidone', lean: -1 },
+    { role: 'poseidon', pose: 'standing',  label: 'Poseidone, con il tridente', lean: -.18 },
+    { role: 'athena',   pose: 'standing',  label: "Atena, con la lancia e l'ulivo", lean: .18 },
+    { role: 'kekrops',  pose: 'seated',    label: 'Cecrope, il re dalla coda di serpente' },
+    { role: 'river',    pose: 'reclining', label: 'il Cefiso, dio fluviale' }
+  ],
+  est: [
+    { role: 'helios',      pose: 'reclining', label: 'i cavalli del Sole che sorge' },
+    { role: 'dionysos',    pose: 'seated',    label: 'Dioniso' },
+    { role: 'zeus',        pose: 'seated',    label: 'Zeus in trono' },
+    { role: 'athena-born', pose: 'standing',  label: 'Atena, nata armata dalla testa di Zeus', lean: -.12 },
+    { role: 'goddesses',   pose: 'seated',    label: 'le dee sedute: Estia, Dione, Afrodite' },
+    { role: 'selene',      pose: 'reclining', label: 'il cavallo della Luna che tramonta' }
+  ]
+};
+
 /* ══════════ PARTENONE - 447-432 a.C. ══════════ */
 function parthenon(scene) {
   const g = siteGroup(scene, 'parthenon');
@@ -87,7 +112,8 @@ function parthenon(scene) {
     tx: P.triglyphsFront, tz: P.triglyphsFlank, curve: cur });
 
   gable({ g, w: P.stylobateW, l: P.stylobateL, y0: entTop, pedH: P.pedimentH,
-    depth: .95, phase: 'p-front', figs: 6, slabs: 5, roofRows: 11, curve: cur });
+    depth: .95, phase: 'p-front', figs: 6, slabs: 5, roofRows: 11, curve: cur,
+    cast: PEDIMENTS });
 
   /* Athena Parthenos */
   const a = new THREE.Group();
