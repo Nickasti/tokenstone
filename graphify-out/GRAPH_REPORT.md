@@ -1,16 +1,16 @@
 # Graph Report - acropoli  (2026-10-15)
 
 ## Corpus Check
-- 45 files · ~63,270 words
+- 45 files · ~64,072 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 710 nodes · 998 edges · 143 communities (27 shown, 116 thin omitted)
+- 712 nodes · 1001 edges · 143 communities (27 shown, 116 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.65)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0a7d0673`
+- Built from commit: `8020cc20`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -159,7 +159,7 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `mk()` - 30 edges
-2. `Come è nato questo progetto` - 26 edges
+2. `Come è nato questo progetto` - 27 edges
 3. `box()` - 24 edges
 4. `G()` - 16 edges
 5. `scanOnce()` - 15 edges
@@ -199,7 +199,7 @@
 
 ### Community 0 - "Edifici dell'Acropoli"
 Cohesion: 0.09
-Nodes (72): buildAll(), erechtheion(), nike(), parthenon(), promachos(), propylaea(), siteGroup(), COST (+64 more)
+Nodes (73): buildAll(), erechtheion(), nike(), parthenon(), promachos(), propylaea(), siteGroup(), COST (+65 more)
 
 ### Community 1 - "Credito e pannello della scena"
 Cohesion: 0.07
@@ -231,7 +231,7 @@ Nodes (23): attendi(), connect(), findBrowser(), fs, launch(), path, { spawn, sp
 
 ### Community 8 - "Diario: fonti e raffinatezze"
 Cohesion: 0.07
-Nodes (26): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+18 more)
+Nodes (27): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+19 more)
 
 ### Community 9 - "Torre di prova (codice)"
 Cohesion: 0.19
@@ -302,7 +302,7 @@ Nodes (3): Applicazione, Modalita, Proposta
   worlds/acropolis/preview.webp · relation: references
 
 ## Knowledge Gaps
-- **354 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+349 more)
+- **355 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+350 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -318,8 +318,8 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `TokenStone` connect `README: mondi e resa` to `Scelte di progetto del cantiere`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `GHOST`, `counters`, `mergedByPhase` to the rest of the system?**
-  _386 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _387 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Edifici dell'Acropoli` be split into smaller, more focused modules?**
-  _Cohesion score 0.0939873417721519 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09228395061728395 - nodes in this community are weakly interconnected._
 - **Should `Credito e pannello della scena` be split into smaller, more focused modules?**
   _Cohesion score 0.07088989441930618 - nodes in this community are weakly interconnected._

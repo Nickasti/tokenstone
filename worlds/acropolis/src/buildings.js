@@ -202,20 +202,24 @@ function erechtheion(scene) {
     order: 'ionic', phase: 'erech', tag: 'ANAT ER', flutes: 24, fdepth: .06 });
 
   /* portico nord: 3,2 m piu in basso, colonne piu alte.
-     I dislivelli dell'Eretteo servono a non spostare i culti preesistenti. */
+     I dislivelli dell'Eretteo servono a non spostare i culti preesistenti.
+     Il gruppo e girato di 90 gradi: l'x locale +x punta a nord (-z del
+     mondo). Prima il portico stava a -x, cioe a sud, dentro l'angolo del
+     Partenone; e la loggia delle Cariatidi, a +x, guardava a nord. */
   const pn = new THREE.Group();
-  pn.position.set(-ER.w / 2 - 3, ER.northFloorDrop, ER.l / 2 - 5.6);
+  pn.position.set(ER.w / 2 + 3, ER.northFloorDrop, ER.l / 2 - 5.6);
   g.add(pn);
   for (let i = 0; i < 6; i++) {
     const m = mk(box(6.4 / 2 * .98, .4, 10.4 / 3 * .98), M.marmo2);
     m.position.set(-6.4 / 4 + (i % 2) * 6.4 / 2, .2, -10.4 / 3 + Math.floor(i / 2) * 10.4 / 3);
     addPiece('erech', m, COST.wall, mark('DAPEDON'), 'pavimento del portico nord', 7, pn);
   }
+  /* quattro colonne sul fronte, verso nord, e una dietro ogni angolo */
   const pnp = [];
-  for (let i = 0; i < 4; i++) pnp.push([-2.6 + 5.2 * i / 3, 4.4]);
-  pnp.push([-2.6, .4], [2.6, .4]);
+  for (let i = 0; i < 4; i++) pnp.push([2.6, -3.9 + 7.8 * i / 3]);
+  pnp.push([-1.4, -3.9], [-1.4, 3.9]);
   colonnade({ g: pn, pos: pnp, y0: .4, h: ER.northColH, rb: .43, rt: .36, drums: 8,
-    order: 'ionic', phase: 'erech', tag: 'BOR ER', flutes: 24, fdepth: .06 });
+    order: 'ionic', phase: 'erech', tag: 'BOR ER', flutes: 24, fdepth: .06, capRot: PI / 2 });
   const ent = entablature({ g: pn, w: 6.6, l: 10.6, depth: .72, y0: .4 + ER.northColH,
     archH: .56, frzH: .62, geiH: .28, doric: false, phase: 'erech', nx: 4, nz: 5 });
   for (let i = 0; i < 6; i++) {
@@ -224,19 +228,21 @@ function erechtheion(scene) {
     addPiece('erech', m, COST.roof, mark('STEGH B'), 'copertura del portico nord', 9, pn);
   }
 
-  /* loggia delle Cariatidi */
-  const kp = new THREE.Group(); kp.position.set(ER.w / 2 + 1.5, 0, ER.l / 2 - 7.4); g.add(kp);
+  /* loggia delle Cariatidi, sul lato sud: guarda il Partenone */
+  const kp = new THREE.Group(); kp.position.set(-ER.w / 2 - 1.5, 0, ER.l / 2 - 7.4); g.add(kp);
   for (let c = 0; c < 3; c++) for (let i = 0; i < 3; i++) {
     const m = mk(box(3.6 / 3 * .98, 1.78 / 3, 5.4 * .98), c % 2 ? M.marmo : M.marmo2);
     m.position.set(-3.6 / 3 + i * 3.6 / 3, top + 1.78 / 3 * (c + .5), 0);
     addPiece('erech', m, COST.wall, mark('QRIGKOS'), `parapetto della loggia - corso ${c + 1}`, 7, kp);
   }
   const KY = top + 1.78;
-  [[-1.35, -1.75], [0, -1.75], [1.35, -1.75], [-1.35, 1.75], [0, 1.75], [1.35, 1.75]]
+  /* quattro sul fronte, verso sud (-x locale), e due dietro gli angoli;
+     tutte guardano fuori, come in opera */
+  [[-.9, -1.95], [-.9, -.65], [-.9, .65], [-.9, 1.95], [.9, -1.95], [.9, 1.95]]
     .forEach((p, i) => {
       const k = caryatid(ER.caryatidH);
       k.position.set(p[0], KY, p[1]);
-      k.rotation.y = p[1] < 0 ? PI : 0;
+      k.rotation.y = -PI / 2;
       addPiece('erech', k, COST.caryatid, `KORH-${String(i + 1).padStart(2, '0')}`,
         `cariatide ${i + 1} di ${ER.caryatids}`, 9, kp);
     });

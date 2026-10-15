@@ -47,7 +47,7 @@ function layOnGround(obj, x, z, lift, yaw = 0) {
    Ingombri dei monumenti, con un margine di rispetto. */
 const KEEP_OUT = [
   [ -46,  46, -25,  25],   // Partenone
-  [ -64, -20, -41, -10],   // Eretteo
+  [ -66, -33, -52, -25],   // Eretteo, con il portico nord e la loggia
   [-178,-116, -27,  27],   // Propilei, Pinacoteca, ala sud
   [-184,-148,   1,  33],   // bastione di Atena Nike
   [ -96, -72, -26,  -2],   // Athena Promachos
@@ -448,13 +448,13 @@ export function plantings(scene) {
      il giorno dopo il ceppo aveva gia rimesso un getto lungo un cubito.
      E il primo pezzo del cantiere: l Acropoli riparte da qui. */
   const moria = olive(7.4, true);
-  layOnGround(moria, -60, -25, 0);
+  layOnGround(moria, -68, -38, 0);
   moria.traverse(q => { if (q.isMesh) q.castShadow = q.receiveShadow = true; });
   addPiece('fyta', moria, COST.sacredOlive, 'ELAIA MORIA',
     'l ulivo di Atena nel Pandroseion - ributtato dal ceppo bruciato', 3, scene);
 
   /* Il resto della piantumazione, addossata alle mura e ai recinti. */
-  const placed = [[-60, -25]];
+  const placed = [[-68, -38]];
   let done = 0, guard = 0;
   while (done < 26 && guard++ < 5000) {
     const a = rnd() * 2 * PI, rr = .58 + rnd() * .28;

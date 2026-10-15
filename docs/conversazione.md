@@ -923,13 +923,41 @@ spianati (`PADS`), uno per edificio, raccordati al pianoro in pochi metri.
 
 Niente di questo cambia l'ordine dei pezzi o i loro prezzi: il registro
 resta valido, e i blocchi gia posati si rimettono dove erano, solo meglio
-appoggiati. Resta un caso, l'Eretteo: il suo portico nord sta 2,8 m piu in
-basso, come in realta, ma il terreno davanti non scende, e le colonne
-sembrano affondate.
+appoggiati. Restava un caso, l'Eretteo: il suo portico nord stava 2,8 m piu
+in basso, come in realta, ma il terreno davanti non scendeva, e le colonne
+sembravano affondate.
 
 ---
 
-## 25. Cosa resta da fare
+## 25. L'Eretteo allo specchio
+
+Il portico affondato era solo il sintomo. L'Eretteo e costruito nel suo
+sistema locale e poi girato di novanta gradi; con quella rotazione l'asse x
+locale positivo punta a nord. Il portico nord era stato messo a x negativo:
+cioe a sud. E la loggia delle Cariatidi, che guarda il Partenone, guardava
+invece le mura. Tutto il tempio era allo specchio.
+
+E non solo: era quasi attaccato al Partenone, poco piu di un metro fra i
+gradini dei due. Il portico nord, girato a sud, finiva dentro l'angolo
+nord-ovest del Partenone, col pavimento sepolto 2,8 m sotto il suo piano.
+Nella realta fra i due templi ci sono decine di metri, e in mezzo stavano le
+fondazioni del tempio arcaico di Atena.
+
+Girare i portici non bastava: le Cariatidi sarebbero finite contro il
+Partenone. Cosi l'Eretteo si e spostato di dodici metri a nord e nove a
+ovest, piu vicino alle mura settentrionali, dov'era; l'ulivo sacro lo ha
+seguito nel Pandroseion, il recinto a ovest del tempio. Il portico nord ora
+ha davanti le sue quattro colonne e scende sul terrazzo piu basso, e fra i
+due piani c'e un gradino di roccia di 3,2 m: roccia, non pezzi, quindi non
+costa niente. Le Cariatidi stanno quattro davanti e due dietro, verso sud.
+
+Ordine e numero dei pezzi non cambiano. Cambia invece la disposizione degli
+ulivi e dei mirti gia piantati: sono sparsi a caso con un seme fisso, ma
+evitano gli ingombri degli edifici, e l'ingombro dell'Eretteo si e spostato.
+
+---
+
+## 26. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

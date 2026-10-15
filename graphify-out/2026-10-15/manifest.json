@@ -20,7 +20,7 @@
     "semantic_hash": "5335bec66301c8f435a50c9d0286d4f2"
   },
   "engine/scene.js": {
-    "mtime": 1791378510.3198373,
+    "mtime": 1792080140.6366386,
     "ast_hash": "7f316978bd714c1275ef297945e1b75e",
     "semantic_hash": "7f316978bd714c1275ef297945e1b75e"
   },
@@ -150,9 +150,9 @@
     "semantic_hash": "129e494532b64d66b7ace72915dd8776"
   },
   "worlds/acropolis/src/config.js": {
-    "mtime": 1791296123.2984133,
-    "ast_hash": "b53fcd0f125e4374c8427ee9c6b6fcdd",
-    "semantic_hash": "b53fcd0f125e4374c8427ee9c6b6fcdd"
+    "mtime": 1792079876.8356798,
+    "ast_hash": "2fc6ee64a3d2f9b9cbba5853b3ee32a4",
+    "semantic_hash": ""
   },
   "worlds/acropolis/src/kit.js": {
     "mtime": 1791296357.332341,
@@ -170,14 +170,14 @@
     "semantic_hash": "db648238ef33cd1e79cb97498d5f6b68"
   },
   "worlds/acropolis/src/site.js": {
-    "mtime": 1791375091.4171915,
-    "ast_hash": "0c7e3e490c423b606cbbdbfdd3794787",
-    "semantic_hash": "0c7e3e490c423b606cbbdbfdd3794787"
+    "mtime": 1792079739.7218568,
+    "ast_hash": "70695bec96289b8c28d767e12bb2866d",
+    "semantic_hash": ""
   },
   "worlds/acropolis/src/terrain.js": {
-    "mtime": 1787674163.160605,
-    "ast_hash": "a1cafe8554e318d390d6c4a960510e26",
-    "semantic_hash": "a1cafe8554e318d390d6c4a960510e26"
+    "mtime": 1792079878.739089,
+    "ast_hash": "c44533bc833d6b6dafb6e02cfb388740",
+    "semantic_hash": ""
   },
   "worlds/acropolis/world.json": {
     "mtime": 1791298514.0993855,
@@ -210,13 +210,13 @@
     "semantic_hash": ""
   },
   "TODO.md": {
-    "mtime": 1791910404.3196867,
-    "ast_hash": "94130cf2bc25c1963f7313d24daed143",
+    "mtime": 1792080302.0466218,
+    "ast_hash": "46b0034d281ccf0c7b29f7f1ce3ad4fb",
     "semantic_hash": ""
   },
   "docs/conversazione.md": {
-    "mtime": 1791910420.0858743,
-    "ast_hash": "0ca59beb595a8d41f6e7678747357d27",
+    "mtime": 1792080303.1957874,
+    "ast_hash": "850585b0b05e02c6309821b00e301b07",
     "semantic_hash": ""
   },
   "docs/creare-un-mondo.md": {
@@ -275,9 +275,9 @@
     "semantic_hash": "fe57a25ab8779c20aea634b941fd1963"
   },
   "worlds/acropolis/preview.webp": {
-    "mtime": 1791299103.5080786,
-    "ast_hash": "5f20f108f30e178528d503fd72bcf815",
-    "semantic_hash": "5f20f108f30e178528d503fd72bcf815"
+    "mtime": 1792080200.4407096,
+    "ast_hash": "246e811636cc20e88e3443102e6c44e7",
+    "semantic_hash": ""
   },
   "worlds/forum/preview.svg": {
     "mtime": 1791299214.6630325,

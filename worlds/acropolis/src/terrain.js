@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { PLATEAU, PADS } from './config.js';
+import { PLATEAU, PADS, ROCK_STEP } from './config.js';
 import { M } from './materials.js';
 
 const PI = Math.PI;
@@ -76,6 +76,21 @@ export function buildTerrain(scene) {
     vertexColors: true, roughness: 1, metalness: 0, flatShading: true }));
   mesh.receiveShadow = true;
   scene.add(mesh);
+
+  /* Il gradino di roccia a nord dell'Eretteo: la mesh del terreno ha maglie
+     di quasi quattro metri e non sa fare un salto netto di tre, quindi la
+     parete e un blocco a parte. Il terrazzo spianato sotto (PADS) la tocca
+     al piede. */
+  const { y0, y1, boxes } = ROCK_STEP;
+  /* lo stesso colore del pianoro, non quello scuro delle rupi: e la stessa
+     roccia, appena tagliata */
+  const rock = new THREE.MeshStandardMaterial({ color: 0x8A7F66, roughness: 1, metalness: 0, flatShading: true });
+  for (const [x0, x1, z0, z1] of boxes) {
+    const r = new THREE.Mesh(new THREE.BoxGeometry(x1 - x0, y1 - y0, z1 - z0), rock);
+    r.position.set((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2);
+    r.castShadow = r.receiveShadow = true;
+    scene.add(r);
+  }
 
   /* Mura di cinta lungo il ciglio, in un'unica geometria estrusa:
      il profilo del pianoro visto da Atene e fatto da queste, non dai templi. */

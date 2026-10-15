@@ -9,36 +9,19 @@ export const PLATEAU = { cx: -70, cz: 0, a: 134, b: 63 };
 /* ---- sistema di riferimento: +X est, -Z nord, origine al Partenone ---- */
 export const SITE = {
   parthenon  : { x:    0, z:   0, rot: Math.PI / 2, base: 0.0 },
-  erechtheion: { x:  -41, z: -25, rot: Math.PI / 2, base: 0.4 },
+  erechtheion: { x:  -50, z: -37, rot: Math.PI / 2, base: 0.4 },
   propylaea  : { x: -147, z:  -3, rot: 0,           base: 1.2 },
   nike       : { x: -166, z:  17, rot: 0,           base: 0.6 },
   promachos  : { x:  -84, z: -14, rot: 0,           base: 0.0 },
 
   /* punti del pianoro: servono solo alla camera del pulsante "avvicina" */
-  pandroseion: { x:  -60, z: -25, rot: 0,           base: 0.0 },
+  pandroseion: { x:  -68, z: -38, rot: 0,           base: 0.0 },
   muranord   : { x:  -70, z: -52, rot: 0,           base: 0.0 },
   odos       : { x:  -70, z:   8, rot: 0,           base: 0.0 },
   bomos      : { x:  -16, z: -27, rot: 0,           base: 0.0 },
   temene     : { x: -106, z:  32, rot: 0,           base: 0.0 },
   anathemata : { x:  -70, z:   0, rot: 0,           base: 0.0 }
 };
-
-/* ---- piani spianati ----
-   Il pianoro ondula di un metro abbondante, ma un tempio non si appoggia su
-   un'onda: i Greci tagliavano la roccia e riempivano fino a un piano. Sotto
-   questi rettangoli il terreno scende o sale fino alla quota dell'edificio,
-   e si raccorda al pianoro in `blend` metri. Senza, l'onda passava sopra il
-   primo gradino del Partenone e copriva meta del secondo.
-   Misure in coordinate del mondo, gia girate: il Partenone ha il lato lungo
-   sull'asse x. quota null = la quota che il terreno ha al centro. */
-export const PADS = [
-  // Partenone: crepidoma di 69,51 x 30,88 piu tre gradini e un metro di margine
-  { x:   0, z:   0, hx: 37.8, hz: 18.5, quota: SITE.parthenon.base - .03, blend: 7 },
-  // Athena Promachos: il basamento di 4,6 m
-  { x: -84, z: -14, hx:  3.6, hz:  3.6, quota: SITE.promachos.base - .03, blend: 5 },
-  // altare di Atena Polias: 21 x 8,4 piu il corso piu largo
-  { x: -16, z: -27, hx: 11.6, hz:  5.3, quota: null, blend: 5 }
-];
 
 /* ---- Partenone ---- */
 export const PARTHENON = {
@@ -84,6 +67,43 @@ export const ERECHTHEION = {
   w: 11.6, l: 22.2, wallH: 7.6,
   eastColH: 6.58, northColH: 7.63, northFloorDrop: -3.2,
   caryatidH: 2.31, caryatids: 6
+};
+
+/* ---- piani spianati ----
+   Il pianoro ondula di un metro abbondante, ma un tempio non si appoggia su
+   un'onda: i Greci tagliavano la roccia e riempivano fino a un piano. Sotto
+   questi rettangoli il terreno scende o sale fino alla quota dell'edificio,
+   e si raccorda al pianoro in `blend` metri. Senza, l'onda passava sopra il
+   primo gradino del Partenone e copriva meta del secondo.
+   Misure in coordinate del mondo, gia girate: il Partenone ha il lato lungo
+   sull'asse x. quota null = la quota che il terreno ha al centro. */
+export const PADS = [
+  // Partenone: crepidoma di 69,51 x 30,88 piu tre gradini e un metro di margine
+  { x:   0, z:   0, hx: 37.8, hz: 18.5, quota: SITE.parthenon.base - .03, blend: 7 },
+  // Athena Promachos: il basamento di 4,6 m
+  { x: -84, z: -14, hx:  3.6, hz:  3.6, quota: SITE.promachos.base - .03, blend: 5 },
+  // altare di Atena Polias: 21 x 8,4 piu il corso piu largo
+  { x: -16, z: -27, hx: 11.6, hz:  5.3, quota: null, blend: 5 },
+  // Eretteo: il corpo con la crepidoma, il portico est e la loggia delle Cariatidi
+  { x: -50, z: -37, hx: 14, hz: 9, quota: SITE.erechtheion.base - .03, blend: 5 },
+  /* e a nord il terrazzo piu basso del portico nord: la roccia scende di
+     3,2 m, ed e per questo che il portico ha il pavimento piu in basso */
+  { x: -44.5, z: -46.6, hx: 6.5, hz: 3.9,
+    quota: SITE.erechtheion.base + ERECHTHEION.northFloorDrop - .03, blend: 3 }
+];
+
+/* Il gradino di roccia fra il piano dell'Eretteo e il terrazzo del portico
+   nord. E roccia, non un pezzo: c'era prima del cantiere e non costa niente.
+   Sta sotto il bordo della crepidoma; davanti al portico nord arretra, per
+   lasciargli il posto. Coordinate del mondo: [x0, x1, z0, z1]. */
+export const ROCK_STEP = {
+  y0: SITE.erechtheion.base + ERECHTHEION.northFloorDrop - .1,
+  y1: SITE.erechtheion.base - .01,
+  boxes: [
+    [-62.6, -50.0, -44.3, -40],   // a ovest del portico
+    [-50.0, -39.1, -42.5, -40],   // dietro il portico
+    [-39.1, -37.4, -44.3, -40]    // a est del portico
+  ]
 };
 
 /* ---- policromia ----

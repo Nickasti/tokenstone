@@ -20,7 +20,7 @@
     "semantic_hash": "5335bec66301c8f435a50c9d0286d4f2"
   },
   "engine/scene.js": {
-    "mtime": 1792080140.6366386,
+    "mtime": 1792080961.912857,
     "ast_hash": "7f316978bd714c1275ef297945e1b75e",
     "semantic_hash": "7f316978bd714c1275ef297945e1b75e"
   },
@@ -145,13 +145,13 @@
     "semantic_hash": "b38d10a9d7610716ddba1f6bd8b88423"
   },
   "worlds/acropolis/src/buildings.js": {
-    "mtime": 1791296357.1520865,
-    "ast_hash": "129e494532b64d66b7ace72915dd8776",
-    "semantic_hash": "129e494532b64d66b7ace72915dd8776"
+    "mtime": 1792080714.4961708,
+    "ast_hash": "f13ab5a91c448b7b52f4468dc94a48f3",
+    "semantic_hash": ""
   },
   "worlds/acropolis/src/config.js": {
-    "mtime": 1792079876.8356798,
-    "ast_hash": "2fc6ee64a3d2f9b9cbba5853b3ee32a4",
+    "mtime": 1792080733.3764021,
+    "ast_hash": "a78fe3175147c03276f068e70c3ca039",
     "semantic_hash": ""
   },
   "worlds/acropolis/src/kit.js": {
@@ -170,13 +170,13 @@
     "semantic_hash": "db648238ef33cd1e79cb97498d5f6b68"
   },
   "worlds/acropolis/src/site.js": {
-    "mtime": 1792079739.7218568,
-    "ast_hash": "70695bec96289b8c28d767e12bb2866d",
+    "mtime": 1792080714.4981718,
+    "ast_hash": "7c268c98cc90968e82aec3774b2665eb",
     "semantic_hash": ""
   },
   "worlds/acropolis/src/terrain.js": {
-    "mtime": 1792079878.739089,
-    "ast_hash": "c44533bc833d6b6dafb6e02cfb388740",
+    "mtime": 1792080860.7038267,
+    "ast_hash": "0c07a8e19c0cf2cd5866e72cde195382",
     "semantic_hash": ""
   },
   "worlds/acropolis/world.json": {
@@ -210,13 +210,13 @@
     "semantic_hash": ""
   },
   "TODO.md": {
-    "mtime": 1792080302.0466218,
-    "ast_hash": "46b0034d281ccf0c7b29f7f1ce3ad4fb",
+    "mtime": 1792081115.260237,
+    "ast_hash": "06d3957e90a23b8f915f50117e7f10d7",
     "semantic_hash": ""
   },
   "docs/conversazione.md": {
-    "mtime": 1792080303.1957874,
-    "ast_hash": "850585b0b05e02c6309821b00e301b07",
+    "mtime": 1792081115.2612388,
+    "ast_hash": "76217e6080cf033f7e635343c290a4e5",
     "semantic_hash": ""
   },
   "docs/creare-un-mondo.md": {
@@ -275,8 +275,8 @@
     "semantic_hash": "fe57a25ab8779c20aea634b941fd1963"
   },
   "worlds/acropolis/preview.webp": {
-    "mtime": 1792080200.4407096,
-    "ast_hash": "246e811636cc20e88e3443102e6c44e7",
+    "mtime": 1792081022.5154898,
+    "ast_hash": "d4276ba89ded6c093b14c4f957858237",
     "semantic_hash": ""
   },
   "worlds/forum/preview.svg": {
