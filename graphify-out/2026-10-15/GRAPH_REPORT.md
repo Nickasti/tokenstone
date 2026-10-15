@@ -1,16 +1,16 @@
 # Graph Report - acropoli  (2026-10-15)
 
 ## Corpus Check
-- 46 files · ~65,579 words
+- 46 files · ~67,277 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 725 nodes · 1021 edges · 144 communities (28 shown, 116 thin omitted)
+- 736 nodes · 1065 edges · 145 communities (29 shown, 116 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 53 edges (avg confidence: 0.64)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `696d9580`
+- Built from commit: `08f77180`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -157,18 +157,19 @@
 - Fase 7: il Foro Romano (kit romano)
 - npx tokenstone (avvio senza clonare)
 - ornaments.js
+- config.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `mk()` - 30 edges
-2. `Come è nato questo progetto` - 28 edges
-3. `box()` - 24 edges
-4. `G()` - 16 edges
+1. `mk()` - 38 edges
+2. `Come è nato questo progetto` - 29 edges
+3. `box()` - 28 edges
+4. `G()` - 22 edges
 5. `scanOnce()` - 15 edges
 6. `colonnade()` - 15 edges
 7. `buildAll()` - 14 edges
 8. `parthenon()` - 13 edges
-9. `walls()` - 12 edges
-10. `gable()` - 12 edges
+9. `gable()` - 13 edges
+10. `pedimentFigure()` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `bakePhase()` --indirect_call--> `mesh()`  [INFERRED]
@@ -196,11 +197,11 @@
 - **Stacked Tower Composition (base, turret, balconies, roof)** — worlds__template_preview_square_base, worlds__template_preview_cylindrical_turret, worlds__template_preview_spiral_balconies, worlds__template_preview_conical_roof [INFERRED 0.85]
 - **Acropolis sacred precinct layout on hilltop plateau** — worlds_acropolis_preview_parthenon_temple, worlds_acropolis_preview_erechtheion_building, worlds_acropolis_preview_propylaea_complex, worlds_acropolis_preview_athena_statue, worlds_acropolis_preview_processional_way, worlds_acropolis_preview_hilltop_terrain [INFERRED 0.85]
 
-## Communities (144 total, 116 thin omitted)
+## Communities (145 total, 116 thin omitted)
 
 ### Community 0 - "Edifici dell'Acropoli"
-Cohesion: 0.09
-Nodes (75): buildAll(), erechtheion(), nike(), parthenon(), promachos(), propylaea(), siteGroup(), COST (+67 more)
+Cohesion: 0.12
+Nodes (64): buildAll(), erechtheion(), nike(), parthenon(), PEDIMENTS, promachos(), propylaea(), siteGroup() (+56 more)
 
 ### Community 1 - "Credito e pannello della scena"
 Cohesion: 0.07
@@ -232,7 +233,7 @@ Nodes (23): attendi(), connect(), findBrowser(), fs, launch(), path, { spawn, sp
 
 ### Community 8 - "Diario: fonti e raffinatezze"
 Cohesion: 0.07
-Nodes (28): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+20 more)
+Nodes (29): 10. Dalla stima al conto vero, 11. Quanto costa l'Acropoli, 12. Senza hook, 13. Un linguaggio solo, 14. Il listino che si aggiorna, 15. Aprirla senza terminale, 16. Il cantiere si calcola dal credito, 17. Un motore, piu mondi (+21 more)
 
 ### Community 9 - "Torre di prova (codice)"
 Cohesion: 0.19
@@ -302,12 +303,16 @@ Nodes (3): Applicazione, Modalita, Proposta
 Cohesion: 0.20
 Nodes (3): C, ORN, stripCache
 
+### Community 144 - "config.js"
+Cohesion: 0.14
+Nodes (21): COST, ERECHTHEION, FOCUS, NIKE, PADS, PARTHENON, PHASES, PLATEAU (+13 more)
+
 ## Ambiguous Edges - Review These
 - `Acropolis World Preview Render` → `Propylaea / Western Building Cluster`  [AMBIGUOUS]
   worlds/acropolis/preview.webp · relation: references
 
 ## Knowledge Gaps
-- **358 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+353 more)
+- **360 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+355 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -317,14 +322,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Acropolis World Preview Render` and `Propylaea / Western Building Cluster`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
 - **Why does `bakePhase()` connect `Credito e pannello della scena` to `Torre di prova (codice)`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `mesh()` connect `Torre di prova (codice)` to `Credito e pannello della scena`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `TokenStone` connect `README: mondi e resa` to `Scelte di progetto del cantiere`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `GHOST`, `counters`, `mergedByPhase` to the rest of the system?**
-  _390 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _392 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Edifici dell'Acropoli` be split into smaller, more focused modules?**
-  _Cohesion score 0.08962679988245666 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12020460358056266 - nodes in this community are weakly interconnected._
 - **Should `Credito e pannello della scena` be split into smaller, more focused modules?**
   _Cohesion score 0.07088989441930618 - nodes in this community are weakly interconnected._

@@ -528,11 +528,29 @@ e il confronto che spiega perche i Greci si sono presi il disturbo.
 `POLYCHROMY.on` estende il colore oltre triglifi e taenia: metope su fondo
 rosso e arretrate, timpani su fondo blu, soffitti del geison dipinti, anuli
 dei capitelli in minio. Il fregio dell'Eretteo resta a parte, in calcare
-grigio di Eleusi, perche non era dipinto ma intarsiato.
+grigio di Eleusi, perche non era dipinto ma intarsiato. Accende anche gli
+ornati (`src/ornaments.js`): meandro e foglia d'acqua sui geison e sulle
+cornici rampanti, ovoli sugli architravi e sui capitelli ionici, palmette
+delle antefisse e degli acroteri.
 
 Le due opzioni non cambiano il numero dei pezzi ne il costo, tranne la
 crepidoma del Partenone, che con la curvatura passa da 36 a 108 blocchi
 perche un blocco largo quanto il tempio non puo inarcarsi.
+
+### Frontoni e fregio
+
+I frontoni del Partenone hanno le loro storie (`PEDIMENTS` in
+`src/buildings.js`): a ovest la contesa fra Atena e Poseidone, con l'ulivo
+e il tridente; a est la nascita di Atena davanti a Zeus in trono, fra i
+cavalli del Sole e della Luna. Il pannello del cantiere chiama ogni figura
+per nome.
+
+Il fregio delle Panatenee (`src/frieze.js`) corre in cima ai muri della
+cella e sopra i portici: cavalieri, carri, anziani e vittime lungo i
+fianchi, fanciulle, dei e peplo sulla fronte est. Sono 46 pezzi aggiunti
+dopo la pubblicazione, e per questo stanno in fondo all'elenco: si posano
+per ultimi, dopo le offerte votive. Il fregio e piu basso di 75 cm rispetto
+al vero, perche dall'esterno si veda fra le colonne.
 
 ---
 

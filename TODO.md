@@ -19,6 +19,8 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
+- [x] Il fregio delle Panatenee sul Partenone: 46 pezzi nuovi, in fondo al
+      cantiere; il mondo passa da 3280 a 3326 pezzi
 - [x] Frontoni del Partenone con le loro storie, e le figure est di nuovo visibili
 - [x] Ornati dipinti su cornici, capitelli, antefisse e acroteri; tetti pieni
 - [x] Via Panatenaica: le lastre seguono la strada (prima, girate a specchio,
@@ -31,7 +33,7 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase 5: il fregio delle Panatenee, poi le prestazioni
+- [ ] Fase 5: le prestazioni, ultimo punto della lista
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
 
 ## Bloccato
@@ -158,7 +160,8 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
       a ovest, Zeus in trono e Atena armata a est, i cavalli del Sole e
       della Luna negli angoli; le figure del frontone est erano nascoste
       dietro il timpano
-- [ ] Fregio delle Panatenee (pezzi nuovi, in fondo all'elenco)
+- [x] Fregio delle Panatenee: 46 pezzi nuovi in fondo all'elenco, fase
+      `p-zoforo` (`src/frieze.js`)
 - [ ] Prestazioni
 
 ### Fase 6 — La piana di Giza

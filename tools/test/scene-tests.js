@@ -120,7 +120,7 @@ const FONTE = "document.getElementById('toksrc').textContent";
     await attendi(3000);   // il riporto parte ogni due secondi
     let reg = await registro();
     verifica('il registro ricorda il punto raggiunto', reg.worlds.acropolis.placed_max > prima, true);
-    verifica('e conosce la forma del mondo', reg.worlds.acropolis.pieces, 3280);
+    verifica('e conosce la forma del mondo', reg.worlds.acropolis.pieces, 3326);
     verifica('nessun errore durante la posa', home.errori, []);
 
     console.log('\n4. La pagina iniziale ora mostra l\'Acropoli in costruzione.\n');

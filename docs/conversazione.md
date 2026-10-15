@@ -1001,7 +1001,33 @@ il tempio. Ora stanno tutte sul piano del geison, davanti al timpano.
 
 ---
 
-## 28. Cosa resta da fare
+## 28. Il fregio che arriva per ultimo
+
+Il fregio ionico delle Panatenee mancava del tutto: centosessanta metri di
+processione in cima ai muri della cella. Ora c'e, con il suo programma:
+dall'angolo sud-ovest i cortei corrono lungo i due fianchi verso est -
+cavalieri, carri, anziani e musici, in testa le vittime - e sulla fronte
+est le fanciulle arrivano dai due lati davanti agli dei seduti, mentre al
+centro si consegna il peplo. Ogni scena e disegnata una volta su una tela e
+ripetuta sulle lastre del suo tratto, a specchio quando il corteo va verso
+sinistra.
+
+E il primo caso della regola scritta nella guida dei mondi: dopo la
+pubblicazione i pezzi nuovi si aggiungono in fondo. Il registro conta "i
+primi N pezzi", e i 568 gia posati devono restare quelli. Cosi il fregio,
+scolpito fra il 442 e il 438, si posa per ultimo, dopo le offerte votive,
+in una fase sua. Il mondo passa da 3280 a 3326 pezzi; il budget resta lo
+stesso, e ogni pezzo costa un poco meno.
+
+Una scelta contro la storia: il fregio vero stava a filo dell'architrave
+esterno, e da terra se ne vedeva appena una striscia. Ma la camera di
+questo cantiere non scende sotto i ventidue metri, e un fregio invisibile
+non racconta niente: e stato abbassato di 75 cm, con le colonne dei due
+portici, e ora si legge fra le colonne del peristilio.
+
+---
+
+## 29. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

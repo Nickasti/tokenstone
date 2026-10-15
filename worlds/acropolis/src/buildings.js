@@ -4,6 +4,7 @@ import { SITE, PARTHENON as P, PROPYLAEA as PR, NIKE as NK, ERECHTHEION as ER, C
 import { krepis, colonnade, entablature, walls, gable, statue, caryatid, mk, box, G,
          makeCurve, axisPositions } from './kit.js';
 import { addPiece, mark } from '/engine/pieces.js';
+import { parthenonFrieze, PORCH_COL_H } from './frieze.js';
 import { outcrops, plantings, northWall, sacredWay, greatAltar,
          sanctuaries, votives } from './site.js';
 
@@ -101,7 +102,9 @@ function parthenon(scene) {
     const p = [];
     for (let i = 0; i < 6; i++)
       p.push([-8.2 + 16.4 * i / 5, side * (P.cellaL / 2 + 3.1), { leanZ: side }]);
-    colonnade({ g, pos: p, y0: top, h: 8.0, rb: .66, rt: .55, drums: 7, order: 'doric',
+    /* 7,3 m: sopra ci vanno l'architrave e il fregio, che deve restare sotto
+       l'architrave esterno per vedersi fra le colonne (frieze.js) */
+    colonnade({ g, pos: p, y0: top, h: PORCH_COL_H, rb: .66, rt: .55, drums: 7, order: 'doric',
       phase: 'p-sekos', tag: side > 0 ? 'PRONAOS' : 'OPISQOD', flutes: 20, fdepth: .05,
       curve: cur, incline });
   });
@@ -125,6 +128,9 @@ function parthenon(scene) {
   a.traverse(o => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
   a.position.set(0, top + (cur ? cur(0, 9.5) : 0), 9.5);
   addPiece('p-athena', a, COST.athenaParthenos, 'AQHNA PARQENOS', 'oro e avorio - Fidia, 438 a.C.', 20, g);
+
+  /* il fregio si aggiunge in fondo all'elenco: gli serve sapere dove sta il tempio */
+  return { g, top, cur };
 }
 
 /* ══════════ PROPILEI - 437-432 a.C., mai completati ══════════ */
@@ -297,11 +303,15 @@ export function buildAll(scene) {
   northWall(scene);     // 465 - i rocchi del Partenone arcaico nel muro nord
   sacredWay(scene);     // 460 - la via Panatenaica
   promachos(scene);     // 456
-  parthenon(scene);     // 447-432
+  const pt = parthenon(scene);   // 447-432
   greatAltar(scene);    // 440 - l'altare di Atena Polias
   propylaea(scene);     // 437-432
   sanctuaries(scene);   // 430-425 - Brauronion e Calcoteca
   nike(scene);          // 427-424
   erechtheion(scene);   // 421-406
   votives(scene);       // continuo - gli anathemata
+
+  /* Da qui in poi, solo pezzi aggiunti dopo la pubblicazione: il registro
+     conta i primi N pezzi, e quelli gia posati non si spostano. */
+  parthenonFrieze(pt);  // 442-438, ma aggiunto il 15 ottobre 2026
 }

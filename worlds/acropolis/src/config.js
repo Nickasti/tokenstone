@@ -166,7 +166,9 @@ export const PHASES = [
   { k:'erech',     b:'Eretteo',    y:'421-406', n:'Santuario irregolare',
     t:'Tre livelli diversi per rispettare i culti preesistenti. La loggia sud poggia su sei cariatidi al posto delle colonne.' },
   { k:'anathemata', b:'Anathemata', y:'continuo', n:'Le offerte votive',
-    t:'Chi vinceva una gara, una causa o una guerra lasciava un anathema, e non lo si poteva togliere perche apparteneva alla dea. Pausania, sei secoli dopo, prova a elencarle e si stanca prima di finire.' }
+    t:'Chi vinceva una gara, una causa o una guerra lasciava un anathema, e non lo si poteva togliere perche apparteneva alla dea. Pausania, sei secoli dopo, prova a elencarle e si stanca prima di finire.' },
+  { k:'p-zoforo',  b:'Partenone',  y:'442-438', n:'Il fregio delle Panatenee',
+    t:'Centosessanta metri di processione in cima ai muri della cella: cavalieri, carri, anziani, vittime, e sulla fronte est gli dei che aspettano il peplo. Fu scolpito in opera, sul muro gia alzato; qui arriva per ultimo, perche e stato aggiunto al cantiere dopo, e i blocchi gia posati non si spostano.' }
 ];
 
 export const FOCUS = {
@@ -175,5 +177,5 @@ export const FOCUS = {
   promachos:'promachos',
   'p-krepis':'parthenon', 'p-perist':'parthenon', 'p-sekos':'parthenon',
   'p-trab':'parthenon', 'p-front':'parthenon', 'p-athena':'parthenon',
-  prop:'propylaea', nike:'nike', erech:'erechtheion'
+  prop:'propylaea', nike:'nike', erech:'erechtheion', 'p-zoforo':'parthenon'
 };
