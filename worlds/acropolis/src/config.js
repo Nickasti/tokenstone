@@ -23,6 +23,23 @@ export const SITE = {
   anathemata : { x:  -70, z:   0, rot: 0,           base: 0.0 }
 };
 
+/* ---- piani spianati ----
+   Il pianoro ondula di un metro abbondante, ma un tempio non si appoggia su
+   un'onda: i Greci tagliavano la roccia e riempivano fino a un piano. Sotto
+   questi rettangoli il terreno scende o sale fino alla quota dell'edificio,
+   e si raccorda al pianoro in `blend` metri. Senza, l'onda passava sopra il
+   primo gradino del Partenone e copriva meta del secondo.
+   Misure in coordinate del mondo, gia girate: il Partenone ha il lato lungo
+   sull'asse x. quota null = la quota che il terreno ha al centro. */
+export const PADS = [
+  // Partenone: crepidoma di 69,51 x 30,88 piu tre gradini e un metro di margine
+  { x:   0, z:   0, hx: 37.8, hz: 18.5, quota: SITE.parthenon.base - .03, blend: 7 },
+  // Athena Promachos: il basamento di 4,6 m
+  { x: -84, z: -14, hx:  3.6, hz:  3.6, quota: SITE.promachos.base - .03, blend: 5 },
+  // altare di Atena Polias: 21 x 8,4 piu il corso piu largo
+  { x: -16, z: -27, hx: 11.6, hz:  5.3, quota: null, blend: 5 }
+];
+
 /* ---- Partenone ---- */
 export const PARTHENON = {
   stylobateW: 30.88, stylobateL: 69.51,

@@ -898,7 +898,38 @@ il percorso completo della cartella.
 
 ---
 
-## 24. Cosa resta da fare
+## 24. Il terreno sopra il marmo
+
+Da vicino la via Panatenaica non era una strada: le lastre andavano a
+zig-zag, e fra l'una e l'altra passava la sabbia. La causa era un segno.
+L'angolo della strada si misurava con `atan2` sul piano x-z, dove z cresce
+verso sud, mentre la rotazione di three gira nel verso opposto: ogni lastra
+stava nel punto giusto, ma girata a specchio. Sui tratti dritti quasi non si
+vedeva; sulle curve, dove l'angolo e grande, si.
+
+C'era anche un secondo errore, piu nascosto. La pendenza del terreno si
+applicava come se il pezzo non fosse girato, e la rotazione arrivava dopo:
+un pezzo girato si inclinava sulla pendenza sbagliata e un suo bordo
+affondava. Ora `layOnGround` riceve l'orientamento e misura la pendenza
+lungo gli assi del pezzo gia girato. Le lastre poi sporgono di 22 cm
+invece di 15, e il terreno non le copre piu.
+
+Guardando meglio e venuto fuori il resto. Il pianoro ondula di un metro
+abbondante, e sotto il Partenone l'onda arrivava a 94 cm: copriva il primo
+gradino e meta del secondo. Lo stesso, in piccolo, sotto l'Athena Promachos
+e l'altare. Ma i Greci non posavano un tempio su un'onda: tagliavano la
+roccia e riempivano fino a un piano. Cosi il terreno ha ora dei piani
+spianati (`PADS`), uno per edificio, raccordati al pianoro in pochi metri.
+
+Niente di questo cambia l'ordine dei pezzi o i loro prezzi: il registro
+resta valido, e i blocchi gia posati si rimettono dove erano, solo meglio
+appoggiati. Resta un caso, l'Eretteo: il suo portico nord sta 2,8 m piu in
+basso, come in realta, ma il terreno davanti non scende, e le colonne
+sembrano affondate.
+
+---
+
+## 25. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

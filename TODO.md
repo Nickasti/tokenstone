@@ -11,6 +11,31 @@ avanti anche mondi moderni o inventati.
 
 ---
 
+## Fatto
+
+*Gli ultimi passi; la storia completa e nel piano qui sotto e nel diario.*
+
+- [x] Via Panatenaica: le lastre seguono la strada (prima, girate a specchio,
+      facevano zig-zag sulle curve e lasciavano passare la sabbia)
+- [x] Terreno spianato sotto il Partenone, l'Athena Promachos e l'altare:
+      l'ondulazione del pianoro non copre piu i gradini
+- [x] Il pannello dice *Mancano* invece di mostrare un credito negativo
+- [x] Il grafo del progetto con graphify, collegato a `CLAUDE.md`
+- [x] Misura settimanale: 66 milioni di TE
+
+## Prossimi step
+
+- [ ] Eretteo: il portico nord sta 2,8 m sotto il resto ma il terreno no, e
+      le sue colonne sembrano affondate; serve un piano ribassato davanti
+- [ ] Fase 5: decidere insieme la lista delle rifiniture dell'Acropoli
+- [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
+
+## Bloccato
+
+Nulla.
+
+---
+
 ## Decisioni prese
 
 *6 ottobre 2026*
@@ -114,6 +139,10 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
       guida a portata di clic, invece che nascosti nell'indirizzo
 
 ### Fase 5 — Rifiniture dell'Acropoli
+- [x] Le lastre della via Panatenaica orientate lungo la strada, e la
+      pendenza misurata sugli assi del pezzo gia girato (`layOnGround`)
+- [x] Piani spianati sotto gli edifici (`PADS` in `src/config.js`)
+- [ ] Il portico nord dell'Eretteo affonda nel terreno
 - [ ] Lista da fare insieme. Candidati: il fregio ionico del Partenone (manca),
       le sculture dei frontoni (segnaposti procedurali), gli ornati dipinti
       (campiture piene), le prestazioni su computer meno potenti

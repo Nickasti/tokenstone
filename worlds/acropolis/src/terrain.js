@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { PLATEAU } from './config.js';
+import { PLATEAU, PADS } from './config.js';
 import { M } from './materials.js';
 
 const PI = Math.PI;
@@ -20,7 +20,8 @@ export function wallTop(x, z) {
   return .9 + Math.sin(x * .09) * .32 + Math.sin(z * .13) * .24;
 }
 
-export function terrainH(x, z) {
+/* Il pianoro com'e in natura, prima che qualcuno ci costruisca sopra. */
+function naturalH(x, z) {
   const dx = (x - PLATEAU.cx) / PLATEAU.a, dz = (z - PLATEAU.cz) / PLATEAU.b;
   const ang = Math.atan2(dz, dx);
   const r = Math.hypot(dx, dz) / rimShape(ang);
@@ -29,6 +30,22 @@ export function terrainH(x, z) {
   const cliff = Math.sin(ang * 19) * 1.5 + Math.sin(ang * 37 + 1.3) * .85 + Math.sin(ang * 61) * .4;
   const drop = -58 * Math.pow(Math.max(0, r - .96), 1.28) - 26 * Math.pow(Math.max(0, r - 1.55), 1.1);
   return top * undul + drop + (1 - top) * cliff * Math.min(1, (r - .9) * 4);
+}
+
+/* La quota di ogni piano spianato: quella data, o il terreno al centro. */
+const LEVELS = PADS.map(p => p.quota ?? naturalH(p.x, p.z));
+
+/* Il terreno vero: il pianoro naturale, spianato sotto gli edifici (PADS in
+   config.js). Lo usano la mesh del terreno e tutto cio che si posa al suolo,
+   cosi strada, votivi e alberi seguono gli stessi piani. */
+export function terrainH(x, z) {
+  let h = naturalH(x, z);
+  PADS.forEach((p, i) => {
+    const ox = Math.max(0, Math.abs(x - p.x) - p.hx), oz = Math.max(0, Math.abs(z - p.z) - p.hz);
+    const w = 1 - smoothstep(0, p.blend, Math.hypot(ox, oz));
+    if (w > 0) h += (LEVELS[i] - h) * w;
+  });
+  return h;
 }
 
 export function buildTerrain(scene) {

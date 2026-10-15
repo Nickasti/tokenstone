@@ -26,12 +26,20 @@ const PI = Math.PI;
 
 /* ---------- appoggio al suolo ----------
    Il pianoro ondula di circa un metro: un pezzo posato a quota fissa
-   galleggia o affonda. Ogni cosa prende la quota locale e la pendenza. */
-function layOnGround(obj, x, z, lift) {
+   galleggia o affonda. Ogni cosa prende la quota locale e la pendenza.
+   L'orientamento (yaw) entra qui, non dopo: la pendenza va misurata lungo
+   gli assi del pezzo gia girato, e l'ordine YXZ prima gira e poi inclina.
+   Con la rotazione aggiunta dopo, un pezzo girato si inclinava sulla
+   pendenza sbagliata, e un bordo affondava nel terreno. */
+function layOnGround(obj, x, z, lift, yaw = 0) {
   const e = .8, h = terrainH(x, z);
+  const slope = (ux, uz) => (terrainH(x + ux * e, z + uz * e) - terrainH(x - ux * e, z - uz * e)) / (2 * e);
   obj.position.set(x, h + (lift || 0), z);
-  obj.rotation.z = (terrainH(x + e, z) - terrainH(x - e, z)) / (2 * e);
-  obj.rotation.x = -(terrainH(x, z + e) - terrainH(x, z - e)) / (2 * e);
+  obj.rotation.order = 'YXZ';
+  obj.rotation.y = yaw;
+  /* l'asse x del pezzo, girato di yaw, punta a (cos, -sin); l'asse z a (sin, cos) */
+  obj.rotation.z = Math.atan(slope(Math.cos(yaw), -Math.sin(yaw)));
+  obj.rotation.x = -Math.atan(slope(Math.sin(yaw), Math.cos(yaw)));
   return h;
 }
 
@@ -119,8 +127,12 @@ export function sacredWay(scene) {
          ondulato si aprirebbero fessure a ogni dosso */
       const m = mk(box(STEP * (.98 + rnd() * .14), .26, w * 1.02),
                    rnd() < .35 ? M.calcare : M.basolato);
-      layOnGround(m, cx, cz, .02);
-      m.rotation.y = ang + (rnd() - .5) * .09;
+      /* ang e misurato con z verso sud, la rotazione di three gira al
+         contrario: il lato lungo della lastra segue la strada con -ang. Prima
+         era +ang, e sulle curve le lastre andavano a zig-zag lasciando
+         scoperta la sabbia. Spessore .26: il centro sta .09 sopra il suolo,
+         cosi la lastra sporge di 22 cm e il terreno non la copre. */
+      layOnGround(m, cx, cz, .09, -ang + (rnd() - .5) * .09);
       addPiece('odos', m, COST.slab, mark('ODOS'),
         `via Panatenaica - lastra, fila ${r + 1}`, 4, scene);
     }
@@ -375,8 +387,7 @@ export function votives(scene) {
       if (placed.some(p => Math.hypot(p[0] - x, p[1] - z) < 5.2)) continue;
       placed.push([x, z]);
       const o = make[K.k]();
-      layOnGround(o, x, z, 0);
-      o.rotation.y = rnd() * 2 * PI;
+      layOnGround(o, x, z, 0, rnd() * 2 * PI);
       o.traverse(q => { if (q.isMesh) q.castShadow = q.receiveShadow = true; });
       addPiece('anathemata', o, K.cost, mark(K.tag), K.d, 7, scene);
       done++;
@@ -455,8 +466,7 @@ export function plantings(scene) {
     placed.push([x, z]);
     const h = 4.2 + rnd() * 2.4;
     const t = olive(h, false);
-    layOnGround(t, x, z, 0);
-    t.rotation.y = rnd() * 2 * PI;
+    layOnGround(t, x, z, 0, rnd() * 2 * PI);
     t.traverse(q => { if (q.isMesh) q.castShadow = q.receiveShadow = true; });
     addPiece('fyta', t, COST.tree, mark('ELAIA'), `ulivo - altezza ${h.toFixed(1)} m`, 3, scene);
     done++;
@@ -473,8 +483,7 @@ export function plantings(scene) {
     if (placed.some(p => Math.hypot(p[0] - x, p[1] - z) < 6)) continue;
     placed.push([x, z]);
     const s = shrub(1.1 + rnd() * .8);
-    layOnGround(s, x, z, 0);
-    s.rotation.y = rnd() * 2 * PI;
+    layOnGround(s, x, z, 0, rnd() * 2 * PI);
     s.traverse(q => { if (q.isMesh) q.castShadow = q.receiveShadow = true; });
     addPiece('fyta', s, COST.shrub, mark('MYRTOS'), 'macchia di mirto', 2, scene);
     done++;
@@ -501,8 +510,7 @@ export function outcrops(scene) {
     const r = .9 + rnd() * 2.6;
     const m = mk(new THREE.SphereGeometry(r, 6, 4), M.roccia);
     m.scale.set(1 + rnd() * .7, .22 + rnd() * .20, 1 + rnd() * .7);
-    layOnGround(m, x, z, -r * .16);
-    m.rotation.y = rnd() * 2 * PI;
+    layOnGround(m, x, z, -r * .16, rnd() * 2 * PI);
     m.castShadow = m.receiveShadow = true;
     scene.add(m);
     done++;
