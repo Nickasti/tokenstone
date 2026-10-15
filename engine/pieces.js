@@ -56,7 +56,9 @@ export function setGhost(obj, on) {
    si chiude le sue mesh vengono fuse in una geometria per materiale:
    le draw call scendono da qualche migliaio a poche decine. */
 
-function mergeList(list) {
+/* Le coordinate di texture servono solo ai materiali con un'immagine (gli
+   ornati dipinti di un mondo): per gli altri si risparmiano. */
+function mergeList(list, withUv) {
   let total = 0;
   const parts = list.map(([g, m]) => {
     const ng = g.index ? g.toNonIndexed() : g;
@@ -64,11 +66,12 @@ function mergeList(list) {
     return [ng, m];
   });
   const pos = new Float32Array(total * 3), nor = new Float32Array(total * 3);
+  const uv = withUv ? new Float32Array(total * 2) : null;
   const v = new THREE.Vector3(), n = new THREE.Vector3(), nm = new THREE.Matrix3();
   let o = 0;
   parts.forEach(([g, m]) => {
     nm.getNormalMatrix(m);
-    const gp = g.attributes.position, gn = g.attributes.normal;
+    const gp = g.attributes.position, gn = g.attributes.normal, gu = g.attributes.uv;
     for (let i = 0; i < gp.count; i++) {
       v.fromBufferAttribute(gp, i).applyMatrix4(m);
       pos[o * 3] = v.x; pos[o * 3 + 1] = v.y; pos[o * 3 + 2] = v.z;
@@ -76,12 +79,14 @@ function mergeList(list) {
         n.fromBufferAttribute(gn, i).applyMatrix3(nm).normalize();
         nor[o * 3] = n.x; nor[o * 3 + 1] = n.y; nor[o * 3 + 2] = n.z;
       }
+      if (uv && gu) { uv[o * 2] = gu.getX(i); uv[o * 2 + 1] = gu.getY(i); }
       o++;
     }
   });
   const out = new THREE.BufferGeometry();
   out.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   out.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+  if (uv) out.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
   return out;
 }
 
@@ -104,7 +109,7 @@ export function bakePhase(key) {
     });
     const out = [];
     byMat.forEach((l, mat) => {
-      const mesh = new THREE.Mesh(mergeList(l), mat);
+      const mesh = new THREE.Mesh(mergeList(l, !!mat.map), mat);
       mesh.castShadow = mesh.receiveShadow = true;
       scene.add(mesh);
       out.push(mesh);

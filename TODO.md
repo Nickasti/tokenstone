@@ -19,6 +19,7 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
+- [x] Ornati dipinti su cornici, capitelli, antefisse e acroteri; tetti pieni
 - [x] Via Panatenaica: le lastre seguono la strada (prima, girate a specchio,
       facevano zig-zag sulle curve e lasciavano passare la sabbia)
 - [x] Terreno spianato sotto il Partenone, l'Athena Promachos e l'altare:
@@ -29,7 +30,7 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase 5: decidere insieme la lista delle rifiniture dell'Acropoli
+- [ ] Fase 5: sculture dei frontoni, poi il fregio, poi le prestazioni
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
 
 ## Bloccato
@@ -146,9 +147,15 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
 - [x] Piani spianati sotto gli edifici (`PADS` in `src/config.js`)
 - [x] L'Eretteo: pianta non piu a specchio, spostato a nord, portici girati
       verso l'esterno, terrazzo e gradino di roccia per il portico nord
-- [ ] Lista da fare insieme. Candidati: il fregio ionico del Partenone (manca),
-      le sculture dei frontoni (segnaposti procedurali), gli ornati dipinti
-      (campiture piene), le prestazioni su computer meno potenti
+- [x] Lista decisa il 15 ottobre: ornati dipinti, sculture dei frontoni,
+      fregio del Partenone, prestazioni
+- [x] Ornati dipinti: kymation e meandro sui geison e sulle cornici
+      rampanti, ovoli su architravi e capitelli ionici, palmette di antefisse
+      e acroteri (`src/ornaments.js`)
+- [x] Le file di tegole pendevano al contrario: ora il tetto e pieno
+- [ ] Sculture dei frontoni leggibili
+- [ ] Fregio delle Panatenee (pezzi nuovi, in fondo all'elenco)
+- [ ] Prestazioni
 
 ### Fase 6 — La piana di Giza
 - [ ] Ricerca sulle fonti; IV dinastia, intorno al 2560 a.C.

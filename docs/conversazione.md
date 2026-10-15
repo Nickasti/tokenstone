@@ -957,7 +957,32 @@ evitano gli ingombri degli edifici, e l'ingombro dell'Eretteo si e spostato.
 
 ---
 
-## 26. Cosa resta da fare
+## 26. Il colore oltre le campiture
+
+La lista della fase 5 l'abbiamo decisa insieme: ornati dipinti, sculture
+dei frontoni, il fregio del Partenone, le prestazioni. In quest'ordine, con
+le prestazioni per ultime, per misurare anche il peso di quello che si
+aggiunge.
+
+Il primo passo e il colore. Fin qui la policromia era fatta di campiture:
+triglifi blu, fondi rossi, anuli in minio. Ma le modanature portavano motivi
+ripetuti, e sono quelli che fanno leggere un edificio greco da lontano. Ora
+i geison hanno la foglia d'acqua e sotto il meandro; le cornici rampanti la
+foglia d'acqua; gli architravi ionici e gli echini dei capitelli l'ovolo;
+lungo le gronde corre la fila delle antefisse a palmetta, e in cima ai
+frontoni stanno gli acroteri. I motivi sono disegnati una volta su piccole
+tele e ripetuti come strisce sottili davanti ai blocchi: nessun pezzo nuovo,
+nessun prezzo cambiato. Il motore, quando fonde i pezzi posati, ora
+conserva le coordinate di texture, che prima scartava.
+
+Cercando dove appoggiare le antefisse e venuto fuori un altro errore di
+segno, gemello di quello delle lastre: le file di tegole pendevano al
+contrario, e il tetto era una serie di listelli con le fessure in mezzo.
+Ora e pieno.
+
+---
+
+## 27. Cosa resta da fare
 
 **Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
 panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose

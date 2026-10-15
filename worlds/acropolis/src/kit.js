@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { M } from './materials.js';
+import { ORN, faceStrip, strip } from './ornaments.js';
 import { COST, FLUTE_SEGMENTS, POLYCHROMY as PC } from './config.js';
 import { addPiece, mark } from '/engine/pieces.js';
 
@@ -115,7 +116,8 @@ export function ionicBase(r) {
 }
 export function ionicCapital(r) {
   const g = new THREE.Group(), k = r.toFixed(2);
-  const e = mk(G('iec' + k, () => new THREE.CylinderGeometry(r * 1.12, r, r * .26, 26)), M.marmo); e.position.y = r * .13;
+  /* l'echino porta l'ovolo dipinto, che gli gira attorno */
+  const e = mk(G('iec' + k, () => new THREE.CylinderGeometry(r * 1.12, r, r * .26, 26)), PC.on ? ORN.echinus : M.marmo); e.position.y = r * .13;
   const cu = mk(box(r * 2.5, r * .30, r * 1.5), M.marmo); cu.position.y = r * .42;
   [-1, 1].forEach(s => {
     const v = mk(G('ivo' + k, () => new THREE.TorusGeometry(r * .44, r * .17, 8, 18)), M.marmo);
@@ -291,6 +293,12 @@ export function entablature({ g, w, l, depth, y0, archH, frzH, geiH, doric, phas
         const t = mk(box(r.ax === 'x' ? seg * .995 : depth + .07, .11, r.ax === 'x' ? depth + .07 : seg * .995), M.minio);
         t.position.y = archH / 2 + .055; grp.add(t);
       }
+      if (!doric && PC.on) {
+        /* il coronamento dell'architrave ionico: l'ovolo, sulla faccia esterna */
+        const oh = archH * .2;
+        faceStrip(grp, r.ax, Math.sign(r.ax === 'x' ? r.cz : r.cx), depth / 2,
+                  seg * .995, oh, archH / 2 - oh / 2, ORN.ovoli, oh);
+      }
       const off = -r.len / 2 + seg * (i + .5);
       const ax = r.ax === 'x' ? off : r.cx, az = r.ax === 'x' ? r.cz : off;
       grp.position.set(ax, y0 + archH / 2 + rise(curve, ax, az), az);
@@ -362,6 +370,11 @@ export function entablature({ g, w, l, depth, y0, archH, frzH, geiH, doric, phas
         const grp = new THREE.Group(); grp.add(m);
         const sof = mk(box(bw * .88, .05, bd * .88), M.blu);
         sof.position.y = -geiH / 2 - .025; grp.add(sof);
+        /* sulla fronte: in alto la foglia d'acqua, sotto il meandro */
+        const sg = Math.sign(r.ax === 'x' ? r.cz : r.cx), len = r.ax === 'x' ? bw : bd;
+        const kh = geiH * .36, mh = geiH * .40;
+        faceStrip(grp, r.ax, sg, D / 2, len, kh, geiH / 2 - kh / 2, ORN.kyma, kh * 1.3);
+        faceStrip(grp, r.ax, sg, D / 2, len, mh, -geiH / 2 + geiH * .1 + mh / 2, ORN.meander, mh);
         m = grp;
       }
       const px = r.ax === 'z' ? Math.sign(r.cx) * depth * .2 : 0;
@@ -424,6 +437,10 @@ export function gable({ g, w, l, y0, pedH, depth, phase, figs, slabs, roofRows, 
       const m = mk(box(len, pedH * .13, D * 1.5), M.marmo2);
       m.position.set(s2 * w / 4, y0 + pedH / 2 + rise(curve, s2 * w / 4, z), z - D / 2 + D * .2);
       m.rotation.z = -s2 * Math.atan2(pedH, w / 2);
+      if (PC.on) {
+        const kh = pedH * .13 * .55;
+        faceStrip(m, 'x', side, D * .75, len, kh, pedH * .13 / 2 - kh / 2, ORN.kyma, kh * 1.3);
+      }
       addPiece(phase, m, COST.rakingCornice, mark('GEISON L'), 'cornice rampante', 9, g);
     });
     for (let i = 0; i < (figs || 0); i++) {
@@ -446,16 +463,41 @@ export function gable({ g, w, l, y0, pedH, depth, phase, figs, slabs, roofRows, 
   [1, -1].forEach(side => {
     for (let i = 0; i < rows; i++) {
       const t = (i + .5) / rows;
-      const m = mk(box(runLen / rows * .99, Math.max(.16, pedH * .06), rl), M.marmo2);
+      const rw = runLen / rows * .99, rh = Math.max(.16, pedH * .06);
+      const m = new THREE.Group();
+      const tiles = mk(box(rw, rh, rl), M.marmo2);
+      /* la fila scende verso la gronda: dal lato +x l'asse locale deve
+         puntare in basso e in fuori, quindi la rotazione e -side. Con +side,
+         come prima, ogni fila pendeva al contrario e il tetto sembrava una
+         serie di listelli con le fessure in mezzo. */
+      tiles.rotation.z = -side * slope;
+      m.add(tiles);
+      if (i === 0 && PC.on) {
+        /* le antefisse: una palmetta in testa a ogni fila di coppi, lungo la gronda */
+        const ah = Math.max(.35, pedH * .1);
+        const a = strip(rl, ah, ORN.palmette, ah * .9);
+        a.position.set(side * Math.cos(slope) * rw / 2, -Math.sin(slope) * rw / 2 + ah * .42, 0);
+        a.rotation.y = side * PI / 2;
+        m.add(a);
+      }
       /* la falda e rigida e non puo inarcarsi lungo i 69 m del fianco:
          la si alza del massimo, l aggetto delle tegole copre lo scarto */
       const rx = side * eaveX * (1 - t);
       m.position.set(rx, y0 + pedH * t + rise(curve, rx, 0), 0);
-      m.rotation.z = side * slope;
       addPiece(phase, m, COST.roof, mark('KERAMOS'), `fila di tegole ${i + 1}`, 11, g);
     }
   });
   const rid = mk(box(w * .05, pedH * .11, rl * .99), M.marmo);
   rid.position.set(0, ridgeY + pedH * .03 + rise(curve, 0, 0), 0);
+  if (PC.on) {
+    /* gli acroteri: una grande palmetta in cima a ciascun frontone */
+    const ac = pedH * .55;
+    [1, -1].forEach(e => {
+      const a = strip(ac, ac, ORN.palmette, ac);
+      a.position.set(0, ac / 2, e * rl * .495);
+      a.rotation.y = e > 0 ? 0 : PI;
+      rid.add(a);
+    });
+  }
   addPiece(phase, rid, COST.roof, mark('KORYFH'), 'colmo', 11, g);
 }
