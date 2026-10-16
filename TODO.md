@@ -19,6 +19,8 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
+- [x] Pronti per chi prova: `docs/prova.md`, modelli delle segnalazioni,
+      `npm run diagnosi`, grafo ripulito
 - [x] Il piano di Claude si sceglie al primo avvio (Pro, Max 5x, Max 20x) e
       decide il valore della settimana di ogni installazione
 - [x] Prestazioni: qualita adattiva, ombre a rate, fotogrammi a riposo.
@@ -37,8 +39,8 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase T, la prova con gli amici: fatto il piano di ognuno; ora la guida
-      e le segnalazioni, poi le prove sui tre sistemi, il repository privato
+- [ ] Fase T, la prova con gli amici: fatti il piano di ognuno, la guida e
+      le segnalazioni; ora le prove sui tre sistemi, poi il repository privato
 - [ ] Provare le prestazioni su un computer vero, debole (anche gli amici
       serviranno a questo)
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
@@ -198,12 +200,13 @@ i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
    - [x] Prove: registro, server, scena (anche: con Max 5x l'Acropoli costa
          cinque volte tanto, e i blocchi posati restano)
 2. **Prima di consegnarlo.**
-   - [ ] Pulire il grafo dal percorso di questo computer
-   - [ ] `docs/prova.md`: come si installa su Windows, macOS e Linux, come
+   - [x] Pulire il grafo dal percorso di questo computer (`npm run graph`,
+         `tools/graph-clean.js`; cache e copie datate fuori dal repository)
+   - [x] `docs/prova.md`: come si installa su Windows, macOS e Linux, come
          si aggiorna, cosa provare, come segnalare
-   - [ ] Modelli per le Issues: "qualcosa non funziona" e "impressioni"
-   - [ ] `npm run diagnosi`: versioni e stato del contatore, senza percorsi
-         ne dati personali, da incollare in una segnalazione
+   - [x] Modelli per le Issues: "qualcosa non funziona" e "impressioni"
+   - [x] `npm run diagnosi`: versioni e stato del contatore, senza percorsi
+         ne dati personali, da incollare in una segnalazione; con la sua prova
 3. **Tre sistemi senza avere tre computer.**
    - [ ] Le prove automatiche su GitHub Actions per Windows, macOS e Linux, a
          ogni push: server, contatore e scena
@@ -228,8 +231,9 @@ i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
 - [ ] Rileggere i documenti nel grafo (`/graphify --update`): README, TODO
       e diario sono cambiati dopo l'estrazione. Gemini gratuito ha un limite
       di 20 richieste al giorno; altrimenti li legge Claude
-- [ ] Prima di pubblicare: nel grafo il nodo di `home/home.js` ha nel nome il
-      percorso completo di questo computer; rigenerarlo o pulirlo
+- [x] Il grafo non ha piu il percorso di questo computer (`npm run graph`).
+      Resta nella storia di git, nei commit fino al 16 ottobre: prima della
+      pubblicazione si puo decidere se riscriverla
 - [ ] Rimisurare la settimana con una percentuale piu alta, per stringere i
       66 milioni (oggi fra 65,0 e 67,2)
 - [ ] Licenza e attribuzioni alle fonti storiche

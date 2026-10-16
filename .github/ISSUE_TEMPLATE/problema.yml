@@ -1,0 +1,48 @@
+name: Qualcosa non funziona
+description: Un errore, una pagina che non si apre, un cantiere che non cresce, un problema grafico.
+title: "[problema] "
+labels: ["problema"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per la segnalazione. Bastano poche righe: cosa hai fatto, cosa ti aspettavi, cosa è successo.
+  - type: textarea
+    id: cosa
+    attributes:
+      label: Cosa è successo
+      description: Cosa stavi facendo, cosa ti aspettavi e cosa invece è successo.
+    validations:
+      required: true
+  - type: dropdown
+    id: sistema
+    attributes:
+      label: Sistema
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+  - type: dropdown
+    id: avvio
+    attributes:
+      label: Come l'hai avviato
+      options:
+        - Doppio clic sul file di avvio
+        - npm start dal terminale
+        - L'app installata dal browser
+        - Non sono riuscito ad avviarlo
+  - type: textarea
+    id: diagnosi
+    attributes:
+      label: Diagnosi
+      description: |
+        Nel terminale, dalla cartella del progetto: `npm run diagnosi`. Incolla qui quello che stampa.
+        Non contiene niente di personale, ma rileggila pure prima.
+      render: markdown
+  - type: textarea
+    id: immagini
+    attributes:
+      label: Screenshot
+      description: Per i problemi grafici aiutano moltissimo. Puoi trascinarli qui.

@@ -21,6 +21,9 @@ esaurisce ogni volta il 100% dell'utilizzo settimanale concesso da Claude Code.
 
 ## Avvio rapido
 
+*Stai provando TokenStone prima della pubblicazione? La guida per te e
+[docs/prova.md](docs/prova.md): installazione, cosa provare, come segnalare.*
+
 Serve [Node.js](https://nodejs.org) 18 o successivo, e Claude Code installato
 sullo stesso computer. Nient'altro: il progetto non ha dipendenze, quindi non
 c'e nemmeno un `npm install` da fare.
@@ -482,6 +485,8 @@ tools/migrate.js      porta lo stato di un'installazione vecchia da world/ a sta
 tools/chrome.js       guidare Chrome senza finestra: per i test della scena e gli scatti
 tools/make-previews.js  gli scatti delle schede: npm run previews
 tools/new-world.js    un mondo nuovo dal modello: npm run new-world
+tools/diagnosi.js     npm run diagnosi: versioni e stato, senza dati personali, per le segnalazioni
+tools/graph-clean.js  npm run graph: aggiorna il grafo e ne toglie il percorso di questo computer
 tools/test/           test del registro, del server e della scena
 tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, test/
 state/                world-state.json del contatore e registry.json (non versionati)
@@ -490,6 +495,9 @@ CLAUDE.md             istruzioni per Claude Code quando lavora in questo progett
 TODO.md               il piano a fasi e le decisioni prese
 docs/conversazione.md come è nato il progetto e perché le scelte sono queste
 docs/creare-un-mondo.md  la guida per aggiungere un mondo, in inglese e in italiano
+docs/prova.md         la guida per chi prova TokenStone prima della pubblicazione
+.github/ISSUE_TEMPLATE/  i modelli delle segnalazioni: problema, impressioni
+engine/plans.json     i piani di Claude e quanto vale la loro settimana
 graphify-out/         il grafo del progetto (graphify): graph.html da sfogliare,
                       GRAPH_REPORT.md, graph.json per interrogarlo
 ```
@@ -500,7 +508,8 @@ raggruppati in comunità. Serve a Claude Code per orientarsi spendendo meno
 contesto: invece di rileggere i file, interroga il grafo
 (`graphify query "..."`, `graphify path`, `graphify explain`), come dice
 `CLAUDE.md`. `graph.html` si apre in un browser qualsiasi. Dopo una modifica
-al codice `graphify update .` lo aggiorna senza costi; per documenti e
+al codice `npm run graph` lo aggiorna senza costi e toglie dai nomi dei nodi il
+percorso di questo computer; per documenti e
 immagini serve `/graphify --update`, che li fa rileggere a un modello. Serve
 [graphify](https://github.com/safishamsi/graphify) installato; il progetto
 funziona anche senza.

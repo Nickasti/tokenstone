@@ -1077,7 +1077,30 @@ progetto: non conta quanto si spende, conta quanto si lavora.
 
 ---
 
-## 31. Cosa resta da fare
+## 31. Per chi prova
+
+Gli amici che proveranno TokenStone non avranno questa conversazione alle
+spalle. Per loro c'e `docs/prova.md`: cosa serve, come si installa sui tre
+sistemi, il primo avvio, come si aggiorna, una lista di cose da provare e
+come dire cosa non va. Le segnalazioni passano dalle Issues di GitHub, con
+due modelli - "qualcosa non funziona" e "impressioni" - o da un messaggio,
+che va benissimo lo stesso.
+
+Per i problemi c'e `npm run diagnosi`: le versioni di TokenStone, di Node,
+di Claude Code e del sistema, cosa sa il contatore e cosa ricorda il
+registro, le ultime righe del suo diario. Senza niente di personale: niente
+nomi di progetti ne di sessioni, e la cartella dell'utente diventa ~. Una
+prova lo controlla, dandole uno stato con un nome di progetto finto e
+verificando che non esca.
+
+E il grafo: graphify chiamava un nodo col percorso completo di questo
+computer - la funzione `$()` di `home/home.js`, che senza lettere nel nome
+coincideva con il file. Ora `npm run graph` aggiorna il grafo e lo ripulisce,
+e la cache delle estrazioni, piena di percorsi, resta fuori dal repository.
+
+---
+
+## 32. Cosa resta da fare
 
 *Al 16 ottobre 2026, a fase 5 chiusa.*
 

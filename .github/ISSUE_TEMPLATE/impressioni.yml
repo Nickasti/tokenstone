@@ -1,0 +1,41 @@
+name: Impressioni
+description: Cosa ti è piaciuto, cosa no, cosa non si capiva, cosa vorresti.
+title: "[impressioni] "
+labels: ["impressioni"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Non c'è una risposta giusta: anche "mi sono annoiato dopo due giorni" è utilissimo.
+  - type: dropdown
+    id: giorni
+    attributes:
+      label: Da quanto lo usi
+      options:
+        - L'ho appena installato
+        - Qualche giorno
+        - Una settimana o più
+  - type: dropdown
+    id: piano
+    attributes:
+      label: Il tuo piano di Claude
+      options:
+        - Pro
+        - Max 5x
+        - Max 20x
+        - Team o Enterprise
+  - type: textarea
+    id: capito
+    attributes:
+      label: Si capiva cosa fare?
+      description: Al primo avvio, e poi. Dove ti sei perso?
+  - type: textarea
+    id: ritmo
+    attributes:
+      label: Il ritmo del cantiere
+      description: Cresce troppo piano, troppo in fretta, giusto? Ti viene voglia di tornare a guardarlo?
+  - type: textarea
+    id: altro
+    attributes:
+      label: Il resto
+      description: Cosa ti è piaciuto, cosa cambieresti, cosa vorresti che ci fosse.

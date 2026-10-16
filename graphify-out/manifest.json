@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1792140045.2395039,
-    "ast_hash": "7047e01576b64c4fdd8413b65ba1f03e",
+    "mtime": 1792140165.2775257,
+    "ast_hash": "b925e34e621ae881161b699dcf4b3c77",
     "semantic_hash": ""
   },
   "sw.js": {
@@ -205,18 +205,18 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792139668.586408,
-    "ast_hash": "92f1c4f1921367f72c40875ba909c3b6",
+    "mtime": 1792140264.2184799,
+    "ast_hash": "1f5ab2696ce6776ae2f7394be8d07708",
     "semantic_hash": ""
   },
   "TODO.md": {
-    "mtime": 1792139694.5663562,
-    "ast_hash": "d057a7e0203ebc996cfba1bb2376be30",
+    "mtime": 1792140264.2214794,
+    "ast_hash": "4d768c59c39f2895b2640950b756f3dc",
     "semantic_hash": ""
   },
   "docs/conversazione.md": {
-    "mtime": 1792139706.9833152,
-    "ast_hash": "8c5d9da520d235086f9db5b5f413b278",
+    "mtime": 1792140264.2274811,
+    "ast_hash": "264fef84286da1f4ccbaa97721504379",
     "semantic_hash": ""
   },
   "docs/creare-un-mondo.md": {
@@ -307,6 +307,36 @@
   "tools/graph-clean.js": {
     "mtime": 1792140028.9692636,
     "ast_hash": "1476ce01795aee7bd999099972ae479e",
+    "semantic_hash": ""
+  },
+  "tools/diagnosi.js": {
+    "mtime": 1792140133.0422652,
+    "ast_hash": "6f2757968470fe0744635dbbaa469243",
+    "semantic_hash": ""
+  },
+  "tools/test/diagnosi-tests.js": {
+    "mtime": 1792140152.8339965,
+    "ast_hash": "76577012cab69ce2a20ea27af4ab77eb",
+    "semantic_hash": ""
+  },
+  ".github/ISSUE_TEMPLATE/config.yml": {
+    "mtime": 1792140211.7446685,
+    "ast_hash": "a58b47c3d59071bcc435c6c9c86bb4d8",
+    "semantic_hash": ""
+  },
+  ".github/ISSUE_TEMPLATE/impressioni.yml": {
+    "mtime": 1792140210.393798,
+    "ast_hash": "4e03e9c85d37306d53e125e3383e81fc",
+    "semantic_hash": ""
+  },
+  ".github/ISSUE_TEMPLATE/problema.yml": {
+    "mtime": 1792140209.0778244,
+    "ast_hash": "4599401f8584482a81dd0e761b6d188a",
+    "semantic_hash": ""
+  },
+  "docs/prova.md": {
+    "mtime": 1792140193.061734,
+    "ast_hash": "0b3e0000108519ed70cbd530e761f2dc",
     "semantic_hash": ""
   }
 }
