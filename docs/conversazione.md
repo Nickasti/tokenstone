@@ -1057,19 +1057,20 @@ come deve. Il guadagno vero va provato su un computer vero.
 
 ## 30. Cosa resta da fare
 
-**Sculture fotogrammetrate.** Le figure dei frontoni sono procedurali:
-panneggio in `LatheGeometry` con pieghe modulate angolarmente, e le pose
-seguono la composizione reale — stanti al centro, sedute a meta pendenza,
-distese negli angoli dove il timpano si stringe. E un segnaposto onesto, non
-un sostituto della fotogrammetria. Il punto di innesto e
-`setSculptureProvider()` in `src/kit.js`. Resta il solo lavoro che il codice
-non puo fare da se: servono modelli reali dal Museo dell'Acropoli.
+*Al 16 ottobre 2026, a fase 5 chiusa.*
 
-**Il fregio ionico del Partenone.** I 160 m della processione panatenaica
-che correvano sopra il muro della cella, dentro il colonnato, non ci sono:
-il sekos ha i muri ma non il fregio. E il pezzo di scultura piu importante
-dell'edificio ed e assente perche condivide il problema del punto sopra.
+**Due mondi.** La piana di Giza e il Foro Romano sono annunciati nella
+pagina iniziale, ma non costruiti. Si faranno dopo.
 
-**Ornati dipinti.** Meandri, palmette e ovoli sulle cornici richiedono una
-texture o una geometria molto piu fitta. Al momento le superfici dipinte sono
-campiture piene: giuste come colore, mute come disegno.
+**Prima di farlo provare.** Il valore della settimana, 66 milioni di TE, e
+stato misurato su un piano solo: chi ha un piano diverso costruirebbe a
+un'altra velocita. Servono anche un modo di consegnare il progetto a chi lo
+prova, e un modo di raccogliere quello che ne pensa.
+
+**Prima di pubblicarlo.** Licenza e attribuzioni alle fonti, il README per
+GitHub con le immagini, il nome definitivo, e la pulizia del grafo, che in
+un nodo porta il percorso di questo computer.
+
+**Piu avanti.** Le sculture fotogrammetrate del Museo dell'Acropoli
+(`setSculptureProvider()` e pronto); l'HDRI al posto del cielo analitico;
+`npx tokenstone`, per provarlo senza clonarlo.
