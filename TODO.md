@@ -35,9 +35,10 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Provare le prestazioni su un computer vero, debole: in prova la scheda
-      grafica e emulata e misura solo i triangoli, non i pixel
-- [ ] Fase 6: la piana di Giza (decidere la durata; proposta: tre mesi)
+- [ ] Fase T, la prova con gli amici: prima il piano di ognuno, poi la guida
+      e le segnalazioni, le prove sui tre sistemi, il repository privato
+- [ ] Provare le prestazioni su un computer vero, debole (anche gli amici
+      serviranno a questo)
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
 
 ## Bloccato
@@ -177,6 +178,39 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
 ### Fase 7 — Il Foro Romano
 - [ ] Epoca da scegliere; kit romano con archi, volte, laterizio, ordini
 
+### Fase T — La prova con gli amici *(in pianificazione, 16 ottobre)*
+
+Prima di pubblicare e sponsorizzare, il progetto lo provano alcuni amici.
+Decisioni del 16 ottobre: ognuno sceglie il suo piano; il progetto arriva
+da un repository GitHub privato, con gli amici invitati come collaboratori;
+i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
+
+1. **Il piano di ognuno.** I 66 milioni di TE sono il valore di Pro, misurato
+   su un abbonamento Pro. Gli altri in proporzione, come li dichiara
+   Anthropic: Max 5x 330 milioni, Max 20x 1,32 miliardi.
+   - [ ] Il piano si sceglie al primo avvio, prima del primo mondo, e si
+         cambia dalla pagina iniziale, con una conferma che spiega l'effetto
+         sui prezzi
+   - [ ] Il piano sta nello stato dell'installazione (non nel codice); il
+         motore prende da li il valore della settimana
+   - [ ] Prove: registro, server, scena
+2. **Prima di consegnarlo.**
+   - [ ] Pulire il grafo dal percorso di questo computer
+   - [ ] `docs/prova.md`: come si installa su Windows, macOS e Linux, come
+         si aggiorna, cosa provare, come segnalare
+   - [ ] Modelli per le Issues: "qualcosa non funziona" e "impressioni"
+   - [ ] `npm run diagnosi`: versioni e stato del contatore, senza percorsi
+         ne dati personali, da incollare in una segnalazione
+3. **Tre sistemi senza avere tre computer.**
+   - [ ] Le prove automatiche su GitHub Actions per Windows, macOS e Linux, a
+         ogni push: server, contatore e scena
+4. **La consegna.**
+   - [ ] Repository privato `tokenstone` sull'account GitHub, e il primo push
+         (con conferma prima di farlo)
+   - [ ] Gli inviti agli amici (li fai tu, da GitHub)
+5. **La prova.**
+   - [ ] Raccogliere le segnalazioni, correggere, rilasciare con `git pull`
+
 ---
 
 ## In parallelo
@@ -206,7 +240,8 @@ l'icona dell'app, che e ancora il frontone dell'Acropoli.
 
 - Il nome definitivo — entro la fase 3
 - La lista delle rifiniture dell'Acropoli — entro la fase 5
-- La durata di Giza — entro la fase 6 (proposta: tre mesi)
+- La durata di Giza — entro la fase 6 (proposta: tre mesi); Giza e il Foro
+  sono rimandati a dopo la prova con gli amici
 - L'epoca del Foro — entro la fase 7
 
 ## Piu avanti
