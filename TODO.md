@@ -19,7 +19,8 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
-- [x] Repository privato su GitHub, prove verdi su Linux, Windows e macOS
+- [x] Repository pubblico su GitHub (dal 16 ottobre, per farlo provare senza
+      inviti), prove verdi su Linux, Windows e macOS
 - [x] Pronti per chi prova: `docs/prova.md`, modelli delle segnalazioni,
       `npm run diagnosi`, grafo ripulito
 - [x] Il piano di Claude si sceglie al primo avvio (Pro, Max 5x, Max 20x) e
@@ -40,8 +41,8 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase T: invitare gli amici al repository (Settings, Collaborators, Add
-      people) e mandargli il link a docs/prova.md
+- [ ] Fase T: mandare agli amici il link a docs/prova.md e raccogliere le
+      segnalazioni
 - [ ] Provare le prestazioni su un computer vero, debole (anche gli amici
       serviranno a questo)
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
@@ -221,7 +222,9 @@ i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
          hanno trovato due difetti veri: la ricarica automatica, chiesta a
          ogni lettura, su un computer lento non finiva mai; e le scritture
          del registro non riprovavano se un altro processo teneva il file
-   - [ ] Gli inviti agli amici (li fai tu, da GitHub)
+   - [x] Il repository e diventato pubblico il 16 ottobre, su richiesta: il
+         link della guida, da privato, rispondeva 404 a chi non era invitato.
+         Senza licenza, per ora: si puo leggere e scaricare, non riusare
 5. **La prova.**
    - [ ] Raccogliere le segnalazioni, correggere, rilasciare con `git pull`
 

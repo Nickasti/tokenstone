@@ -2,9 +2,9 @@
 
 Grazie per provarlo. TokenStone trasforma il lavoro che fai con Claude Code
 in un cantiere: ogni risposta di Claude posa qualche blocco, e in circa un
-mese di lavoro pieno l'Acropoli di Pericle è finita. Il progetto non è
-ancora pubblico: questa guida spiega come installarlo, cosa provare e come
-dire cosa non va.
+mese di lavoro pieno l'Acropoli di Pericle è finita. Il progetto è in
+prova, prima di essere presentato: questa guida spiega come installarlo,
+cosa provare e come dire cosa non va.
 
 ## Cosa serve
 
@@ -15,22 +15,23 @@ dire cosa non va.
   [git-scm.com](https://git-scm.com). Su macOS c'è già, o te lo propone il
   sistema la prima volta che lo usi.
 - **Un browser** recente: Chrome, Edge, Firefox o Safari.
-- **Un account GitHub**, per accettare l'invito al progetto, che è privato.
+- **Un account GitHub**, solo se vuoi segnalare dalle Issues: per scaricarlo
+  e usarlo non serve.
 
 Non serve altro: il progetto non ha dipendenze, quindi niente `npm install`.
 
 ## Installarlo
 
-1. Accetta l'invito a GitHub che ti è arrivato per email.
-2. Apri un terminale nella cartella dove vuoi tenerlo e scarica il progetto:
+1. Apri un terminale nella cartella dove vuoi tenerlo e scarica il progetto:
 
    ```bash
    git clone https://github.com/Nickasti/tokenstone.git
    ```
 
-   Se git ti chiede di accedere, usa il tuo account GitHub. Con la GitHub
-   CLI installata va bene anche `gh repo clone Nickasti/tokenstone`.
-3. Avvialo con un doppio clic sul file del tuo sistema, nella cartella
+   Senza git puoi anche scaricarlo come ZIP dalla pagina del progetto
+   (*Code*, *Download ZIP*), ma poi ogni aggiornamento è un nuovo ZIP: con
+   git basta un comando.
+2. Avvialo con un doppio clic sul file del tuo sistema, nella cartella
    `tokenstone`:
 
    | Sistema | File | Se non parte |
