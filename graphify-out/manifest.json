@@ -5,9 +5,9 @@
     "semantic_hash": ""
   },
   "engine/credit.js": {
-    "mtime": 1791378062.029685,
-    "ast_hash": "50efd437235a584dedaa76c88f450bd5",
-    "semantic_hash": "50efd437235a584dedaa76c88f450bd5"
+    "mtime": 1792142628.2790213,
+    "ast_hash": "94a179b4603194f8009b836b6f86a03a",
+    "semantic_hash": ""
   },
   "engine/pieces.js": {
     "mtime": 1792081334.459933,
@@ -55,8 +55,8 @@
     "semantic_hash": "545881fd9b16fc4e1f74c86b0f901398"
   },
   "tools/chrome.js": {
-    "mtime": 1792140493.6212835,
-    "ast_hash": "1c11a2a8417d80c3cc5bcd33eb8ae24d",
+    "mtime": 1792141990.9198215,
+    "ast_hash": "da575eed10983a429fdb33064599b74b",
     "semantic_hash": ""
   },
   "tools/make-icons.js": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "tools/test/scene-tests.js": {
-    "mtime": 1792141772.0009956,
-    "ast_hash": "0bb70b3e0413d41c80a2ddd928d5986d",
+    "mtime": 1792142628.280026,
+    "ast_hash": "09bd5e488fc03c647e1fcabf3a989bfb",
     "semantic_hash": ""
   },
   "tools/test/server-tests.js": {

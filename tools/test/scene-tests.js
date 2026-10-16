@@ -171,7 +171,13 @@ const LENTO = process.env.CI ? 3 : 1;
     verifica('collegata, prima di aggiornare i file', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 20000 * LENTO), true);
     await dev.valuta('window.__vecchia = true');
     fs.writeFileSync(path.join(TMP, 'stamp.txt'), 'dopo');
-    verifica('si e ricaricata', await waitFor(dev.valuta, 'window.__vecchia !== true', 30000 * LENTO), true);
+    const ricaricata = await waitFor(dev.valuta, 'window.__vecchia !== true', 30000 * LENTO);
+    verifica('si e ricaricata', ricaricata, true);
+    if (!ricaricata) {
+      // per capire dove si inceppa: cosa sa la scheda, e cosa dice il server
+      console.log('          scheda: ' + await dev.valuta('JSON.stringify(window.__credit || null)') +
+        ' - server: ' + (await registro()).client_version);
+    }
     verifica('e riparte collegata', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 30000 * LENTO), true);
 
     console.log('\n7. Il modello dei mondi nuovi si apre, prende i testi da world.json e costruisce.\n');

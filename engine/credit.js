@@ -70,6 +70,8 @@ export class CreditSource {
          il codice che sta eseguendo non e piu quello del server, e col tempo
          mostrerebbe un cantiere che non e quello vero. Si ricarica, e
          riparte dal registro come ogni scheda nuova. */
+      /* per le prove: quante letture ha fatto la scheda, e che versione conosce */
+      window.__credit = { reads: ((window.__credit || {}).reads || 0) + 1, version: this.version || d.client_version };
       if (d.client_version) {
         if (this.version && d.client_version !== this.version) { location.reload(); return true; }
         this.version = d.client_version;
