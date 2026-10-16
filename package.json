@@ -8,7 +8,8 @@
     "test": "node tools/token-counter/check-pricing.js && node tools/token-counter/test/run-tests.js && node tools/test/registry-tests.js && node tools/test/new-world-tests.js && node tools/test/server-tests.js",
     "test:scene": "node tools/test/scene-tests.js",
     "previews": "node tools/make-previews.js",
-    "new-world": "node tools/new-world.js"
+    "new-world": "node tools/new-world.js",
+    "graph": "graphify update . && node tools/graph-clean.js"
   },
   "engines": {
     "node": ">=18"

@@ -722,7 +722,7 @@
       "source_file": "home/home.js",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "id": "home_home_dollaro",
       "community": 14,
       "norm_label": "$()"
     },
@@ -967,10 +967,20 @@
       "norm_label": "new-world"
     },
     {
+      "label": "graph",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "package_scripts_graph",
+      "community": 15,
+      "norm_label": "graph"
+    },
+    {
       "label": "engines",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "package_engines",
       "community": 15,
@@ -980,7 +990,7 @@
       "label": "node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "package_engines_node",
       "community": 15,
@@ -1113,6 +1123,96 @@
       "id": "tools_chrome_waitfor",
       "community": 7,
       "norm_label": "waitfor()"
+    },
+    {
+      "label": "graph-clean.js",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tools_graph_clean",
+      "community": 145,
+      "norm_label": "graph-clean.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "tools_graph_clean_fs",
+      "community": 145,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "tools_graph_clean_path",
+      "community": 145,
+      "norm_label": "path"
+    },
+    {
+      "label": "ROOT",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "tools_graph_clean_root",
+      "community": 145,
+      "norm_label": "root"
+    },
+    {
+      "label": "OUT",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tools_graph_clean_out",
+      "community": 145,
+      "norm_label": "out"
+    },
+    {
+      "label": "graphFile",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "tools_graph_clean_graphfile",
+      "community": 145,
+      "norm_label": "graphfile"
+    },
+    {
+      "label": "ids",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "tools_graph_clean_ids",
+      "community": 145,
+      "norm_label": "ids"
+    },
+    {
+      "label": "SYMBOLS",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "tools_graph_clean_symbols",
+      "community": 145,
+      "norm_label": "symbols"
+    },
+    {
+      "label": "renames",
+      "file_type": "code",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "tools_graph_clean_renames",
+      "community": 145,
+      "norm_label": "renames"
     },
     {
       "label": "make-icons.js",
@@ -4051,7 +4151,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_parthenon",
-      "community": 143,
+      "community": 144,
       "norm_label": "parthenon"
     },
     {
@@ -4161,7 +4261,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze",
-      "community": 143,
+      "community": 0,
       "norm_label": "frieze.js"
     },
     {
@@ -4171,7 +4271,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_c",
-      "community": 143,
+      "community": 0,
       "norm_label": "c"
     },
     {
@@ -4181,7 +4281,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_person",
-      "community": 143,
+      "community": 0,
       "norm_label": "person()"
     },
     {
@@ -4191,7 +4291,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_seated",
-      "community": 143,
+      "community": 0,
       "norm_label": "seated()"
     },
     {
@@ -4201,7 +4301,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_horse",
-      "community": 143,
+      "community": 0,
       "norm_label": "horse()"
     },
     {
@@ -4211,7 +4311,7 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_chariot",
-      "community": 143,
+      "community": 0,
       "norm_label": "chariot()"
     },
     {
@@ -4221,7 +4321,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_cow",
-      "community": 143,
+      "community": 0,
       "norm_label": "cow()"
     },
     {
@@ -4231,7 +4331,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_scene",
-      "community": 143,
+      "community": 0,
       "norm_label": "scene()"
     },
     {
@@ -4241,7 +4341,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_scenes",
-      "community": 143,
+      "community": 0,
       "norm_label": "scenes"
     },
     {
@@ -4251,7 +4351,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_mats",
-      "community": 143,
+      "community": 0,
       "norm_label": "mats"
     },
     {
@@ -4261,7 +4361,7 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_material",
-      "community": 143,
+      "community": 0,
       "norm_label": "material()"
     },
     {
@@ -4271,7 +4371,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "worlds_acropolis_src_frieze_flankscene",
-      "community": 143,
+      "community": 0,
       "norm_label": "flankscene()"
     },
     {
@@ -9400,7 +9500,7 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "home_home",
-      "target": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "target": "home_home_dollaro",
       "confidence_score": 1.0
     },
     {
@@ -9585,7 +9685,7 @@
       "source_location": "L69",
       "weight": 1.0,
       "source": "home_home_conferma",
-      "target": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "target": "home_home_dollaro",
       "confidence_score": 1.0
     },
     {
@@ -9596,7 +9696,7 @@
       "source_location": "L249",
       "weight": 1.0,
       "source": "home_home_load",
-      "target": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "target": "home_home_dollaro",
       "confidence_score": 1.0
     },
     {
@@ -9607,7 +9707,7 @@
       "source_location": "L206",
       "weight": 1.0,
       "source": "home_home_render",
-      "target": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "target": "home_home_dollaro",
       "confidence_score": 1.0
     },
     {
@@ -9618,7 +9718,7 @@
       "source_location": "L135",
       "weight": 1.0,
       "source": "home_home_salvapiano",
-      "target": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "target": "home_home_dollaro",
       "confidence_score": 1.0
     },
     {
@@ -9629,7 +9729,7 @@
       "source_location": "L79",
       "weight": 1.0,
       "source": "home_home_scegli",
-      "target": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "target": "home_home_dollaro",
       "confidence_score": 1.0
     },
     {
@@ -9640,7 +9740,7 @@
       "source_location": "L110",
       "weight": 1.0,
       "source": "home_home_sceglipiano",
-      "target": "c_users_nikoa_desktop_acropoli_tokenizer_acropoli_progetto_acropoli_home_home",
+      "target": "home_home_dollaro",
       "confidence_score": 1.0
     },
     {
@@ -9866,7 +9966,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "package",
       "target": "package_engines",
@@ -9910,6 +10010,16 @@
       "weight": 1.0,
       "source": "package",
       "target": "package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_graph",
       "confidence_score": 1.0
     },
     {
@@ -9966,7 +10076,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "package_engines",
       "target": "package_engines_node",
@@ -10219,6 +10329,86 @@
       "weight": 1.0,
       "source": "tools_test_scene_tests",
       "target": "tools_chrome_waitfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_graphfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_ids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_renames",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/graph-clean.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "tools_graph_clean",
+      "target": "tools_graph_clean_symbols",
       "confidence_score": 1.0
     },
     {
@@ -20338,5 +20528,5 @@
       "source_file": "worlds/acropolis/preview.webp"
     }
   ],
-  "built_at_commit": "02c5fd05e08e8b2330fc0e652e55657e8d56d2fc"
+  "built_at_commit": "25c91becba39af6c859ca2db8cb65d641112c387"
 }

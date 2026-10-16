@@ -40,9 +40,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1791374447.7390342,
-    "ast_hash": "f56d555ea8cee74a0ccc202300333e2d",
-    "semantic_hash": "f56d555ea8cee74a0ccc202300333e2d"
+    "mtime": 1792140045.2395039,
+    "ast_hash": "7047e01576b64c4fdd8413b65ba1f03e",
+    "semantic_hash": ""
   },
   "sw.js": {
     "mtime": 1791299282.28273,
@@ -200,8 +200,8 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1791910232.9129288,
-    "ast_hash": "f578dae1279b593f83b64d485a6e8295",
+    "mtime": 1792140045.2415018,
+    "ast_hash": "6cf413d5aab97b2bc4ed86ca32a6f32a",
     "semantic_hash": ""
   },
   "README.md": {
@@ -302,6 +302,11 @@
   "engine/plans.json": {
     "mtime": 1792137438.9979298,
     "ast_hash": "4d91fe4e0cd12329f290cfd25885d94d",
+    "semantic_hash": ""
+  },
+  "tools/graph-clean.js": {
+    "mtime": 1792140028.9692636,
+    "ast_hash": "1476ce01795aee7bd999099972ae479e",
     "semantic_hash": ""
   }
 }
