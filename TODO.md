@@ -19,6 +19,7 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
+- [x] Repository privato su GitHub, prove verdi su Linux, Windows e macOS
 - [x] Pronti per chi prova: `docs/prova.md`, modelli delle segnalazioni,
       `npm run diagnosi`, grafo ripulito
 - [x] Il piano di Claude si sceglie al primo avvio (Pro, Max 5x, Max 20x) e
@@ -39,8 +40,8 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase T, la prova con gli amici: fatti il piano di ognuno, la guida e
-      le segnalazioni; ora le prove sui tre sistemi, poi il repository privato
+- [ ] Fase T: invitare gli amici al repository (Settings, Collaborators, Add
+      people) e mandargli il link a docs/prova.md
 - [ ] Provare le prestazioni su un computer vero, debole (anche gli amici
       serviranno a questo)
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
@@ -214,8 +215,12 @@ i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
    - [x] La prova dei file di avvio (`tools/test/launcher-tests.js`, in
          `npm test`): quello del sistema accende davvero il server
 4. **La consegna.**
-   - [ ] Repository privato `tokenstone` sull'account GitHub, e il primo push
-         (con conferma prima di farlo)
+   - [x] Repository privato: https://github.com/Nickasti/tokenstone, con le
+         etichette `problema` e `impressioni`; storia lasciata com'e
+   - [x] Le prove su GitHub passano su Linux, Windows e macOS. Su Windows
+         hanno trovato due difetti veri: la ricarica automatica, chiesta a
+         ogni lettura, su un computer lento non finiva mai; e le scritture
+         del registro non riprovavano se un altro processo teneva il file
    - [ ] Gli inviti agli amici (li fai tu, da GitHub)
 5. **La prova.**
    - [ ] Raccogliere le segnalazioni, correggere, rilasciare con `git pull`

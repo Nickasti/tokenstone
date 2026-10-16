@@ -1111,7 +1111,30 @@ e il lunedi: sui repository privati i suoi minuti costano dieci volte.
 
 ---
 
-## 33. Cosa resta da fare
+## 33. Quello che Windows ha visto
+
+Il repository privato e nato il 16 ottobre, e il primo giro di prove su
+GitHub e stato quasi tutto verde: Linux e macOS al primo colpo, file di
+avvio compresi. Windows no, il sistema su cui il progetto e nato. Le
+macchine di GitHub hanno due processori, e Chrome che disegna la scena
+senza scheda grafica se li prende tutti: e un computer lento, di quelli
+che qualcuno degli amici avra davvero.
+
+Le prime correzioni erano della prova - attese piu lunghe, una finestra
+piu piccola - ma una cosa non tornava: la scheda non si ricaricava da sola
+quando cambiavano i file, nemmeno in un minuto e mezzo. Facendola parlare
+si e visto perche. Sapeva della versione nuova, e chiedeva la ricarica; ma
+la chiedeva a ogni lettura, ogni cinque secondi, e su un computer lento una
+ricarica dura di piu: ogni richiesta annullava quella in corso, all'infinito.
+Ora la si chiede una volta sola.
+
+Strada facendo anche le scritture del registro hanno imparato a riprovare:
+su Windows, rinominare un file che l'antivirus sta guardando fallisce per
+un attimo.
+
+---
+
+## 34. Cosa resta da fare
 
 *Al 16 ottobre 2026, a fase 5 chiusa.*
 
