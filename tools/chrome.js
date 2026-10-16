@@ -51,7 +51,9 @@ function launch(browser, { profileDir, debugPort, headed = false, width = 1280, 
 /** Una connessione a una scheda, che va subito all'indirizzo dato. */
 async function connect(debugPort, url) {
   let pagina = null;
-  for (let i = 0; i < 60 && !pagina; i++) {
+  // 15 secondi; sulle macchine di GitHub, dove Chrome parte a freddo e lento, un minuto
+  const tentativi = process.env.CI ? 240 : 60;
+  for (let i = 0; i < tentativi && !pagina; i++) {
     try {
       const lista = await (await fetch('http://127.0.0.1:' + debugPort + '/json')).json();
       pagina = lista.find((t) => t.type === 'page');
