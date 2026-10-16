@@ -42,6 +42,8 @@ function launch(browser, { profileDir, debugPort, headed = false, width = 1280, 
     '--no-first-run', '--no-default-browser-check', '--disable-extensions',
     // WebGL anche senza scheda grafica: la scena e three.js
     '--use-angle=swiftshader', '--enable-unsafe-swiftshader',
+    // sulle macchine delle prove automatiche (Linux di GitHub) la sandbox di Chrome non parte
+    ...(process.env.CI ? ['--no-sandbox'] : []),
     '--hide-scrollbars', '--window-size=' + width + ',' + height, 'about:blank',
   ], { stdio: 'ignore' });
 }

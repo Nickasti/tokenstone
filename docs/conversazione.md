@@ -1100,7 +1100,18 @@ e la cache delle estrazioni, piena di percorsi, resta fuori dal repository.
 
 ---
 
-## 32. Cosa resta da fare
+## 32. Tre sistemi senza tre computer
+
+I file di avvio per macOS e Linux esistevano dalla fase 3, ma nessuno li
+aveva mai visti partire: questo computer e Windows. Ora una prova li accende
+davvero - quello del sistema su cui gira - e controlla che il server
+risponda; e la stessa prova, con tutte le altre e con la scena in un Chrome
+senza finestra, gira su GitHub per Linux, Windows e macOS. macOS solo a mano
+e il lunedi: sui repository privati i suoi minuti costano dieci volte.
+
+---
+
+## 33. Cosa resta da fare
 
 *Al 16 ottobre 2026, a fase 5 chiusa.*
 

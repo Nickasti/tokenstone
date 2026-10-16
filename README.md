@@ -487,7 +487,8 @@ tools/make-previews.js  gli scatti delle schede: npm run previews
 tools/new-world.js    un mondo nuovo dal modello: npm run new-world
 tools/diagnosi.js     npm run diagnosi: versioni e stato, senza dati personali, per le segnalazioni
 tools/graph-clean.js  npm run graph: aggiorna il grafo e ne toglie il percorso di questo computer
-tools/test/           test del registro, del server e della scena
+tools/test/           prove del registro, del server, della scena, dei file di avvio e della diagnosi
+.github/workflows/    le stesse prove su GitHub, per Linux, Windows e macOS
 tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, test/
 state/                world-state.json del contatore e registry.json (non versionati)
 .claude/agents/       aggiorna-listino.md, il subagente che aggiorna i prezzi

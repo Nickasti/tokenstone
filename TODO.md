@@ -208,8 +208,11 @@ i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
    - [x] `npm run diagnosi`: versioni e stato del contatore, senza percorsi
          ne dati personali, da incollare in una segnalazione; con la sua prova
 3. **Tre sistemi senza avere tre computer.**
-   - [ ] Le prove automatiche su GitHub Actions per Windows, macOS e Linux, a
-         ogni push: server, contatore e scena
+   - [x] Le prove automatiche su GitHub Actions (`.github/workflows/prove.yml`):
+         Linux e Windows a ogni push, con la scena; Node 18 su Linux; macOS a
+         mano e ogni lunedi, perche nei repository privati costa dieci volte
+   - [x] La prova dei file di avvio (`tools/test/launcher-tests.js`, in
+         `npm test`): quello del sistema accende davvero il server
 4. **La consegna.**
    - [ ] Repository privato `tokenstone` sull'account GitHub, e il primo push
          (con conferma prima di farlo)

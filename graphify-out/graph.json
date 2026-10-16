@@ -1118,7 +1118,7 @@
       "label": "connect()",
       "file_type": "code",
       "source_file": "tools/chrome.js",
-      "source_location": "L50",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "tools_chrome_connect",
       "community": 7,
@@ -1128,7 +1128,7 @@
       "label": "waitFor()",
       "file_type": "code",
       "source_file": "tools/chrome.js",
-      "source_location": "L86",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "tools_chrome_waitfor",
       "community": 7,
@@ -2533,6 +2533,116 @@
       "id": "tools_test_diagnosi_tests_r",
       "community": 144,
       "norm_label": "r"
+    },
+    {
+      "label": "launcher-tests.js",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests",
+      "community": 146,
+      "norm_label": "launcher-tests.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_fs",
+      "community": 146,
+      "norm_label": "fs"
+    },
+    {
+      "label": "os",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_os",
+      "community": 146,
+      "norm_label": "os"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_path",
+      "community": 146,
+      "norm_label": "path"
+    },
+    {
+      "label": "{ spawn, spawnSync }",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_spawn_spawnsync",
+      "community": 146,
+      "norm_label": "{ spawn, spawnsync }"
+    },
+    {
+      "label": "ROOT",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_root",
+      "community": 146,
+      "norm_label": "root"
+    },
+    {
+      "label": "TMP",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_tmp",
+      "community": 146,
+      "norm_label": "tmp"
+    },
+    {
+      "label": "verifica()",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_verifica",
+      "community": 146,
+      "norm_label": "verifica()"
+    },
+    {
+      "label": "env",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_env",
+      "community": 146,
+      "norm_label": "env"
+    },
+    {
+      "label": "stop()",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_stop",
+      "community": 146,
+      "norm_label": "stop()"
+    },
+    {
+      "label": "prova()",
+      "file_type": "code",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "tools_test_launcher_tests_prova",
+      "community": 146,
+      "norm_label": "prova()"
     },
     {
       "label": "new-world-tests.js",
@@ -4411,7 +4521,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config",
-      "community": 0,
+      "community": 143,
       "norm_label": "config.js"
     },
     {
@@ -4421,7 +4531,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_plateau",
-      "community": 0,
+      "community": 143,
       "norm_label": "plateau"
     },
     {
@@ -4431,7 +4541,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_site",
-      "community": 0,
+      "community": 143,
       "norm_label": "site"
     },
     {
@@ -4441,7 +4551,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_parthenon",
-      "community": 0,
+      "community": 143,
       "norm_label": "parthenon"
     },
     {
@@ -4451,7 +4561,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_refinements",
-      "community": 0,
+      "community": 143,
       "norm_label": "refinements"
     },
     {
@@ -4461,7 +4571,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_propylaea",
-      "community": 0,
+      "community": 143,
       "norm_label": "propylaea"
     },
     {
@@ -4471,7 +4581,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_nike",
-      "community": 0,
+      "community": 143,
       "norm_label": "nike"
     },
     {
@@ -4481,7 +4591,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_erechtheion",
-      "community": 0,
+      "community": 143,
       "norm_label": "erechtheion"
     },
     {
@@ -4491,7 +4601,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_pads",
-      "community": 0,
+      "community": 143,
       "norm_label": "pads"
     },
     {
@@ -4501,7 +4611,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_rock_step",
-      "community": 0,
+      "community": 143,
       "norm_label": "rock_step"
     },
     {
@@ -4511,7 +4621,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_polychromy",
-      "community": 0,
+      "community": 143,
       "norm_label": "polychromy"
     },
     {
@@ -4531,7 +4641,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_phases",
-      "community": 0,
+      "community": 143,
       "norm_label": "phases"
     },
     {
@@ -4541,7 +4651,7 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_focus",
-      "community": 0,
+      "community": 143,
       "norm_label": "focus"
     },
     {
@@ -5001,7 +5111,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main",
-      "community": 0,
+      "community": 143,
       "norm_label": "main.js"
     },
     {
@@ -5011,7 +5121,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main_meta",
-      "community": 0,
+      "community": 143,
       "norm_label": "meta"
     },
     {
@@ -5021,7 +5131,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main_build",
-      "community": 0,
+      "community": 143,
       "norm_label": "build()"
     },
     {
@@ -5031,7 +5141,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main_focus",
-      "community": 0,
+      "community": 143,
       "norm_label": "focus()"
     },
     {
@@ -5411,7 +5521,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain",
-      "community": 0,
+      "community": 143,
       "norm_label": "terrain.js"
     },
     {
@@ -5421,7 +5531,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_smoothstep",
-      "community": 0,
+      "community": 143,
       "norm_label": "smoothstep()"
     },
     {
@@ -5441,7 +5551,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_walltop",
-      "community": 0,
+      "community": 143,
       "norm_label": "walltop()"
     },
     {
@@ -5451,7 +5561,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_naturalh",
-      "community": 0,
+      "community": 143,
       "norm_label": "naturalh()"
     },
     {
@@ -5461,7 +5571,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_levels",
-      "community": 0,
+      "community": 143,
       "norm_label": "levels"
     },
     {
@@ -5471,7 +5581,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_terrainh",
-      "community": 0,
+      "community": 143,
       "norm_label": "terrainh()"
     },
     {
@@ -5481,7 +5591,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_buildterrain",
-      "community": 0,
+      "community": 143,
       "norm_label": "buildterrain()"
     },
     {
@@ -5571,7 +5681,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "readme",
-      "community": 5,
+      "community": 151,
       "norm_label": "readme.md"
     },
     {
@@ -5581,7 +5691,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "readme_tokenstone",
-      "community": 11,
+      "community": 148,
       "norm_label": "tokenstone"
     },
     {
@@ -5591,7 +5701,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "readme_avvio_rapido",
-      "community": 11,
+      "community": 148,
       "norm_label": "avvio rapido"
     },
     {
@@ -5601,7 +5711,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "readme_con_un_doppio_clic",
-      "community": 11,
+      "community": 148,
       "norm_label": "con un doppio clic"
     },
     {
@@ -5611,7 +5721,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "readme_come_app",
-      "community": 11,
+      "community": 148,
       "norm_label": "come app"
     },
     {
@@ -5621,7 +5731,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "readme_da_terminale",
-      "community": 11,
+      "community": 148,
       "norm_label": "da terminale"
     },
     {
@@ -5631,7 +5741,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "readme_la_pagina_iniziale",
-      "community": 11,
+      "community": 148,
       "norm_label": "la pagina iniziale"
     },
     {
@@ -5641,7 +5751,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "readme_dentro_un_mondo",
-      "community": 11,
+      "community": 148,
       "norm_label": "dentro un mondo"
     },
     {
@@ -5651,7 +5761,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "readme_i_mondi_e_il_registro",
-      "community": 11,
+      "community": 148,
       "norm_label": "i mondi e il registro"
     },
     {
@@ -5761,87 +5871,87 @@
       "source_location": "L445",
       "_origin": "ast",
       "id": "readme_struttura",
-      "community": 11,
+      "community": 148,
       "norm_label": "struttura"
     },
     {
       "label": "Il primo mondo: l'Acropoli",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L519",
+      "source_location": "L520",
       "_origin": "ast",
       "id": "readme_il_primo_mondo_l_acropoli",
-      "community": 11,
+      "community": 150,
       "norm_label": "il primo mondo: l'acropoli"
     },
     {
       "label": "Il pianoro",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L523",
+      "source_location": "L524",
       "_origin": "ast",
       "id": "readme_il_pianoro",
-      "community": 11,
+      "community": 150,
       "norm_label": "il pianoro"
     },
     {
       "label": "Raffinatezze ottiche e policromia",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L542",
+      "source_location": "L543",
       "_origin": "ast",
       "id": "readme_raffinatezze_ottiche_e_policromia",
-      "community": 11,
+      "community": 150,
       "norm_label": "raffinatezze ottiche e policromia"
     },
     {
       "label": "Frontoni e fregio",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L564",
+      "source_location": "L565",
       "_origin": "ast",
       "id": "readme_frontoni_e_fregio",
-      "community": 11,
+      "community": 150,
       "norm_label": "frontoni e fregio"
     },
     {
       "label": "I due innesti da completare",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L581",
+      "source_location": "L582",
       "_origin": "ast",
       "id": "readme_i_due_innesti_da_completare",
-      "community": 11,
+      "community": 150,
       "norm_label": "i due innesti da completare"
     },
     {
       "label": "1. Sculture fotogrammetrate",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L583",
+      "source_location": "L584",
       "_origin": "ast",
       "id": "readme_1_sculture_fotogrammetrate",
-      "community": 11,
+      "community": 150,
       "norm_label": "1. sculture fotogrammetrate"
     },
     {
       "label": "2. HDRI al posto del cielo analitico",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L593",
+      "source_location": "L594",
       "_origin": "ast",
       "id": "readme_2_hdri_al_posto_del_cielo_analitico",
-      "community": 11,
+      "community": 150,
       "norm_label": "2. hdri al posto del cielo analitico"
     },
     {
       "label": "Prestazioni",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L604",
+      "source_location": "L605",
       "_origin": "ast",
       "id": "readme_prestazioni",
-      "community": 11,
+      "community": 150,
       "norm_label": "prestazioni"
     },
     {
@@ -5998,7 +6108,7 @@
       "label": "In parallelo",
       "file_type": "document",
       "source_file": "TODO.md",
-      "source_location": "L222",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "todo_in_parallelo",
       "community": 33,
@@ -6008,7 +6118,7 @@
       "label": "Decisioni aperte",
       "file_type": "document",
       "source_file": "TODO.md",
-      "source_location": "L246",
+      "source_location": "L249",
       "_origin": "ast",
       "id": "todo_decisioni_aperte",
       "community": 33,
@@ -6018,7 +6128,7 @@
       "label": "Piu avanti",
       "file_type": "document",
       "source_file": "TODO.md",
-      "source_location": "L254",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "todo_piu_avanti",
       "community": 33,
@@ -6355,14 +6465,24 @@
       "norm_label": "31. per chi prova"
     },
     {
-      "label": "32. Cosa resta da fare",
+      "label": "32. Tre sistemi senza tre computer",
       "file_type": "document",
       "source_file": "docs/conversazione.md",
       "source_location": "L1103",
       "_origin": "ast",
-      "id": "docs_conversazione_32_cosa_resta_da_fare",
+      "id": "docs_conversazione_32_tre_sistemi_senza_tre_computer",
       "community": 8,
-      "norm_label": "32. cosa resta da fare"
+      "norm_label": "32. tre sistemi senza tre computer"
+    },
+    {
+      "label": "33. Cosa resta da fare",
+      "file_type": "document",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L1114",
+      "_origin": "ast",
+      "id": "docs_conversazione_33_cosa_resta_da_fare",
+      "community": 8,
+      "norm_label": "33. cosa resta da fare"
     },
     {
       "label": "creare-un-mondo.md",
@@ -6371,7 +6491,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_creare_un_mondo",
-      "community": 5,
+      "community": 151,
       "norm_label": "creare-un-mondo.md"
     },
     {
@@ -6381,7 +6501,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_creating_a_world",
-      "community": 5,
+      "community": 147,
       "norm_label": "creating a world"
     },
     {
@@ -6391,7 +6511,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_how_a_world_is_made",
-      "community": 5,
+      "community": 147,
       "norm_label": "how a world is made"
     },
     {
@@ -6401,7 +6521,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_1_start_from_the_template",
-      "community": 5,
+      "community": 147,
       "norm_label": "1. start from the template"
     },
     {
@@ -6411,7 +6531,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_2_world_json",
-      "community": 5,
+      "community": 147,
       "norm_label": "2. world.json"
     },
     {
@@ -6421,7 +6541,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_3_the_code_src_main_js",
-      "community": 5,
+      "community": 147,
       "norm_label": "3. the code: src/main.js"
     },
     {
@@ -6431,7 +6551,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_the_pieces",
-      "community": 5,
+      "community": 147,
       "norm_label": "the pieces"
     },
     {
@@ -6441,7 +6561,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_startworld",
-      "community": 5,
+      "community": 147,
       "norm_label": "startworld"
     },
     {
@@ -6451,7 +6571,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_4_look_at_it",
-      "community": 5,
+      "community": 147,
       "norm_label": "4. look at it"
     },
     {
@@ -6461,7 +6581,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_5_the_card_s_picture",
-      "community": 5,
+      "community": 147,
       "norm_label": "5. the card's picture"
     },
     {
@@ -6471,7 +6591,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_6_publish_it",
-      "community": 5,
+      "community": 147,
       "norm_label": "6. publish it"
     },
     {
@@ -6581,7 +6701,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_prova",
-      "community": 5,
+      "community": 151,
       "norm_label": "prova.md"
     },
     {
@@ -6591,7 +6711,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_prova_provare_tokenstone",
-      "community": 5,
+      "community": 149,
       "norm_label": "provare tokenstone"
     },
     {
@@ -6601,7 +6721,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "docs_prova_cosa_serve",
-      "community": 5,
+      "community": 149,
       "norm_label": "cosa serve"
     },
     {
@@ -6611,7 +6731,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "docs_prova_installarlo",
-      "community": 5,
+      "community": 149,
       "norm_label": "installarlo"
     },
     {
@@ -6621,7 +6741,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "docs_prova_il_primo_avvio",
-      "community": 5,
+      "community": 149,
       "norm_label": "il primo avvio"
     },
     {
@@ -6631,7 +6751,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "docs_prova_aggiornarlo",
-      "community": 5,
+      "community": 149,
       "norm_label": "aggiornarlo"
     },
     {
@@ -6641,7 +6761,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "docs_prova_cosa_provare",
-      "community": 5,
+      "community": 149,
       "norm_label": "cosa provare"
     },
     {
@@ -6651,7 +6771,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "docs_prova_come_segnalare",
-      "community": 5,
+      "community": 149,
       "norm_label": "come segnalare"
     },
     {
@@ -6661,7 +6781,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "docs_prova_togliere_tokenstone",
-      "community": 5,
+      "community": 149,
       "norm_label": "togliere tokenstone"
     },
     {
@@ -10496,7 +10616,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/chrome.js",
-      "source_location": "L95",
+      "source_location": "L97",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_chrome",
@@ -10507,7 +10627,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/chrome.js",
-      "source_location": "L95",
+      "source_location": "L97",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_chrome",
@@ -10518,7 +10638,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/chrome.js",
-      "source_location": "L95",
+      "source_location": "L97",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_chrome",
@@ -10539,7 +10659,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/chrome.js",
-      "source_location": "L95",
+      "source_location": "L97",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_chrome",
@@ -10570,7 +10690,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/chrome.js",
-      "source_location": "L95",
+      "source_location": "L97",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_chrome",
@@ -10615,7 +10735,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/chrome.js",
-      "source_location": "L57",
+      "source_location": "L59",
       "weight": 1.0,
       "source": "tools_chrome_connect",
       "target": "tools_chrome_attendi",
@@ -10626,7 +10746,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/chrome.js",
-      "source_location": "L90",
+      "source_location": "L92",
       "weight": 1.0,
       "source": "tools_chrome_waitfor",
       "target": "tools_chrome_attendi",
@@ -12691,6 +12811,128 @@
       "weight": 1.0,
       "source": "tools_test_diagnosi_tests",
       "target": "tools_test_diagnosi_tests_verifica",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_os",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_prova",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_spawn_spawnsync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_stop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_tmp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests",
+      "target": "tools_test_launcher_tests_verifica",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests_prova",
+      "target": "tools_test_launcher_tests_verifica",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test/launcher-tests.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "tools_test_launcher_tests_prova",
+      "target": "tools_test_launcher_tests_stop",
       "confidence_score": 1.0
     },
     {
@@ -19653,7 +19895,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L519",
+      "source_location": "L520",
       "weight": 1.0,
       "source": "readme_tokenstone",
       "target": "readme_il_primo_mondo_l_acropoli",
@@ -19813,7 +20055,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L564",
+      "source_location": "L565",
       "weight": 1.0,
       "source": "readme_il_primo_mondo_l_acropoli",
       "target": "readme_frontoni_e_fregio",
@@ -19823,7 +20065,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L581",
+      "source_location": "L582",
       "weight": 1.0,
       "source": "readme_il_primo_mondo_l_acropoli",
       "target": "readme_i_due_innesti_da_completare",
@@ -19833,7 +20075,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L523",
+      "source_location": "L524",
       "weight": 1.0,
       "source": "readme_il_primo_mondo_l_acropoli",
       "target": "readme_il_pianoro",
@@ -19843,7 +20085,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L604",
+      "source_location": "L605",
       "weight": 1.0,
       "source": "readme_il_primo_mondo_l_acropoli",
       "target": "readme_prestazioni",
@@ -19853,7 +20095,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L542",
+      "source_location": "L543",
       "weight": 1.0,
       "source": "readme_il_primo_mondo_l_acropoli",
       "target": "readme_raffinatezze_ottiche_e_policromia",
@@ -19863,7 +20105,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L583",
+      "source_location": "L584",
       "weight": 1.0,
       "source": "readme_i_due_innesti_da_completare",
       "target": "readme_1_sculture_fotogrammetrate",
@@ -19873,7 +20115,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L593",
+      "source_location": "L594",
       "weight": 1.0,
       "source": "readme_i_due_innesti_da_completare",
       "target": "readme_2_hdri_al_posto_del_cielo_analitico",
@@ -19903,7 +20145,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "TODO.md",
-      "source_location": "L246",
+      "source_location": "L249",
       "weight": 1.0,
       "source": "todo_tokenstone_cosa_resta_da_fare",
       "target": "todo_decisioni_aperte",
@@ -19943,7 +20185,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "TODO.md",
-      "source_location": "L222",
+      "source_location": "L225",
       "weight": 1.0,
       "source": "todo_tokenstone_cosa_resta_da_fare",
       "target": "todo_in_parallelo",
@@ -19953,7 +20195,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "TODO.md",
-      "source_location": "L254",
+      "source_location": "L257",
       "weight": 1.0,
       "source": "todo_tokenstone_cosa_resta_da_fare",
       "target": "todo_piu_avanti",
@@ -20306,7 +20548,17 @@
       "source_location": "L1103",
       "weight": 1.0,
       "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
-      "target": "docs_conversazione_32_cosa_resta_da_fare",
+      "target": "docs_conversazione_32_tre_sistemi_senza_tre_computer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/conversazione.md",
+      "source_location": "L1114",
+      "weight": 1.0,
+      "source": "docs_conversazione_come_\u00e8_nato_questo_progetto",
+      "target": "docs_conversazione_33_cosa_resta_da_fare",
       "confidence_score": 1.0
     },
     {
@@ -21332,5 +21584,5 @@
       "source_file": "worlds/acropolis/preview.webp"
     }
   ],
-  "built_at_commit": "621cb3d8ea348116d017177c5784d3cc214e8ba3"
+  "built_at_commit": "323338b59f36fb941c8104bdbef3d6dac329e4e7"
 }

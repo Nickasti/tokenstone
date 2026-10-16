@@ -1,0 +1,45 @@
+# Le prove di TokenStone sui tre sistemi, senza avere tre computer.
+#
+# A ogni push: Linux e Windows, con le prove della scena in un Chrome senza
+# finestra; e Linux con Node 18, la versione piu vecchia che il progetto
+# promette di supportare. macOS costa dieci volte i minuti degli altri sui
+# repository privati: gira a mano (Actions, "Prove", Run workflow) e ogni
+# lunedi mattina.
+name: Prove
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  prove:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ${{ github.event_name == 'push' && fromJSON('["ubuntu-latest","windows-latest"]') || fromJSON('["ubuntu-latest","windows-latest","macos-latest"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Prove del contatore, del registro, del server e dei file di avvio
+        run: npm test
+      - name: Prova della scena in Chrome
+        run: npm run test:scene
+
+  node18:
+    name: ubuntu con Node 18
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Prove senza browser
+        run: npm test
