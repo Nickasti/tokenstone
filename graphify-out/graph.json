@@ -2165,10 +2165,20 @@
       "norm_label": "read()"
     },
     {
+      "label": "renameRetry()",
+      "file_type": "code",
+      "source_file": "tools/registry.js",
+      "source_location": "L306",
+      "_origin": "ast",
+      "id": "tools_registry_renameretry",
+      "community": 6,
+      "norm_label": "renameretry()"
+    },
+    {
       "label": "writeAtomic()",
       "file_type": "code",
       "source_file": "tools/registry.js",
-      "source_location": "L302",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "tools_registry_writeatomic",
       "community": 6,
@@ -2178,7 +2188,7 @@
       "label": "write()",
       "file_type": "code",
       "source_file": "tools/registry.js",
-      "source_location": "L308",
+      "source_location": "L326",
       "_origin": "ast",
       "id": "tools_registry_write",
       "community": 6,
@@ -3635,10 +3645,20 @@
       "norm_label": "releaselock()"
     },
     {
+      "label": "renameRetry()",
+      "file_type": "code",
+      "source_file": "tools/token-counter/counter.js",
+      "source_location": "L597",
+      "_origin": "ast",
+      "id": "tools_token_counter_counter_renameretry",
+      "community": 2,
+      "norm_label": "renameretry()"
+    },
+    {
       "label": "writeAtomic()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L594",
+      "source_location": "L607",
       "_origin": "ast",
       "id": "tools_token_counter_counter_writeatomic",
       "community": 2,
@@ -3648,7 +3668,7 @@
       "label": "writeState()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L605",
+      "source_location": "L618",
       "_origin": "ast",
       "id": "tools_token_counter_counter_writestate",
       "community": 2,
@@ -3658,7 +3678,7 @@
       "label": "recomputeTotals()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L617",
+      "source_location": "L630",
       "_origin": "ast",
       "id": "tools_token_counter_counter_recomputetotals",
       "community": 2,
@@ -3668,7 +3688,7 @@
       "label": "fingerprint()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L628",
+      "source_location": "L641",
       "_origin": "ast",
       "id": "tools_token_counter_counter_fingerprint",
       "community": 2,
@@ -3678,7 +3698,7 @@
       "label": "applyScan()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L640",
+      "source_location": "L653",
       "_origin": "ast",
       "id": "tools_token_counter_counter_applyscan",
       "community": 2,
@@ -3688,7 +3708,7 @@
       "label": "byModel()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L679",
+      "source_location": "L692",
       "_origin": "ast",
       "id": "tools_token_counter_counter_bymodel",
       "community": 2,
@@ -3698,7 +3718,7 @@
       "label": "scanOnce()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L702",
+      "source_location": "L715",
       "_origin": "ast",
       "id": "tools_token_counter_counter_scanonce",
       "community": 2,
@@ -3708,7 +3728,7 @@
       "label": "summary()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L762",
+      "source_location": "L775",
       "_origin": "ast",
       "id": "tools_token_counter_counter_summary",
       "community": 2,
@@ -3718,7 +3738,7 @@
       "label": "startWatching()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L784",
+      "source_location": "L797",
       "_origin": "ast",
       "id": "tools_token_counter_counter_startwatching",
       "community": 2,
@@ -3728,7 +3748,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L801",
+      "source_location": "L814",
       "_origin": "ast",
       "id": "tools_token_counter_counter_main",
       "community": 2,
@@ -4521,7 +4541,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config",
-      "community": 143,
+      "community": 0,
       "norm_label": "config.js"
     },
     {
@@ -4531,7 +4551,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_plateau",
-      "community": 143,
+      "community": 0,
       "norm_label": "plateau"
     },
     {
@@ -4541,7 +4561,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_site",
-      "community": 143,
+      "community": 0,
       "norm_label": "site"
     },
     {
@@ -4551,7 +4571,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_parthenon",
-      "community": 143,
+      "community": 0,
       "norm_label": "parthenon"
     },
     {
@@ -4561,7 +4581,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_refinements",
-      "community": 143,
+      "community": 0,
       "norm_label": "refinements"
     },
     {
@@ -4571,7 +4591,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_propylaea",
-      "community": 143,
+      "community": 0,
       "norm_label": "propylaea"
     },
     {
@@ -4581,7 +4601,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_nike",
-      "community": 143,
+      "community": 0,
       "norm_label": "nike"
     },
     {
@@ -4591,7 +4611,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_erechtheion",
-      "community": 143,
+      "community": 0,
       "norm_label": "erechtheion"
     },
     {
@@ -4601,7 +4621,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_pads",
-      "community": 143,
+      "community": 0,
       "norm_label": "pads"
     },
     {
@@ -4611,7 +4631,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_rock_step",
-      "community": 143,
+      "community": 0,
       "norm_label": "rock_step"
     },
     {
@@ -4621,7 +4641,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_polychromy",
-      "community": 143,
+      "community": 0,
       "norm_label": "polychromy"
     },
     {
@@ -4641,7 +4661,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_phases",
-      "community": 143,
+      "community": 0,
       "norm_label": "phases"
     },
     {
@@ -4651,7 +4671,7 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "worlds_acropolis_src_config_focus",
-      "community": 143,
+      "community": 0,
       "norm_label": "focus"
     },
     {
@@ -5111,7 +5131,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main",
-      "community": 143,
+      "community": 0,
       "norm_label": "main.js"
     },
     {
@@ -5121,7 +5141,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main_meta",
-      "community": 143,
+      "community": 0,
       "norm_label": "meta"
     },
     {
@@ -5131,7 +5151,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main_build",
-      "community": 143,
+      "community": 0,
       "norm_label": "build()"
     },
     {
@@ -5141,7 +5161,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "worlds_acropolis_src_main_focus",
-      "community": 143,
+      "community": 0,
       "norm_label": "focus()"
     },
     {
@@ -5521,7 +5541,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain",
-      "community": 143,
+      "community": 0,
       "norm_label": "terrain.js"
     },
     {
@@ -5531,7 +5551,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_smoothstep",
-      "community": 143,
+      "community": 0,
       "norm_label": "smoothstep()"
     },
     {
@@ -5551,7 +5571,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_walltop",
-      "community": 143,
+      "community": 0,
       "norm_label": "walltop()"
     },
     {
@@ -5561,7 +5581,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_naturalh",
-      "community": 143,
+      "community": 0,
       "norm_label": "naturalh()"
     },
     {
@@ -5571,7 +5591,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_levels",
-      "community": 143,
+      "community": 0,
       "norm_label": "levels"
     },
     {
@@ -5581,7 +5601,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_terrainh",
-      "community": 143,
+      "community": 0,
       "norm_label": "terrainh()"
     },
     {
@@ -5591,7 +5611,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "worlds_acropolis_src_terrain_buildterrain",
-      "community": 143,
+      "community": 0,
       "norm_label": "buildterrain()"
     },
     {
@@ -5681,7 +5701,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "readme",
-      "community": 151,
+      "community": 5,
       "norm_label": "readme.md"
     },
     {
@@ -5691,7 +5711,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "readme_tokenstone",
-      "community": 148,
+      "community": 11,
       "norm_label": "tokenstone"
     },
     {
@@ -5701,7 +5721,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "readme_avvio_rapido",
-      "community": 148,
+      "community": 11,
       "norm_label": "avvio rapido"
     },
     {
@@ -5711,7 +5731,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "readme_con_un_doppio_clic",
-      "community": 148,
+      "community": 11,
       "norm_label": "con un doppio clic"
     },
     {
@@ -5721,7 +5741,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "readme_come_app",
-      "community": 148,
+      "community": 11,
       "norm_label": "come app"
     },
     {
@@ -5731,7 +5751,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "readme_da_terminale",
-      "community": 148,
+      "community": 11,
       "norm_label": "da terminale"
     },
     {
@@ -5741,7 +5761,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "readme_la_pagina_iniziale",
-      "community": 148,
+      "community": 11,
       "norm_label": "la pagina iniziale"
     },
     {
@@ -5751,7 +5771,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "readme_dentro_un_mondo",
-      "community": 148,
+      "community": 11,
       "norm_label": "dentro un mondo"
     },
     {
@@ -5761,7 +5781,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "readme_i_mondi_e_il_registro",
-      "community": 148,
+      "community": 11,
       "norm_label": "i mondi e il registro"
     },
     {
@@ -5871,7 +5891,7 @@
       "source_location": "L445",
       "_origin": "ast",
       "id": "readme_struttura",
-      "community": 148,
+      "community": 11,
       "norm_label": "struttura"
     },
     {
@@ -5881,7 +5901,7 @@
       "source_location": "L520",
       "_origin": "ast",
       "id": "readme_il_primo_mondo_l_acropoli",
-      "community": 150,
+      "community": 11,
       "norm_label": "il primo mondo: l'acropoli"
     },
     {
@@ -5891,7 +5911,7 @@
       "source_location": "L524",
       "_origin": "ast",
       "id": "readme_il_pianoro",
-      "community": 150,
+      "community": 11,
       "norm_label": "il pianoro"
     },
     {
@@ -5901,7 +5921,7 @@
       "source_location": "L543",
       "_origin": "ast",
       "id": "readme_raffinatezze_ottiche_e_policromia",
-      "community": 150,
+      "community": 11,
       "norm_label": "raffinatezze ottiche e policromia"
     },
     {
@@ -5911,7 +5931,7 @@
       "source_location": "L565",
       "_origin": "ast",
       "id": "readme_frontoni_e_fregio",
-      "community": 150,
+      "community": 11,
       "norm_label": "frontoni e fregio"
     },
     {
@@ -5921,7 +5941,7 @@
       "source_location": "L582",
       "_origin": "ast",
       "id": "readme_i_due_innesti_da_completare",
-      "community": 150,
+      "community": 11,
       "norm_label": "i due innesti da completare"
     },
     {
@@ -5931,7 +5951,7 @@
       "source_location": "L584",
       "_origin": "ast",
       "id": "readme_1_sculture_fotogrammetrate",
-      "community": 150,
+      "community": 11,
       "norm_label": "1. sculture fotogrammetrate"
     },
     {
@@ -5941,7 +5961,7 @@
       "source_location": "L594",
       "_origin": "ast",
       "id": "readme_2_hdri_al_posto_del_cielo_analitico",
-      "community": 150,
+      "community": 11,
       "norm_label": "2. hdri al posto del cielo analitico"
     },
     {
@@ -5951,7 +5971,7 @@
       "source_location": "L605",
       "_origin": "ast",
       "id": "readme_prestazioni",
-      "community": 150,
+      "community": 11,
       "norm_label": "prestazioni"
     },
     {
@@ -6491,7 +6511,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_creare_un_mondo",
-      "community": 151,
+      "community": 5,
       "norm_label": "creare-un-mondo.md"
     },
     {
@@ -6501,7 +6521,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_creating_a_world",
-      "community": 147,
+      "community": 5,
       "norm_label": "creating a world"
     },
     {
@@ -6511,7 +6531,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_how_a_world_is_made",
-      "community": 147,
+      "community": 5,
       "norm_label": "how a world is made"
     },
     {
@@ -6521,7 +6541,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_1_start_from_the_template",
-      "community": 147,
+      "community": 5,
       "norm_label": "1. start from the template"
     },
     {
@@ -6531,7 +6551,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_2_world_json",
-      "community": 147,
+      "community": 5,
       "norm_label": "2. world.json"
     },
     {
@@ -6541,7 +6561,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_3_the_code_src_main_js",
-      "community": 147,
+      "community": 5,
       "norm_label": "3. the code: src/main.js"
     },
     {
@@ -6551,7 +6571,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_the_pieces",
-      "community": 147,
+      "community": 5,
       "norm_label": "the pieces"
     },
     {
@@ -6561,7 +6581,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_startworld",
-      "community": 147,
+      "community": 5,
       "norm_label": "startworld"
     },
     {
@@ -6571,7 +6591,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_4_look_at_it",
-      "community": 147,
+      "community": 5,
       "norm_label": "4. look at it"
     },
     {
@@ -6581,7 +6601,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_5_the_card_s_picture",
-      "community": 147,
+      "community": 5,
       "norm_label": "5. the card's picture"
     },
     {
@@ -6591,7 +6611,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "docs_creare_un_mondo_6_publish_it",
-      "community": 147,
+      "community": 5,
       "norm_label": "6. publish it"
     },
     {
@@ -6701,7 +6721,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_prova",
-      "community": 151,
+      "community": 5,
       "norm_label": "prova.md"
     },
     {
@@ -6711,7 +6731,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_prova_provare_tokenstone",
-      "community": 149,
+      "community": 5,
       "norm_label": "provare tokenstone"
     },
     {
@@ -6721,7 +6741,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "docs_prova_cosa_serve",
-      "community": 149,
+      "community": 5,
       "norm_label": "cosa serve"
     },
     {
@@ -6731,7 +6751,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "docs_prova_installarlo",
-      "community": 149,
+      "community": 5,
       "norm_label": "installarlo"
     },
     {
@@ -6741,7 +6761,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "docs_prova_il_primo_avvio",
-      "community": 149,
+      "community": 5,
       "norm_label": "il primo avvio"
     },
     {
@@ -6751,7 +6771,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "docs_prova_aggiornarlo",
-      "community": 149,
+      "community": 5,
       "norm_label": "aggiornarlo"
     },
     {
@@ -6761,7 +6781,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "docs_prova_cosa_provare",
-      "community": 149,
+      "community": 5,
       "norm_label": "cosa provare"
     },
     {
@@ -6771,7 +6791,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "docs_prova_come_segnalare",
-      "community": 149,
+      "community": 5,
       "norm_label": "come segnalare"
     },
     {
@@ -6781,7 +6801,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "docs_prova_togliere_tokenstone",
-      "community": 149,
+      "community": 5,
       "norm_label": "togliere tokenstone"
     },
     {
@@ -11701,7 +11721,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11712,7 +11732,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11733,7 +11753,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11784,7 +11804,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L316",
+      "source_location": "L334",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11805,7 +11825,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11866,7 +11886,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11877,7 +11897,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L316",
+      "source_location": "L334",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11885,10 +11905,20 @@
       "confidence_score": 0.5
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/registry.js",
+      "source_location": "L306",
+      "weight": 1.0,
+      "source": "tools_registry",
+      "target": "tools_registry_renameretry",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11909,7 +11939,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11920,7 +11950,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11941,7 +11971,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11962,7 +11992,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -11993,7 +12023,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/registry.js",
-      "source_location": "L317",
+      "source_location": "L335",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_registry",
@@ -12004,7 +12034,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/registry.js",
-      "source_location": "L302",
+      "source_location": "L315",
       "weight": 1.0,
       "source": "tools_registry",
       "target": "tools_registry_writeatomic",
@@ -12257,7 +12287,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/registry.js",
-      "source_location": "L311",
+      "source_location": "L319",
+      "weight": 1.0,
+      "source": "tools_registry_writeatomic",
+      "target": "tools_registry_renameretry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/registry.js",
+      "source_location": "L329",
       "weight": 1.0,
       "source": "tools_registry_write",
       "target": "tools_registry_writeatomic",
@@ -13622,7 +13663,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L640",
+      "source_location": "L653",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_applyscan",
@@ -13642,7 +13683,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L679",
+      "source_location": "L692",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_bymodel",
@@ -13712,7 +13753,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L628",
+      "source_location": "L641",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_fingerprint",
@@ -13782,7 +13823,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L801",
+      "source_location": "L814",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_main",
@@ -13872,7 +13913,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L617",
+      "source_location": "L630",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_recomputetotals",
@@ -13892,6 +13933,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
+      "source_location": "L597",
+      "weight": 1.0,
+      "source": "tools_token_counter_counter",
+      "target": "tools_token_counter_counter_renameretry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/token-counter/counter.js",
       "source_location": "L155",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
@@ -13902,7 +13953,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L825",
+      "source_location": "L838",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_token_counter_counter",
@@ -13923,7 +13974,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L825",
+      "source_location": "L838",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_token_counter_counter",
@@ -13944,7 +13995,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L762",
+      "source_location": "L775",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_summary",
@@ -13964,7 +14015,7 @@
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L825",
+      "source_location": "L838",
       "weight": 1.0,
       "context": "collection",
       "source": "tools_token_counter_counter",
@@ -13985,7 +14036,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L594",
+      "source_location": "L607",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_writeatomic",
@@ -13995,7 +14046,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L605",
+      "source_location": "L618",
       "weight": 1.0,
       "source": "tools_token_counter_counter",
       "target": "tools_token_counter_counter_writestate",
@@ -14017,7 +14068,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L666",
+      "source_location": "L679",
       "weight": 1.0,
       "source": "tools_token_counter_counter_applyscan",
       "target": "tools_token_counter_counter_log",
@@ -14028,7 +14079,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L818",
+      "source_location": "L831",
       "weight": 1.0,
       "source": "tools_token_counter_counter_main",
       "target": "tools_token_counter_counter_log",
@@ -14061,7 +14112,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L736",
+      "source_location": "L749",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_log",
@@ -14072,7 +14123,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L789",
+      "source_location": "L802",
       "weight": 1.0,
       "source": "tools_token_counter_counter_startwatching",
       "target": "tools_token_counter_counter_log",
@@ -14083,7 +14134,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L613",
+      "source_location": "L626",
       "weight": 1.0,
       "source": "tools_token_counter_counter_writestate",
       "target": "tools_token_counter_counter_log",
@@ -14094,7 +14145,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L802",
+      "source_location": "L815",
       "weight": 1.0,
       "source": "tools_token_counter_counter_main",
       "target": "tools_token_counter_counter_parseargs",
@@ -14116,7 +14167,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L707",
+      "source_location": "L720",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_loadpricing",
@@ -14138,7 +14189,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L682",
+      "source_location": "L695",
       "weight": 1.0,
       "source": "tools_token_counter_counter_bymodel",
       "target": "tools_token_counter_counter_resolvemodel",
@@ -14193,7 +14244,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L729",
+      "source_location": "L742",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_discover",
@@ -14270,7 +14321,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L741",
+      "source_location": "L754",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_collect",
@@ -14281,7 +14332,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L647",
+      "source_location": "L660",
       "weight": 1.0,
       "source": "tools_token_counter_counter_applyscan",
       "target": "tools_token_counter_counter_aggregate",
@@ -14292,7 +14343,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L689",
+      "source_location": "L702",
       "weight": 1.0,
       "source": "tools_token_counter_counter_bymodel",
       "target": "tools_token_counter_counter_aggregate",
@@ -14325,7 +14376,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L712",
+      "source_location": "L725",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_emptystate",
@@ -14347,7 +14398,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L712",
+      "source_location": "L725",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_readstate",
@@ -14369,7 +14420,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L708",
+      "source_location": "L721",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_acquirelock",
@@ -14380,7 +14431,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L758",
+      "source_location": "L771",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_releaselock",
@@ -14391,7 +14442,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L608",
+      "source_location": "L611",
+      "weight": 1.0,
+      "source": "tools_token_counter_counter_writeatomic",
+      "target": "tools_token_counter_counter_renameretry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/token-counter/counter.js",
+      "source_location": "L621",
       "weight": 1.0,
       "source": "tools_token_counter_counter_writestate",
       "target": "tools_token_counter_counter_writeatomic",
@@ -14402,7 +14464,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L735",
+      "source_location": "L748",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_writestate",
@@ -14413,7 +14475,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L673",
+      "source_location": "L686",
       "weight": 1.0,
       "source": "tools_token_counter_counter_applyscan",
       "target": "tools_token_counter_counter_recomputetotals",
@@ -14424,7 +14486,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L728",
+      "source_location": "L741",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_fingerprint",
@@ -14435,7 +14497,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L742",
+      "source_location": "L755",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_applyscan",
@@ -14446,7 +14508,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L743",
+      "source_location": "L756",
       "weight": 1.0,
       "source": "tools_token_counter_counter_scanonce",
       "target": "tools_token_counter_counter_bymodel",
@@ -14457,7 +14519,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L812",
+      "source_location": "L825",
       "weight": 1.0,
       "source": "tools_token_counter_counter_main",
       "target": "tools_token_counter_counter_scanonce",
@@ -14468,7 +14530,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L788",
+      "source_location": "L801",
       "weight": 1.0,
       "source": "tools_token_counter_counter_startwatching",
       "target": "tools_token_counter_counter_scanonce",
@@ -14479,7 +14541,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L813",
+      "source_location": "L826",
       "weight": 1.0,
       "source": "tools_token_counter_counter_main",
       "target": "tools_token_counter_counter_summary",
@@ -14490,7 +14552,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tools/token-counter/counter.js",
-      "source_location": "L808",
+      "source_location": "L821",
       "weight": 1.0,
       "source": "tools_token_counter_counter_main",
       "target": "tools_token_counter_counter_startwatching",
@@ -21584,5 +21646,5 @@
       "source_file": "worlds/acropolis/preview.webp"
     }
   ],
-  "built_at_commit": "323338b59f36fb941c8104bdbef3d6dac329e4e7"
+  "built_at_commit": "29f96177c592d89dede7743a33f649c7ce1a7710"
 }

@@ -299,10 +299,28 @@ function read(nowIso) {
   }
 }
 
+/* Su Windows rinominare sopra un file che un altro processo tiene aperto -
+   l'antivirus che lo sta controllando, una scheda che lo sta leggendo -
+   fallisce per un attimo con EPERM o EBUSY. Si riprova qualche volta, a
+   pochi millisecondi di distanza, prima di arrendersi. */
+function renameRetry(from, to) {
+  for (let i = 0; ; i++) {
+    try { return fs.renameSync(from, to); } catch (err) {
+      if (i >= 8 || !['EPERM', 'EBUSY', 'EACCES'].includes(err.code)) throw err;
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 15 * (i + 1));
+    }
+  }
+}
+
 function writeAtomic(target, text) {
   const tmp = target + '.' + process.pid + '.' + Date.now() + '.tmp';
   fs.writeFileSync(tmp, text);
-  fs.renameSync(tmp, target);
+  try {
+    renameRetry(tmp, target);
+  } catch (err) {
+    try { fs.unlinkSync(tmp); } catch (_) { /* niente */ }
+    throw err;
+  }
 }
 
 function write(reg) {

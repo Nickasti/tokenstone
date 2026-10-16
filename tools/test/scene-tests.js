@@ -70,7 +70,11 @@ const LENTO = process.env.CI ? 3 : 1;
   });
 
   const server = spawn(process.execPath, [SERVER, '0', '--no-browser', '--interval', '0.3'],
-    { env, stdio: ['ignore', 'pipe', 'ignore'] });
+    { env, stdio: ['ignore', 'pipe', 'pipe'] });
+  // gli errori del server si tengono da parte: se qualcosa fallisce, si stampano
+  let serverErr = '';
+  server.stderr.on('data', (c) => { serverErr = (serverErr + c).slice(-4000); });
+  server.on('exit', (code) => { if (code) serverErr += '\n[il server e uscito con codice ' + code + ']'; });
   const porta = await new Promise((resolve, reject) => {
     let out = '';
     server.stdout.on('data', (c) => { out += c; const m = out.match(/localhost:(\d+)/); if (m) resolve(Number(m[1])); });
@@ -80,7 +84,10 @@ const LENTO = process.env.CI ? 3 : 1;
   const registro = async () => (await fetch(base + '/api/registry')).json();
 
   const debugPort = 9300 + Math.floor(Math.random() * 400);
-  const chrome = launch(browser, { profileDir: path.join(TMP, 'p'), debugPort, headed: !!process.env.TEST_SCENE_HEADED });
+  /* sulle macchine di GitHub una finestra piu piccola: meno pixel da
+     disegnare senza scheda grafica, e la CPU resta anche per il resto */
+  const chrome = launch(browser, Object.assign({ profileDir: path.join(TMP, 'p'), debugPort, headed: !!process.env.TEST_SCENE_HEADED },
+    process.env.CI ? { width: 800, height: 520 } : {}));
 
   try {
     console.log('\n1. La pagina iniziale, al primo avvio: nessun mondo attivo.\n');
@@ -164,7 +171,7 @@ const LENTO = process.env.CI ? 3 : 1;
     verifica('collegata, prima di aggiornare i file', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 20000 * LENTO), true);
     await dev.valuta('window.__vecchia = true');
     fs.writeFileSync(path.join(TMP, 'stamp.txt'), 'dopo');
-    verifica('si e ricaricata', await waitFor(dev.valuta, 'window.__vecchia !== true', 20000 * LENTO), true);
+    verifica('si e ricaricata', await waitFor(dev.valuta, 'window.__vecchia !== true', 30000 * LENTO), true);
     verifica('e riparte collegata', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 30000 * LENTO), true);
 
     console.log('\n7. Il modello dei mondi nuovi si apre, prende i testi da world.json e costruisce.\n');
@@ -212,6 +219,7 @@ const LENTO = process.env.CI ? 3 : 1;
     try { fs.rmSync(TMP, { recursive: true, force: true }); } catch (_) { /* il sistema la pulira */ }
   }
 
+  if (falliti && serverErr.trim()) console.log('\nErrori del server:\n' + serverErr.trim());
   console.log('\n' + (falliti === 0 ? 'Tutti i controlli passati.' : falliti + ' controlli falliti.') + '\n');
   process.exitCode = falliti === 0 ? 0 : 1;
 })();

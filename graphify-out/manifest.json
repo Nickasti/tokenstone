@@ -80,8 +80,8 @@
     "semantic_hash": "33efbefa22148dddb669eeb8eee44a4d"
   },
   "tools/registry.js": {
-    "mtime": 1792137443.5378728,
-    "ast_hash": "2cd03642f8df7bedbf247416b9f9fa58",
+    "mtime": 1792141751.9477992,
+    "ast_hash": "1eb2ac9fe084f56cd297138f7af9acbe",
     "semantic_hash": ""
   },
   "tools/server.js": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "tools/test/scene-tests.js": {
-    "mtime": 1792139527.4030123,
-    "ast_hash": "2f49cf1629b6665c5990fbe7bcfbd18f",
+    "mtime": 1792141772.0009956,
+    "ast_hash": "0bb70b3e0413d41c80a2ddd928d5986d",
     "semantic_hash": ""
   },
   "tools/test/server-tests.js": {
@@ -115,9 +115,9 @@
     "semantic_hash": "24ddf426078135a62247329ed5edaefb"
   },
   "tools/token-counter/counter.js": {
-    "mtime": 1791296507.4355073,
-    "ast_hash": "567de01e08edd24b9abb991f6f69e254",
-    "semantic_hash": "567de01e08edd24b9abb991f6f69e254"
+    "mtime": 1792141751.9477992,
+    "ast_hash": "a434d60e85813846e97a60e373c7a882",
+    "semantic_hash": ""
   },
   "tools/token-counter/pricing.json": {
     "mtime": 1791217297.292292,
