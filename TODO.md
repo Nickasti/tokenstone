@@ -19,6 +19,8 @@ avanti anche mondi moderni o inventati.
       Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
       terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
       Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
+- [x] Il piano di Claude si sceglie al primo avvio (Pro, Max 5x, Max 20x) e
+      decide il valore della settimana di ogni installazione
 - [x] Prestazioni: qualita adattiva, ombre a rate, fotogrammi a riposo.
       La fase 5 e completa
 - [x] Il fregio delle Panatenee sul Partenone: 46 pezzi nuovi, in fondo al
@@ -35,8 +37,8 @@ avanti anche mondi moderni o inventati.
 
 ## Prossimi step
 
-- [ ] Fase T, la prova con gli amici: prima il piano di ognuno, poi la guida
-      e le segnalazioni, le prove sui tre sistemi, il repository privato
+- [ ] Fase T, la prova con gli amici: fatto il piano di ognuno; ora la guida
+      e le segnalazioni, poi le prove sui tre sistemi, il repository privato
 - [ ] Provare le prestazioni su un computer vero, debole (anche gli amici
       serviranno a questo)
 - [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
@@ -188,12 +190,13 @@ i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
 1. **Il piano di ognuno.** I 66 milioni di TE sono il valore di Pro, misurato
    su un abbonamento Pro. Gli altri in proporzione, come li dichiara
    Anthropic: Max 5x 330 milioni, Max 20x 1,32 miliardi.
-   - [ ] Il piano si sceglie al primo avvio, prima del primo mondo, e si
+   - [x] Il piano si sceglie al primo avvio, prima del primo mondo, e si
          cambia dalla pagina iniziale, con una conferma che spiega l'effetto
          sui prezzi
-   - [ ] Il piano sta nello stato dell'installazione (non nel codice); il
-         motore prende da li il valore della settimana
-   - [ ] Prove: registro, server, scena
+   - [x] Il piano sta nel registro (`plan`), i valori in `engine/plans.json`;
+         la scena legge da li il valore della settimana prima dei prezzi
+   - [x] Prove: registro, server, scena (anche: con Max 5x l'Acropoli costa
+         cinque volte tanto, e i blocchi posati restano)
 2. **Prima di consegnarlo.**
    - [ ] Pulire il grafo dal percorso di questo computer
    - [ ] `docs/prova.md`: come si installa su Windows, macOS e Linux, come

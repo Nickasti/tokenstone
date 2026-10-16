@@ -184,6 +184,7 @@ function scrittura(req, res) {
     try {
       if (dati.action === 'report') registry.report(reg, dati, total, now);
       else if (dati.action === 'choose') registry.choose(reg, dati.world, total);
+      else if (dati.action === 'plan') registry.setPlan(reg, dati.plan);
       else return sendJson(res, 400, { error: 'azione sconosciuta' });
     } catch (err) {
       if (err instanceof registry.Refusal) return sendJson(res, 400, { error: err.message });

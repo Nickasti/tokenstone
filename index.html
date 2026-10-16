@@ -33,6 +33,8 @@
     <div class="state" id="state">—</div>
   </section>
   <p class="note" id="usd"></p>
+  <p class="note plan-line" id="plan-line" hidden>Piano di Claude: <b id="plan-name">—</b>
+    · <button class="linklike" id="plan-change" type="button">cambia</button></p>
 
   <div class="alert" id="first" hidden>
     Scegli il primo mondo da costruire: i <b id="first-te">0</b> TE consumati finora
@@ -79,6 +81,15 @@
     <button class="btn" id="confirm-no" type="button">Annulla</button>
     <button class="btn primary" id="confirm-ok" type="button">—</button>
   </div>
+</dialog>
+
+<dialog id="plan">
+  <h4>Che piano di Claude usi?</h4>
+  <div id="plan-text"></div>
+  <div class="plans" id="plan-options"></div>
+  <p class="small">Con Team o Enterprise scegli il piano con la quota più vicina. Il tuo
+    piano lo trovi su claude.ai, in Impostazioni → Abbonamento.</p>
+  <div class="actions"><button class="btn" id="plan-cancel" type="button">Annulla</button></div>
 </dialog>
 
 <script type="module" src="/home/home.js"></script>

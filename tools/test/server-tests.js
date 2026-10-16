@@ -188,6 +188,13 @@ function avvia() {
     verifica('senza JSON dichiarato: rifiutato', r.status, 415);
     r = await scrivi({ action: 'choose', world: 'atlantide' });
     verifica('mondo sconosciuto: rifiutato', [r.status, /sconosciuto/.test(r.body)], [400, true]);
+    verifica('nessun piano al primo avvio', api.plan, null);
+    r = await scrivi({ action: 'plan', plan: 'max20' });
+    verifica('piano scelto', [r.status, JSON.parse(r.body).plan && JSON.parse(r.body).plan.weekly_te], [200, 1320000000]);
+    r = await scrivi({ action: 'plan', plan: 'gratis' });
+    verifica('piano sconosciuto: rifiutato', r.status, 400);
+    r = await richiesta(port, '/api/registry');
+    verifica('il piano resta quello scelto', JSON.parse(r.body).plan.id, 'max20');
     r = await scrivi({ action: 'demolisci' });
     verifica('azione sconosciuta: rifiutata', r.status, 400);
     r = await richiesta(port, '/api/registry', 'POST', '{ non json', JSON_H);

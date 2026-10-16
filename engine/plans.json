@@ -1,0 +1,9 @@
+{
+  "_nota": "Quanti TE vale il 100% della settimana per ogni piano di Claude. Pro e misurato (engine/config.js, WEEKLY_TE); gli altri sono in proporzione, come Anthropic li dichiara rispetto a Pro: Max 5x cinque volte, Max 20x venti. Il piano lo sceglie chi usa il progetto, dalla pagina iniziale, e sta nel registro.",
+  "default": "pro",
+  "plans": [
+    { "id": "pro",   "name": "Pro",     "weekly_te": 66000000,   "basis": "misurato il 7 ottobre 2026" },
+    { "id": "max5",  "name": "Max 5x",  "weekly_te": 330000000,  "basis": "cinque volte Pro" },
+    { "id": "max20", "name": "Max 20x", "weekly_te": 1320000000, "basis": "venti volte Pro" }
+  ]
+}

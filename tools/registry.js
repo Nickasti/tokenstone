@@ -18,6 +18,10 @@
  * Decisioni del 6 ottobre 2026: un mondo si puo mettere in pausa per
  * cominciarne un altro; il credito che avanza a mondo completato passa al
  * mondo scelto dopo; ogni mondo ha la sua durata.
+ *
+ * Il registro ricorda anche il piano di Claude di chi usa il progetto (Pro,
+ * Max 5x, Max 20x): decide quanto vale una settimana, e quindi i prezzi. I
+ * piani stanno in engine/plans.json. Decisione del 16 ottobre 2026.
  */
 'use strict';
 
@@ -32,6 +36,10 @@ const REGISTRY_PATH = process.env.ACROPOLI_REGISTRY ||
 const BACKUP_PATH = path.join(path.dirname(REGISTRY_PATH), '.registry.bak');
 
 const VERSION = 2;
+
+/* I piani, uguali per server e scena: engine/plans.json */
+const PLANS = JSON.parse(fs.readFileSync(path.join(ROOT, 'engine', 'plans.json'), 'utf8'));
+const planById = (id) => PLANS.plans.find((p) => p.id === id) || null;
 // i nomi dei mondi prima che i nomi del codice passassero all'inglese
 const LEGACY_IDS = { acropoli: 'acropolis' };
 
@@ -81,6 +89,7 @@ function newRegistry(nowIso) {
     version: VERSION,
     created_at: nowIso,
     active: null,
+    plan: null,          // lo sceglie chi usa il progetto, al primo avvio
     segments: [],
     transfers: [],
     worlds: {},
@@ -186,6 +195,17 @@ function choose(reg, id, total) {
   return reg;
 }
 
+/**
+ * Il piano di Claude di chi usa il progetto. Cambiarlo cambia il valore della
+ * settimana, quindi i prezzi di tutti i mondi; i blocchi gia posati restano,
+ * come quando cambia il listino.
+ */
+function setPlan(reg, id) {
+  if (typeof id !== 'string' || !planById(id)) throw new Refusal('piano sconosciuto: ' + id);
+  reg.plan = id;
+  return reg;
+}
+
 function unassigned(reg, total) {
   let end = 0;
   for (const s of reg.segments) if (s.to_te !== null) end = Math.max(end, s.to_te);
@@ -207,8 +227,14 @@ function view(reg, total) {
       completed: completed(reg, id),
     };
   }
+  const plan = planById(reg.plan);
   return {
     active: reg.active,
+    /* null finche non lo si sceglie: la pagina iniziale lo chiede, e intanto
+       la scena usa il piano predefinito */
+    plan: plan ? { id: plan.id, name: plan.name, weekly_te: plan.weekly_te } : null,
+    plans: PLANS.plans.map((p) => ({ id: p.id, name: p.name, weekly_te: p.weekly_te, basis: p.basis })),
+    default_plan: PLANS.default,
     worlds,
     /* il credito che aspetta un mondo: l'avanzo di un mondo completato e
        ancora attivo, oppure, senza nessun mondo attivo, i TE arrivati da
@@ -287,6 +313,6 @@ function write(reg) {
 }
 
 module.exports = {
-  REGISTRY_PATH, WORLDS, Refusal, listWorlds,
-  newRegistry, creditOf, surplusOf, completed, report, choose, view, upgrade, read, write,
+  REGISTRY_PATH, WORLDS, PLANS, Refusal, listWorlds,
+  newRegistry, creditOf, surplusOf, completed, report, choose, setPlan, view, upgrade, read, write,
 };

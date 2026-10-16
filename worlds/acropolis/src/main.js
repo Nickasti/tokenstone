@@ -39,7 +39,7 @@ setSculptureProvider((pose, h) => {
 });
 */
 
-const world = startWorld({
+const world = await startWorld({
   meta,
   build(scene) {
     buildTerrain(scene);

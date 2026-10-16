@@ -247,16 +247,31 @@ sono prezzi ma **pesi relativi** (un rocchio 4, una metopa 18, la Parthenos
 400). All'avvio `priceInTe()` ripartisce il budget del cantiere su quei pesi:
 
 ```
-budget     = CANTIERE.weeklyTe * CANTIERE.weeks      (un mese = 30/7 settimane)
+budget     = settimana del piano * settimane del mondo   (un mese = 30/7 settimane)
 costo(p)   = peso(p) * budget / somma dei pesi
 ```
 
 Cosi il totale torna esatto anche se si aggiungono pezzi, e le proporzioni fra
 un rocchio e una statua restano quelle decise a mano.
 
-`CANTIERE.weeklyTe` e il valore in TE del 100% della finestra settimanale.
-Non e un dato pubblico e dipende dal piano, quindi va misurato, e basta una
-lettura sola. Verso la fine della settimana lancia `/usage` in Claude Code e
+**La settimana dipende dal piano.** E il valore in TE del 100% della
+finestra settimanale di Claude Code, e ogni piano ha il suo: sta in
+`engine/plans.json`. Al primo avvio la pagina iniziale chiede il piano,
+prima di ogni altra cosa, e lo ricorda nel registro; si cambia dalla riga
+sotto il contatore. Cambiarlo ricalcola i prezzi di tutti i mondi, ma i
+blocchi gia posati restano. Cosi un mondo dura lo stesso numero di
+settimane per tutti: con Max i token sono di piu, e i blocchi costano di
+piu.
+
+| Piano | TE a settimana | Da dove viene |
+|---|---|---|
+| Pro | 66 milioni | misurato, vedi sotto |
+| Max 5x | 330 milioni | cinque volte Pro, come lo dichiara Anthropic |
+| Max 20x | 1,32 miliardi | venti volte Pro |
+
+Con Team o Enterprise si sceglie il piano con la quota piu vicina. Il valore
+di Pro non e un dato pubblico, quindi e stato misurato, e basta una lettura
+sola. Verso la fine della settimana lancia `/usage` in Claude Code e
 annota due cose: la percentuale settimanale e l'ora del reset. La finestra e
 cominciata sette giorni prima del reset, e il contatore sa dire quanto hai
 consumato da allora, senza scrivere niente:
@@ -268,7 +283,7 @@ node tools/token-counter/counter.js --dry-run --since 2026-09-28T19:05
 (l'ora senza fuso e quella locale). Poi:
 
 ```
-weeklyTe = total_te / percentuale * 100
+settimana = total_te / percentuale * 100
 ```
 
 Piu alta e la percentuale, piu piccolo e l'errore: `/usage` arrotonda
@@ -283,7 +298,7 @@ con il totale da inizio settimana: 12% con 7.729.500 TE e 19%
 con 12.681.526 TE. Con l'arrotondamento di `/usage` la prima dice 61,8-67,2
 milioni e la seconda 65,0-68,5: il valore vero sta fra 65,0 e 67,2. Una prima
 misura del 5 ottobre aveva dato 31 milioni, ma quella settimana si era usato
-anche claude.ai. Vale per il piano di chi l'ha misurato. Con 66 milioni un
+anche claude.ai. La misura e stata fatta su un abbonamento Pro. Con 66 milioni un
 rocchio costa circa 46.000 TE, una metopa 209.000, l'ulivo sacro 1,39
 milioni, la Parthenos 4,6 milioni, e un milione di TE posa lo 0,35% del
 cantiere.

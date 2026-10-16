@@ -36,7 +36,23 @@ function fillHeader(meta) {
   if (document.querySelector('title[data-world-title]')) document.title = `${meta.name} — TokenStone`;
 }
 
-export function startWorld(world) {
+/* Quanto vale una settimana per chi usa il progetto: dipende dal suo piano,
+   che sta nel registro. Senza server - o senza un piano scelto - vale Pro. */
+async function weeklyTe(snapshot) {
+  if (snapshot) return WEEKLY_TE;
+  try {
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), 3000);
+    const r = await fetch('/api/registry', { cache: 'no-store', signal: ctl.signal });
+    clearTimeout(t);
+    const j = await r.json();
+    return (j.plan && j.plan.weekly_te) || WEEKLY_TE;
+  } catch (e) {
+    return WEEKLY_TE;
+  }
+}
+
+export async function startWorld(world) {
   const { meta } = world;
   fillHeader(meta);
   const PI = Math.PI;
@@ -129,12 +145,14 @@ export function startWorld(world) {
   initPieces(scene);
   world.build(scene);
 
+  const WEEKLY = await weeklyTe(new URLSearchParams(location.search).has('snapshot'));
+
   /* ─────────── prezzi ───────────
      Il budget del mondo e la sua durata per quanto vale una settimana: si
      ripartisce sui pesi dei pezzi, e da li vengono anche il dono iniziale e
      il credito regalato di ?dev. */
   const TOTAL = pieces.length;
-  const BUDGET = WEEKLY_TE * meta.weeks;
+  const BUDGET = WEEKLY * meta.weeks;
   priceInTe(BUDGET);
   const TOTAL_COST = pieces.reduce((s, p) => s + p.cost, 0);
   const START_TE = Math.round(GIFT_SHARE * BUDGET);

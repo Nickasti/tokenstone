@@ -91,6 +91,65 @@ async function scegli(w) {
   }
 }
 
+/* ─────────── il piano ───────────
+   Il piano di Claude decide quanto vale una settimana di lavoro, e quindi
+   quanto costa ogni blocco: chi ha piu token paga di piu, cosi un mondo dura
+   lo stesso numero di settimane per tutti. Al primo avvio la pagina lo
+   chiede prima di ogni altra cosa; dopo si cambia dalla riga sotto il
+   contatore. */
+
+let planAsked = false;
+
+function milioni(te) {
+  return te >= 1e9
+    ? `${(te / 1e9).toLocaleString('it-IT', { maximumFractionDigits: 2 })} miliardi`
+    : `${Math.round(te / 1e6).toLocaleString('it-IT')} milioni`;
+}
+
+function scegliPiano(first) {
+  const d = $('plan');
+  const testo = [
+    'Il piano decide quanto vale una settimana di lavoro, e quindi quanto costa ogni blocco. ' +
+    'Con un piano più grande consumi più token e i blocchi costano di più: un mondo dura lo ' +
+    'stesso numero di settimane per tutti.'
+  ];
+  if (!first) {
+    testo.push('Cambiare piano ricalcola i prezzi di tutti i mondi. I blocchi già posati restano: ' +
+      'con un piano più grande il cantiere aspetta finché i token non raggiungono i prezzi nuovi, ' +
+      'con uno più piccolo riparte più svelto.');
+  }
+  $('plan-text').replaceChildren(...testo.map(t => el('p', null, t)));
+  const current = reg.plan ? reg.plan.id : null;
+  $('plan-options').replaceChildren(...reg.plans.map(p =>
+    el('button', { class: 'btn plan-opt' + (p.id === current ? ' current' : ''), type: 'button',
+      'data-plan': p.id, onclick: () => salvaPiano(p.id) },
+      el('b', null, p.name),
+      el('span', null, `${milioni(p.weekly_te)} di TE a settimana`),
+      el('small', null, p.basis))));
+  $('plan-cancel').hidden = first;
+  d.dataset.first = first ? '1' : '';
+  d.showModal();
+}
+
+async function salvaPiano(id) {
+  const d = $('plan');
+  if (reg.plan && reg.plan.id === id) return d.close();
+  d.querySelectorAll('.plan-opt').forEach(b => { b.disabled = true; });
+  try {
+    const r = await fetch('/api/registry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'plan', plan: id }),
+    });
+    if (!r.ok) throw new Error((await r.json()).error || r.status);
+    d.close();
+    await load();
+  } catch (e) {
+    $('plan-text').append(el('p', null, 'Non si è potuto salvare il piano: ' + e.message));
+    d.querySelectorAll('.plan-opt').forEach(b => { b.disabled = false; });
+  }
+}
+
 /* ─────────── le schede ─────────── */
 
 function card(w) {
@@ -162,7 +221,9 @@ function render() {
   } else {
     state.replaceChildren(el('b', null, 'Nessun mondo in costruzione.'), ` ${fmt(reg.waiting_te)} TE in attesa.`);
   }
-  $('first').hidden = !(reg && !reg.active);
+  $('plan-line').hidden = !(reg && reg.plan);
+  if (reg && reg.plan) $('plan-name').textContent = reg.plan.name;
+  $('first').hidden = !(reg && reg.plan && !reg.active);
   $('first-te').textContent = reg ? fmt(reg.waiting_te) : '0';
 
   $('worlds').replaceChildren(...worlds.map(card));
@@ -186,9 +247,18 @@ async function load() {
   }
   // la conferma aperta non si ridisegna sotto le dita di chi la sta leggendo
   if (!$('confirm').open) render();
+  // al primo avvio, prima di tutto, il piano
+  if (reg && !reg.plan && reg.plans && !planAsked && !$('plan').open) {
+    planAsked = true;
+    scegliPiano(true);
+  }
 }
 
 $('confirm-no').onclick = () => $('confirm').close();
+$('plan-cancel').onclick = () => $('plan').close();
+$('plan-change').onclick = () => { if (reg && reg.plans) scegliPiano(false); };
+// alla prima scelta non si scappa con Esc: senza piano i prezzi sarebbero quelli di Pro
+$('plan').addEventListener('cancel', e => { if ($('plan').dataset.first) e.preventDefault(); });
 load();
 setInterval(load, POLL_MS);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});

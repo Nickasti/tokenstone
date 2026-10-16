@@ -1,8 +1,8 @@
 {
   "engine/config.js": {
-    "mtime": 1791384872.8300488,
-    "ast_hash": "4d135670985e64eef5d9fd14c23b892b",
-    "semantic_hash": "4d135670985e64eef5d9fd14c23b892b"
+    "mtime": 1792137443.6159887,
+    "ast_hash": "fe0a11c57fa8e8e92e8b88457c8c95f4",
+    "semantic_hash": ""
   },
   "engine/credit.js": {
     "mtime": 1791378062.029685,
@@ -20,8 +20,8 @@
     "semantic_hash": "5335bec66301c8f435a50c9d0286d4f2"
   },
   "engine/scene.js": {
-    "mtime": 1792083877.438248,
-    "ast_hash": "75e3747fa42b84ef32ec47e77c60f95d",
+    "mtime": 1792137443.6129942,
+    "ast_hash": "feab90e4c69d1abef8f57c521c399842",
     "semantic_hash": ""
   },
   "engine/sky.js": {
@@ -35,9 +35,9 @@
     "semantic_hash": "6a275448c6b4bdde514b93f4db2348ff"
   },
   "home/home.js": {
-    "mtime": 1791299499.0359614,
-    "ast_hash": "7db3d4e6c9e51a235e81fa51237c036c",
-    "semantic_hash": "7db3d4e6c9e51a235e81fa51237c036c"
+    "mtime": 1792137492.5999873,
+    "ast_hash": "7b46e763d111901acc20ed3828da2c9d",
+    "semantic_hash": ""
   },
   "package.json": {
     "mtime": 1791374447.7390342,
@@ -80,14 +80,14 @@
     "semantic_hash": "33efbefa22148dddb669eeb8eee44a4d"
   },
   "tools/registry.js": {
-    "mtime": 1791298534.8505037,
-    "ast_hash": "3f64b42879daa88f99ae029bbd816213",
-    "semantic_hash": "3f64b42879daa88f99ae029bbd816213"
+    "mtime": 1792137443.5378728,
+    "ast_hash": "2cd03642f8df7bedbf247416b9f9fa58",
+    "semantic_hash": ""
   },
   "tools/server.js": {
-    "mtime": 1791379970.188956,
-    "ast_hash": "20ed31a613f01021525e32eb18eed37d",
-    "semantic_hash": "20ed31a613f01021525e32eb18eed37d"
+    "mtime": 1792137443.540404,
+    "ast_hash": "211af092944a26ffdbae19ebd1eaa925",
+    "semantic_hash": ""
   },
   "tools/test/new-world-tests.js": {
     "mtime": 1791374441.2393262,
@@ -95,19 +95,19 @@
     "semantic_hash": "0355c333dcb68ba52bad4413ff484ed7"
   },
   "tools/test/registry-tests.js": {
-    "mtime": 1791298494.470783,
-    "ast_hash": "0f7f29699d8c6fb4eab8196207dd1b73",
-    "semantic_hash": "0f7f29699d8c6fb4eab8196207dd1b73"
+    "mtime": 1792139472.5505013,
+    "ast_hash": "2a9382b036183cd1b12d386471983fd6",
+    "semantic_hash": ""
   },
   "tools/test/scene-tests.js": {
-    "mtime": 1792083019.7654846,
-    "ast_hash": "e121b84504e1b8883ec14ba244d36b3a",
+    "mtime": 1792139527.4030123,
+    "ast_hash": "2f49cf1629b6665c5990fbe7bcfbd18f",
     "semantic_hash": ""
   },
   "tools/test/server-tests.js": {
-    "mtime": 1791299334.2257595,
-    "ast_hash": "84ef5cc8553e5660b46062f3f500ebcd",
-    "semantic_hash": "84ef5cc8553e5660b46062f3f500ebcd"
+    "mtime": 1792139474.2787268,
+    "ast_hash": "1aa986c5d171fa391588f369d16d99df",
+    "semantic_hash": ""
   },
   "tools/token-counter/check-pricing.js": {
     "mtime": 1791216430.2526515,
@@ -135,9 +135,9 @@
     "semantic_hash": "f15deb400a93ac0b6aa9ed2ef8d28eab"
   },
   "worlds/_template/src/main.js": {
-    "mtime": 1791379361.0434008,
-    "ast_hash": "7da05813efda5e233d050698dbe85acc",
-    "semantic_hash": "7da05813efda5e233d050698dbe85acc"
+    "mtime": 1792137443.6199865,
+    "ast_hash": "9a81f9f69ebefe69de0299dd0de53a4a",
+    "semantic_hash": ""
   },
   "worlds/_template/world.json": {
     "mtime": 1791378766.783208,
@@ -160,9 +160,9 @@
     "semantic_hash": ""
   },
   "worlds/acropolis/src/main.js": {
-    "mtime": 1791299499.0379612,
-    "ast_hash": "0e3556070de34c58673acdaa5947959b",
-    "semantic_hash": "0e3556070de34c58673acdaa5947959b"
+    "mtime": 1792137443.617986,
+    "ast_hash": "679a6fcc38f8dfe62e8f93db4f2afda9",
+    "semantic_hash": ""
   },
   "worlds/acropolis/src/materials.js": {
     "mtime": 1791296166.0689948,
@@ -205,29 +205,29 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792084086.3357596,
-    "ast_hash": "0bbe86a50f4f06f831575b506c0acdc1",
+    "mtime": 1792139668.586408,
+    "ast_hash": "92f1c4f1921367f72c40875ba909c3b6",
     "semantic_hash": ""
   },
   "TODO.md": {
-    "mtime": 1792084110.5461943,
-    "ast_hash": "279231a38ad261f0c37a191244ebe383",
+    "mtime": 1792139694.5663562,
+    "ast_hash": "d057a7e0203ebc996cfba1bb2376be30",
     "semantic_hash": ""
   },
   "docs/conversazione.md": {
-    "mtime": 1792084113.5169463,
-    "ast_hash": "3ebde16fc02a38dc87ad0fd8cc429caf",
+    "mtime": 1792139706.9833152,
+    "ast_hash": "8c5d9da520d235086f9db5b5f413b278",
     "semantic_hash": ""
   },
   "docs/creare-un-mondo.md": {
-    "mtime": 1791383669.3184235,
-    "ast_hash": "226a57765bb5d826489cc36ed5ad8c59",
-    "semantic_hash": "226a57765bb5d826489cc36ed5ad8c59"
+    "mtime": 1792139676.349329,
+    "ast_hash": "d6c130356655eb10ed58c92d8aa3bec1",
+    "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1791379978.0006542,
-    "ast_hash": "2789150f20868a7964e13018a89bfcd7",
-    "semantic_hash": "2789150f20868a7964e13018a89bfcd7"
+    "mtime": 1792137488.2633052,
+    "ast_hash": "41462cd9125909c2ba4210a4b4766bf7",
+    "semantic_hash": ""
   },
   "offline.html": {
     "mtime": 1791299499.0369616,
@@ -297,6 +297,11 @@
   "worlds/acropolis/src/frieze.js": {
     "mtime": 1792082883.1801045,
     "ast_hash": "981d32227511efe175a9424a17570120",
+    "semantic_hash": ""
+  },
+  "engine/plans.json": {
+    "mtime": 1792137438.9979298,
+    "ast_hash": "4d91fe4e0cd12329f290cfd25885d94d",
     "semantic_hash": ""
   }
 }

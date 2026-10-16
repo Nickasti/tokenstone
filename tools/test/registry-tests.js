@@ -164,5 +164,26 @@ verifica('la cartella vecchia non c\'e piu', fs.existsSync(path.join(radice, 'wo
 verifica('una seconda volta non fa niente', migrateLegacyState(radice), []);
 
 // --------------------------------------------------------------------------
+console.log('\n11. Il piano di Claude: si sceglie al primo avvio, e decide la settimana.\n');
+
+const r11 = c.newRegistry(ORA);
+verifica('al primo avvio nessun piano', c.view(r11, 0).plan, null);
+verifica('i piani che si possono scegliere', c.view(r11, 0).plans.map(p => p.id), ['pro', 'max5', 'max20']);
+verifica('quello predefinito', c.view(r11, 0).default_plan, 'pro');
+c.setPlan(r11, 'max5');
+verifica('scelto Max 5x', c.view(r11, 0).plan, { id: 'max5', name: 'Max 5x', weekly_te: 330000000 });
+rifiuta('un piano che non esiste', () => c.setPlan(r11, 'ultra'));
+rifiuta('un piano che non e una parola', () => c.setPlan(r11, 5));
+verifica('il rifiuto non cambia il piano', r11.plan, 'max5');
+const piani = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'engine', 'plans.json'), 'utf8')).plans;
+const pro = piani.find(p => p.id === 'pro').weekly_te;
+verifica('Max 5x vale cinque volte Pro', piani.find(p => p.id === 'max5').weekly_te, pro * 5);
+verifica('Max 20x vale venti volte Pro', piani.find(p => p.id === 'max20').weekly_te, pro * 20);
+// il valore di riserva della scena e quello di Pro: i due numeri non devono separarsi
+const config = fs.readFileSync(path.join(__dirname, '..', '..', 'engine', 'config.js'), 'utf8');
+verifica('WEEKLY_TE di engine/config.js e Pro', Number(/WEEKLY_TE = (\d+)/.exec(config)[1]), pro);
+verifica('un registro di prima, senza piano, resta senza piano', c.view(c.upgrade(vecchio), 0).plan, null);
+
+// --------------------------------------------------------------------------
 console.log('\n' + (falliti === 0 ? 'Tutti i controlli passati.' : falliti + ' controlli falliti.') + '\n');
 process.exitCode = falliti === 0 ? 0 : 1;

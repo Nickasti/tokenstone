@@ -84,6 +84,16 @@ const FONTE = "document.getElementById('toksrc').textContent";
     verifica('tre schede', await waitFor(home.valuta, "document.querySelectorAll('.card').length === 3", 20000), true);
     verifica('stati delle schede', await home.valuta(
       "[...document.querySelectorAll('.card .chip')].map(c => c.textContent)"), ['Da cominciare', 'In arrivo', 'In arrivo']);
+    verifica('prima di tutto chiede il piano', await waitFor(home.valuta, "document.getElementById('plan').open", 10000), true);
+    verifica('tre piani fra cui scegliere', await home.valuta(
+      "[...document.querySelectorAll('#plan .plan-opt')].map(b => b.dataset.plan)"), ['pro', 'max5', 'max20']);
+    verifica('niente invito al mondo prima del piano', await home.valuta("document.getElementById('first').hidden"), true);
+    await home.valuta("document.getElementById('plan').dispatchEvent(new Event('cancel', { cancelable: true }))");
+    verifica('con Esc non si salta la scelta', await home.valuta("document.getElementById('plan').open"), true);
+    await home.valuta("document.querySelector('#plan .plan-opt[data-plan=pro]').click()");
+    verifica('piano scelto: Pro', await waitFor(async () => ((await registro()).plan || {}).id === 'pro', 'true', 10000), true);
+    verifica('e la pagina lo mostra', await waitFor(home.valuta,
+      "document.getElementById('plan-name').textContent === 'Pro'", 10000), true);
     verifica('invito a scegliere il primo mondo', await home.valuta("!document.getElementById('first').hidden"), true);
     verifica('i mondi in arrivo non hanno pulsanti', await home.valuta(
       "[...document.querySelectorAll('.card.coming')].every(c => !c.querySelector('.btn'))"), true);
@@ -167,6 +177,18 @@ const FONTE = "document.getElementById('toksrc').textContent";
     await tpl.valuta("location.href = '/worlds/_template/'");
     verifica('fuori dal registro, e lo dice', await waitFor(tpl.valuta,
       FONTE + ".startsWith('fuori dal registro')", 45000), true);
+
+    console.log('\n7b. Un piano piu grande: la stessa Acropoli costa cinque volte tanto.\n');
+    const costoPro = (await registro()).worlds.acropolis.cost_te;
+    const cambio = await fetch(base + '/api/registry', { method: 'POST',
+      headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'plan', plan: 'max5' }) });
+    verifica('piano cambiato in Max 5x', cambio.status, 200);
+    await dev.valuta("location.href = '/worlds/acropolis/?dev'");
+    verifica('la scena riferisce i prezzi nuovi', await waitFor(async () => {
+      const c = (await registro()).worlds.acropolis.cost_te;
+      return Math.abs(c / costoPro - 5) < .01;
+    }, 'true', 45000), true);
+    verifica('i blocchi posati non cambiano', (await registro()).worlds.acropolis.placed_max >= posatiPrima, true);
 
     console.log('\n8. Se il server sparisce, la scena lo dice invece di sembrare collegata.\n');
     // la stessa scheda torna al cantiere vero: una dimostrazione il server non lo interroga

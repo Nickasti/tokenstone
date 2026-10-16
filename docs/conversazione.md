@@ -1055,17 +1055,38 @@ come deve. Il guadagno vero va provato su un computer vero.
 
 ---
 
-## 30. Cosa resta da fare
+## 30. Il piano di ognuno
+
+Prima di farlo provare agli amici e venuto fuori un conto che non tornava. I
+66 milioni di TE della settimana sono stati misurati su un abbonamento Pro:
+chi ha Max 5x ne consuma cinque volte tanti, e con i prezzi di Pro
+finirebbe l'Acropoli in meno di una settimana. Chi avesse un piano piu
+piccolo del valore scritto nel codice, al contrario, non la finirebbe mai.
+
+Cosi il valore della settimana non sta piu nel codice ma nell'installazione.
+I piani stanno in `engine/plans.json`: Pro misurato, Max 5x e Max 20x in
+proporzione, cinque e venti volte, come Anthropic li dichiara rispetto a
+Pro. Al primo avvio la pagina iniziale chiede il piano prima di ogni altra
+cosa, e non lo si salta con Esc; il registro lo ricorda; la scena lo legge
+prima di fissare i prezzi. Cambiarlo dopo ricalcola tutto, e la finestra lo
+dice: i blocchi posati restano, ma con un piano piu grande il cantiere
+aspetta.
+
+Un mondo dura cosi lo stesso numero di settimane per tutti. E' l'idea del
+progetto: non conta quanto si spende, conta quanto si lavora.
+
+---
+
+## 31. Cosa resta da fare
 
 *Al 16 ottobre 2026, a fase 5 chiusa.*
 
 **Due mondi.** La piana di Giza e il Foro Romano sono annunciati nella
 pagina iniziale, ma non costruiti. Si faranno dopo.
 
-**Prima di farlo provare.** Il valore della settimana, 66 milioni di TE, e
-stato misurato su un piano solo: chi ha un piano diverso costruirebbe a
-un'altra velocita. Servono anche un modo di consegnare il progetto a chi lo
-prova, e un modo di raccogliere quello che ne pensa.
+**Prima di farlo provare.** Il piano di ognuno c'e (capitolo 30). Servono
+ancora un modo di consegnare il progetto a chi lo prova, le prove su macOS e
+Linux, e un modo di raccogliere quello che ne pensa: e la fase T del TODO.
 
 **Prima di pubblicarlo.** Licenza e attribuzioni alle fonti, il README per
 GitHub con le immagini, il nome definitivo, e la pulizia del grafo, che in

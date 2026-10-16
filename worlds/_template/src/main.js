@@ -375,7 +375,7 @@ function build(s) {
 }
 
 /* ─────────── il mondo, al motore ─────────── */
-startWorld({
+await startWorld({
   meta,
   build,
   phases: PHASES,

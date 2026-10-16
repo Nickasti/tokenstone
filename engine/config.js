@@ -53,7 +53,11 @@
    Il contatore conta tutti i progetti, non solo questo, ed e giusto cosi:
    anche la percentuale di /usage li conta tutti, quindi le due misure sono
    coerenti. */
-export const WEEKLY_TE = 66000000;   // 100% della settimana, misurato il 7 ottobre 2026
+/* E il valore del piano Pro, su cui e stato misurato. Ogni installazione usa
+   quello del piano scelto da chi la usa (engine/plans.json, nel registro):
+   questo resta il valore di riserva, quando il server non risponde o il
+   piano non e ancora scelto. */
+export const WEEKLY_TE = 66000000;   // 100% della settimana con Pro, misurato il 7 ottobre 2026
 
 /* Il dono con cui comincia ogni mondo, e il credito che regala il pulsante di
    ?dev: una quota del budget del mondo, non un numero fisso. Un numero fisso

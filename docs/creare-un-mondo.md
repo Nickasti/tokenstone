@@ -54,7 +54,7 @@ page and the code.
 | `preview` | the card's picture file, `preview.webp` or `preview.svg` |
 
 `weeks` sets the price of everything: the world's budget is the weekly quota
-(`WEEKLY_TE`, in `engine/config.js`) times the weeks. The Acropolis lasts a
+of the player's Claude plan (`engine/plans.json`) times the weeks. The Acropolis lasts a
 month, `4.2857`; a large world can be worth three months.
 
 ## 3. The code: src/main.js
@@ -226,7 +226,7 @@ piana di Giza - il generatore lo lascia com'è e aggiunge solo pagina e codice.
 | `preview` | il file dell'immagine della scheda, `preview.webp` o `preview.svg` |
 
 `weeks` decide il prezzo di tutto: il budget del mondo è la quota settimanale
-(`WEEKLY_TE`, in `engine/config.js`) per le settimane. L'Acropoli dura un mese,
+del piano di Claude di chi gioca (`engine/plans.json`) per le settimane. L'Acropoli dura un mese,
 `4.2857`; un mondo grande può valere tre mesi.
 
 ## 3. Il codice: src/main.js
