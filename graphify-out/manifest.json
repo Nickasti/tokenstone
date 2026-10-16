@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   "engine/credit.js": {
-    "mtime": 1792142628.2790213,
-    "ast_hash": "94a179b4603194f8009b836b6f86a03a",
+    "mtime": 1792143632.6822476,
+    "ast_hash": "c5aec77d980de976a9089b03535c792c",
     "semantic_hash": ""
   },
   "engine/pieces.js": {
@@ -35,8 +35,8 @@
     "semantic_hash": "6a275448c6b4bdde514b93f4db2348ff"
   },
   "home/home.js": {
-    "mtime": 1792137492.5999873,
-    "ast_hash": "7b46e763d111901acc20ed3828da2c9d",
+    "mtime": 1792143632.6852505,
+    "ast_hash": "dcfd4cd9825b3b3709d898cab54d75e6",
     "semantic_hash": ""
   },
   "package.json": {

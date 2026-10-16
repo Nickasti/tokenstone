@@ -14,6 +14,7 @@ const $ = id => document.getElementById(id);
 let worlds = [];
 let reg = null;
 let version = null;
+let reloading = false;
 
 function el(tag, attrs, ...children) {
   const e = document.createElement(tag);
@@ -237,7 +238,11 @@ async function load() {
     ]);
     // come la scena: se i file sono cambiati, questa pagina e vecchia
     if (r.client_version) {
-      if (version && r.client_version !== version) return location.reload();
+      if (version && r.client_version !== version) {
+        // una volta sola: richiesta di nuovo a ogni lettura, su un computer lento non finirebbe mai
+        if (!reloading) { reloading = true; clearInterval(poller); location.reload(); }
+        return;
+      }
       version = r.client_version;
     }
     worlds = w;
@@ -260,5 +265,5 @@ $('plan-change').onclick = () => { if (reg && reg.plans) scegliPiano(false); };
 // alla prima scelta non si scappa con Esc: senza piano i prezzi sarebbero quelli di Pro
 $('plan').addEventListener('cancel', e => { if ($('plan').dataset.first) e.preventDefault(); });
 load();
-setInterval(load, POLL_MS);
+const poller = setInterval(load, POLL_MS);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});

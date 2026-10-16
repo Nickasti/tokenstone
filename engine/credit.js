@@ -73,7 +73,13 @@ export class CreditSource {
       /* per le prove: quante letture ha fatto la scheda, e che versione conosce */
       window.__credit = { reads: ((window.__credit || {}).reads || 0) + 1, version: this.version || d.client_version };
       if (d.client_version) {
-        if (this.version && d.client_version !== this.version) { location.reload(); return true; }
+        if (this.version && d.client_version !== this.version) {
+          /* una volta sola, e senza piu letture: su un computer lento una
+             ricarica dura piu di POLL_MS, e chiederla di nuovo a ogni lettura
+             la annullava e la ricominciava, all'infinito */
+          if (!this.reloading) { this.reloading = true; clearInterval(this._t); location.reload(); }
+          return true;
+        }
         this.version = d.client_version;
       }
 

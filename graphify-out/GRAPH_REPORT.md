@@ -1,16 +1,16 @@
 # Graph Report - acropoli  (2026-10-16)
 
 ## Corpus Check
-- 53 files · ~77,166 words
+- 53 files · ~77,240 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 827 nodes · 1196 edges · 147 communities (31 shown, 116 thin omitted)
+- 828 nodes · 1197 edges · 152 communities (36 shown, 116 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 56 edges (avg confidence: 0.65)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `55cae744`
+- Built from commit: `4a83f300`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -160,6 +160,10 @@
 - config.js
 - graph-clean.js
 - launcher-tests.js
+- Creating a world
+- TokenStone
+- Provare TokenStone
+- Il primo mondo: l'Acropoli
 
 ## God Nodes (most connected - your core abstractions)
 1. `mk()` - 40 edges
@@ -199,11 +203,11 @@
 - **Stacked Tower Composition (base, turret, balconies, roof)** — worlds__template_preview_square_base, worlds__template_preview_cylindrical_turret, worlds__template_preview_spiral_balconies, worlds__template_preview_conical_roof [INFERRED 0.85]
 - **Acropolis sacred precinct layout on hilltop plateau** — worlds_acropolis_preview_parthenon_temple, worlds_acropolis_preview_erechtheion_building, worlds_acropolis_preview_propylaea_complex, worlds_acropolis_preview_athena_statue, worlds_acropolis_preview_processional_way, worlds_acropolis_preview_hilltop_terrain [INFERRED 0.85]
 
-## Communities (147 total, 116 thin omitted)
+## Communities (152 total, 116 thin omitted)
 
 ### Community 0 - "Edifici dell'Acropoli"
 Cohesion: 0.08
-Nodes (86): buildAll(), erechtheion(), nike(), parthenon(), PEDIMENTS, promachos(), propylaea(), siteGroup() (+78 more)
+Nodes (84): buildAll(), erechtheion(), nike(), parthenon(), PEDIMENTS, promachos(), propylaea(), siteGroup() (+76 more)
 
 ### Community 1 - "Credito e pannello della scena"
 Cohesion: 0.07
@@ -222,8 +226,8 @@ Cohesion: 0.05
 Nodes (37): A, alfa, assente, ATTESO, avvio, B, C, CHECK (+29 more)
 
 ### Community 5 - "Scelte di progetto del cantiere"
-Cohesion: 0.06
-Nodes (28): 1. Comincia dal modello, 1. Start from the template, 2. world.json, 2. world.json, 3. Il codice: src/main.js, 3. The code: src/main.js, 4. Guardalo, 4. Look at it (+20 more)
+Cohesion: 0.20
+Nodes (10): 1. Comincia dal modello, 2. world.json, 3. Il codice: src/main.js, 4. Guardalo, 5. L'immagine della scheda, 6. Pubblicalo, Com'è fatto un mondo, Creare un mondo (+2 more)
 
 ### Community 6 - "Registro dei mondi"
 Cohesion: 0.10
@@ -246,16 +250,16 @@ Cohesion: 0.12
 Nodes (19): base, chunk(), colorAt(), CRC, crc32(), files, fs, hex() (+11 more)
 
 ### Community 11 - "README: mondi e resa"
-Cohesion: 0.07
-Nodes (27): 1. Sculture fotogrammetrate, 2. HDRI al posto del cielo analitico, Aggiornare il listino, Avvio rapido, Comandi utili, Come app, Con un doppio clic, Cosa conta (+19 more)
+Cohesion: 0.20
+Nodes (10): Aggiornare il listino, Comandi utili, Cosa conta, Cosa legge, e cosa no, Dai token al credito, I prezzi dei modelli, Il contatore di token, Le scelte che proteggono il conto (+2 more)
 
 ### Community 12 - "Test del server"
 Cohesion: 0.12
 Nodes (11): fs, http, net, os, path, PRICING, PROJECTS, SERVER (+3 more)
 
 ### Community 14 - "Pagina iniziale (codice)"
-Cohesion: 0.35
-Nodes (15): $(), card(), conferma(), durata(), el(), fmt(), load(), milioni() (+7 more)
+Cohesion: 0.32
+Nodes (16): $(), card(), conferma(), durata(), el(), fmt(), load(), milioni() (+8 more)
 
 ### Community 15 - "package.json e script"
 Cohesion: 0.13
@@ -303,7 +307,7 @@ Nodes (3): Applicazione, Modalita, Proposta
 
 ### Community 143 - "ornaments.js"
 Cohesion: 0.10
-Nodes (12): C, chariot(), flankScene(), horse(), material(), MATS, person(), scene() (+4 more)
+Nodes (14): POLYCHROMY, C, chariot(), flankScene(), horse(), material(), MATS, parthenonFrieze() (+6 more)
 
 ### Community 144 - "config.js"
 Cohesion: 0.22
@@ -317,12 +321,28 @@ Nodes (8): fs, graphFile, ids, OUT, path, renames, ROOT, SYMBOLS
 Cohesion: 0.22
 Nodes (10): env, fs, os, path, prova(), ROOT, { spawn, spawnSync }, stop() (+2 more)
 
+### Community 147 - "Creating a world"
+Cohesion: 0.20
+Nodes (10): 1. Start from the template, 2. world.json, 3. The code: src/main.js, 4. Look at it, 5. The card's picture, 6. Publish it, Creating a world, How a world is made (+2 more)
+
+### Community 148 - "TokenStone"
+Cohesion: 0.22
+Nodes (9): Avvio rapido, Come app, Con un doppio clic, Da terminale, Dentro un mondo, I mondi e il registro, La pagina iniziale, Struttura (+1 more)
+
+### Community 149 - "Provare TokenStone"
+Cohesion: 0.25
+Nodes (8): Aggiornarlo, Come segnalare, Cosa provare, Cosa serve, Il primo avvio, Installarlo, Provare TokenStone, Togliere TokenStone
+
+### Community 150 - "Il primo mondo: l'Acropoli"
+Cohesion: 0.25
+Nodes (8): 1. Sculture fotogrammetrate, 2. HDRI al posto del cielo analitico, Frontoni e fregio, I due innesti da completare, Il pianoro, Il primo mondo: l'Acropoli, Prestazioni, Raffinatezze ottiche e policromia
+
 ## Ambiguous Edges - Review These
 - `Acropolis World Preview Render` → `Propylaea / Western Building Cluster`  [AMBIGUOUS]
   worlds/acropolis/preview.webp · relation: references
 
 ## Knowledge Gaps
-- **415 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+410 more)
+- **416 isolated node(s):** `GHOST`, `counters`, `mergedByPhase`, `KR`, `worlds` (+411 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -332,14 +352,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Acropolis World Preview Render` and `Propylaea / Western Building Cluster`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
 - **Why does `scene()` connect `ornaments.js` to `Torre di prova (codice)`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Why does `BASE` connect `Torre di prova (codice)` to `ornaments.js`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **Why does `mesh()` connect `Torre di prova (codice)` to `Credito e pannello della scena`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `GHOST`, `counters`, `mergedByPhase` to the rest of the system?**
-  _447 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _448 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Edifici dell'Acropoli` be split into smaller, more focused modules?**
-  _Cohesion score 0.07995520716685331 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08158017765310893 - nodes in this community are weakly interconnected._
 - **Should `Credito e pannello della scena` be split into smaller, more focused modules?**
   _Cohesion score 0.06966618287373004 - nodes in this community are weakly interconnected._
