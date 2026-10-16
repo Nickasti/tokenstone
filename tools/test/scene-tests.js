@@ -47,6 +47,10 @@ function salta(perche) {
 
 const PROG = "parseInt(document.getElementById('prog').textContent, 10)";
 const FONTE = "document.getElementById('toksrc').textContent";
+/* Sulle macchine di GitHub Chrome disegna senza scheda grafica, su due
+   processori: su Windows una scena impiega anche un minuto a partire. Le
+   attese si allungano, i controlli restano gli stessi. */
+const LENTO = process.env.CI ? 3 : 1;
 
 (async () => {
   const browser = findBrowser();
@@ -155,23 +159,25 @@ const FONTE = "document.getElementById('toksrc').textContent";
 
     console.log('\n6. ?dev mostra i comandi; una scheda vecchia si ricarica da sola.\n');
     const dev = await connect(debugPort, base + '/worlds/acropolis/?dev');
-    await waitFor(dev.valuta, "document.body.classList.contains('dev')", 30000);
+    await waitFor(dev.valuta, "document.body.classList.contains('dev')", 30000 * LENTO);
     verifica('comandi visibili', await dev.valuta("getComputedStyle(document.querySelector('.row2')).display"), 'flex');
-    await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 20000);
+    verifica('collegata, prima di aggiornare i file', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 20000 * LENTO), true);
     await dev.valuta('window.__vecchia = true');
     fs.writeFileSync(path.join(TMP, 'stamp.txt'), 'dopo');
-    verifica('si e ricaricata', await waitFor(dev.valuta, 'window.__vecchia !== true', 20000), true);
-    verifica('e riparte collegata', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 30000), true);
+    verifica('si e ricaricata', await waitFor(dev.valuta, 'window.__vecchia !== true', 20000 * LENTO), true);
+    verifica('e riparte collegata', await waitFor(dev.valuta, FONTE + ".startsWith('cantiere reale')", 30000 * LENTO), true);
 
     console.log('\n7. Il modello dei mondi nuovi si apre, prende i testi da world.json e costruisce.\n');
     const tpl = await connect(debugPort, base + '/worlds/_template/?demo');
+    /* la scheda e la stessa di prima: si aspetta di essere davvero sulla
+       torre, non su una ricarica arrivata in ritardo */
     verifica('si apre', await waitFor(tpl.valuta,
-      "(document.getElementById('boot') || {}).className === 'gone'", 45000), true);
+      "location.pathname === '/worlds/_template/' && (document.getElementById('boot') || {}).className === 'gone'", 45000 * LENTO), true);
     verifica('nome dal world.json', await tpl.valuta("document.querySelector('h1').textContent"), 'Torre di prova');
     verifica('titolo della scheda', await tpl.valuta('document.title'), 'Torre di prova — TokenStone');
     verifica('ora e data del sole', await tpl.valuta("document.querySelector('[data-world=solar]').textContent"),
       'Ora a Nessun luogo · 21 giugno');
-    verifica('costruisce', await waitFor(tpl.valuta, PROG + ' > 3', 30000), true);
+    verifica('costruisce', await waitFor(tpl.valuta, PROG + ' > 3', 30000 * LENTO), true);
     verifica('nessun errore', tpl.errori, []);
     // aperto senza ?demo: non e nel registro, e deve dirlo cosi
     await tpl.valuta("location.href = '/worlds/_template/'");
