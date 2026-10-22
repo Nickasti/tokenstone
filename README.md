@@ -493,7 +493,8 @@ tools/token-counter/  counter.js (scansione), check-pricing.js, pricing.json, te
 state/                world-state.json del contatore e registry.json (non versionati)
 .claude/agents/       aggiorna-listino.md, il subagente che aggiorna i prezzi
 CLAUDE.md             istruzioni per Claude Code quando lavora in questo progetto
-TODO.md               il piano a fasi e le decisioni prese
+TODO.md               cosa e fatto, i prossimi passi e il backlog, nel formato che legge Exoz
+docs/piano.md         il piano a fasi e le decisioni prese, fino al 22 ottobre
 docs/conversazione.md come è nato il progetto e perché le scelte sono queste
 docs/creare-un-mondo.md  la guida per aggiungere un mondo, in inglese e in italiano
 docs/prova.md         la guida per chi prova TokenStone prima della pubblicazione

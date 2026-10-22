@@ -1,270 +1,50 @@
-# TokenStone — cosa resta da fare
+# TODO — Acropoli Tokenizer (TokenStone)
 
-*TokenStone e un nome provvisorio, ma dalla fase 3 e il nome con cui il
-progetto si presenta: pagina iniziale, app, file di avvio.*
-
-L'idea: una piattaforma di mondi da costruire passo dopo passo coi token di
-Claude Code. Chi la usa sceglie un mondo, lo costruisce in settimane o mesi di
-lavoro, e quando l'ha finito - o quando vuole cambiare - ne comincia un altro.
-L'Acropoli e il primo mondo; poi la piana di Giza e il Foro Romano, e piu
-avanti anche mondi moderni o inventati.
-
----
+Aggiornato: 2026-10-22
+Repo: https://github.com/Nickasti/tokenstone (pubblico)
+Guida per chi prova: `docs/prova.md` · Piano a fasi e decisioni: `docs/piano.md` · Diario: `docs/conversazione.md`
 
 ## Fatto
 
-*Gli ultimi passi; la storia completa e nel piano qui sotto e nel diario.*
-
-- [x] Eretteo rimesso in pianta: era a specchio e quasi attaccato al
-      Partenone. Ora sta 12 m piu a nord, col portico nord verso nord sul suo
-      terrazzo piu basso (gradino di roccia di 3,2 m) e le Cariatidi verso il
-      Partenone; l'ulivo sacro lo segue nel Pandroseion, a ovest
-- [x] Repository pubblico su GitHub (dal 16 ottobre, per farlo provare senza
-      inviti), prove verdi su Linux, Windows e macOS
-- [x] Pronti per chi prova: `docs/prova.md`, modelli delle segnalazioni,
-      `npm run diagnosi`, grafo ripulito
-- [x] Il piano di Claude si sceglie al primo avvio (Pro, Max 5x, Max 20x) e
-      decide il valore della settimana di ogni installazione
-- [x] Prestazioni: qualita adattiva, ombre a rate, fotogrammi a riposo.
-      La fase 5 e completa
-- [x] Il fregio delle Panatenee sul Partenone: 46 pezzi nuovi, in fondo al
-      cantiere; il mondo passa da 3280 a 3326 pezzi
-- [x] Frontoni del Partenone con le loro storie, e le figure est di nuovo visibili
-- [x] Ornati dipinti su cornici, capitelli, antefisse e acroteri; tetti pieni
-- [x] Via Panatenaica: le lastre seguono la strada (prima, girate a specchio,
-      facevano zig-zag sulle curve e lasciavano passare la sabbia)
-- [x] Terreno spianato sotto il Partenone, l'Athena Promachos e l'altare:
-      l'ondulazione del pianoro non copre piu i gradini
-- [x] Il pannello dice *Mancano* invece di mostrare un credito negativo
-- [x] Il grafo del progetto con graphify, collegato a `CLAUDE.md`
-- [x] Misura settimanale: 66 milioni di TE
+- [x] Fase 1 — Il cantiere si calcola dal credito: registro dei mondi, pausa, ripresa, avanzo al mondo successivo (6 ottobre)
+- [x] Fase 2 — Motore comune in `engine/` e mondi in `worlds/`, nomi in inglese, migrazione automatica delle installazioni vecchie (6 ottobre)
+- [x] Fase 3 — Pagina iniziale TokenStone: contatore, schede dei mondi, primo avvio, dimostrazione da 90 secondi, app installabile, file di avvio a doppio clic (6 ottobre)
+- [x] Fase 4 — Modello per i mondi nuovi: torre di prova, `npm run new-world`, guida in inglese e italiano, laboratorio nella pagina iniziale (7 ottobre)
+- [x] Fase 5 — Rifiniture dell'Acropoli: terreno spianato sotto gli edifici, Eretteo rimesso in pianta, ornati dipinti, frontoni con le loro storie, fregio delle Panatenee (3326 pezzi in tutto), prestazioni adattive (15 ottobre)
+- [x] Misura della settimana di Pro: 66 milioni di TE; il pannello dice *Mancano* invece di un credito negativo
+- [x] Il piano di Claude (Pro, Max 5x, Max 20x) si sceglie al primo avvio e decide il valore della settimana
+- [x] Pronti per chi prova: `docs/prova.md`, moduli di segnalazione su GitHub, `npm run diagnosi`, grafo del progetto senza percorsi personali
+- [x] Prove automatiche verdi su Linux, Windows e macOS (GitHub Actions); corretti i due difetti trovati su Windows (ricarica automatica, scritture del registro)
+- [x] Repository pubblico su GitHub (16 ottobre)
 
 ## Prossimi step
 
-- [ ] Fase T: mandare agli amici il link a docs/prova.md e raccogliere le
-      segnalazioni
-- [ ] Provare le prestazioni su un computer vero, debole (anche gli amici
-      serviranno a questo)
-- [ ] Rimisurare la settimana con una percentuale piu alta di `/usage`
+- [ ] Mandare agli amici il link alla guida: https://github.com/Nickasti/tokenstone/blob/main/docs/prova.md
+- [ ] Raccogliere le segnalazioni (Issues con le etichette `problema` e `impressioni`, o messaggi) e correggerle; gli amici aggiornano con `git pull`
+- [ ] Rimisurare la settimana con una lettura alta di `/usage`, per stringere i 66 milioni (oggi fra 65,0 e 67,2)
+
+## Backlog
+
+### Prima di sponsorizzarlo
+- [ ] Licenza e attribuzioni alle fonti storiche (oggi il repository è pubblico ma senza licenza: si legge, non si riusa)
+- [ ] README per GitHub: immagini della scena, scelta della lingua
+- [ ] Nome definitivo; poi rinominare le variabili `ACROPOLI_*`, le chiavi del browser, la cartella del progetto e l'icona dell'app
+- [ ] Decidere se usare l'email anonima di GitHub per i commit futuri (quelli fatti mostrano l'email personale)
+- [ ] macOS nelle prove a ogni push, ora che sul repository pubblico i minuti sono gratuiti
+- [ ] Prestazioni su un computer vero e debole (le segnalazioni degli amici aiuteranno)
+- [ ] Routine settimanale del listino dei prezzi dei modelli
+
+### Mondi
+- [ ] Fase 6 — Piana di Giza: fonti (IV dinastia, intorno al 2560 a.C.), kit egizio (un pezzo è un corso di blocchi), sole a 30° nord, durata da decidere (proposta: tre mesi)
+- [ ] Fase 7 — Foro Romano: epoca da scegliere, kit romano con archi, volte, laterizio, ordini
+
+### Più avanti
+- [ ] Sculture fotogrammetrate dal Museo dell'Acropoli (`setSculptureProvider()` è pronto)
+- [ ] HDRI al posto del cielo analitico
+- [ ] `npx tokenstone`: avviarlo senza clonarlo (serve spostare lo stato fuori dalla cartella)
+- [ ] Rileggere i documenti nel grafo (`/graphify --update`)
+- [ ] Da tenere d'occhio: il "Failed to fetch" mai riprodotto, probabilmente chiuso col passaggio a Node
 
 ## Bloccato
 
-Nulla.
-
----
-
-## Decisioni prese
-
-*6 ottobre 2026*
-
-- **Nomi in inglese** per cartelle, file e campi dei dati; commenti,
-  interfaccia e documentazione in italiano.
-- **Pausa.** Un mondo si puo mettere in pausa per cominciarne un altro, e
-  riprendere quando si vuole. Il credito va solo al mondo attivo.
-- **Avanzo.** Il credito che avanza quando un mondo e completato passa al
-  mondo scelto dopo.
-- **Durata.** Ogni mondo ha la sua, dichiarata in settimane di lavoro a pieno
-  regime. `WEEKLY_TE`, in `engine/config.js`, resta uno solo: dipende dal
-  piano di chi lavora, non dal mondo.
-- **Prossimo mondo:** la piana di Giza, dopo aver rifinito l'Acropoli.
-- **Nome provvisorio:** TokenStone.
-
-*6 ottobre 2026, per la fase 3*
-
-- **TokenStone ovunque:** pagina iniziale, app installata e file di avvio
-  (`TokenStone.cmd` e simili). Se il nome definitivo cambiera, si rinomina.
-- **Giza e il Foro compaiono gia**, come schede "in arrivo": nome, luogo,
-  epoca, nessuna data.
-- **Le immagini delle schede sono scatti della scena** completata, fatti da uno
-  script in Chrome senza finestra; per i mondi in arrivo, una sagoma disegnata
-  come l'icona dell'app.
-- **Al primo avvio si sceglie il mondo.** Finche non si sceglie, i TE si
-  accumulano in attesa e vanno tutti al mondo scelto. Il cantiere gia esistente
-  resta com'e, con l'Acropoli attiva.
-- *Predefinite, salvo obiezione:* visitare un mondo non lo rende attivo;
-  cambiare mondo a meta chiede conferma; la dimostrazione dura circa 90
-  secondi e non tocca il registro; in pagina si mostrano i TE, e i dollari solo
-  in una nota.
-
----
-
-## Il piano
-
-### Fase 1 — Il cantiere si calcola dal credito *(fatta, 6 ottobre)*
-- [x] Registro (oggi `state/registry.json`): mondo attivo, tratti di credito, e per
-      ogni mondo pezzi, costo, dono iniziale e punto piu alto raggiunto
-- [x] I blocchi posati si ricavano dal credito: stesso cantiere in ogni
-      browser, niente piu avanzamento nel `localStorage`
-- [x] Pausa e ripresa: cambiare mondo chiude un tratto e ne apre un altro
-- [x] Avanzo: a mondo completato, il credito in piu passa al successivo
-- [x] Il server accetta due scritture, solo dal computer locale, come JSON e
-      dalla pagina della scena: "scegli mondo" e "riporta avanzamento"
-- [x] Il credito regalato di `?dev` resta solo nel browser
-- [x] Il cantiere attuale e diventato il primo tratto dell'Acropoli
-- [x] Test: pausa, ripresa, avanzo, prezzi che scendono, scritture rifiutate;
-      verificato in due profili di Chrome che vedono lo stesso cantiere
-
-La scelta del mondo esiste nel registro ma non ancora nell'interfaccia: con un
-mondo solo non c'e niente da scegliere. Arriva con la pagina iniziale.
-
-### Fase 2 — Piu mondi nella struttura, niente di visibile *(fatta, 6 ottobre)*
-- [x] L'Acropoli in `worlds/acropolis/`, il motore comune in `engine/`
-- [x] `world.json` per ogni mondo: nome, luogo, epoca, durata, sole, stato,
-      anteprima. La durata dell'Acropoli e uscita da `config.js`; la quota
-      settimanale e passata al motore, in `engine/config.js`
-- [x] Nomi di cartelle, file e campi in inglese (decisione del 6 ottobre);
-      lo stato in `state/`, il registro in `state/registry.json`
-- [x] Migrazione automatica delle installazioni vecchie, provata su una copia
-      e poi sullo stato vero
-- [x] Test della scena in Chrome senza finestra: `npm run test:scene`
-
-Il kit greco (colonnati, trabeazioni, frontoni) resta nell'Acropoli: si
-sposta nel motore, o in un kit comune, quando un secondo mondo ne ha bisogno.
-
-### Fase 3 — La pagina iniziale *(fatta, 6 ottobre)*
-- [x] TokenStone, contatore totale, una scheda per mondo: in costruzione, in
-      pausa, da cominciare, compiuto, in arrivo
-- [x] Scegliere, riprendere, visitare; conferma per cambiare mondo a meta;
-      credito in attesa in vista
-- [x] Primo avvio senza mondo attivo: si sceglie dalla pagina, i TE aspettano
-- [x] `world.json` per Giza e il Foro, con stato "in arrivo"
-- [x] Scatti della scena per le schede (`npm run previews`); sagome per i
-      mondi in arrivo
-- [x] Modalita dimostrativa: 90 secondi dalla prima pietra all'ultima, con la
-      camera che segue il cantiere, senza toccare il registro (`?demo`)
-- [x] TokenStone nell'app installata e nei file di avvio, che si aprono sulla
-      pagina iniziale
-- [x] Le schede aperte prima di un aggiornamento si ricaricano da sole; quelle
-      scollegate lo dicono
-
-Rimasti con il nome vecchio, da rinominare col nome definitivo: le variabili
-d'ambiente `ACROPOLI_*`, le chiavi del browser, la cartella del progetto, e
-l'icona dell'app, che e ancora il frontone dell'Acropoli.
-
-### Fase 4 — Il modello per i mondi nuovi *(fatta, 7 ottobre)*
-- [x] `worlds/_template/`, un mondo da copiare: la torre di prova, da una
-      miniatura fantasy, 501 pezzi in sei fasi, commentata riga per riga
-- [x] `npm run new-world -- <id> "Nome"`: copia il modello; per un mondo gia
-      annunciato, come Giza, aggiunge pagina e codice e tiene il world.json
-- [x] Guida: `docs/creare-un-mondo.md`
-- [x] L'intestazione della scena viene da world.json (`data-world`)
-- [x] Nel motore il generatore con seme (`engine/random.js`) e il dono
-      iniziale come quota del mondo, non piu come numero fisso
-- [x] La dimostrazione tiene i suoi 90 secondi anche su un computer lento
-- [x] Modalita rapide per chi sviluppa: `?demo=10`, e *Tutto in 10 s* in `?dev`
-- [x] Il laboratorio nella pagina iniziale: la torre di prova, `?dev` e la
-      guida a portata di clic, invece che nascosti nell'indirizzo
-
-### Fase 5 — Rifiniture dell'Acropoli *(fatta, 15 ottobre)*
-- [x] Le lastre della via Panatenaica orientate lungo la strada, e la
-      pendenza misurata sugli assi del pezzo gia girato (`layOnGround`)
-- [x] Piani spianati sotto gli edifici (`PADS` in `src/config.js`)
-- [x] L'Eretteo: pianta non piu a specchio, spostato a nord, portici girati
-      verso l'esterno, terrazzo e gradino di roccia per il portico nord
-- [x] Lista decisa il 15 ottobre: ornati dipinti, sculture dei frontoni,
-      fregio del Partenone, prestazioni
-- [x] Ornati dipinti: kymation e meandro sui geison e sulle cornici
-      rampanti, ovoli su architravi e capitelli ionici, palmette di antefisse
-      e acroteri (`src/ornaments.js`)
-- [x] Le file di tegole pendevano al contrario: ora il tetto e pieno
-- [x] Sculture dei frontoni leggibili: Atena e Poseidone con ulivo e tridente
-      a ovest, Zeus in trono e Atena armata a est, i cavalli del Sole e
-      della Luna negli angoli; le figure del frontone est erano nascoste
-      dietro il timpano
-- [x] Fregio delle Panatenee: 46 pezzi nuovi in fondo all'elenco, fase
-      `p-zoforo` (`src/frieze.js`)
-- [x] Prestazioni: qualita adattiva della risoluzione e delle ombre, ombre
-      ridisegnate al massimo ogni 160 ms, un fotogramma su due a riposo
-
-### Fase 6 — La piana di Giza
-- [ ] Ricerca sulle fonti; IV dinastia, intorno al 2560 a.C.
-- [ ] Kit egizio: un pezzo e un corso di blocchi
-- [ ] Sole a 30° nord; durata da decidere
-
-### Fase 7 — Il Foro Romano
-- [ ] Epoca da scegliere; kit romano con archi, volte, laterizio, ordini
-
-### Fase T — La prova con gli amici *(in pianificazione, 16 ottobre)*
-
-Prima di pubblicare e sponsorizzare, il progetto lo provano alcuni amici.
-Decisioni del 16 ottobre: ognuno sceglie il suo piano; il progetto arriva
-da un repository GitHub privato, con gli amici invitati come collaboratori;
-i sistemi degli amici non si sanno ancora, quindi si preparano tutti e tre.
-
-1. **Il piano di ognuno.** I 66 milioni di TE sono il valore di Pro, misurato
-   su un abbonamento Pro. Gli altri in proporzione, come li dichiara
-   Anthropic: Max 5x 330 milioni, Max 20x 1,32 miliardi.
-   - [x] Il piano si sceglie al primo avvio, prima del primo mondo, e si
-         cambia dalla pagina iniziale, con una conferma che spiega l'effetto
-         sui prezzi
-   - [x] Il piano sta nel registro (`plan`), i valori in `engine/plans.json`;
-         la scena legge da li il valore della settimana prima dei prezzi
-   - [x] Prove: registro, server, scena (anche: con Max 5x l'Acropoli costa
-         cinque volte tanto, e i blocchi posati restano)
-2. **Prima di consegnarlo.**
-   - [x] Pulire il grafo dal percorso di questo computer (`npm run graph`,
-         `tools/graph-clean.js`; cache e copie datate fuori dal repository)
-   - [x] `docs/prova.md`: come si installa su Windows, macOS e Linux, come
-         si aggiorna, cosa provare, come segnalare
-   - [x] Modelli per le Issues: "qualcosa non funziona" e "impressioni"
-   - [x] `npm run diagnosi`: versioni e stato del contatore, senza percorsi
-         ne dati personali, da incollare in una segnalazione; con la sua prova
-3. **Tre sistemi senza avere tre computer.**
-   - [x] Le prove automatiche su GitHub Actions (`.github/workflows/prove.yml`):
-         Linux e Windows a ogni push, con la scena; Node 18 su Linux; macOS a
-         mano e ogni lunedi, perche nei repository privati costa dieci volte
-   - [x] La prova dei file di avvio (`tools/test/launcher-tests.js`, in
-         `npm test`): quello del sistema accende davvero il server
-4. **La consegna.**
-   - [x] Repository privato: https://github.com/Nickasti/tokenstone, con le
-         etichette `problema` e `impressioni`; storia lasciata com'e
-   - [x] Le prove su GitHub passano su Linux, Windows e macOS. Su Windows
-         hanno trovato due difetti veri: la ricarica automatica, chiesta a
-         ogni lettura, su un computer lento non finiva mai; e le scritture
-         del registro non riprovavano se un altro processo teneva il file
-   - [x] Il repository e diventato pubblico il 16 ottobre, su richiesta: il
-         link della guida, da privato, rispondeva 404 a chi non era invitato.
-         Senza licenza, per ora: si puo leggere e scaricare, non riusare
-5. **La prova.**
-   - [ ] Raccogliere le segnalazioni, correggere, rilasciare con `git pull`
-
----
-
-## In parallelo
-
-- [x] **Misura settimanale**: 66 milioni di TE, da due letture con solo Claude
-      Code (12% e 19% della settimana dal 5 ottobre alle 19:05)
-- [x] Il pannello dice *Mancano* invece di un credito negativo, quando i
-      prezzi salgono e i blocchi posati costano piu del credito
-- [x] La guida per creare un mondo in inglese, con la versione italiana sotto
-- [x] Il grafo del progetto con graphify (`graphify-out/`), collegato a
-      `CLAUDE.md` per spendere meno contesto
-- [ ] Rileggere i documenti nel grafo (`/graphify --update`): README, TODO
-      e diario sono cambiati dopo l'estrazione. Gemini gratuito ha un limite
-      di 20 richieste al giorno; altrimenti li legge Claude
-- [x] Il grafo non ha piu il percorso di questo computer (`npm run graph`).
-      Resta nella storia di git, nei commit fino al 16 ottobre: prima della
-      pubblicazione si puo decidere se riscriverla
-- [ ] Rimisurare la settimana con una percentuale piu alta, per stringere i
-      66 milioni (oggi fra 65,0 e 67,2)
-- [ ] Licenza e attribuzioni alle fonti storiche
-- [ ] README per GitHub: immagini della scena, scelta della lingua
-- [ ] Pubblicazione su GitHub
-- [ ] Routine settimanale del listino, dopo la pubblicazione
-- [ ] Da tenere d'occhio: il "Failed to fetch" mai riprodotto, probabilmente
-      chiuso col passaggio a Node
-
-## Decisioni aperte
-
-- Il nome definitivo — entro la fase 3
-- La lista delle rifiniture dell'Acropoli — entro la fase 5
-- La durata di Giza — entro la fase 6 (proposta: tre mesi); Giza e il Foro
-  sono rimandati a dopo la prova con gli amici
-- L'epoca del Foro — entro la fase 7
-
-## Piu avanti
-
-- Sculture fotogrammetrate dal Museo dell'Acropoli (`setSculptureProvider()`
-  e pronto); HDRI al posto del cielo analitico
-- `npx tokenstone`: avviare il progetto senza clonarlo; richiede di spostare
-  lo stato fuori dalla cartella
+Nulla
